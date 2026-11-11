@@ -1,6 +1,6 @@
 # VIDEO ANIMASI EXPLAINER PROMKES PROMPT CREATOR
 
-**Version:** 1.2.0 · **Package:** skill-only · **Output:** Prompt-to-Reference · **Architecture:** M00 + S01–S13
+**Version:** 1.2.1 · **Package:** skill-only · **Output:** Prompt-to-Reference · **Architecture:** M00 + S01–S13
 
 Mengubah poster/infografis promosi kesehatan dan caption menjadi paket referensi produksi: still/reference prompts, storyboard, motion/timing references, audio/overlay/subtitle data, Reference Asset Manifest, dan renderer-neutral composition handoff untuk diproses kemudian dalam Remotion atau sistem sejenis.
 
