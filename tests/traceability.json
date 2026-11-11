@@ -1,0 +1,884 @@
+{
+  "schema_version": "1.0.0",
+  "description": "One-to-one machine-readable traceability join for acceptance case IDs.",
+  "requirements": [
+    {
+      "requirement_id": "REQ-01",
+      "title": "Source fidelity and provenance",
+      "statement": "Capture source facts, preserve conflicts and avoid guessing unreadable material."
+    },
+    {
+      "requirement_id": "REQ-02",
+      "title": "Health evidence integrity",
+      "statement": "Keep medical claims status-labelled, sourced, scoped and human-reviewable."
+    },
+    {
+      "requirement_id": "REQ-03",
+      "title": "Audience and campaign objective",
+      "statement": "Keep audience, behavior, message and CTA focused and ethically framed."
+    },
+    {
+      "requirement_id": "REQ-04",
+      "title": "Narrative, voice and timing integrity",
+      "statement": "Keep script, VO, motion timing and total duration coherent."
+    },
+    {
+      "requirement_id": "REQ-05",
+      "title": "Visual identity and continuity",
+      "statement": "Preserve character, setting, props, visual canon, Guide versions and change impact."
+    },
+    {
+      "requirement_id": "REQ-06",
+      "title": "Storyboard and motion reference",
+      "statement": "Keep shot/composition and motion/time references structured and linked."
+    },
+    {
+      "requirement_id": "REQ-07",
+      "title": "Still/reference prompt engineering",
+      "statement": "Create still/reference prompts and respect model capability limits."
+    },
+    {
+      "requirement_id": "REQ-08",
+      "title": "Exact text, accessibility and distribution",
+      "statement": "Separate exact overlay/subtitle text from generated imagery and protect accessibility."
+    },
+    {
+      "requirement_id": "REQ-09",
+      "title": "Renderer-neutral handoff",
+      "statement": "Provide traceable scene, asset, layer, time and audio mappings without assuming executable renderer code."
+    },
+    {
+      "requirement_id": "REQ-10",
+      "title": "QA, authority and release governance",
+      "statement": "Maintain independent QA, defect routing, rights and human approval gates."
+    },
+    {
+      "requirement_id": "NFR-01",
+      "title": "Portability",
+      "statement": "Keep canonical skills portable and host compatibility evidence-specific."
+    },
+    {
+      "requirement_id": "NFR-02",
+      "title": "Traceability and version control",
+      "statement": "Trace requirement, test, owner, dependency, output, Guide version and change impact."
+    },
+    {
+      "requirement_id": "NFR-03",
+      "title": "Reliability and recovery",
+      "statement": "Represent unknowns, partial output, blocked dependencies and unresolved defects accurately."
+    },
+    {
+      "requirement_id": "REQ-REF-01",
+      "title": "Reference-only output boundary",
+      "statement": "Return still/reference prompts and structured references, not text-to-video or rendered video."
+    },
+    {
+      "requirement_id": "REQ-REF-02",
+      "title": "Guide-linked visual references",
+      "statement": "Link style, character, environment and prop references to canonical Guide IDs/versions."
+    },
+    {
+      "requirement_id": "REQ-REF-03",
+      "title": "Scene keyframe reference",
+      "statement": "Create still keyframe references tied to storyboard/shot IDs."
+    },
+    {
+      "requirement_id": "REQ-REF-04",
+      "title": "Motion/image prompt separation",
+      "statement": "Keep motion and timing data separate from still-image prompts."
+    },
+    {
+      "requirement_id": "REQ-REF-05",
+      "title": "Exact overlay source control",
+      "statement": "Preserve dates, health wording, institution, logo and CTA as separate exact overlay data."
+    },
+    {
+      "requirement_id": "REQ-REF-06",
+      "title": "Reference asset lifecycle",
+      "statement": "Distinguish prompt draft, generated, selected and approved asset states."
+    },
+    {
+      "requirement_id": "REQ-REF-07",
+      "title": "Renderer-neutral scene handoff",
+      "statement": "Map scenes to asset IDs, layers, timing, overlays, subtitles and audio cues."
+    },
+    {
+      "requirement_id": "REQ-REF-08",
+      "title": "Remotion implementation boundary",
+      "statement": "Do not assume generic handoff is executable Remotion props or output TSX by default."
+    },
+    {
+      "requirement_id": "REQ-REF-09",
+      "title": "Artifact QA evidence gate",
+      "statement": "Do not claim render QA without actual artifact and reviewer evidence."
+    }
+  ],
+  "outputs": [
+    {
+      "output_id": "OUT-SOURCE-DOSSIER",
+      "description": "Source dossier and provenance records"
+    },
+    {
+      "output_id": "OUT-HEALTH-TRUTH-REGISTRY",
+      "description": "Health Truth Registry and fact locks"
+    },
+    {
+      "output_id": "OUT-CAMPAIGN-BRIEF",
+      "description": "Audience, behavior, key message and CTA brief"
+    },
+    {
+      "output_id": "OUT-SCREENPLAY-VO",
+      "description": "Screenplay, dialogue, VO and timing sheet"
+    },
+    {
+      "output_id": "OUT-VISUAL-GUIDES",
+      "description": "Canonical visual style and character references"
+    },
+    {
+      "output_id": "OUT-STORYBOARD",
+      "description": "Storyboard, shot list and framing reference"
+    },
+    {
+      "output_id": "OUT-MOTION-REFERENCE",
+      "description": "Motion state, path, transform and timing reference"
+    },
+    {
+      "output_id": "OUT-REFERENCE-PROMPTS",
+      "description": "Still/reference prompts for each asset class"
+    },
+    {
+      "output_id": "OUT-REFERENCE-ASSET-MANIFEST",
+      "description": "Reference Asset Manifest and lifecycle states"
+    },
+    {
+      "output_id": "OUT-AUDIO-REFERENCE",
+      "description": "Voice, music direction and sound cue references"
+    },
+    {
+      "output_id": "OUT-OVERLAY-SUBTITLE-DATA",
+      "description": "Exact overlays, logo/text data and subtitle records"
+    },
+    {
+      "output_id": "OUT-RENDERER-HANDOFF",
+      "description": "Renderer-neutral scene/layer/timing/asset handoff"
+    },
+    {
+      "output_id": "OUT-DISTRIBUTION-PACKAGE",
+      "description": "Accessibility and social distribution package"
+    },
+    {
+      "output_id": "OUT-CONTINUITY-MCG",
+      "description": "MCG index, seven Guide references and lock ledger"
+    },
+    {
+      "output_id": "OUT-QA-REPORT",
+      "description": "QA findings, defect routes and release disposition"
+    },
+    {
+      "output_id": "OUT-TEST-TRACEABILITY",
+      "description": "Requirement/test/owner/dependency/output traceability"
+    },
+    {
+      "output_id": "OUT-PACKAGE-VALIDATION",
+      "description": "Static package validation summary"
+    },
+    {
+      "output_id": "OUT-HUMAN-APPROVAL",
+      "description": "Named-role review and human approval record"
+    }
+  ],
+  "cases": {
+    "AT-001": {
+      "requirement_ids": [
+        "REQ-01",
+        "REQ-04",
+        "REQ-09"
+      ],
+      "owner_skill": "source-asset-intelligence",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-SOURCE-DOSSIER",
+        "OUT-RENDERER-HANDOFF"
+      ]
+    },
+    "AT-002": {
+      "requirement_ids": [
+        "REQ-01",
+        "NFR-03"
+      ],
+      "owner_skill": "source-asset-intelligence",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-SOURCE-DOSSIER"
+      ]
+    },
+    "AT-003": {
+      "requirement_ids": [
+        "REQ-01",
+        "NFR-03"
+      ],
+      "owner_skill": "source-asset-intelligence",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-SOURCE-DOSSIER"
+      ]
+    },
+    "AT-004": {
+      "requirement_ids": [
+        "REQ-01",
+        "REQ-02"
+      ],
+      "owner_skill": "source-asset-intelligence",
+      "dependency_ids": [
+        "AT-001"
+      ],
+      "output_ids": [
+        "OUT-SOURCE-DOSSIER",
+        "OUT-HEALTH-TRUTH-REGISTRY"
+      ]
+    },
+    "AT-005": {
+      "requirement_ids": [
+        "REQ-03"
+      ],
+      "owner_skill": "audience-campaign-strategy",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CAMPAIGN-BRIEF"
+      ]
+    },
+    "AT-006": {
+      "requirement_ids": [
+        "REQ-02"
+      ],
+      "owner_skill": "health-evidence-safety-auditor",
+      "dependency_ids": [
+        "AT-001"
+      ],
+      "output_ids": [
+        "OUT-HEALTH-TRUTH-REGISTRY"
+      ]
+    },
+    "AT-007": {
+      "requirement_ids": [
+        "REQ-07",
+        "NFR-01"
+      ],
+      "owner_skill": "ai-video-reference-engineering",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-REFERENCE-PROMPTS"
+      ]
+    },
+    "AT-008": {
+      "requirement_ids": [
+        "REQ-04"
+      ],
+      "owner_skill": "story-screenplay-architect",
+      "dependency_ids": [
+        "AT-001"
+      ],
+      "output_ids": [
+        "OUT-SCREENPLAY-VO"
+      ]
+    },
+    "AT-009": {
+      "requirement_ids": [
+        "REQ-04"
+      ],
+      "owner_skill": "story-screenplay-architect",
+      "dependency_ids": [
+        "AT-008"
+      ],
+      "output_ids": [
+        "OUT-SCREENPLAY-VO"
+      ]
+    },
+    "AT-010": {
+      "requirement_ids": [
+        "REQ-01",
+        "REQ-08"
+      ],
+      "owner_skill": "source-asset-intelligence",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-SOURCE-DOSSIER",
+        "OUT-OVERLAY-SUBTITLE-DATA"
+      ]
+    },
+    "AT-011": {
+      "requirement_ids": [
+        "REQ-05",
+        "NFR-02"
+      ],
+      "owner_skill": "continuity-guardian",
+      "dependency_ids": [
+        "AT-001"
+      ],
+      "output_ids": [
+        "OUT-VISUAL-GUIDES",
+        "OUT-CONTINUITY-MCG"
+      ]
+    },
+    "AT-012": {
+      "requirement_ids": [
+        "REQ-06"
+      ],
+      "owner_skill": "storyboard-cinematography",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-STORYBOARD"
+      ]
+    },
+    "AT-013": {
+      "requirement_ids": [
+        "REQ-08",
+        "REQ-09"
+      ],
+      "owner_skill": "editing-postproduction",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-OVERLAY-SUBTITLE-DATA"
+      ]
+    },
+    "AT-014": {
+      "requirement_ids": [
+        "REQ-02"
+      ],
+      "owner_skill": "health-evidence-safety-auditor",
+      "dependency_ids": [
+        "AT-006"
+      ],
+      "output_ids": [
+        "OUT-HEALTH-TRUTH-REGISTRY"
+      ]
+    },
+    "AT-015": {
+      "requirement_ids": [
+        "REQ-10",
+        "NFR-03"
+      ],
+      "owner_skill": "quality-assurance-controller",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-QA-REPORT",
+        "OUT-HUMAN-APPROVAL"
+      ]
+    },
+    "AT-016": {
+      "requirement_ids": [
+        "REQ-10",
+        "NFR-03"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-QA-REPORT"
+      ]
+    },
+    "AT-017": {
+      "requirement_ids": [
+        "REQ-02"
+      ],
+      "owner_skill": "health-evidence-safety-auditor",
+      "dependency_ids": [
+        "AT-014"
+      ],
+      "output_ids": [
+        "OUT-HEALTH-TRUTH-REGISTRY"
+      ]
+    },
+    "AT-018": {
+      "requirement_ids": [
+        "REQ-04",
+        "REQ-09"
+      ],
+      "owner_skill": "quality-assurance-controller",
+      "dependency_ids": [
+        "AT-008"
+      ],
+      "output_ids": [
+        "OUT-QA-REPORT",
+        "OUT-RENDERER-HANDOFF"
+      ]
+    },
+    "AT-019": {
+      "requirement_ids": [
+        "REQ-04"
+      ],
+      "owner_skill": "voice-sound-design",
+      "dependency_ids": [
+        "AT-009"
+      ],
+      "output_ids": [
+        "OUT-AUDIO-REFERENCE",
+        "OUT-SCREENPLAY-VO"
+      ]
+    },
+    "AT-020": {
+      "requirement_ids": [
+        "REQ-07",
+        "NFR-01"
+      ],
+      "owner_skill": "ai-video-reference-engineering",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-REFERENCE-PROMPTS"
+      ]
+    },
+    "AT-021": {
+      "requirement_ids": [
+        "REQ-07",
+        "REQ-08"
+      ],
+      "owner_skill": "ai-video-reference-engineering",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-REFERENCE-PROMPTS",
+        "OUT-OVERLAY-SUBTITLE-DATA"
+      ]
+    },
+    "AT-022": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-10"
+      ],
+      "owner_skill": "quality-assurance-controller",
+      "dependency_ids": [
+        "AT-011"
+      ],
+      "output_ids": [
+        "OUT-QA-REPORT",
+        "OUT-REFERENCE-ASSET-MANIFEST"
+      ]
+    },
+    "AT-023": {
+      "requirement_ids": [
+        "REQ-04",
+        "REQ-10"
+      ],
+      "owner_skill": "quality-assurance-controller",
+      "dependency_ids": [
+        "AT-018",
+        "AT-019"
+      ],
+      "output_ids": [
+        "OUT-QA-REPORT"
+      ]
+    },
+    "AT-024": {
+      "requirement_ids": [
+        "REQ-05",
+        "NFR-02"
+      ],
+      "owner_skill": "continuity-guardian",
+      "dependency_ids": [
+        "AT-011"
+      ],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG"
+      ]
+    },
+    "AT-025": {
+      "requirement_ids": [
+        "REQ-05"
+      ],
+      "owner_skill": "visual-identity-art-direction",
+      "dependency_ids": [
+        "AT-011"
+      ],
+      "output_ids": [
+        "OUT-VISUAL-GUIDES",
+        "OUT-CONTINUITY-MCG"
+      ]
+    },
+    "AT-026": {
+      "requirement_ids": [
+        "REQ-05",
+        "NFR-02"
+      ],
+      "owner_skill": "continuity-guardian",
+      "dependency_ids": [
+        "AT-011"
+      ],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG"
+      ]
+    },
+    "AT-027": {
+      "requirement_ids": [
+        "REQ-01",
+        "NFR-03"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-SOURCE-DOSSIER"
+      ]
+    },
+    "AT-028": {
+      "requirement_ids": [
+        "REQ-10"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-HUMAN-APPROVAL",
+        "OUT-QA-REPORT"
+      ]
+    },
+    "AT-029": {
+      "requirement_ids": [
+        "REQ-10"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-DISTRIBUTION-PACKAGE",
+        "OUT-QA-REPORT"
+      ]
+    },
+    "AT-030": {
+      "requirement_ids": [
+        "REQ-10"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-AUDIO-REFERENCE",
+        "OUT-QA-REPORT"
+      ]
+    },
+    "AT-031": {
+      "requirement_ids": [
+        "REQ-09",
+        "REQ-10"
+      ],
+      "owner_skill": "quality-assurance-controller",
+      "dependency_ids": [
+        "AT-022"
+      ],
+      "output_ids": [
+        "OUT-QA-REPORT"
+      ]
+    },
+    "AT-032": {
+      "requirement_ids": [
+        "REQ-08",
+        "REQ-10"
+      ],
+      "owner_skill": "quality-assurance-controller",
+      "dependency_ids": [
+        "AT-013"
+      ],
+      "output_ids": [
+        "OUT-OVERLAY-SUBTITLE-DATA",
+        "OUT-QA-REPORT"
+      ]
+    },
+    "AT-033": {
+      "requirement_ids": [
+        "REQ-07",
+        "NFR-01"
+      ],
+      "owner_skill": "ai-video-reference-engineering",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-REFERENCE-PROMPTS"
+      ]
+    },
+    "AT-034": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-09"
+      ],
+      "owner_skill": "quality-assurance-controller",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-REFERENCE-ASSET-MANIFEST",
+        "OUT-CONTINUITY-MCG"
+      ]
+    },
+    "AT-035": {
+      "requirement_ids": [
+        "REQ-05",
+        "NFR-02"
+      ],
+      "owner_skill": "continuity-guardian",
+      "dependency_ids": [
+        "AT-026"
+      ],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG"
+      ]
+    },
+    "AT-036": {
+      "requirement_ids": [
+        "REQ-10",
+        "NFR-03"
+      ],
+      "owner_skill": "quality-assurance-controller",
+      "dependency_ids": [
+        "AT-022"
+      ],
+      "output_ids": [
+        "OUT-QA-REPORT"
+      ]
+    },
+    "AT-037": {
+      "requirement_ids": [
+        "REQ-10"
+      ],
+      "owner_skill": "quality-assurance-controller",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-QA-REPORT"
+      ]
+    },
+    "AT-038": {
+      "requirement_ids": [
+        "REQ-03",
+        "REQ-08"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CAMPAIGN-BRIEF",
+        "OUT-DISTRIBUTION-PACKAGE"
+      ]
+    },
+    "AT-039": {
+      "requirement_ids": [
+        "NFR-01"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-PACKAGE-VALIDATION"
+      ]
+    },
+    "AT-040": {
+      "requirement_ids": [
+        "REQ-01",
+        "NFR-03"
+      ],
+      "owner_skill": "source-asset-intelligence",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-SOURCE-DOSSIER"
+      ]
+    },
+    "AT-041": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-07"
+      ],
+      "owner_skill": "ai-video-reference-engineering",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-REFERENCE-ASSET-MANIFEST"
+      ]
+    },
+    "AT-042": {
+      "requirement_ids": [
+        "NFR-01",
+        "NFR-02"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "AT-043": {
+      "requirement_ids": [
+        "REQ-01",
+        "REQ-02"
+      ],
+      "owner_skill": "health-evidence-safety-auditor",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-HEALTH-TRUTH-REGISTRY"
+      ]
+    },
+    "AT-044": {
+      "requirement_ids": [
+        "REQ-10"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-HUMAN-APPROVAL"
+      ]
+    },
+    "AT-045": {
+      "requirement_ids": [
+        "REQ-10",
+        "NFR-02"
+      ],
+      "owner_skill": "quality-assurance-controller",
+      "dependency_ids": [
+        "AT-039"
+      ],
+      "output_ids": [
+        "OUT-PACKAGE-VALIDATION",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "REF-001": {
+      "requirement_ids": [
+        "REQ-REF-01"
+      ],
+      "owner_skill": "ai-video-reference-engineering",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-REFERENCE-PROMPTS"
+      ]
+    },
+    "REF-002": {
+      "requirement_ids": [
+        "REQ-REF-02"
+      ],
+      "owner_skill": "visual-identity-art-direction",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-VISUAL-GUIDES",
+        "OUT-REFERENCE-PROMPTS"
+      ]
+    },
+    "REF-003": {
+      "requirement_ids": [
+        "REQ-REF-02"
+      ],
+      "owner_skill": "visual-identity-art-direction",
+      "dependency_ids": [
+        "REF-002"
+      ],
+      "output_ids": [
+        "OUT-VISUAL-GUIDES",
+        "OUT-REFERENCE-ASSET-MANIFEST"
+      ]
+    },
+    "REF-004": {
+      "requirement_ids": [
+        "REQ-REF-02"
+      ],
+      "owner_skill": "ai-video-reference-engineering",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-REFERENCE-ASSET-MANIFEST"
+      ]
+    },
+    "REF-005": {
+      "requirement_ids": [
+        "REQ-REF-03"
+      ],
+      "owner_skill": "storyboard-cinematography",
+      "dependency_ids": [
+        "REF-003"
+      ],
+      "output_ids": [
+        "OUT-STORYBOARD",
+        "OUT-REFERENCE-PROMPTS"
+      ]
+    },
+    "REF-006": {
+      "requirement_ids": [
+        "REQ-REF-04"
+      ],
+      "owner_skill": "animation-motion-design",
+      "dependency_ids": [
+        "REF-005"
+      ],
+      "output_ids": [
+        "OUT-MOTION-REFERENCE"
+      ]
+    },
+    "REF-007": {
+      "requirement_ids": [
+        "REQ-REF-05"
+      ],
+      "owner_skill": "editing-postproduction",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-OVERLAY-SUBTITLE-DATA",
+        "OUT-HEALTH-TRUTH-REGISTRY"
+      ]
+    },
+    "REF-008": {
+      "requirement_ids": [
+        "REQ-REF-06"
+      ],
+      "owner_skill": "ai-video-reference-engineering",
+      "dependency_ids": [
+        "REF-004"
+      ],
+      "output_ids": [
+        "OUT-REFERENCE-ASSET-MANIFEST"
+      ]
+    },
+    "REF-009": {
+      "requirement_ids": [
+        "REQ-REF-07"
+      ],
+      "owner_skill": "editing-postproduction",
+      "dependency_ids": [
+        "REF-006",
+        "REF-007"
+      ],
+      "output_ids": [
+        "OUT-RENDERER-HANDOFF"
+      ]
+    },
+    "REF-010": {
+      "requirement_ids": [
+        "REQ-REF-08"
+      ],
+      "owner_skill": "editing-postproduction",
+      "dependency_ids": [
+        "REF-009"
+      ],
+      "output_ids": [
+        "OUT-RENDERER-HANDOFF"
+      ]
+    },
+    "REF-011": {
+      "requirement_ids": [
+        "REQ-REF-08",
+        "NFR-01"
+      ],
+      "owner_skill": "ai-video-reference-engineering",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-REFERENCE-PROMPTS"
+      ]
+    },
+    "REF-012": {
+      "requirement_ids": [
+        "REQ-REF-09"
+      ],
+      "owner_skill": "quality-assurance-controller",
+      "dependency_ids": [
+        "REF-009"
+      ],
+      "output_ids": [
+        "OUT-QA-REPORT"
+      ]
+    },
+    "REF-013": {
+      "requirement_ids": [
+        "REQ-REF-08",
+        "REQ-REF-09"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [
+        "REF-010"
+      ],
+      "output_ids": [
+        "OUT-RENDERER-HANDOFF",
+        "OUT-QA-REPORT"
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "interface": {
+    "displayName": "Video Explainer Promkes",
+    "shortDescription": "Prompt-to-reference promkes",
+    "longDescription": "Mengubah poster/infografis promosi kesehatan dan caption menjadi paket referensi produksi: prompt still/reference untuk karakter, gaya visual, lingkungan, properti dan keyframe; storyboard; motion/timing reference; audio, overlay dan subtitle data; asset manifest; serta composition handoff yang renderer-neutral untuk dirender kemudian melalui Remotion atau sistem sejenis. Tidak menghasilkan prompt text-to-video, kode Remotion, atau file video final secara default.",
+    "developerName": "Promkes pkm binuang",
+    "category": "Healthcare",
+    "capabilities": [],
+    "defaultPrompt": [
+      "Ubah poster dan caption promkes ini menjadi paket prompt-to-reference untuk produksi explainer animasi.",
+      "Buat reference prompts, storyboard, asset manifest, motion references, dan handoff renderer-neutral untuk Remotion."
+    ]
+  },
+  "name": "video-animasi-explainer-promkes-prompt-creator",
+  "version": "1.2.0",
+  "description": "Transforms health-promotion posters and captions into a prompt-to-reference production package for later composition and rendering in Remotion or similar systems.",
+  "author": {
+    "name": "Promkes pkm binuang",
+    "email": "promkes.pkm.binuang@gmail.com"
+  },
+  "keywords": [
+    "health promotion",
+    "public health",
+    "prompt to reference",
+    "visual references",
+    "storyboard",
+    "Remotion handoff",
+    "health communication",
+    "continuity"
+  ],
+  "skills": "./skills"
+}
