@@ -286,13 +286,20 @@ def main():
     test_ids = [case.get("test_id") for case in all_cases]
     if None in test_ids or len(test_ids) != len(set(test_ids)):
         fail("Acceptance test IDs are missing or duplicated across suites")
-    required_case_fields = ("test_id", "title", "family", "expected", "oracle", "status")
-    for case in all_cases:
-        for field in required_case_fields:
-            if not case.get(field):
-                fail(f"Missing {field} in test case {case.get('test_id')}")
-        if case.get("status") != "NOT_RUN":
-            fail(f"Unexecuted specification must remain NOT_RUN: {case.get('test_id')}")
+    # The baseline and Prompt-to-Reference suites intentionally use distinct
+    # case schemas. AT cases carry a family and textual input_fixture; REF
+    # cases describe the reference contract and do not require those fields.
+    suite_requirements = (
+        ("baseline", at_cases, ("test_id", "title", "family", "input_fixture", "expected", "oracle", "status")),
+        ("reference", ref_cases, ("test_id", "title", "expected", "oracle", "status")),
+    )
+    for suite_name, cases, required_fields in suite_requirements:
+        for case in cases:
+            for field in required_fields:
+                if not case.get(field):
+                    fail(f"Missing {field} in {suite_name} test case {case.get('test_id')}")
+            if case.get("status") != "NOT_RUN":
+                fail(f"Unexecuted specification must remain NOT_RUN: {case.get('test_id')}")
 
     # Machine-readable requirement -> test -> owner -> dependency -> output join.
     trace = load_json(ROOT / "tests/traceability.json") or {}
