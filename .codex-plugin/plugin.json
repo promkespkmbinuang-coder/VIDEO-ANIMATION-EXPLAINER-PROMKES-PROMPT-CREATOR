@@ -12,7 +12,7 @@
     ]
   },
   "name": "video-animasi-explainer-promkes-prompt-creator",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Transforms health-promotion posters and captions into a prompt-to-reference production package for later composition and rendering in Remotion or similar systems.",
   "author": {
     "name": "Promkes pkm binuang",
