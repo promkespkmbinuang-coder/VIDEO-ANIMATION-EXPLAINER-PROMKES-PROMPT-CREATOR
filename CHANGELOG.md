@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.2
+- Removed a fixed-version assumption from the validator; it now checks semantic-version syntax and manifest parity so patch/minor releases do not require validator edits solely to advance version.
+- CI-discovered test-schema validation remains suite-aware: baseline AT and reference REF cases keep their distinct required fields.
+
+
 ## 1.2.1
 - Corrected strict test-schema validation to respect the distinct AT and REF case contracts; REF cases are not required to contain baseline-only `family` or `input_fixture` fields.
 - Kept each of the 58 test specifications at `NOT_RUN`; this is a validator-schema correction, not an acceptance-test pass.
