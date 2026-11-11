@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.1
+- Corrected strict test-schema validation to respect the distinct AT and REF case contracts; REF cases are not required to contain baseline-only `family` or `input_fixture` fields.
+- Kept each of the 58 test specifications at `NOT_RUN`; this is a validator-schema correction, not an acceptance-test pass.
+
+
 ## 1.2.0
 - Added strict YAML frontmatter parsing with duplicate-key rejection.
 - Added checks for skill frontmatter/directory naming parity and the compatibility manifest.
