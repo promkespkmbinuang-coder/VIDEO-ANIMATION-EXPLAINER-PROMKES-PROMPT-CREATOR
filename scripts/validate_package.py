@@ -210,7 +210,7 @@ def main():
     root_author = manifest.get("author", {}) if isinstance(manifest, dict) else {}
     compat_author = compat.get("author", {}) if isinstance(compat, dict) else {}
     version = manifest.get("version")
-    if not isinstance(version, str) or not re.fullmatch(r"(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)", version):
+    if not isinstance(version, str) or not re.fullmatch(r"(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)", version):
         fail(f"Root manifest version must be a valid SemVer MAJOR.MINOR.PATCH; found {version!r}")
     if compat.get("version") != version:
         fail("Compatibility manifest version does not match root manifest")
