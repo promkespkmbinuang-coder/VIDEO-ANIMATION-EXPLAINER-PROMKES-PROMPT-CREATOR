@@ -18,6 +18,7 @@ except ImportError as exc:  # fail closed; no regex-only fallback
     raise SystemExit("PyYAML is required. Install requirements-dev.txt first.") from exc
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 from scripts.validate_release_consistency import validate_release
 EXPECTED_SKILLS = 15
 EXPECTED_AT = 45
