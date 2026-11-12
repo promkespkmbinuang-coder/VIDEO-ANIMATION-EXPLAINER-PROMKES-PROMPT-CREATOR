@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.1.0 — S10 parity and gate-engine hardening (2026-11-12)
+- Consolidates editing/post-production and renderer/code engineering under one S10 owner while preserving both capability lanes and intentionally different source slugs.
+- Completes the Ed25519 verifier, removes a malformed unused helper and duplicate CLI entrypoint, restores deterministic transitive invalidation results, and exposes non-destructive apply-invalidation in the active CLI.
+- Makes the legacy diagnostic evaluator fail closed for TEST_FIXTURE/non-production projects; production release approval remains separate from synthetic test success.
+- Aligns artifact-envelope fixtures and manifest path validation with the required `content_path` contract.
+- Fresh CI on the resulting PR head and independent review are required; this changelog does not claim runtime/render/media or human approval PASS.
+
 ## 4.0.9 — mandatory M00/S14 preflight (2026-11-12)
 - Makes S14 an explicit M00-owned preflight before conversation audits, versioned changes, source reconciliation, GitHub publication and release decisions.
 - Preserves S01–S13 production ownership and makes S14 cross-cutting rather than a creative stage.
