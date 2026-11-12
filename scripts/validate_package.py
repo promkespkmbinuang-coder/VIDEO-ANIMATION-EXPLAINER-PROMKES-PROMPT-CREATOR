@@ -134,9 +134,7 @@ def markdown_links(text: str):
         yield item.rstrip(".,;:)")
 
 
-def validate_markdown_links()
-    for release_error in validate_release(ROOT):
-        fail(release_error):
+def validate_markdown_links():
     md_files = sorted(ROOT.rglob("*.md"))
     for md in md_files:
         if any(part in {".git", "exports", "build"} for part in md.parts):
@@ -250,6 +248,16 @@ def main():
         if len(desc) < 20 or len(desc) > 1024:
             fail(f"Skill description length invalid in {skill_file.relative_to(ROOT)}")
 
+    required_skill_names = {
+        'master-orchestrator', 'source-asset-intelligence', 'health-evidence-safety-auditor',
+        'audience-campaign-strategy', 'story-screenplay-architect', 'visual-identity-art-direction',
+        'storyboard-cinematography', 'animation-motion-design', 'prompt-reference-video-engineering',
+        'voice-audio-intelligence', 'renderer-code-engineering', 'social-accessibility-distribution',
+        'quality-assurance-controller', 'continuity-guardian', 'conversation-release-audit'
+    }
+    if names != required_skill_names:
+        fail(f'Skill registry mismatch; missing={sorted(required_skill_names - names)}, extra={sorted(names - required_skill_names)}')
+
     # Both plugin manifests must remain skills-only and schema-compatible.
     if manifest.get("$schema") != "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json":
         fail("Root manifest schema declaration invalid/missing")
@@ -338,6 +346,8 @@ def main():
 
     # All Markdown, including supporting references, is checked locally.
     validate_markdown_links()
+    for release_error in validate_release(ROOT):
+        fail(release_error)
     platform_doc = (ROOT / "docs/platform-compatibility.md").read_text(encoding="utf-8")
     if "docs.cursor.com/context/skills" in platform_doc:
         fail("Obsolete Cursor skills URL remains")
