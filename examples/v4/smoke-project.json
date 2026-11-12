@@ -1,0 +1,278 @@
+{
+  "project_id": "PROMKES-V4-SMOKE-TEST",
+  "schema_version": "4.0.0",
+  "sources": [
+    {
+      "source_id": "SRC-001",
+      "source_uri": "https://example.invalid/test-source",
+      "verification_status": "VERIFIED",
+      "support_location": "fixture paragraph 1 — synthetic test evidence only",
+      "accessed_at": "2026-11-12T00:00:00Z",
+      "content_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "source_type": "TEST_FIXTURE"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "CLM-001",
+      "text": "Synthetic placeholder claim; no health claim is asserted.",
+      "claim_type": "PREVENTION",
+      "source_ids": [
+        "SRC-001"
+      ],
+      "evidence_level": "PRIMARY",
+      "population": "test fixture",
+      "jurisdiction": "TEST",
+      "valid_from": null,
+      "valid_to": null,
+      "status": "VERIFIED",
+      "allowed_wording": [
+        "Synthetic placeholder claim"
+      ],
+      "forbidden_wording": [],
+      "reviewed_by_human": true,
+      "reviewer_id": "TEST-CLINICIAN",
+      "reviewer_role": "CLINICIAN",
+      "reviewed_at": "2026-11-12T00:00:00Z",
+      "source_hashes": [
+        "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      ],
+      "schema_version": "1.0.0"
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": "SCN-001",
+      "order": 0,
+      "start_frame": 0,
+      "end_frame": 60,
+      "fps": 30,
+      "timebase": "1/30s",
+      "rounding_policy": "EXACT",
+      "claim_refs": [
+        "CLM-001"
+      ],
+      "reference_ids": [],
+      "motion_ref_ids": [],
+      "continuity_in": null,
+      "continuity_out": "fixture-end",
+      "status": "PASS",
+      "schema_version": "1.0.0",
+      "content_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "ART-001",
+      "artifact_type": "SYNTHETIC_TEST_ARTIFACT",
+      "project_id": "PROMKES-V4-SMOKE-TEST",
+      "schema_id": "urn:promkes:v4:artifact-envelope:1.0.0",
+      "schema_version": "1.0.0",
+      "producer_version": "test-fixture-1.0",
+      "created_at": "2026-11-12T00:00:00Z",
+      "status": "PASS",
+      "content_hash": "sha256:190a3bc8dde09ebcdb552d7e7acc4fe14717d4dc26c30e048aeb2b8e6b88038c",
+      "validator_id": "fixture-generator",
+      "validator_version": "1.0.0",
+      "validation_result": "PASS",
+      "source_refs": [
+        "SRC-001"
+      ],
+      "dependency_refs": [
+        "CLM-001",
+        "SCN-001"
+      ],
+      "rights_status": "NOT_APPLICABLE",
+      "privacy_classification": "PUBLIC",
+      "content_path": "artifacts/synthetic-artifact.txt"
+    }
+  ],
+  "capabilities": [
+    {
+      "capability_id": "CAP-RENDER-TEST",
+      "provider": "remotion-fixture",
+      "operation": "render",
+      "exact_version": "99.99.99-test",
+      "status": "VERIFIED",
+      "permission_granted": true,
+      "environment": "synthetic-ci-fixture",
+      "evidence_ref": "FIXTURE-NOT-A-LIVE-RENDER",
+      "checked_at": "2026-11-12T00:00:00Z",
+      "expires_at": "2027-01-01T00:00:00Z",
+      "constraints": [
+        "fixture only"
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "from_id": "SRC-001",
+      "to_id": "CLM-001"
+    },
+    {
+      "from_id": "CLM-001",
+      "to_id": "SCN-001"
+    },
+    {
+      "from_id": "SCN-001",
+      "to_id": "ART-001"
+    }
+  ],
+  "assets": [],
+  "policy": {
+    "rights_status": "CLEARED",
+    "privacy_classification": "PUBLIC",
+    "retention_policy": "synthetic fixture only",
+    "publication_scope": "not for publication",
+    "rights_evidence_hash": "sha256:0f87e8eacf824fa9284926b0df03cae739d11874fb0d4c0c9e7bacfc863f16c6"
+  },
+  "security_review": {
+    "status": "PASS",
+    "untrusted_content_isolated": true,
+    "evidence_ref": "FIXTURE-SECURITY-REVIEW",
+    "reviewed_at": "2026-11-12T00:00:00Z"
+  },
+  "prompt_preflight": {
+    "status": "PASS",
+    "untrusted_source_labels_present": true,
+    "source_instructions_executed": false
+  },
+  "narrative": {
+    "review_status": "PASS",
+    "claim_refs": [
+      "CLM-001"
+    ]
+  },
+  "visual": {
+    "review_status": "PASS",
+    "canonical_reference_hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "reviewed_by": "TEST-VISUAL-REVIEWER",
+    "reviewed_at": "2026-11-12T00:00:00Z"
+  },
+  "renderer_target": {
+    "provider": "remotion-fixture",
+    "exact_version": "99.99.99-test",
+    "executable_code_required": true
+  },
+  "code_review": {
+    "status": "PASS",
+    "sandbox_evidence_ref": "FIXTURE-SANDBOX-REVIEW"
+  },
+  "artifact_qa": {
+    "status": "PASS",
+    "artifact_hash": "sha256:190a3bc8dde09ebcdb552d7e7acc4fe14717d4dc26c30e048aeb2b8e6b88038c",
+    "evidence_ref": "FIXTURE-ARTIFACT-QA"
+  },
+  "release": {
+    "status": "APPROVED"
+  },
+  "authorized_approvers": {
+    "CLINICIAN": [
+      "TEST-CLINICIAN"
+    ],
+    "RIGHTS_APPROVER": [
+      "TEST-RIGHTS-APPROVER"
+    ],
+    "RELEASE_APPROVER": [
+      "TEST-RELEASE-APPROVER"
+    ],
+    "BRAND_OWNER": [
+      "TEST-BRAND-OWNER"
+    ]
+  },
+  "trusted_signing_keys": {
+    "CLINICIAN": {
+      "TEST-KEY-CLINICIAN": "0EqyMnQrtKs6E2i9RhXk5tAiSrcaAWuvhSCjMsl3hzc="
+    },
+    "RIGHTS_APPROVER": {
+      "TEST-KEY-RIGHTS_APPROVER": "oJql9HpnWYAv+VX43C0qFKXJnSO+l/hkEn/5ODRVpPA="
+    },
+    "RELEASE_APPROVER": {
+      "TEST-KEY-RELEASE_APPROVER": "F8t5+ytBIPKx7GXkGY1uCLKOgT/rAeSkAIObheGAgM4="
+    },
+    "BRAND_OWNER": {
+      "TEST-KEY-BRAND_OWNER": "11l5O7wTooGagnx2rbb7qKSa7gB/SfLQmS2ZuCWtLEg="
+    }
+  },
+  "approvals": [
+    {
+      "approval_id": "APR-TEST-CLINICAL",
+      "approver_id": "TEST-CLINICIAN",
+      "role": "CLINICIAN",
+      "decision": "APPROVED",
+      "artifact_hashes": [
+        "sha256:a8463567d0f43e4c6a40be4b426121465c93e8a9434d6e7685457fdf688bfaa0"
+      ],
+      "authority_verified": true,
+      "signing_key_id": "TEST-KEY-CLINICIAN",
+      "created_at": "2026-11-12T00:00:00Z",
+      "expires_at": "2027-01-01T00:00:00Z",
+      "scope": "synthetic claim fixture only",
+      "signature": "FicDlYPyHCqUjDIJnl2L5oCvHUKRxs64dFhHEXaDq/Kf85D6HRTB4KWd2Ngg7sMoKJKVOx1Or6Sn7pw+A1n9Cw=="
+    },
+    {
+      "approval_id": "APR-TEST-RIGHTS",
+      "approver_id": "TEST-RIGHTS-APPROVER",
+      "role": "RIGHTS_APPROVER",
+      "decision": "APPROVED",
+      "artifact_hashes": [
+        "sha256:0f87e8eacf824fa9284926b0df03cae739d11874fb0d4c0c9e7bacfc863f16c6"
+      ],
+      "authority_verified": true,
+      "signing_key_id": "TEST-KEY-RIGHTS_APPROVER",
+      "created_at": "2026-11-12T00:00:00Z",
+      "expires_at": "2027-01-01T00:00:00Z",
+      "scope": "synthetic rights fixture only",
+      "signature": "Qkz1UXtv/pEloilboz92SAOolxwFypmZriC/qcDMBHT3NdVx8jSx/RGuVNoyM5QaSvTcu1PFeY9TAixO46rxBw=="
+    },
+    {
+      "approval_id": "APR-TEST-RELEASE",
+      "approver_id": "TEST-RELEASE-APPROVER",
+      "role": "RELEASE_APPROVER",
+      "decision": "APPROVED",
+      "artifact_hashes": [
+        "sha256:190a3bc8dde09ebcdb552d7e7acc4fe14717d4dc26c30e048aeb2b8e6b88038c"
+      ],
+      "authority_verified": true,
+      "signing_key_id": "TEST-KEY-RELEASE_APPROVER",
+      "created_at": "2026-11-12T00:00:00Z",
+      "expires_at": "2027-01-01T00:00:00Z",
+      "scope": "synthetic release fixture only",
+      "signature": "r/YPx4V3ym31WamcgpNul/S1hDYJ4kj7f/uzFA7IP1Q2oZIq56GdhKiJldk1GUph6gA2Lfz/AHVRFO0JmQyfBQ=="
+    },
+    {
+      "approval_id": "APR-TEST-VISUAL",
+      "approver_id": "TEST-BRAND-OWNER",
+      "role": "BRAND_OWNER",
+      "decision": "APPROVED",
+      "artifact_hashes": [
+        "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      ],
+      "authority_verified": true,
+      "signing_key_id": "TEST-KEY-BRAND_OWNER",
+      "created_at": "2026-11-12T00:00:00Z",
+      "expires_at": "2027-01-01T00:00:00Z",
+      "scope": "synthetic visual continuity fixture only",
+      "signature": "hGXeXX5M3yfvZZWFDZfCdsTJi9FhiPJx84NP2S5RcWqxpE9Qrv+9ZNeytmktH+J57wi17kPQ+8P7kc9wH0Q1DA=="
+    }
+  ],
+  "control_results": [],
+  "budget": {
+    "estimated_cost": 1,
+    "actual_cost": 0,
+    "budget_limit": 10,
+    "retry_count": 0,
+    "max_retries": 2,
+    "asset_bytes": 58,
+    "max_asset_bytes": 100000
+  },
+  "invalidation_test": {
+    "changed_id": "SRC-001",
+    "expected_invalidated": [
+      "CLM-001",
+      "SCN-001",
+      "ART-001"
+    ]
+  },
+  "project_mode": "TEST_FIXTURE"
+}
