@@ -69,6 +69,23 @@ def validate_release(root: Path) -> list[str]:
             errors.append("skill name/directory mismatch: "+str(p.relative_to(root)))
     bridge=root/"skills/master-orchestrator/references/s14-integration-contract.md"
     if not bridge.is_file(): errors.append("M00/S14 integration contract missing")
+    m00=root/"skills/master-orchestrator/SKILL.md"
+    if not m00.is_file():
+        errors.append("M00 master-orchestrator skill missing")
+    else:
+        m00_text=m00.read_text(encoding="utf-8").lower()
+        required=("conversation-release-audit/skill.md","references/s14-integration-contract.md","references/m00-s14-mandate.md","before any version audit","s14")
+        if any(token not in m00_text for token in required):
+            errors.append("M00 must directly mandate and link S14 skill, entrypoint and handoff contracts")
+    register_path=root/"docs/conversation-context-register-v4.1.2.json"
+    if not register_path.is_file():
+        errors.append("V4.1.2 conversation context register missing")
+    else:
+        try:
+            register=strict_json(register_path)
+            if register.get("context_version")!=version: errors.append("conversation context register version mismatch")
+            if not register.get("coverage_boundary"): errors.append("conversation context register coverage boundary missing")
+        except ValueError as exc: errors.append(str(exc))
     readme=(root/"README.md").read_text(encoding="utf-8")
     changelog=(root/"CHANGELOG.md").read_text(encoding="utf-8")
     if not readme.splitlines() or version not in readme.splitlines()[0]: errors.append("README title/version mismatch")

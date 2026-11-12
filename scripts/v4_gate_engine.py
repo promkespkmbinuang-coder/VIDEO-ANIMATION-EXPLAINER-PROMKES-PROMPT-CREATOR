@@ -21,9 +21,6 @@ GATE_CONTROLS = {
 
 class EngineError(Exception): pass
 
-def utc_now():
-    return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z")
-
 def parse_time(value):
     if not value: return None
     try:
@@ -31,15 +28,6 @@ def parse_time(value):
         return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
     except (TypeError,ValueError): return None
 
-def canonical_json_bytes(value):
-    def normalize(obj):
-        if isinstance(obj,str): return unicodedata.normalize("NFC",obj.replace("\r\n","\n").replace("\r","\n"))
-        if isinstance(obj,list): return [normalize(x) for x in obj]
-        if isinstance(obj,dict): return {normalize(str(k)):normalize(v) for k,v in obj.items()}
-        return obj
-    return json.dumps(normalize(value),sort_keys=True,ensure_ascii=False,separators=(",",":"),allow_nan=False).encode("utf-8")
-
-def sha256_bytes(data): return "sha256:"+hashlib.sha256(data).hexdigest()
 def sha256_json(value): return sha256_bytes(canonical_json_bytes(value))
 
 def approval_signature_payload(approval):

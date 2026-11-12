@@ -1,30 +1,24 @@
-# Engine source parity — GitHub source candidate
+# Engine source parity — V4.1.2 audit snapshot
 
-**Audit date:** 2026-11-12 (Asia/Makassar).
+**Status: PARTIAL / NOT_SYNCED.** Private Plugin Creator and GitHub PR candidate are two different executable engines. Shared version numbering is not evidence of source/runtime parity.
 
 ## Private Plugin Creator V4.1.1
-
-- Plugin ID: `plugins_6af57525bfdc8191af0a262699b6df58`
 - Release ID: `pluginrel_6af5d06d0c388191840a4861eadd953c`, scope USER, discoverability PRIVATE.
-- `scripts/v4_gate_engine.py`: 47,607 characters / 849 lines.
-- Verified markers: legacy `CTRL-*` registry present; `V4-CTL-*` absent; Ed25519 / `verify_approval_signature` absent; one `main()`; `evaluate_project()` and `apply_invalidation()` present.
-- The legacy evaluator does not enforce the new `project_mode == PRODUCTION` synthetic-fixture guard. Its `release_eligible` output is not production authorization. The executable-gate-engine skill now explicitly prohibits using it as release approval.
+- `scripts/v4_gate_engine.py`: 47,607 characters / 849 lines, `ENGINE_VERSION=4.0.0`, legacy `CTRL-*` control registry, one `main()`, no duplicate top-level definitions.
+- No `V4-CTL-*`, Ed25519 verifier or explicit TEST_FIXTURE production guard. Legacy release eligibility is diagnostic only, not production authorization.
 
 ## GitHub PR #14 candidate
+- Base main: `6aa128ebaa8d561fcedf7a52f027bd2a2a931198`.
+- Previous exact validated head: `17bbee4c217c11056a07bc009682c3c55c3a7cf5` (validate-package and link-check SUCCESS); current V4.1.2 head needs fresh CI.
+- Candidate engine includes `V4-CTL-*`, Ed25519 verification, deterministic dependency invalidation, non-destructive `apply-invalidation`, stricter path guard and TEST_FIXTURE release blocking.
+- Candidate changes are not merged or synchronized to the private package.
 
-- PR: https://github.com/promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR/pull/14
-- Head at audit before this parity-note commit: `78b294e6901a87dd15a31a9ef1fa54a45590389c`; base main `6aa128ebaa8d561fcedf7a52f027bd2a2a931198`.
-- Candidate engine contains `V4-CTL-*`, completed Ed25519 verifier path, deterministic invalidation, non-destructive `apply-invalidation`, stricter path guard and synthetic-fixture production release blocking.
-- Validate-package #225 (ID `43239540057`) and markdown-link-check #229 (ID `43239539607`) SUCCESS on that exact PR head.
-- PR #14 remains OPEN + DRAFT, no independent review recorded, and is not merged into main.
+## Safe synchronization
+1. Independent review of engine semantics, schemas, control registry, approval model and CLI.
+2. Resolve review findings and require green CI on exact latest PR head.
+3. Merge only after authorized approval; verify merge commit and direct main CI.
+4. Synchronize engine, schemas, fixtures, tests, controls and docs with the guarded private release update.
+5. Run private validator/full tests, read back release and compare paths/hashes/behavior.
+6. Declare SYNCED only after all above; otherwise retain PARTIAL / NOT_SYNCED.
 
-## Required sequence
-
-1. Independent reviewer audits PR #14 engine, trust semantics, schemas, tests and CLI.
-2. Resolve review findings; keep latest-head CI green.
-3. Merge only after authorized human approval; verify merge commit and post-merge main CI on exact SHA.
-4. Synchronize reviewed engine, schemas, tests, docs and control maps into private plugin using a current-release guard.
-5. Run private-package validator/full tests; read back release ID and compare file hashes.
-6. Mark engine parity SYNCED only after all above. Until then: `PARTIAL / NOT_SYNCED`.
-
-A green PR run is not private-plugin engine validation. Neither implementation establishes human identity/authority, clinical/legal rights approval, live AI/ASR/TTS, Remotion runtime/render, MP4 QA or final release approval.
+Ed25519 proves a signature against a supplied trust map; it does not establish identity/authority without an independently protected institutional trust registry. Runtime/media/clinical/rights/human approval gates are separate.
