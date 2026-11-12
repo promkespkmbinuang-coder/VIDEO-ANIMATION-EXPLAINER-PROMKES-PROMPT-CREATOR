@@ -1,20 +1,20 @@
 {
   "interface": {
-    "displayName": "Video Explainer Promkes V4.0.4",
+    "displayName": "Video Explainer Promkes V4.0.5",
     "shortDescription": "Evidence-gated Promkes",
-    "longDescription": "Sistem produksi explainer animasi promosi kesehatan berbasis bukti. Mempertahankan M00 + S01–S14, Health Truth Registry, Fact Lock, campaign strategy, screenplay, visual continuity MCG, audio intelligence, timing provenance, subtitles, renderer-neutral handoff dan QA. V4.0.4 menambahkan audit konteks percakapan, klasifikasi explicit/inferred/proposed/unknown, traceability perubahan lintas rilis, serta validasi konsistensi manifest dan penolakan duplicate JSON keys. AI eksternal, instalasi/invokasi ChatGPT, Remotion runtime/render, inspeksi media, hak dan persetujuan manusia tetap membutuhkan bukti terpisah.",
+    "longDescription": "Health-first Promkes production compiler. M00 coordinates S01–S13 production specialists; S14 is a cross-cutting conversation-context and release-change auditor. Includes evidence contracts, eight fail-closed gates, 21 deterministic controls, strict package hygiene and source-to-release traceability. The 1,000 candidate matrix is not 1,000 executed tests. External AI, live ChatGPT, Remotion runtime/render, media QA, rights and human approvals require separate evidence.",
     "developerName": "Promkes pkm binuang",
     "category": "Healthcare",
     "capabilities": [],
     "defaultPrompt": [
-      "Ubah poster, infografis, caption, audio/transkrip atau naskah Promkes menjadi paket produksi explainer yang dapat ditelusuri dari sumber sampai QA; jaga Fact Lock, screenplay/VO, continuity, storyboard, still/video prompt, motion, audio/subtitle, manifest, renderer dan distribusi.",
-      "Sebelum audit atau pembaruan versi, telusuri semua konteks percakapan dan sumber yang tersedia. Pisahkan permintaan eksplisit, preferensi terkonfirmasi, inferensi, usulan, unknown dan keputusan yang telah digantikan.",
-      "Validasi paket dan semua tes yang benar-benar tersedia. Jangan klaim instalasi ChatGPT, AI/ASR, Remotion render, inspeksi MP4, lisensi atau persetujuan manusia tanpa bukti aktual."
+      "Ubah poster, infografis, caption, audio/transkrip atau naskah Promkes menjadi paket produksi explainer yang dapat ditelusuri dari sumber sampai QA.",
+      "Sebelum audit, upgrade atau publikasi versi, jalankan preflight S14 atas konteks percakapan dan release parity; pisahkan eksplisit, preferensi, inferensi, usulan, unknown dan superseded.",
+      "Jalankan hanya validator dan tes yang benar-benar tersedia; jangan klaim runtime, render, inspeksi MP4, lisensi atau persetujuan manusia tanpa bukti."
     ]
   },
   "name": "video-animasi-explainer-promkes-prompt-creator",
-  "version": "4.0.4",
-  "description": "Evidence-governed health-promotion explainer production workflow with evidence contracts, fail-closed gates, context audit and release integrity checks.",
+  "version": "4.0.5",
+  "description": "Evidence-governed health-promotion explainer production workflow with evidence contracts, fail-closed gates, conversation audit and package hygiene.",
   "author": {
     "name": "Promkes pkm binuang",
     "email": "promkes.pkm.binuang@gmail.com"
