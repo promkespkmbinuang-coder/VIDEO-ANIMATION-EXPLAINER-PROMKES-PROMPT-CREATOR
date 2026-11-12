@@ -3,7 +3,7 @@ name: master-orchestrator
 description: Use when a user provides health-promotion poster, caption, script and/or voice-over and needs an evidence-controlled animated explainer production workflow, with conditional rendering and media QA when actual tools are available.
 ---
 
-# M00 — VIDEO EXPLAINER PROMKES V4.0.5 MASTER ORCHESTRATOR
+# M00 — VIDEO EXPLAINER PROMKES V4.0.6 MASTER ORCHESTRATOR
 
 ## 1. Mission
 
