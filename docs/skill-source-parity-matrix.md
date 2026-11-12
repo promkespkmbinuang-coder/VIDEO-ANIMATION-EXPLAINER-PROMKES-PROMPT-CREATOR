@@ -14,7 +14,7 @@
 | skills/animation-motion-design | skills/animation-motion-design | SAME_SLUG; verify content parity separately |
 | skills/ai-video-reference-engineering | skills/prompt-reference-video-engineering | INFERRED_SEMANTIC_MAPPING; both describe still/reference prompt compilation, owner confirmation required |
 | skills/voice-sound-design | skills/voice-audio-intelligence | INFERRED_SEMANTIC_MAPPING; both describe audio intake, transcript, VO, subtitle and sound design, owner confirmation required |
-| skills/editing-postproduction | skills/renderer-code-engineering | INFERRED_SEMANTIC_MAPPING; GitHub skill owns composition/renderer integration/render/export, plugin skill name emphasizes renderer code; scope equivalence needs owner confirmation |
+| skills/editing-postproduction | skills/renderer-code-engineering | CONSOLIDATED_S10_SCOPE; one S10 owner covers editing/post-production plus renderer/code/render/export; slug divergence is intentionally preserved; verify content parity by read-back/hash before marking fully SYNCED |
 | skills/social-accessibility-distribution | skills/social-accessibility-distribution | SAME_SLUG; verify content parity separately |
 | skills/quality-assurance-controller | skills/quality-assurance-controller | SAME_SLUG; verify content parity separately |
 | skills/continuity-guardian | skills/continuity-guardian | SAME_SLUG; verify content parity separately |
