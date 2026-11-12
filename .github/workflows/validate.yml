@@ -47,7 +47,7 @@ jobs:
           print('Blocked fixture correctly prevented release.')
           PY
       - name: Upload reproducible validation evidence
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: v4-validation-${{ github.sha }}
           path: |
