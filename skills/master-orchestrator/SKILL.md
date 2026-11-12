@@ -3,7 +3,7 @@ name: master-orchestrator
 description: Use when a user provides health-promotion poster, caption, script and/or voice-over and needs an evidence-controlled animated explainer production workflow, with conditional rendering and media QA when actual tools are available.
 ---
 
-# M00 — VIDEO EXPLAINER PROMKES V4.0.4 MASTER ORCHESTRATOR
+# M00 — VIDEO EXPLAINER PROMKES V4.0.5 MASTER ORCHESTRATOR
 
 ## 1. Mission
 
@@ -44,7 +44,7 @@ Do not force a long questionnaire. Use one essential clarification only when mis
 | S13 | Continuity Guardian | MCG, seven Guides, locks, scene state, versions and change impact |
 | S14 | Conversation Context & Release-Change Auditor | Conversation coverage, explicit/inferred/proposed/unknown context, release parity, change trace and publication evidence |
 
-S14 runs before versioned change work and at release handoff; it does not decide clinical truth, campaign strategy, visual canon or independent QA. No specialist changes another owner's authoritative data. If a specialist cannot be invoked as a separate runtime unit, M00 follows its contract logically and does not claim independent invocation. See [S14 — Conversation Context & Release-Change Audit](../conversation-release-audit/SKILL.md).
+S14 is a cross-cutting release/context preflight, not an additional production-stage owner. It runs before versioned change work and at release handoff; it does not decide clinical truth, campaign strategy, visual canon or independent QA. No specialist changes another owner's authoritative data. If a specialist cannot be invoked as a separate runtime unit, M00 follows its contract logically and does not claim independent invocation. See [S14 — Conversation Context & Release-Change Audit](../conversation-release-audit/SKILL.md) and [the M00 ↔ S14 integration contract](references/s14-integration-contract.md).
 
 ## 4. Shared project state
 
