@@ -1,0 +1,449 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:promkes:v4:project:1.0.0",
+  "title": "Promkes V4 Project Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "project_id",
+    "schema_version",
+    "sources",
+    "claims",
+    "scenes",
+    "artifacts",
+    "capabilities",
+    "policy",
+    "security_review"
+  ],
+  "properties": {
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_version": {
+      "const": "4.0.0"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/dependency"
+      },
+      "default": []
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/asset"
+      },
+      "default": []
+    },
+    "policy": {
+      "$ref": "#/$defs/policy"
+    },
+    "security_review": {
+      "$ref": "#/$defs/security"
+    },
+    "prompt_preflight": {
+      "type": "object"
+    },
+    "narrative": {
+      "type": "object"
+    },
+    "visual": {
+      "type": "object"
+    },
+    "renderer_target": {
+      "type": "object"
+    },
+    "code_review": {
+      "type": "object"
+    },
+    "artifact_qa": {
+      "type": "object"
+    },
+    "release": {
+      "type": "object"
+    },
+    "authorized_approvers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "trusted_signing_keys": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string",
+          "contentEncoding": "base64",
+          "minLength": 40
+        }
+      }
+    },
+    "approvals": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/approval"
+      },
+      "default": []
+    },
+    "control_results": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/controlResult"
+      },
+      "default": []
+    },
+    "budget": {
+      "type": "object"
+    },
+    "invalidation_test": {
+      "type": "object"
+    },
+    "project_mode": {
+      "enum": [
+        "TEST_FIXTURE",
+        "PRODUCTION"
+      ]
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "verification_status"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_uri": {
+          "type": "string",
+          "minLength": 1
+        },
+        "verification_status": {
+          "enum": [
+            "VERIFIED",
+            "UNVERIFIED",
+            "STALE",
+            "CONTRADICTED"
+          ]
+        },
+        "support_location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accessed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        "source_type": {
+          "type": "string"
+        },
+        "valid_to": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        }
+      }
+    },
+    "dependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from_id",
+        "to_id"
+      ],
+      "properties": {
+        "from_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "to_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_id",
+        "path"
+      ],
+      "properties": {
+        "asset_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required": {
+          "type": "boolean",
+          "default": true
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        "rights_status": {
+          "enum": [
+            "CLEARED",
+            "RESTRICTED",
+            "PENDING",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rights_status",
+        "privacy_classification"
+      ],
+      "properties": {
+        "rights_status": {
+          "enum": [
+            "CLEARED",
+            "RESTRICTED",
+            "PENDING",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "privacy_classification": {
+          "enum": [
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "SENSITIVE",
+            "UNKNOWN"
+          ]
+        },
+        "retention_policy": {
+          "type": "string"
+        },
+        "publication_scope": {
+          "type": "string"
+        },
+        "rights_evidence_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        }
+      }
+    },
+    "security": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "untrusted_content_isolated"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "NOT_RUN",
+            "BLOCKED"
+          ]
+        },
+        "untrusted_content_isolated": {
+          "type": "boolean"
+        },
+        "evidence_ref": {
+          "type": "string"
+        },
+        "reviewed_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "approval_id",
+        "approver_id",
+        "role",
+        "decision",
+        "artifact_hashes",
+        "authority_verified",
+        "signing_key_id",
+        "created_at",
+        "signature"
+      ],
+      "properties": {
+        "approval_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approver_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "enum": [
+            "CLINICIAN",
+            "LEGAL",
+            "RIGHTS_APPROVER",
+            "BRAND_OWNER",
+            "ACCESSIBILITY_REVIEWER",
+            "RELEASE_APPROVER"
+          ]
+        },
+        "decision": {
+          "enum": [
+            "APPROVED",
+            "REJECTED",
+            "REVOKED"
+          ]
+        },
+        "artifact_hashes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^sha256:[a-fA-F0-9]{64}$"
+          },
+          "minItems": 1
+        },
+        "authority_verified": {
+          "type": "boolean"
+        },
+        "signing_key_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "signature": {
+          "type": "string",
+          "contentEncoding": "base64",
+          "minLength": 80
+        }
+      }
+    },
+    "controlResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "control_id",
+        "test_id",
+        "oracle",
+        "observed",
+        "status",
+        "executed_at",
+        "environment",
+        "evidence_hash",
+        "engine_version",
+        "subject_hash"
+      ],
+      "properties": {
+        "control_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "test_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "oracle": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observed": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "NOT_RUN",
+            "BLOCKED",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "executed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "environment": {
+          "type": "object"
+        },
+        "evidence_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        "engine_version": {
+          "type": "string"
+        },
+        "subject_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        }
+      }
+    }
+  }
+}
