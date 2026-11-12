@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.6 — exact skill inventory and validator correction (2026-11-12)
+- Corrects the numbered-module inventory and records the private package's additional executable-gate-engine operational helper as an intentional package-only divergence.
+- Removes ambiguous skill-count wording and documents that the helper is not S15.
+- Corrects SemVer, frontmatter and changelog checks to avoid escaped-regex false failures in the release validator.
+- Keeps runtime, Remotion/media QA, license/rights and human approvals separate; production release remains HOLD.
+
 ## 4.0.5 — S14 handoff and package hygiene (2026-11-12)
 - Clarifies S14 as a cross-cutting preflight for conversation context, release changes and publication evidence.
 - Adds an explicit M00 ↔ S14 handoff contract and documents the available-history coverage boundary.
