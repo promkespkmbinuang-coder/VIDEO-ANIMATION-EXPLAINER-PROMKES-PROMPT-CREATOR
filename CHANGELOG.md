@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.0.7 — validator entrypoint import fix (2026-11-12)
+- Fixes package-validator module resolution when invoked directly from the scripts directory by adding the repository root to sys.path before importing the release validator.
+- Records the V4.0.6 CI failure and requires fresh CI on the corrected head.
+- Keeps the 15 numbered GitHub modules distinct from the private package-only executable-gate-engine helper.
+
 ## 4.0.6 — exact skill inventory and validator correction (2026-11-12)
 - Corrects the numbered-module inventory and records the private package's additional executable-gate-engine operational helper as an intentional package-only divergence.
 - Removes ambiguous skill-count wording and documents that the helper is not S15.
