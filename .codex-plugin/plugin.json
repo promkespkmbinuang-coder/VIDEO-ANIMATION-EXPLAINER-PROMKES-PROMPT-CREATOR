@@ -1,19 +1,21 @@
 {
   "interface": {
     "displayName": "Video Explainer Promkes",
+    "shortDescription": "Evidence-gated promkes video",
+    "longDescription": "Sistem produksi explainer animasi promosi kesehatan berbasis bukti. Mempertahankan M00 + S01–S13, Health Truth Registry, Fact Lock, campaign strategy, screenplay, visual continuity MCG, audio intelligence, timing provenance, subtitles, renderer-neutral handoff dan QA. M00 V4 menambahkan kontrak artefak, validator JSON Schema dan semantik, 21 kontrol deterministik aktif, gate fail-closed G0–G7, provenance, invalidasi dependensi, pemeriksaan keamanan/privasi/hak, batas sumber daya, serta verifikasi tanda tangan Ed25519 yang terikat pada hash claim/artefak. Output dan status selalu dibatasi oleh bukti yang benar-benar tersedia. Engine statis tidak membuktikan validitas klinis, identitas manusia, runtime AI eksternal, render video aktual, kualitas MP4, atau persetujuan publikasi; semua tetap memerlukan bukti dan otorisasi manusia yang berwenang.",
     "shortDescription": "Evidence-gated Promkes",
     "longDescription": "Sistem produksi explainer animasi promosi kesehatan berbasis bukti. Mengatur intake, Health Truth Registry, claim ledger, narasi, visual continuity, prompt security, scene timing, manifest, renderer capability, static code checks, QA artefak, aksesibilitas, dan persetujuan rilis. Engine V4 menyediakan validator kontrak dan delapan gate bertahap yang fail-closed. Status eksekusi eksternal, render nyata, inspeksi media, kewenangan reviewer, dan persetujuan manusia tetap memerlukan bukti independen.",
     "developerName": "Promkes pkm binuang",
     "category": "Healthcare",
     "capabilities": [],
     "defaultPrompt": [
-      "Ubah poster dan caption promkes menjadi paket produksi explainer animasi dengan evidence ledger dan gate V4.",
-      "Jalankan atau minta eksekusi validator V4; laporkan status tiap gate, kontrol, bukti, blocker dan batas verifikasi.",
-      "Jangan klaim ASR, model AI, renderer, MP4 QA atau persetujuan manusia berhasil tanpa bukti eksekusi yang dapat diperiksa."
+      "Ubah poster/caption promosi kesehatan menjadi paket produksi explainer dengan evidence provenance, Fact Lock, MCG continuity, storyboard, reference prompts, audio/timing, manifest dan QA. Jangan melewati gate atau mengklaim pemeriksaan yang belum dijalankan.",
+      "Validasi project V4 menggunakan schema, semantic validator, 21 active controls dan gate G0–G7. Laporkan evidence, status PASS/FAIL/BLOCKED/NOT_RUN, batasan runtime dan approval secara terpisah."
     ]
   },
   "name": "video-animasi-explainer-promkes-prompt-creator",
   "version": "4.0.0",
+  "description": "Evidence-governed health-promotion explainer production workflow with executable validators, fail-closed gates, provenance, signed approvals, renderer-aware handoff and evidence-backed QA.",
   "description": "Health-first animated explainer production system with evidence-contract validation, fail-closed gates, provenance, prompt security, capability checks and auditable QA.",
   "author": {
     "name": "Promkes pkm binuang",
@@ -23,18 +25,22 @@
     "health promotion",
     "public health",
     "health communication",
-    "evidence contracts",
-    "claim ledger",
-    "gate engine",
-    "prompt security",
-    "continuity",
+    "evidence governance",
+    "claim provenance",
+    "JSON Schema",
+    "validator",
+    "fail-closed gates",
+    "Ed25519 approval",
     "motion graphics",
+    "video explainer",
     "audio intelligence",
-    "renderer capability",
+    "transcript verification",
+    "subtitle engineering",
+    "Remotion handoff",
     "media QA",
-    "accessibility",
     "privacy",
-    "rights governance"
+    "rights management",
+    "continuity"
   ],
   "skills": "./skills"
 }

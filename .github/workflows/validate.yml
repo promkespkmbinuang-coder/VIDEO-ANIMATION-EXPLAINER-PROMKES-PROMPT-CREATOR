@@ -24,6 +24,20 @@ jobs:
         run: python scripts/validate_package.py --summary-json build/static-validation.json
       - name: Reproducible V4 unit and adversarial tests
         run: python -m pytest -q --junitxml=build/v4-junit.xml
+      - name: Validate V4 project contracts and semantics
+        run: >-
+          python scripts/v4_gate_engine.py validate examples/v4/smoke-project.json
+          --schema-dir schemas/v4 --report build/v4-static-validation.json
+      - name: Execute every active V4 control
+        run: >-
+          python scripts/v4_gate_engine.py run-controls examples/v4/smoke-project.json
+          --report build/v4-controls.json
+          --updated-project build/v4-evidenced-project.json
+      - name: Require all pre-release gates to pass
+        run: >-
+          python scripts/v4_gate_engine.py gate build/v4-evidenced-project.json
+          --target G6_CODE_VALID --report build/v4-pre-release-gates.json
+      - name: Assert the synthetic fixture cannot pass production release
       - name: Generate candidate-control index (not execution)
         run: python scripts/generate_v4_control_candidates.py --output build/v4-control-candidates.json
       - name: Risk-triage 1,000 candidate controls (heuristic only; no test execution)
@@ -32,27 +46,32 @@ jobs:
         shell: bash
         run: |
           set +e
-          python scripts/v4_gate_engine.py evaluate --project tests/fixtures/v4/blocked-project.json --output build/v4-blocked-gate-report.json --require-release
-          rc=$?
+          python scripts/v4_gate_engine.py gate build/v4-evidenced-project.json \
+            --target G7_RELEASE_APPROVED --report build/v4-release-gate.json
+          result=$?
           set -e
-          test "$rc" -eq 1
+          test "$result" -eq 2
           python - <<'PY'
           import json
-          p=json.load(open('build/v4-blocked-gate-report.json', encoding='utf-8'))
-          assert p['policy'] == 'FAIL_CLOSED'
-          assert p['release_eligible'] is False
-          assert p['overall_status'] in {'BLOCKED','FAIL','NOT_RUN','NOT_VERIFIED'}
-          assert len(p['gates']) == 8
-          assert p['gates'][0]['status'] != 'PASS'
-          print('Blocked fixture correctly prevented release.')
+          with open('build/v4-release-gate.json', encoding='utf-8') as f:
+              report = json.load(f)
+          assert report['overall'] == 'BLOCKED'
+          assert report['gates'][-1]['status'] == 'BLOCKED'
+          assert any('TEST_FIXTURE' in reason for reason in report['gates'][-1]['reasons'])
+          print('PASS: synthetic fixture is prohibited from production release')
           PY
       - name: Upload reproducible validation evidence
         uses: actions/upload-artifact@v4
         with:
-          name: v4-validation-${{ github.sha }}
+          name: promkes-v4-evidence-${{ github.sha }}
           path: |
             build/static-validation.json
             build/v4-junit.xml
+            build/v4-static-validation.json
+            build/v4-controls.json
+            build/v4-evidenced-project.json
+            build/v4-pre-release-gates.json
+            build/v4-release-gate.json
             build/v4-control-candidates.json
             build/v4-control-risk-triage.json
             build/v4-blocked-gate-report.json
