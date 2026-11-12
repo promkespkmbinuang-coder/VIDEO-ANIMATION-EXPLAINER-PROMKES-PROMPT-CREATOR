@@ -90,7 +90,7 @@ def triage(registry:dict[str,Any])->dict[str,Any]:
   raise ValueError("controls must be objects with unique control_id values")
  enriched=[classify(row) for row in controls]
  rank={"P0":0,"P1":1,"P2":2,"P3":3}
- enriched.sort(key=lambda x:(rank[x["risk"]["priority"],-x["risk"]["score_1_to_5"],x["control_id"]))
+ enriched.sort(key=lambda x:(rank[x["risk"]["priority"]],-x["risk"]["score_1_to_5"],x["control_id"]))
  priorities=Counter(x["risk"]["priority"] for x in enriched)
  applicability=Counter(x["applicability_candidate"] for x in enriched)
  return {
