@@ -3,7 +3,7 @@ name: master-orchestrator
 description: Use when a user provides health-promotion poster, caption, script and/or voice-over and needs an evidence-controlled animated explainer production workflow, with conditional rendering and media QA when actual tools are available.
 ---
 
-# M00 — VIDEO EXPLAINER PROMKES V4.0.6 MASTER ORCHESTRATOR
+# M00 — VIDEO EXPLAINER PROMKES V4.1.0 MASTER ORCHESTRATOR
 
 ## 1. Mission
 
@@ -38,11 +38,13 @@ Do not force a long questionnaire. Use one essential clarification only when mis
 | S07 | Animation & Motion Design | Animation grammar, element states, easing, transitions and sync references |
 | S08 | AI Visual Reference Prompt Engineering | Still/reference prompts, asset IDs and reference manifest |
 | S09 | Audio Intelligence, Voice & Sound Production | Audio intake, metadata, transcript provenance, segmentation, timing, speaker labels when supported, VO direction, SRT/VTT, sound cue and audio post |
-| S10 | Composition, Renderer Integration & Render/Export | Composition, renderer capability, adapter, assembly, proof/full render, export and file checks |
+| S10 | Composition, Editing/Post-Production, Renderer Integration & Render/Export | Editorial assembly, transitions/overlays, subtitle/audio integration, renderer-neutral composition, adapter/code, proof/full render, export and file verification |
 | S11 | Social Accessibility & Distribution | Titles, captions, hashtags, alt text, subtitles notes and platform packaging |
 | S12 | Dual-Layer Quality Assurance | Independent content/reference QA and conditional actual-media QA |
 | S13 | Continuity Guardian | MCG, seven Guides, locks, scene state, versions and change impact |
 | S14 | Conversation Context & Release-Change Auditor | Conversation coverage, explicit/inferred/proposed/unknown context, release parity, change trace and publication evidence |
+
+S09 owns source-audio intelligence, transcript provenance, segmentation, timing, VO and sound-design specifications. S10 owns editorial assembly and post-production execution: timeline composition, transitions, overlays, subtitle/audio integration, mix/mastering where supported, renderer-neutral mapping, adapter/code, render and export. This is one S10 owner with distinct capability lanes, not two numbered specialists. GitHub’s `editing-postproduction` slug and the private package’s `renderer-code-engineering` slug are intentionally different labels for the same consolidated S10 responsibility; neither capability is removed.
 
 S14 is a cross-cutting release/context preflight, not an additional production-stage owner. It runs before versioned change work and at release handoff; it does not decide clinical truth, campaign strategy, visual canon or independent QA. No specialist changes another owner's authoritative data. If a specialist cannot be invoked as a separate runtime unit, M00 follows its contract logically and does not claim independent invocation. See [S14 — Conversation Context & Release-Change Audit](../conversation-release-audit/SKILL.md) and [the M00 ↔ S14 integration contract](references/s14-integration-contract.md).
 
@@ -88,7 +90,7 @@ S09 owns transcript fidelity, timing provenance, subtitle segmentation, SRT/VTT 
 
 ### Gate 8 — Composition and rendering
 
-S10 maps scenes, assets, motion, overlays, subtitles and audio to a renderer-neutral composition contract. It may implement/execute a specific adapter only when explicitly requested, supported by the exact session, authorized and technically validated. Select `native`, `programmatic`, or `handoff` route after checking runtime, dependencies, fonts, codecs, file access, permissions and export. Proof render before full render when feasible. Do not install dependencies, access remote assets or send private content externally without authorization.
+S10 edits and assembles scenes, assets, motion, overlays, subtitles and audio into a renderer-neutral composition contract; it specifies transitions, safe areas, audio mix and post-production steps before mapping the result to a target renderer. It may implement/execute a specific adapter only when explicitly requested, supported by the exact session, authorized and technically validated. Select `native`, `programmatic`, or `handoff` route after checking runtime, dependencies, fonts, codecs, file access, permissions and export. Proof render before full render when feasible. Do not install dependencies, access remote assets or send private content externally without authorization.
 
 ### Gate 9 — Independent dual QA
 
