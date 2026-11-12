@@ -1,19 +1,20 @@
 {
   "interface": {
-    "displayName": "Video Explainer Promkes V4.1.0",
+    "displayName": "Video Explainer Promkes V4.1.2",
     "shortDescription": "Evidence-gated Promkes",
-    "longDescription": "Health-first Promkes production compiler. M00 coordinates S01–S13 production specialists; S14 is a cross-cutting conversation-context and release-change auditor. Includes evidence contracts, eight fail-closed gates, 21 deterministic controls and strict package hygiene. The 1,000 candidate matrix is not 1,000 executed tests. External AI, live ChatGPT, Remotion runtime/render, media QA, rights and human approvals require separate evidence.",
+    "longDescription": "Health-first Promkes production compiler with mandatory M00/S14 conversation preflight, a bounded context register, source-parity controls, evidence contracts and fail-closed gates. Private legacy engine and GitHub candidate engine remain separate pending independent review and synchronization. 1,000 candidate definitions are not 1,000 executed tests. Host, AI, Remotion runtime/render, media QA, rights and human approval require separate evidence.",
     "developerName": "Promkes pkm binuang",
     "category": "Healthcare",
     "capabilities": [],
     "defaultPrompt": [
       "Ubah poster, infografis, caption, audio/transkrip atau naskah Promkes menjadi paket produksi explainer yang dapat ditelusuri dari sumber sampai QA.",
-      "Sebelum audit, upgrade atau publikasi versi, jalankan preflight S14 atas konteks percakapan dan release parity; pisahkan eksplisit, preferensi, inferensi, usulan, unknown dan superseded.",
-      "Jalankan hanya validator dan tes yang benar-benar tersedia; jangan klaim runtime, render, inspeksi MP4, lisensi atau persetujuan manusia tanpa bukti."
+      "Sebelum audit percakapan, upgrade, rekonsiliasi source tree, publikasi GitHub atau keputusan rilis, M00 wajib menerapkan preflight S14 dan membuat context register dengan batas cakupan yang jujur.",
+      "Pisahkan instruksi eksplisit, preferensi terkonfirmasi, inferensi, usulan, hal yang tidak diketahui dan keputusan superseded. Jangan jadikan konteks percakapan sebagai bukti klinis.",
+      "Jalankan hanya validator/tes yang benar-benar tersedia; jangan klaim runtime, render, MP4 QA, lisensi atau persetujuan manusia tanpa bukti."
     ]
   },
   "name": "video-animasi-explainer-promkes-prompt-creator",
-  "version": "4.1.0",
+  "version": "4.1.2",
   "description": "Evidence-governed health-promotion explainer production workflow with evidence contracts, fail-closed gates, conversation audit and package hygiene.",
   "author": {
     "name": "Promkes pkm binuang",

@@ -1,6 +1,6 @@
-# Video Explainer Promkes — V4.1.0
+# Video Explainer Promkes — V4.1.2
 
-**Architecture:** M00 + S01–S13 production specialists, with S14 as a cross-cutting context/release auditor. S10 unifies editing/post-production with renderer/code integration under one owner. **Production release:** HOLD pending external and human evidence.
+**Architecture:** M00 + S01–S13 production specialists, with S14 as a cross-cutting context/release auditor. The GitHub editing-postproduction and private renderer-code-engineering S10 relationship remains a proposed mapping pending owner confirmation; retain both capabilities. **Production release:** HOLD pending external and human evidence.
 
 Sistem produksi explainer animasi promosi kesehatan yang menerjemahkan poster/foto/infografis plus caption, audio/transkrip, naskah atau kombinasi sumber menjadi paket produksi yang dapat ditelusuri dari intake hingga QA.
 
@@ -53,4 +53,4 @@ Validator release memeriksa strict JSON, manifest parity, SemVer, shortDescripti
 - External AI video provider belum dipilih; clinical/legal/rights/privacy/brand/accessibility dan final human release approvals tetap NOT_VERIFIED/NOT_RUN.
 - Tidak ada LICENSE yang ditambahkan. Repository visibility PUBLIC bukan lisensi open-source atau izin redistribusi.
 
-Lihat docs/release-audit-v4.1.0.md dan docs/skill-source-parity-matrix.md untuk batas parity antar paket. Source publication, CI, host runtime, renderer/media QA, lisensi dan persetujuan manusia adalah status berbeda. **Production/public release tetap HOLD.**
+Lihat docs/conversation-context-register-v4.1.2.json, docs/release-audit-v4.1.2.md dan docs/skill-source-parity-matrix.md untuk batas parity antar paket. Source publication, CI, host runtime, renderer/media QA, lisensi dan persetujuan manusia adalah status berbeda. **Production/public release tetap HOLD.**
