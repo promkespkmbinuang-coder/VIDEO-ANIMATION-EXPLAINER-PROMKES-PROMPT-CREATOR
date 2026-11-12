@@ -1,4 +1,4 @@
-# Video Explainer Promkes — V4.0.7
+# Video Explainer Promkes — V4.0.8
 
 **Architecture:** M00 + S01–S13 production specialists, with S14 as a cross-cutting context/release auditor. **Production release:** HOLD pending external and human evidence.
 
@@ -36,9 +36,9 @@ Hash membuktikan identitas byte, bukan kebenaran, kewenangan, lisensi atau perse
 
 ```bash
 python -m pip install -r requirements-dev.txt
-python -m pytest -q
 python scripts/validate_package.py
 python scripts/validate_release_consistency.py --root .
+PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider
 ```
 
 Validator release memeriksa strict JSON, manifest parity, SemVer, shortDescription maksimal 30 karakter, 15 skill utama, S14, dokumen versi, dan larangan cache/bytecode dalam paket. Ini tetap static validation, bukan runtime.
@@ -53,4 +53,4 @@ Validator release memeriksa strict JSON, manifest parity, SemVer, shortDescripti
 - External AI video provider belum dipilih; clinical/legal/rights/privacy/brand/accessibility dan final human release approvals tetap NOT_VERIFIED/NOT_RUN.
 - Tidak ada LICENSE yang ditambahkan. Repository visibility PUBLIC bukan lisensi open-source atau izin redistribusi.
 
-Lihat docs/release-audit-v4.0.5.md. Source publication, CI, host runtime, renderer/media QA, lisensi dan persetujuan manusia adalah status berbeda. **Production/public release tetap HOLD.**
+Lihat docs/release-audit-v4.0.8.md. Source publication, CI, host runtime, renderer/media QA, lisensi dan persetujuan manusia adalah status berbeda. **Production/public release tetap HOLD.**
