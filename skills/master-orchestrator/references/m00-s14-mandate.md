@@ -1,9 +1,7 @@
-# M00 mandatory S14 entrypoint — V4.1.2
+# M00 mandatory S14 entrypoint — V4.1.4
 
-M00 must load and apply `s14-integration-contract.md` when a request includes a conversation-history audit, plugin/version update, private/public source reconciliation, GitHub publication or release-readiness decision.
+For every conversation-history audit, plugin/version update, private/public source reconciliation, GitHub publication or release-readiness decision, M00 must apply `s14-integration-contract.md` before changing versioned artifacts.
 
-The preflight must create a context register conforming to `schemas/v4/conversation-context.schema.json`; state the accessible corpus and coverage boundary; classify EXPLICIT, CONFIRMED_PREFERENCE, INFERRED, PROPOSED, UNKNOWN and SUPERSEDED; trace source/context → CTX/REQ → owner/artifact → change → dependencies → tests/evidence → release disposition; map private/GitHub source gaps; identify affected tests and stale evidence; and report private save/read-back, GitHub commit/PR/CI/merge, host invocation, external AI, Remotion, media QA, rights and human approval separately.
+The preflight must: (1) record accessible sources and coverage boundary; (2) classify EXPLICIT, CONFIRMED_PREFERENCE, INFERRED, PROPOSED, UNKNOWN and SUPERSEDED; (3) create/update a register conforming to `schemas/v4/conversation-context.schema.json`; (4) trace source/context → requirement → owner/artifact → change → dependencies → tests/evidence → release status; (5) map source-tree gaps, canonical naming ambiguity and unresolved ownership without pretending same-slug files are identical; (6) identify stale evidence and affected tests; (7) report private save/read-back, GitHub commit/PR/CI/review/merge, host, external AI, renderer, media QA, rights, license and human approval separately.
 
-Conversation context is not clinical evidence, campaign-fact verification, permission, identity or test evidence. If raw history is inaccessible, mark coverage PARTIAL_WITH_DISCLOSED_BOUNDARY; do not claim exhaustive history. If this preflight cannot be produced, mark NOT_RUN and do not imply PASS.
-
-S14 is cross-cutting and does not replace M00 orchestration, S02 health authority, S12 independent QA or authorized human approvals.
+A context register is not clinical evidence, campaign-fact verification, permission, identity or test evidence. If raw history is inaccessible, disclose PARTIAL_WITH_DISCLOSED_BOUNDARY. If preflight cannot be produced, mark NOT_RUN; do not imply PASS. S14 is cross-cutting and does not replace S02 health authority, S12 independent QA or human approvals.

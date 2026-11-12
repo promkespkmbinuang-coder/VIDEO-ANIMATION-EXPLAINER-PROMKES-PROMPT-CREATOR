@@ -1,21 +1,22 @@
 {
   "interface": {
-    "displayName": "Video Explainer Promkes V4.1.2",
+    "displayName": "Video Explainer Promkes V4.1.4",
     "shortDescription": "Evidence-gated Promkes",
-    "longDescription": "Health-first Promkes production compiler with mandatory M00/S14 conversation preflight, a bounded context register, source-parity controls, evidence contracts and fail-closed gates. Private legacy engine and GitHub candidate engine remain separate pending independent review and synchronization. 1,000 candidate definitions are not 1,000 executed tests. Host, AI, Remotion runtime/render, media QA, rights and human approval require separate evidence.",
+    "longDescription": "Health-first Promkes production compiler with mandatory M00/S14 conversation preflight, a summary-bounded context register, evidence contracts and fail-closed gates. Social distribution is optional; reach, FYP, virality and engagement are never promised. Private legacy CTRL engine remains separate from GitHub V4-CTL candidate pending independent review and controlled synchronization. Host, AI, Remotion runtime/render, media QA, rights, license and human approval require separate evidence.",
     "developerName": "Promkes pkm binuang",
     "category": "Healthcare",
     "capabilities": [],
     "defaultPrompt": [
-      "Ubah poster, infografis, caption, audio/transkrip atau naskah Promkes menjadi paket produksi explainer yang dapat ditelusuri dari sumber sampai QA.",
-      "Sebelum audit percakapan, upgrade, rekonsiliasi source tree, publikasi GitHub atau keputusan rilis, M00 wajib menerapkan preflight S14 dan membuat context register dengan batas cakupan yang jujur.",
-      "Pisahkan instruksi eksplisit, preferensi terkonfirmasi, inferensi, usulan, hal yang tidak diketahui dan keputusan superseded. Jangan jadikan konteks percakapan sebagai bukti klinis.",
-      "Jalankan hanya validator/tes yang benar-benar tersedia; jangan klaim runtime, render, MP4 QA, lisensi atau persetujuan manusia tanpa bukti."
+      "Transform supplied Promkes poster/infographic, caption, audio/transcript, script or hybrid materials into a traceable explainer production package.",
+      "Before conversation audits, version changes, source reconciliation, GitHub publication or release decisions, M00 must run S14 preflight and disclose the context coverage boundary.",
+      "Separate explicit instructions, preferences, inferences, proposals, unknowns and superseded decisions. Conversation context is not clinical evidence, permission, approval or test evidence.",
+      "Keep static design constraints and campaign facts project-scoped; social distribution is optional and must not promise reach, virality, FYP or trending.",
+      "Never claim engine parity, host runtime, AI/ASR, Remotion render, MP4 QA, licensing or human approval without matching evidence."
     ]
   },
   "name": "video-animasi-explainer-promkes-prompt-creator",
-  "version": "4.1.2",
-  "description": "Evidence-governed health-promotion explainer production workflow with evidence contracts, fail-closed gates, conversation audit and package hygiene.",
+  "version": "4.1.4",
+  "description": "Evidence-governed health-promotion explainer production workflow with conversation continuity, source traceability and fail-closed release governance.",
   "author": {
     "name": "Promkes pkm binuang",
     "email": "promkes.pkm.binuang@gmail.com"

@@ -3,7 +3,7 @@ name: master-orchestrator
 description: Use when a user provides health-promotion poster, caption, script and/or voice-over and needs an evidence-controlled animated explainer production workflow, with conditional rendering and media QA when actual tools are available.
 ---
 
-# M00 — VIDEO EXPLAINER PROMKES V4.1.2 MASTER ORCHESTRATOR
+# M00 — VIDEO EXPLAINER PROMKES V4.1.4 MASTER ORCHESTRATOR
 
 ## 1. Mission
 
@@ -23,6 +23,16 @@ Select one dominant mode; allow mixed input when sources coexist:
 - `SCRIPT_FIRST`: text-only script/transcript; do not claim audio metadata, acoustic observations or exact timing.
 
 Do not force a long questionnaire. Use one essential clarification only when missing information materially changes health safety, authority, rights, feasibility, or final format. Otherwise use labeled reversible assumptions.
+
+## 2A. Cross-conversation design and distribution boundaries
+
+When relevant, preserve these as optional, project-scoped dimensions rather than universal defaults:
+- Static infographic requests may specify 1080×1350 px, 4:5 portrait and generous top/bottom logo-safe margins. These are not video dimensions or safe-area defaults.
+- Banner dimensions such as 300×130 cm landscape, event names, dates and locations are one-off until requested again.
+- Social distribution may include titles, short/long captions, storytelling hook, key message, CTA, platform variants, hashtags and alt text. It is optional and never a mandatory renderer stage.
+- Reach, views, FYP, trending, likes, comments and shares are aspirations only. Never guarantee virality or algorithmic lift.
+- Metaphor/hyperbole are optional rhetorical style; never exaggerate clinical risk or strengthen S02 Fact Lock wording.
+- Local dialect and brand greeting require authentic examples and current brief/brand approval.
 
 ## 3. Architecture and single ownership
 

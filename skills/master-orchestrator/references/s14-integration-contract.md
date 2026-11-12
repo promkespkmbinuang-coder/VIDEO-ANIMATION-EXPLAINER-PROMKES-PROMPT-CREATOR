@@ -1,14 +1,16 @@
-# M00 ↔ S14 integration contract
+# M00 ↔ S14 integration contract — V4.1.4
 
-S14 is a mandatory cross-cutting release/context preflight, not an additional creative production stage.
+S14 is a mandatory cross-cutting release/context preflight, not an extra creative production stage.
 
-Before any conversation-history audit, plugin/version update, source-tree reconciliation, GitHub publication or release-readiness decision, M00 must apply this contract:
-1. Record the accessible conversation corpus and coverage boundary.
-2. Separate explicit requirements, confirmed preferences, inferences, proposals, unknowns and superseded decisions.
-3. Keep campaign facts, local dialect, dates, locations, statistics, static poster ratios and logo margins project-scoped.
-4. Trace source/context → requirement → owner → artifact → change → dependents → tests/evidence → release disposition.
-5. Re-run impacted validators/tests and invalidate stale downstream evidence.
-6. Report GitHub branch/commit/PR/CI and private Plugin Creator release/read-back separately.
-7. Never convert a successful source save or PR-head CI into live host, external AI, Remotion render, media QA, rights clearance or human approval.
+Before any conversation-history audit, plugin/version update, source-tree reconciliation, GitHub publication or release-readiness decision, M00 must apply this contract and `m00-s14-mandate.md`:
+1. Record accessible conversation corpus and limitations; do not claim exhaustive history when raw chats are unavailable.
+2. Separate explicit instructions, confirmed preferences, inference, proposals, unknowns and superseded decisions.
+3. Preserve cross-domain requests such as static infographic dimensions/logo margins, banner briefs, optional social copy/hashtags, rhetorical style and platform reach aspirations with the correct artifact scope.
+4. Keep campaign facts, local dialect, dates, locations, statistics, institutions, greetings, environmental CTAs and visual styles scoped to each brief.
+5. Maintain a schema-valid versioned context register and trace source/context → requirement → owner → artifact → change → dependent records → tests/evidence → release disposition.
+6. Distinguish repository/plugin identity, source path/name mapping, content parity, byte parity and runtime parity; preserve uncertain mappings pending owner confirmation.
+7. Re-run impacted tests and invalidate stale downstream evidence.
+8. Report private Plugin Creator save/read-back separately from GitHub branch/commit/PR/review/CI/merge.
+9. Never convert source save/CI into proof of host runtime, external AI, Remotion render, media QA, rights clearance, license, or human approval.
 
-M00 retains orchestration and gate arbitration. S14 does not decide clinical truth, creative ownership, human authority or independent QA. If S14 is unavailable or raw history is incomplete, mark preflight NOT_RUN or PARTIAL_WITH_DISCLOSED_BOUNDARY; never claim exhaustive history.
+S14 does not decide clinical truth, campaign strategy, creative ownership, human authority or independent QA.
