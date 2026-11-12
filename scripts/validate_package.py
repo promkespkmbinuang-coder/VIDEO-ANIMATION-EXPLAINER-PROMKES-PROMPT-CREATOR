@@ -19,6 +19,7 @@ except ImportError as exc:  # fail closed; no regex-only fallback
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+sys.dont_write_bytecode = True
 from scripts.validate_release_consistency import validate_release
 EXPECTED_SKILLS = 15
 EXPECTED_AT = 45
