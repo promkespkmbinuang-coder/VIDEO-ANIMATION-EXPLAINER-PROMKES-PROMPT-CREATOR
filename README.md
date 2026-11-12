@@ -1,4 +1,4 @@
-# Video Explainer Promkes — V4.0.6
+# Video Explainer Promkes — V4.0.7
 
 **Architecture:** M00 + S01–S13 production specialists, with S14 as a cross-cutting context/release auditor. **Production release:** HOLD pending external and human evidence.
 
