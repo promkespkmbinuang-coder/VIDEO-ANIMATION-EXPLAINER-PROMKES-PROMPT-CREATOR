@@ -39,7 +39,6 @@ jobs:
         run: >-
           python scripts/v4_gate_engine.py gate build/v4-evidenced-project.json
           --target G6_CODE_VALID --report build/v4-pre-release-gates.json
-      - name: Assert the synthetic fixture cannot pass production release
       - name: Generate candidate-control index (not execution)
         run: python scripts/generate_v4_control_candidates.py --output build/v4-control-candidates.json
       - name: Risk-triage 1,000 candidate controls (heuristic only; no test execution)
