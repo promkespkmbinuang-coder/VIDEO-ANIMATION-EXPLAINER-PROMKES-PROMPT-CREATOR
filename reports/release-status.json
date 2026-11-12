@@ -1,90 +1,66 @@
 {
   "schema_version": "1.0.0",
-  "release_candidate": "4.0.4",
+  "release_candidate": "4.1.3",
   "audit_date": "2026-11-12",
   "timezone": "Asia/Makassar",
   "conversation_coverage": {
     "status": "PARTIAL_WITH_DISCLOSED_BOUNDARY",
+    "context_records": 26,
     "sources": [
       "current conversation",
       "available prior-conversation summaries",
-      "Plugin Creator V4.0.3 and V4.0.4 read-back",
-      "GitHub main/PR/CI records"
+      "selected private Plugin Creator read-backs",
+      "GitHub repository and PR #14 read-backs"
     ],
-    "limitation": "Raw full text of every historical conversation was not available; audit covers accessible evidence, not exhaustive raw-history retrieval."
+    "limitation": "Raw full text of every historical conversation and all prior project artifacts was not available; no exhaustive history claim."
   },
   "private_plugin": {
-    "plugin_id": "plugins_6af57525bfdc8191af0a262699b6df58",
-    "name": "video-explainer-promkes-renderer-engine",
-    "previous_version": "4.0.3",
-    "previous_release_id": "pluginrel_6af5a9847a288191af10873f2d72b600",
-    "current_version": "4.0.4",
-    "current_release_id": "pluginrel_6af5b81e2dbc8191a7af92981b59f916",
-    "scope": "USER",
-    "discoverability": "PRIVATE",
-    "source_readback": "PASS",
-    "primary_skill_count": 15,
-    "missing_paths": [],
-    "size_limited_paths": []
+    "previous_version": "4.1.2",
+    "previous_release_id": "pluginrel_6af5d45a51f8819186ace7bdaea5e51d",
+    "new_overlay": "4.1.3",
+    "engine": "LEGACY_CTRL_NOT_SYNCED",
+    "private_test_status": "NOT_RUN_AFTER_OVERLAY_PENDING_READBACK_AND_EXECUTION",
+    "host_installation": "NOT_VERIFIED",
+    "live_invocation": "NOT_RUN",
+    "current_release_id": "pluginrel_6af5e443fb8c8191a6c52afacb0a05ea",
+    "readback": "VERIFIED"
   },
   "github": {
     "repository": "promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR",
-    "visibility": "public",
-    "main_merge_commit": "11e9d0c746d11934eadf8caa50aa12550b8eceaa",
-    "pr7": {
-      "number": 7,
-      "state": "closed",
-      "merged": true,
-      "merge_commit": "11e9d0c746d11934eadf8caa50aa12550b8eceaa"
-    },
-    "ci": [
-      {
-        "run_id": 43212943964,
-        "workflow": "validate-package",
-        "head_sha": "ad8013ccfe4dbfa92a91cd4751cd0c30316bca27",
-        "conclusion": "success",
-        "scope": "PR head before merge"
+    "pull_request": 14,
+    "url": "https://github.com/promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR/pull/14",
+    "branch": "release/v4.0.5-package-hygiene-s14",
+    "prior_head": "b92eb75e8be09c86e4dbd7f391a7913da163ba9e",
+    "prior_head_ci": {
+      "validate_package": {
+        "run_id": 43241911591,
+        "conclusion": "SUCCESS",
+        "pytest": "93 passed in 1.49s"
       },
-      {
-        "run_id": 43212943521,
-        "workflow": "markdown-link-check",
-        "head_sha": "ad8013ccfe4dbfa92a91cd4751cd0c30316bca27",
-        "conclusion": "success",
-        "scope": "PR head before merge"
-      }
-    ],
-    "pytest": {
-      "status": "PASS_REPORTED_IN_PR_DESCRIPTION",
-      "count": 51,
-      "scope": "PR head before merge; not main merge-commit run"
+      "markdown_link_check": {
+        "run_id": 43241911577,
+        "conclusion": "SUCCESS"
+      },
+      "valid_for_current_v4_1_3_changes": false
     },
-    "merge_commit_direct_status": "NOT_VERIFIED",
-    "source_tree_parity": "NOT_RECONCILED",
-    "remotion_adapter_in_main": "NOT_FOUND",
-    "license": "UNKNOWN_NOT_ADDED"
+    "current_v4_1_3_ci": "PENDING_NEW_EXACT_HEAD"
   },
-  "local_overlay_validation": {
-    "consistency_tests": "3 passed",
-    "schema_validation": "PASS",
-    "zip_integrity": "PASS",
-    "full_repository_suite": "NOT_RUN"
-  },
-  "chatgpt_host": {
-    "installation": "NOT_INSTALLED",
-    "live_invocation": "NOT_RUN",
-    "global_permission": "Always ask"
+  "engine_parity": {
+    "status": "PARTIAL_NOT_SYNCED",
+    "private_engine": "CTRL legacy",
+    "github_candidate": "PR #14 V4-CTL candidate with Ed25519 path and TEST_FIXTURE guard",
+    "rule": "Do not sync before independent review, authorized merge, exact-main CI and complete private retest"
   },
   "remotion": {
-    "last_install": "BLOCKED_EAI_AGAIN",
+    "npm_install": "BLOCKED_EAI_AGAIN_LAST_OBSERVED",
     "studio": "NOT_RUN",
-    "real_typecheck": "NOT_RUN",
+    "real_package_typecheck": "NOT_RUN",
     "bundle": "NOT_RUN",
     "render": "NOT_RUN",
-    "mp4_qa": "NOT_RUN",
-    "ffmpeg_smoke": "LEGACY_SEPARATE_NOT_REMOTION"
+    "mp4_qa": "NOT_RUN"
   },
-  "external_ai_video_model": {
-    "status": "NOT_SELECTED",
+  "external_ai": {
+    "provider": "NOT_SELECTED",
     "runtime": "NOT_RUN"
   },
   "human_approvals": {
@@ -94,5 +70,13 @@
     "accessibility": "NOT_RUN",
     "final_release": "NOT_VERIFIED"
   },
-  "overall_disposition": "HOLD"
+  "identity": {
+    "private_plugin_name": "video-explainer-promkes-renderer-engine",
+    "github_root_manifest_name": "video-animasi-explainer-promkes-prompt-creator",
+    "repository_slug": "VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR",
+    "canonical_name": "UNKNOWN_NEEDS_OWNER_CONFIRMATION"
+  },
+  "license": "UNKNOWN_NOT_ADDED",
+  "overall_disposition": "HOLD",
+  "release_boundary": "Private save/read-back, GitHub PR CI, host runtime, external AI, renderer/media QA, rights/license and human approval are separate evidence states."
 }

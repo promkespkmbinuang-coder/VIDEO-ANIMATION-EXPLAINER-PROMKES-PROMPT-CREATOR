@@ -77,7 +77,7 @@ def validate_release(root: Path) -> list[str]:
         required=("conversation-release-audit/skill.md","references/s14-integration-contract.md","references/m00-s14-mandate.md","before any version audit","s14")
         if any(token not in m00_text for token in required):
             errors.append("M00 must directly mandate and link S14 skill, entrypoint and handoff contracts")
-    register_path=root/"docs/conversation-context-register-v4.1.2.json"
+    register_path=root/f"docs/conversation-context-register-v{version}.json"
     if not register_path.is_file():
         errors.append("V4.1.2 conversation context register missing")
     else:
