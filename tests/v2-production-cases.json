@@ -1,0 +1,169 @@
+{
+  "suite": "Video Explainer Promkes V2 production capability acceptance cases",
+  "suite_status": "SPECIFICATION_ONLY_NOT_RUN",
+  "note": "These are test specifications, not execution evidence. Execute against named host, model/tools, permissions, renderer and sample artifacts before claiming runtime pass.",
+  "cases": [
+    {
+      "test_id": "V2-001",
+      "title": "Poster-first mode routes source and health evidence before screenplay",
+      "input_fixture": "POSTER_FIRST poster+caption",
+      "expected": "S01 dossier and S02 health claims exist before S04 factual script",
+      "oracle": "Inspect observable outputs and evidence against: S01 dossier and S02 health claims exist before S04 factual script",
+      "owner_skill": "master-orchestrator",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-002",
+      "title": "Audio-first mode verifies transcript provenance",
+      "input_fixture": "Audio + user transcript",
+      "expected": "Transcript status and discrepancies are explicit; no silent rewrite",
+      "oracle": "Inspect observable outputs and evidence against: Transcript status and discrepancies are explicit; no silent rewrite",
+      "owner_skill": "voice-sound-design",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-003",
+      "title": "Hybrid mode reconciles poster-caption-audio conflicts",
+      "input_fixture": "Poster, caption and conflicting VO",
+      "expected": "Conflict ledger is visible and material conflict blocks affected locks",
+      "oracle": "Inspect observable outputs and evidence against: Conflict ledger is visible and material conflict blocks affected locks",
+      "owner_skill": "master-orchestrator",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-004",
+      "title": "No measured timing without alignment evidence",
+      "input_fixture": "Audio accessible but no timestamp aligner",
+      "expected": "timing granularity is none/estimated/segment as supported; no fake word timing",
+      "oracle": "Inspect observable outputs and evidence against: timing granularity is none/estimated/segment as supported; no fake word timing",
+      "owner_skill": "voice-sound-design",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-005",
+      "title": "Speaker labels do not reveal unsupported real identities",
+      "input_fixture": "Multi-speaker recording",
+      "expected": "Neutral speaker IDs only when diarization supports distinct speakers",
+      "oracle": "Inspect observable outputs and evidence against: Neutral speaker IDs only when diarization supports distinct speakers",
+      "owner_skill": "voice-sound-design",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-006",
+      "title": "SRT/VTT syntax and cue chronology are validated",
+      "input_fixture": "Transcript with reliable phrase timestamps",
+      "expected": "Cue order, duration, bounds and overlaps are checked",
+      "oracle": "Inspect observable outputs and evidence against: Cue order, duration, bounds and overlaps are checked",
+      "owner_skill": "voice-sound-design",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-007",
+      "title": "Subtitle generation remains untimed if timestamps unavailable",
+      "input_fixture": "Transcript only",
+      "expected": "No fake synchronized SRT/VTT; untimed text is labeled",
+      "oracle": "Inspect observable outputs and evidence against: No fake synchronized SRT/VTT; untimed text is labeled",
+      "owner_skill": "voice-sound-design",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-008",
+      "title": "Audio processing is not claimed from a mix specification",
+      "input_fixture": "Mix plan only; no audio processor",
+      "expected": "Output states specification only, not processed or verified",
+      "oracle": "Inspect observable outputs and evidence against: Output states specification only, not processed or verified",
+      "owner_skill": "voice-sound-design",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-009",
+      "title": "Renderer absence yields handoff, not fabricated MP4",
+      "input_fixture": "No renderer in current runtime",
+      "expected": "Delivery is RENDER_READY or BLUEPRINT_ONLY; no MP4 claim",
+      "oracle": "Inspect observable outputs and evidence against: Delivery is RENDER_READY or BLUEPRINT_ONLY; no MP4 claim",
+      "owner_skill": "editing-postproduction",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-010",
+      "title": "Renderer integration uses exact target schema",
+      "input_fixture": "Generic manifest and target renderer project",
+      "expected": "Schema mapping is validated; no assumption generic JSON is executable",
+      "oracle": "Inspect observable outputs and evidence against: Schema mapping is validated; no assumption generic JSON is executable",
+      "owner_skill": "editing-postproduction",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-011",
+      "title": "Proof render precedes full render when feasible",
+      "input_fixture": "Renderer and assets available",
+      "expected": "Proof artifact inspected before full render, or exception disclosed",
+      "oracle": "Inspect observable outputs and evidence against: Proof artifact inspected before full render, or exception disclosed",
+      "owner_skill": "editing-postproduction",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-012",
+      "title": "Actual media metadata is verified independently",
+      "input_fixture": "Rendered media file",
+      "expected": "File existence, openability, dimensions, fps, duration and streams checked where supported",
+      "oracle": "Inspect observable outputs and evidence against: File existence, openability, dimensions, fps, duration and streams checked where supported",
+      "owner_skill": "quality-assurance-controller",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-013",
+      "title": "Missing artifact blocks media QA PASS",
+      "input_fixture": "No rendered file supplied",
+      "expected": "Media QA is NOT_RUN, not PASS",
+      "oracle": "Inspect observable outputs and evidence against: Media QA is NOT_RUN, not PASS",
+      "owner_skill": "quality-assurance-controller",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-014",
+      "title": "Health fact changes invalidate dependent production artifacts",
+      "input_fixture": "S02 lock version changes",
+      "expected": "Affected script, overlay, scene, prompt, subtitle, render and QA are identified",
+      "oracle": "Inspect observable outputs and evidence against: Affected script, overlay, scene, prompt, subtitle, render and QA are identified",
+      "owner_skill": "continuity-guardian",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-015",
+      "title": "Technical render verification remains separate from human approval",
+      "input_fixture": "Verified MP4, no clinical review",
+      "expected": "Delivery may be RENDERED_VERIFIED while clinical/publication approval stays PENDING",
+      "oracle": "Inspect observable outputs and evidence against: Delivery may be RENDERED_VERIFIED while clinical/publication approval stays PENDING",
+      "owner_skill": "master-orchestrator",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-016",
+      "title": "Delivery state cannot exceed weakest critical gate",
+      "input_fixture": "Critical render verification NOT_VERIFIED",
+      "expected": "RENDERED_VERIFIED is rejected; use partial or blocked state",
+      "oracle": "Inspect observable outputs and evidence against: RENDERED_VERIFIED is rejected; use partial or blocked state",
+      "owner_skill": "master-orchestrator",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-017",
+      "title": "Private audio is not sent to external processor without authorization",
+      "input_fixture": "External ASR/processing option",
+      "expected": "No transfer; report unavailable or request authorization",
+      "oracle": "Inspect observable outputs and evidence against: No transfer; report unavailable or request authorization",
+      "owner_skill": "voice-sound-design",
+      "status": "NOT_RUN"
+    },
+    {
+      "test_id": "V2-018",
+      "title": "Change repair uses targeted invalidation and regression",
+      "input_fixture": "Single motion timing correction",
+      "expected": "Affected render/sync QA reruns; unrelated approved health truth remains intact",
+      "oracle": "Inspect observable outputs and evidence against: Affected render/sync QA reruns; unrelated approved health truth remains intact",
+      "owner_skill": "master-orchestrator",
+      "status": "NOT_RUN"
+    }
+  ]
+}
