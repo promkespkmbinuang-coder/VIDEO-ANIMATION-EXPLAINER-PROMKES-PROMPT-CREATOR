@@ -1,74 +1,81 @@
 #!/usr/bin/env python3
-"""Strict cross-manifest and release-document consistency checks."""
+"""Fail-closed release consistency and package hygiene validator."""
 from __future__ import annotations
 import argparse, json, re
 from pathlib import Path
 from typing import Any
 
-class DuplicateJSONKeyError(ValueError):
-    pass
+EXPECTED = {
+"master-orchestrator","source-asset-intelligence","health-evidence-safety-auditor",
+"audience-campaign-strategy","story-screenplay-architect","visual-identity-art-direction",
+"storyboard-cinematography","animation-motion-design","prompt-reference-video-engineering",
+"voice-audio-intelligence","renderer-code-engineering","social-accessibility-distribution",
+"quality-assurance-controller","continuity-guardian","conversation-release-audit"
+}
+CACHE = {".pytest_cache","__pycache__",".mypy_cache",".ruff_cache",".venv","node_modules"}
+IGNORE = {".pytest_cache/","__pycache__/","*.py[cod]",".venv/","build/","node_modules/"}
 
-def _reject_duplicate_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
-    result: dict[str, Any] = {}
-    for key, value in pairs:
-        if key in result:
-            raise DuplicateJSONKeyError(f"duplicate JSON key: {key}")
-        result[key] = value
-    return result
+class DuplicateKey(ValueError): pass
 
-def load_strict_json(path: Path) -> dict[str, Any]:
-    try:
-        value = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=_reject_duplicate_keys)
-    except (OSError, json.JSONDecodeError, DuplicateJSONKeyError) as exc:
-        raise ValueError(f"{path}: {exc}") from exc
-    if not isinstance(value, dict):
-        raise ValueError(f"{path}: top-level JSON value must be an object")
-    return value
+def _pairs(pairs: list[tuple[str,Any]]) -> dict[str,Any]:
+    out={}
+    for k,v in pairs:
+        if k in out: raise DuplicateKey("duplicate JSON key: "+k)
+        out[k]=v
+    return out
+
+def strict_json(path: Path):
+    try: return json.loads(path.read_text(encoding="utf-8"),object_pairs_hook=_pairs)
+    except Exception as exc: raise ValueError(f"{path}: {exc}") from exc
 
 def validate_release(root: Path) -> list[str]:
-    errors: list[str] = []
+    root=root.resolve(); errors=[]
     try:
-        manifest = load_strict_json(root / "plugin.json")
-        compat = load_strict_json(root / ".codex-plugin" / "plugin.json")
-    except ValueError as exc:
-        return [str(exc)]
-    for key in ("name", "version", "description", "skills"):
-        if manifest.get(key) != compat.get(key):
-            errors.append(f"manifest parity mismatch for {key}")
-    version = manifest.get("version")
-    if not isinstance(version, str) or not re.fullmatch(r"\d+\.\d+\.\d+", version):
-        errors.append(f"invalid semantic version: {version!r}")
+        a=strict_json(root/"plugin.json"); b=strict_json(root/".codex-plugin/plugin.json")
+    except ValueError as exc: return [str(exc)]
+    for p in root.rglob("*.json"):
+        try: strict_json(p)
+        except ValueError as exc: errors.append(str(exc))
+    for k in ("name","version","description","skills","author","keywords"):
+        if a.get(k)!=b.get(k): errors.append("manifest parity mismatch: "+k)
+    version=a.get("version")
+    if not isinstance(version,str) or not re.fullmatch(r"(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)",version):
+        errors.append("invalid SemVer")
+    ia=a.get("extensions",{}).get("com.openai",{}).get("interface",{})
+    ib=b.get("interface",{})
+    for k in ("displayName","shortDescription","longDescription","developerName","category","capabilities","defaultPrompt"):
+        if ia.get(k)!=ib.get(k): errors.append("interface parity mismatch: "+k)
+    if not isinstance(ia.get("shortDescription"),str) or not 1<=len(ia["shortDescription"])<=30:
+        errors.append("shortDescription must be 1..30 characters")
+    skills=sorted((root/"skills").glob("*/SKILL.md"))
+    actual={p.parent.name for p in skills}
+    if actual!=EXPECTED: errors.append(f"skill inventory mismatch: missing={sorted(EXPECTED-actual)} extra={sorted(actual-EXPECTED)}")
+    if len(skills)!=15: errors.append(f"expected 15 skill modules, found {len(skills)}")
+    for p in skills:
+        s=p.read_text(encoding="utf-8")
+        m=re.match(r"^---\\s*\\nname:\\s*([a-z0-9-]+)\\s*\\n",s)
+        if not m or m.group(1)!=p.parent.name: errors.append("invalid skill frontmatter: "+str(p.relative_to(root)))
+    bridge=root/"skills/master-orchestrator/references/s14-integration-contract.md"
+    if not bridge.is_file(): errors.append("M00/S14 integration contract missing")
+    readme=(root/"README.md").read_text(encoding="utf-8")
+    changelog=(root/"CHANGELOG.md").read_text(encoding="utf-8")
+    if not readme.splitlines() or version not in readme.splitlines()[0]: errors.append("README title/version mismatch")
+    if not re.search(rf"^##\\s+{re.escape(version)}(?:\\s|$)",changelog,re.M): errors.append("CHANGELOG version entry missing")
+    ig=root/".gitignore"
+    if not ig.is_file(): errors.append(".gitignore missing")
     else:
-        try:
-            readme = (root / "README.md").read_text(encoding="utf-8")
-            changelog = (root / "CHANGELOG.md").read_text(encoding="utf-8")
-        except OSError as exc:
-            errors.append(str(exc))
-        else:
-            first_line = readme.splitlines()[0] if readme.splitlines() else ""
-            if version not in first_line:
-                errors.append(f"README first line does not identify release {version}")
-            if not re.search(rf"^##\s+{re.escape(version)}(?:\s|$)", changelog, re.MULTILINE):
-                errors.append(f"CHANGELOG has no top-level entry for {version}")
-    root_interface = manifest.get("extensions", {}).get("com.openai", {}).get("interface", {})
-    codex_interface = compat.get("interface", {})
-    for key in ("displayName", "shortDescription", "longDescription", "developerName", "category", "defaultPrompt"):
-        if root_interface.get(key) != codex_interface.get(key):
-            errors.append(f"interface parity mismatch for {key}")
-    if not root_interface.get("displayName"):
-        errors.append("OpenAI interface displayName is required")
+        rules={x.strip() for x in ig.read_text(encoding="utf-8").splitlines()}
+        for rule in IGNORE-rules: errors.append(".gitignore rule missing: "+rule)
+    for p in root.rglob("*"):
+        if p.is_file():
+            rel=p.relative_to(root)
+            if any(x in CACHE for x in rel.parts) or p.suffix.lower() in {".pyc",".pyo"}:
+                errors.append("cache/bytecode must not be packaged: "+str(rel))
     return errors
 
-def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--root", type=Path, default=Path.cwd())
-    args = parser.parse_args(argv)
-    errors = validate_release(args.root.resolve())
-    if errors:
-        print(json.dumps({"status":"FAIL","errors":errors},ensure_ascii=False,indent=2))
-        return 1
-    print(json.dumps({"status":"PASS","root":str(args.root.resolve())},ensure_ascii=False,indent=2))
-    return 0
-
-if __name__ == "__main__":
-    raise SystemExit(main())
+def main(argv=None):
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument("--root",type=Path,default=Path.cwd());args=ap.parse_args(argv)
+    errors=validate_release(args.root)
+    if errors: print(json.dumps({"status":"FAIL","errors":errors},indent=2));return 1
+    print(json.dumps({"status":"PASS","scope":"static package hygiene only"},indent=2));return 0
+if __name__=="__main__": raise SystemExit(main())
