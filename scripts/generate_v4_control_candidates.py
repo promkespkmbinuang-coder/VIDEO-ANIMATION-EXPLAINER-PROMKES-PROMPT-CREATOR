@@ -39,5 +39,5 @@ if __name__ == "__main__":
     Path(args.output).write_text(json.dumps({
       "registry_version":"0.1.0","model":"10x10x10 candidate enumeration",
       "execution_claim":False,"candidate_count":len(rows),"controls":rows
-    },indent=2)+"\\n",encoding="utf-8")
+    },indent=2)+"\n",encoding="utf-8")
     print(f"Wrote {len(rows)} candidate definitions; none were executed.")
