@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.0.5 — S14 handoff and package hygiene (2026-11-12)
+- Clarifies S14 as a cross-cutting preflight for conversation context, release changes and publication evidence.
+- Adds an explicit M00 ↔ S14 handoff contract and documents the available-history coverage boundary.
+- Aligns root/Codex manifests and enforces the 30-character shortDescription limit.
+- Strengthens release validation for duplicate JSON keys across the package, 15-skill inventory, manifest parity and cache/bytecode exclusion.
+- Adds .gitignore and publication hygiene checks; known cache paths are excluded from release packages.
+- Keeps main CI, independent review, live host, Remotion/media QA, license/rights and human approvals separate; production release remains HOLD.
+
 ## 4.0.4 — conversation context and release-integrity controls (2026-11-12)
 - Added S14 conversation context/release-change audit to protect requirements and preferences distributed across project conversations.
 - Added explicit, confirmed preference, inferred, proposed, unknown and superseded classifications with source-to-release traceability.
