@@ -18,6 +18,7 @@ except ImportError as exc:  # fail closed; no regex-only fallback
     raise SystemExit("PyYAML is required. Install requirements-dev.txt first.") from exc
 
 ROOT = Path(__file__).resolve().parents[1]
+from scripts.validate_release_consistency import validate_release
 EXPECTED_SKILLS = 15
 EXPECTED_AT = 45
 EXPECTED_REF = 13
@@ -133,7 +134,9 @@ def markdown_links(text: str):
         yield item.rstrip(".,;:)")
 
 
-def validate_markdown_links():
+def validate_markdown_links()
+    for release_error in validate_release(ROOT):
+        fail(release_error):
     md_files = sorted(ROOT.rglob("*.md"))
     for md in md_files:
         if any(part in {".git", "exports", "build"} for part in md.parts):
