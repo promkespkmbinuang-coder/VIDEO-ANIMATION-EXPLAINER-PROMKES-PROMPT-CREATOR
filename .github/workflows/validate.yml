@@ -25,7 +25,7 @@ jobs:
       - name: Check release manifests, duplicate JSON keys and version documents
         run: python scripts/validate_release_consistency.py --root .
       - name: Reproducible V4 unit and adversarial tests
-        run: python -m pytest -q --junitxml=build/v4-junit.xml
+        run: PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider --junitxml=build/v4-junit.xml
       - name: Validate V4 project contracts and semantics
         run: >-
           python scripts/v4_gate_engine.py validate examples/v4/smoke-project.json
@@ -75,5 +75,4 @@ jobs:
             build/v4-release-gate.json
             build/v4-control-candidates.json
             build/v4-control-risk-triage.json
-            build/v4-blocked-gate-report.json
           if-no-files-found: error
