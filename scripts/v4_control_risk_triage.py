@@ -37,6 +37,19 @@ DOMAIN_CORE_GATES = {
  "SECURITY_PRIVACY_RIGHTS":{"INTAKE","PROMPT_PREFLIGHT","RELEASE_GATE"},
  "QA_RELEASE":{"MANIFEST_LOCK","RENDER_GATE","RELEASE_GATE"}
 }
+EXECUTABLE_GATE_MAP = {
+ "INTAKE": "G0_INTAKE_OK",
+ "FACT_LOCK": "G1_FACT_LOCK",
+ "NARRATIVE_LOCK": "G2_NARRATIVE_LOCK",
+ "VISUAL_LOCK": "G3_VISUAL_LOCK",
+ "PROMPT_PREFLIGHT": "G4_PROMPT_PREFLIGHT",
+ "MOTION_LOCK": "G5_MANIFEST_VALID",
+ "MANIFEST_LOCK": "G5_MANIFEST_VALID",
+ "CODE_LOCK": "G6_CODE_VALID",
+ "RENDER_GATE": "G7_RELEASE_APPROVED",
+ "RELEASE_GATE": "G7_RELEASE_APPROVED",
+}
+
 FAMILY_CORE_GATES = {
  "SCHEMA":set(GATE_EXPOSURE),
  "PROVENANCE":{"INTAKE","FACT_LOCK","MANIFEST_LOCK","RENDER_GATE","RELEASE_GATE"},
@@ -69,6 +82,7 @@ def classify(row: dict[str,Any]) -> dict[str,Any]:
  result=dict(row)
  result.update({
   "applicability_candidate":app,
+  "executable_gate_id":EXECUTABLE_GATE_MAP[gate],
   "applicability_state":"NEEDS_PROJECT_REVIEW",
   "applicability_reason":reason,
   "risk":{"severity_1_to_5":severity,"likelihood_1_to_5":likelihood,
@@ -96,6 +110,7 @@ def triage(registry:dict[str,Any])->dict[str,Any]:
  return {
   "registry_version":"0.2.0","source_registry_version":registry.get("registry_version"),
   "model":"10x10x10 heuristic risk/applicability triage","candidate_count":len(enriched),
+  "candidate_to_executable_gate_map":EXECUTABLE_GATE_MAP,
   "execution_claim":False,"project_specific_applicability":"NOT_ASSESSED",
   "summary":{
    "priority_counts":{k:priorities.get(k,0) for k in ("P0","P1","P2","P3")},
