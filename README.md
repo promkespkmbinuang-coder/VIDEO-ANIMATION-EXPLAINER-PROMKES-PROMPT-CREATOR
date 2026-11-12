@@ -96,3 +96,10 @@ Tidak ada lisensi open-source yang diberikan pada versi ini. Publikasi repositor
 ## Package validation
 
 Validator statis V1 tetap memeriksa struktur inti M00 + S01–S13 dan 58 kasus baseline/reference. V2 menambahkan spesifikasi uji produksi di `tests/v2-production-cases.json`; kasus tersebut berstatus `SPECIFICATION_ONLY_NOT_RUN` sampai benar-benar dieksekusi. Static validation tidak membuktikan host runtime, ASR, renderer, media QA atau persetujuan manusia.
+
+
+## M00 v4.0 architecture proposal
+
+The repository now includes the **Evidence-Contract-Gated Production Compiler** specification at [docs/M00-V4.0-EVIDENCE-CONTRACT-GATED-PRODUCTION-COMPILER.md](docs/M00-V4.0-EVIDENCE-CONTRACT-GATED-PRODUCTION-COMPILER.md). It preserves M00 + S01–S13 and defines evidence contracts, state-transition gates, prompt-firewall controls, capability-based routing, human approval, change-impact invalidation and measurable QA.
+
+**Important:** this is an architecture/implementation specification, not a claim that the plugin has already implemented all V4 controls. Candidate-control generation is not test execution. Runtime AI, live ChatGPT invocation, actual Remotion render and rendered-artifact QA remain separate evidence requirements. The plugin remains private and public release remains on HOLD.
