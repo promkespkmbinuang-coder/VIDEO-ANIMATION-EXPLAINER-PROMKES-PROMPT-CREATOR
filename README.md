@@ -1,6 +1,6 @@
-# Video Explainer Promkes — V4.0.9
+# Video Explainer Promkes — V4.1.0
 
-**Architecture:** M00 + S01–S13 production specialists, with S14 as a cross-cutting context/release auditor. **Production release:** HOLD pending external and human evidence.
+**Architecture:** M00 + S01–S13 production specialists, with S14 as a cross-cutting context/release auditor. S10 unifies editing/post-production with renderer/code integration under one owner. **Production release:** HOLD pending external and human evidence.
 
 Sistem produksi explainer animasi promosi kesehatan yang menerjemahkan poster/foto/infografis plus caption, audio/transkrip, naskah atau kombinasi sumber menjadi paket produksi yang dapat ditelusuri dari intake hingga QA.
 
@@ -47,10 +47,10 @@ Validator release memeriksa strict JSON, manifest parity, SemVer, shortDescripti
 
 - PR #13 merged pada 6aa128ebaa8d561fcedf7a52f027bd2a2a931198. Review independen tidak tercatat pada pemeriksaan audit.
 - Tidak ada workflow run atau combined status yang terkonfirmasi pada merge commit PR #13; validasi main pada SHA itu NOT_VERIFIED.
-- Plugin Creator V4.0.5 adalah rilis privat terpisah; source tree dan binary assets belum sepenuhnya direkonsiliasi dengan GitHub.
+- Plugin Creator V4.0.9 adalah rilis privat terpisah; source tree dan binary assets belum sepenuhnya direkonsiliasi dengan GitHub. PR #14 carries the source reconciliation; its exact current head must pass fresh CI and independent review before merge.
 - Plugin save/read-back bukan bukti instalasi/invokasi ChatGPT.
 - Remotion install pernah BLOCKED oleh npm DNS EAI_AGAIN; Studio, bundle, render dan MP4 QA tetap NOT_RUN sampai ada bukti baru.
 - External AI video provider belum dipilih; clinical/legal/rights/privacy/brand/accessibility dan final human release approvals tetap NOT_VERIFIED/NOT_RUN.
 - Tidak ada LICENSE yang ditambahkan. Repository visibility PUBLIC bukan lisensi open-source atau izin redistribusi.
 
-Lihat docs/release-audit-v4.0.9.md dan docs/skill-source-parity-matrix.md untuk batas parity antar paket. Source publication, CI, host runtime, renderer/media QA, lisensi dan persetujuan manusia adalah status berbeda. **Production/public release tetap HOLD.**
+Lihat docs/release-audit-v4.1.0.md dan docs/skill-source-parity-matrix.md untuk batas parity antar paket. Source publication, CI, host runtime, renderer/media QA, lisensi dan persetujuan manusia adalah status berbeda. **Production/public release tetap HOLD.**
