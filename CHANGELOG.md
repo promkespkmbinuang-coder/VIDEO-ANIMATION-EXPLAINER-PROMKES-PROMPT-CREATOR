@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.8 — cache-safe validator execution (2026-11-12)
+- Prevents the package validator from generating its own Python bytecode before cache-artifact scanning.
+- Reorders documented local validation so package hygiene runs before tests and disables pytest bytecode/cache generation for reproducible checks.
+- Removes the obsolete build/v4-blocked-gate-report.json artifact path; the actual blocked-fixture report is build/v4-release-gate.json.
+- Keeps all cache and bytecode rejection controls active for files actually present in the release package.
+
 ## 4.0.7 — validator entrypoint import fix (2026-11-12)
 - Fixes package-validator module resolution when invoked directly from the scripts directory by adding the repository root to sys.path before importing the release validator.
 - Records the V4.0.6 CI failure and requires fresh CI on the corrected head.
