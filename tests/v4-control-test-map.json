@@ -1,0 +1,86 @@
+{
+  "CTRL-INTAKE-INVENTORY": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_missing_intake_blocks_all_downstream_gates"
+  ],
+  "CTRL-PRIVACY-CLASSIFICATION": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_unknown_privacy_classification_blocks_intake"
+  ],
+  "CTRL-RIGHTS-BASIS": [
+    "test_rights_not_applicable_with_rationale_can_pass",
+    "test_rights_not_applicable_requires_rationale"
+  ],
+  "CTRL-UNTRUSTED-INPUTS": [
+    "test_untrusted_input_with_matching_byte_hash_passes_control",
+    "test_untrusted_input_hash_must_match_supplied_bytes"
+  ],
+  "CTRL-CLAIM-SCHEMA": [
+    "test_verified_material_claim_validates",
+    "test_unverified_claim_cannot_publish_allowed_wording"
+  ],
+  "CTRL-SOURCE-PROVENANCE": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_source_provenance_requires_valid_snapshot_hash"
+  ],
+  "CTRL-MATERIAL-CLAIMS": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_unverified_material_claim_blocks_fact_lock"
+  ],
+  "CTRL-CLINICAL-APPROVAL": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_clinical_approval_is_required_per_claim_and_reviewer"
+  ],
+  "CTRL-NARRATIVE-TRACEABILITY": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_narrative_traceability_requires_known_claim_ids"
+  ],
+  "CTRL-SAFE-WORDING": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_narrative_must_match_allowed_wording_exactly"
+  ],
+  "CTRL-CONTINUITY-LOCKS": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_continuity_lock_needs_hash_and_evidence"
+  ],
+  "CTRL-VISUAL-REFERENCES": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_visual_reference_ids_must_resolve"
+  ],
+  "CTRL-PROMPT-INJECTION": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_prompt_injection_heuristic_blocks_known_attack_pattern"
+  ],
+  "CTRL-PROMPT-BOUNDARY": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_untrusted_prompt_payload_requires_canonical_boundary"
+  ],
+  "CTRL-SCENE-TIMING": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_scene_frame_gap_and_overlap_are_rejected"
+  ],
+  "CTRL-MANIFEST-INTEGRITY": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_manifest_hash_and_path_traversal_are_rejected"
+  ],
+  "CTRL-CAPABILITY-VERIFICATION": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_exact_renderer_capability_and_static_evidence_are_required"
+  ],
+  "CTRL-CODE-STATIC": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_exact_renderer_capability_and_static_evidence_are_required"
+  ],
+  "CTRL-ARTIFACT-QA": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_artifact_hash_is_checked_against_real_file_bytes"
+  ],
+  "CTRL-ACCESSIBILITY-QA": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_accessibility_qa_and_authorized_reviewer_evidence_required"
+  ],
+  "CTRL-RELEASE-APPROVAL": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
+    "test_release_approval_must_bind_rendered_artifact_hash"
+  ]
+}
