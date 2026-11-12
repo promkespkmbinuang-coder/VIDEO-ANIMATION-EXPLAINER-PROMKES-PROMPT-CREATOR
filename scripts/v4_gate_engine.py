@@ -187,8 +187,8 @@ def safe_relative_path(value: Any) -> bool:
         return False
     if re.match(r"^[A-Za-z]:", value) or value.startswith(("/", "~")):
         return False
-    parts = PurePosixPath(value).parts
-    return bool(parts) and all(p not in {"", ".", ".."} for p in parts)
+    raw_parts = value.split("/")
+    return bool(raw_parts) and all(part not in {"", ".", ".."} for part in raw_parts)
 
 
 def strict_json_load(path):
