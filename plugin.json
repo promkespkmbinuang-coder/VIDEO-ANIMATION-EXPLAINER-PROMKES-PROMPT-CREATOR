@@ -1,6 +1,25 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "video-animasi-explainer-promkes-prompt-creator",
+  "version": "4.0.0",
+  "description": "Health-first animated explainer production system with evidence-contract validation, fail-closed gates, provenance, prompt security, capability checks and auditable QA.",
+  "keywords": [
+    "health promotion",
+    "public health",
+    "health communication",
+    "evidence contracts",
+    "claim ledger",
+    "gate engine",
+    "prompt security",
+    "continuity",
+    "motion graphics",
+    "audio intelligence",
+    "renderer capability",
+    "media QA",
+    "accessibility",
+    "privacy",
+    "rights governance"
+  ],
   "version": "2.0.0",
   "description": "Health-first animated explainer production system: transforms posters, captions, scripts and/or voice-over into evidence-controlled creative references and, when verified tools are available, rendered and quality-checked video deliverables.",
   "keywords": ["health promotion", "public health", "health communication", "audio intelligence", "voice over", "transcript verification", "motion graphics", "subtitle engineering", "SRT", "VTT", "render export", "media QA", "visual references", "storyboard", "continuity", "production manifest"],
@@ -8,12 +27,25 @@
     "com.openai": {
       "interface": {
         "displayName": "Video Explainer Promkes",
+        "shortDescription": "Evidence-gated Promkes",
+        "longDescription": "Sistem produksi explainer animasi promosi kesehatan berbasis bukti. Mengatur intake, Health Truth Registry, claim ledger, narasi, visual continuity, prompt security, scene timing, manifest, renderer capability, static code checks, QA artefak, aksesibilitas, dan persetujuan rilis. Engine V4 menyediakan validator kontrak dan delapan gate bertahap yang fail-closed. Status eksekusi eksternal, render nyata, inspeksi media, kewenangan reviewer, dan persetujuan manusia tetap memerlukan bukti independen.",
         "shortDescription": "Health-first video production",
         "longDescription": "Sistem produksi explainer animasi promosi kesehatan berbasis poster, caption, naskah dan/atau voice-over. Menggabungkan Health Truth Registry, campaign strategy, screenplay, visual reference, MCG continuity, audio intelligence, transkrip dan timing dengan provenance, subtitle SRT/VTT, audio post, composition, renderer adapter, render/export bersyarat, project manifest terpusat, serta QA referensi dan media aktual. Menghasilkan tingkat delivery tertinggi yang benar-benar didukung runtime: blueprint, reference-ready, render-ready, atau MP4 yang sudah diverifikasi. Tidak pernah mengklaim audio diproses, aset dibuat, video dirender, atau disetujui tanpa bukti aktual.",
         "developerName": "Promkes pkm binuang",
         "category": "Healthcare",
         "capabilities": [],
         "defaultPrompt": [
+          "Ubah poster dan caption promkes menjadi paket produksi explainer animasi dengan evidence ledger dan gate V4.",
+          "Jalankan atau minta eksekusi validator V4; laporkan status tiap gate, kontrol, bukti, blocker dan batas verifikasi.",
+          "Jangan klaim ASR, model AI, renderer, MP4 QA atau persetujuan manusia berhasil tanpa bukti eksekusi yang dapat diperiksa."
+        ]
+      }
+    }
+  },
+  "author": {
+    "name": "Promkes pkm binuang",
+    "email": "promkes.pkm.binuang@gmail.com"
+  },
           "Ubah poster dan caption promosi kesehatan ini menjadi paket produksi explainer animasi yang tervalidasi, lengkap dengan storyboard, reference prompts, audio, timing, subtitle, manifest dan QA.",
           "Analisis voice-over ini, verifikasi transkrip dan timing yang dapat diukur, lalu integrasikan ke produksi explainer Promkes sampai tahap render dan verifikasi media jika runtime mendukung.",
           "Buat paket produksi Promkes end-to-end dari poster, caption dan/atau VO. Pertahankan Health Truth Registry dan MCG, gunakan audio-derived timing jika tersedia, dan laporkan status render secara jujur."

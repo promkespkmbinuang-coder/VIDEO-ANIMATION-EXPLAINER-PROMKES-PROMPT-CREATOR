@@ -18,13 +18,39 @@ jobs:
           python-version: '3.13'
           cache: pip
           cache-dependency-path: requirements-dev.txt
-      - name: Install validator dependencies
+      - name: Install validator and test dependencies
         run: python -m pip install -r requirements-dev.txt
       - name: Strict package and traceability validation
         run: python scripts/validate_package.py --summary-json build/static-validation.json
-      - name: Upload static validation evidence
+      - name: Reproducible V4 unit and adversarial tests
+        run: python -m pytest -q --junitxml=build/v4-junit.xml
+      - name: Generate candidate-control index (not execution)
+        run: python scripts/generate_v4_control_candidates.py --output build/v4-control-candidates.json
+      - name: Exercise CLI fail-closed behavior on blocked fixture
+        shell: bash
+        run: |
+          set +e
+          python scripts/v4_gate_engine.py evaluate --project tests/fixtures/v4/blocked-project.json --output build/v4-blocked-gate-report.json --require-release
+          rc=$?
+          set -e
+          test "$rc" -eq 1
+          python - <<'PY'
+          import json
+          p=json.load(open('build/v4-blocked-gate-report.json', encoding='utf-8'))
+          assert p['policy'] == 'FAIL_CLOSED'
+          assert p['release_eligible'] is False
+          assert p['overall_status'] in {'BLOCKED','FAIL','NOT_RUN','NOT_VERIFIED'}
+          assert len(p['gates']) == 8
+          assert p['gates'][0]['status'] != 'PASS'
+          print('Blocked fixture correctly prevented release.')
+          PY
+      - name: Upload reproducible validation evidence
         uses: actions/upload-artifact@v4
         with:
-          name: static-validation-${{ github.sha }}
-          path: build/static-validation.json
+          name: v4-validation-${{ github.sha }}
+          path: |
+            build/static-validation.json
+            build/v4-junit.xml
+            build/v4-control-candidates.json
+            build/v4-blocked-gate-report.json
           if-no-files-found: error
