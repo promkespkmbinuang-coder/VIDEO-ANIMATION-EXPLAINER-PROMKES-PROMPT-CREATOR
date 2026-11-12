@@ -19,9 +19,9 @@ def package(root):
         p=root/"skills"/n/"SKILL.md";p.parent.mkdir(parents=True,exist_ok=True)
         p.write_text(f"---\nname: {n}\ndescription: Valid test skill.\n---\n")
     (root/"skills/master-orchestrator/SKILL.md").write_text(
-        "---\\nname: master-orchestrator\\ndescription: M00 orchestrator.\\n---\\n"
+        "---\nname: master-orchestrator\ndescription: M00 orchestrator.\n---\n"
         "Before any version audit, apply S14. See conversation-release-audit/SKILL.md, "
-        "references/s14-integration-contract.md and references/m00-s14-mandate.md.\\n"
+        "references/s14-integration-contract.md and references/m00-s14-mandate.md.\n"
     )
     (root/"docs").mkdir(exist_ok=True)
     (root/"docs/conversation-context-register-v4.1.2.json").write_text(
@@ -53,6 +53,6 @@ def test_skill_missing_fails(tmp_path):
 def test_m00_must_directly_link_s14_entrypoint(tmp_path):
     package(tmp_path)
     (tmp_path/"skills/master-orchestrator/SKILL.md").write_text(
-        "---\\nname: master-orchestrator\\ndescription: M00.\\n---\\nBefore any version audit only.\\n"
+        "---\nname: master-orchestrator\ndescription: M00.\n---\nBefore any version audit only.\n"
     )
     assert any("M00 must directly mandate" in error for error in validate_release(tmp_path))
