@@ -30,9 +30,11 @@ S09 retains source-audio intelligence, transcript provenance, segmentation, timi
 
 ## Evidence and blockers
 
-- Private Plugin Creator baseline before this candidate: V4.0.9, release ID `pluginrel_6af5cbf28a2081918e10b62022499331`, scope USER, discoverability PRIVATE. A V4.1.0 private update must be saved and read back separately.
+- Private Plugin Creator V4.1.0 is VERIFIED by save/read-back: release ID `pluginrel_6af5cf26722081918100567dee41059c`, scope USER, discoverability PRIVATE; root/Codex manifests, README, CHANGELOG, release-audit and S10 skill file are present.
 - GitHub PR #14 is the source-publication vehicle, based on main `6aa128ebaa8d561fcedf7a52f027bd2a2a931198`; keep it Draft until fresh CI on its exact latest head is green and independent review is recorded.
 - Historical validate-package run #184 on older head `f08c201249afed417e270d695d10f7279f9d47ec` logged 31 failures / 58 passes. It is stale for the current PR head and must not be presented as current validation. Link-check #188 was successful on that older head only.
+- On PR head `8b570f7454f60373f99c525806efe2718bd50b5f`, validate-package run #223 (ID `43239351709`) and markdown-link-check run #227 (ID `43239351687`) both completed SUCCESS. Pytest: **89 passed in 1.35s**; strict package/traceability validation, schema/semantics, active controls, pre-release gate smoke, blocked-fixture CLI and evidence upload all completed successfully.
+- The immediately preceding validate run #219 on SHA `19a3de6853339acfbd89eb5057c3ebe36bd2dc37` had 88 passed / 1 failed due the coverage test still asserting an obsolete test name; the assertion was updated in the subsequent commit. Runs #223/#227 above are the latest verified pair for the pre-audit-note head; any later head requires its own fresh CI.
 - Direct push/main CI on the current main SHA remains NOT_VERIFIED unless a workflow event/ref/SHA explicitly proves it.
 - No LICENSE is added: repository visibility PUBLIC is not a license or rights grant. Publisher must decide ownership, third-party asset rights and any license before public redistribution.
 - Reviewer identity/authority, clinical/legal/rights/privacy/brand/accessibility approvals, live ChatGPT invocation, external AI/ASR/diarization/TTS, Remotion install/Studio/bundle/render, MP4 decoding/perceptual QA and final human release approval remain NOT_RUN, NOT_VERIFIED or BLOCKED.
