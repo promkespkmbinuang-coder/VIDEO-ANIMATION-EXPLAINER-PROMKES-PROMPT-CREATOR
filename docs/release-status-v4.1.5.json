@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "release_candidate": "4.1.5",
+  "audit_date": "2026-11-13",
+  "timezone": "Asia/Makassar",
+  "conversation_coverage": {
+    "status": "PARTIAL_WITH_DISCLOSED_BOUNDARY",
+    "base_context_records": 26,
+    "new_context_records": 1,
+    "effective_context_records": 27,
+    "limitation": "Raw complete text of every historical conversation and earlier project artifacts was not available."
+  },
+  "private_plugin": {
+    "plugin_id": "plugins_6af57525bfdc8191af0a262699b6df58",
+    "name": "video-explainer-promkes-renderer-engine",
+    "scope": "USER",
+    "discoverability": "PRIVATE",
+    "previous_version": "4.1.4",
+    "previous_release_id": "pluginrel_6af5e73b7bb88191909f75be1cd0de41",
+    "target_version": "4.1.5",
+    "full_private_package_tests": "NOT_RUN_AFTER_4_1_5_OVERLAY",
+    "host_installation": "NOT_VERIFIED",
+    "live_invocation": "NOT_RUN"
+  },
+  "github": {
+    "repository": "promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR",
+    "baseline_version": "4.1.4",
+    "baseline_main_sha": "8330b9e61eb37c94d38630188dce3a75721d1643",
+    "pr14": {
+      "state": "MERGED",
+      "merge_sha": "0e9c56a0246852d3a36bf1b28b8bb5078cb8bd11",
+      "reviews": "NONE_RETURNED"
+    },
+    "pr16": {
+      "state": "MERGED",
+      "merge_sha": "8330b9e61eb37c94d38630188dce3a75721d1643",
+      "reviews": "NONE_RETURNED"
+    },
+    "exact_main_ci": {
+      "validate_package": {
+        "run_id": 43258911702,
+        "conclusion": "SUCCESS",
+        "pytest": "93 passed in 1.42s"
+      },
+      "markdown_link_check": {
+        "run_id": 43258911670,
+        "conclusion": "SUCCESS"
+      }
+    },
+    "publication": "V4.1.5 branch/PR pending"
+  },
+  "acceptance": {
+    "suite": "tests/acceptance-cases.json",
+    "count": 45,
+    "status": "NOT_RUN",
+    "case_ids_source_sha": "f8bc26243bdc00c8f399425a22aa0c07f6a3eac6",
+    "rule": "Do not infer acceptance execution from pytest or active V4 controls."
+  },
+  "engine_parity": {
+    "status": "PARTIAL_NOT_SYNCED",
+    "private": "legacy 21 CTRL controls",
+    "github": "V4-CTL candidate in main",
+    "rule": "Do not sync without independent review, owner authorization and full engine/schema/test parity."
+  },
+  "remotion": {
+    "npm_install": "BLOCKED_EAI_AGAIN_LAST_OBSERVED",
+    "studio": "NOT_RUN",
+    "real_package_typecheck": "NOT_RUN",
+    "bundle": "NOT_RUN",
+    "render": "NOT_RUN",
+    "mp4_qa": "NOT_RUN"
+  },
+  "external_ai": {
+    "provider": "NOT_SELECTED",
+    "runtime": "NOT_RUN"
+  },
+  "human_approvals": {
+    "clinical": "NOT_VERIFIED",
+    "legal_privacy_rights": "NOT_VERIFIED",
+    "brand": "NOT_VERIFIED",
+    "accessibility": "NOT_RUN",
+    "final_release": "NOT_VERIFIED"
+  },
+  "identity": {
+    "private_plugin_name": "video-explainer-promkes-renderer-engine",
+    "github_root_manifest_name": "video-animasi-explainer-promkes-prompt-creator",
+    "repository_slug": "VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR",
+    "canonical_name": "UNKNOWN_NEEDS_OWNER_CONFIRMATION"
+  },
+  "license": "UNKNOWN_NOT_ADDED",
+  "overall_disposition": "HOLD"
+}
