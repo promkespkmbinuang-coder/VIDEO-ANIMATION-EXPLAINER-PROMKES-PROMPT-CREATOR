@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "video-animasi-explainer-promkes-prompt-creator",
-  "version": "4.0.6",
+  "version": "4.0.7",
   "description": "Evidence-governed health-promotion explainer production workflow with evidence contracts, fail-closed gates, conversation audit and package hygiene.",
   "keywords": [
     "health promotion",
@@ -29,7 +29,7 @@
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "Video Explainer Promkes V4.0.6",
+        "displayName": "Video Explainer Promkes V4.0.7",
         "shortDescription": "Evidence-gated Promkes",
         "longDescription": "Health-first Promkes production compiler. M00 coordinates S01–S13 production specialists; S14 is a cross-cutting conversation-context and release-change auditor. Includes evidence contracts, eight fail-closed gates, 21 deterministic controls and strict package hygiene. The 1,000 candidate matrix is not 1,000 executed tests. External AI, live ChatGPT, Remotion runtime/render, media QA, rights and human approvals require separate evidence.",
         "developerName": "Promkes pkm binuang",
