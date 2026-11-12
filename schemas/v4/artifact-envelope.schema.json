@@ -4,147 +4,32 @@
   "title": "Promkes V4 Artifact Envelope",
   "type": "object",
   "additionalProperties": false,
-  "required": [
-    "artifact_id",
-    "artifact_type",
-    "project_id",
-    "schema_id",
-    "schema_version",
-    "producer_version",
-    "created_at",
-    "status",
-    "content_hash",
-    "validator_id",
-    "validator_version",
-    "validation_result",
-    "source_refs",
-    "dependency_refs",
-    "rights_status",
-    "privacy_classification"
-  ],
+  "required": ["artifact_id", "artifact_type", "project_id", "schema_id", "schema_version", "producer_version", "created_at", "status", "content_hash", "validator_id", "validator_version", "validation_result", "source_refs", "dependency_refs", "rights_status", "privacy_classification"],
   "properties": {
-    "artifact_id": {
-      "type": "string",
-      "minLength": 1
-    },
-    "artifact_type": {
-      "type": "string",
-      "minLength": 1
-    },
-    "project_id": {
-      "type": "string",
-      "minLength": 1
-    },
-    "schema_id": {
-      "type": "string",
-      "format": "uri-reference"
-    },
-    "schema_version": {
-      "type": "string",
-      "pattern": "^\\d+\\.\\d+\\.\\d+$"
-    },
-    "producer_version": {
-      "type": "string",
-      "minLength": 1
-    },
-    "created_at": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "updated_at": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "format": "date-time"
-    },
-    "status": {
-      "enum": [
-        "NOT_STARTED",
-        "IN_PROGRESS",
-        "PASS",
-        "FAIL",
-        "PARTIAL",
-        "NOT_RUN",
-        "NOT_VERIFIED",
-        "NOT_APPLICABLE",
-        "BLOCKED",
-        "STALE",
-        "INVALIDATED"
-      ]
-    },
-    "content_hash": {
-      "type": "string",
-      "pattern": "^sha256:[a-fA-F0-9]{64}$"
-    },
-    "validator_id": {
-      "type": "string",
-      "minLength": 1
-    },
-    "validator_version": {
-      "type": "string",
-      "minLength": 1
-    },
-    "validation_result": {
-      "enum": [
-        "PASS",
-        "FAIL",
-        "PARTIAL",
-        "NOT_RUN",
-        "NOT_VERIFIED",
-        "NOT_APPLICABLE",
-        "BLOCKED"
-      ]
-    },
-    "source_refs": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "uniqueItems": true
-    },
-    "dependency_refs": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "uniqueItems": true
-    },
-    "supersedes": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "invalidated_by": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "rights_status": {
-      "enum": [
-        "CLEARED",
-        "RESTRICTED",
-        "PENDING",
-        "UNKNOWN",
-        "NOT_APPLICABLE"
-      ]
-    },
-    "privacy_classification": {
-      "enum": [
-        "PUBLIC",
-        "INTERNAL",
-        "CONFIDENTIAL",
-        "SENSITIVE",
-        "UNKNOWN"
-      ]
-    },
-    "capability_refs": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    }
-  }
+    "artifact_id": {"type": "string", "minLength": 1},
+    "artifact_type": {"type": "string", "minLength": 1},
+    "project_id": {"type": "string", "minLength": 1},
+    "schema_id": {"type": "string", "format": "uri-reference"},
+    "schema_version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "producer_version": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": ["string", "null"], "format": "date-time"},
+    "status": {"enum": ["NOT_STARTED", "IN_PROGRESS", "PASS", "FAIL", "PARTIAL", "NOT_RUN", "NOT_VERIFIED", "NOT_APPLICABLE", "BLOCKED", "STALE", "INVALIDATED"]},
+    "content_hash": {"type": "string", "pattern": "^sha256:[a-fA-F0-9]{64}$"},
+    "validator_id": {"type": "string", "minLength": 1},
+    "validator_version": {"type": "string", "minLength": 1},
+    "validation_result": {"enum": ["PASS", "FAIL", "PARTIAL", "NOT_RUN", "NOT_VERIFIED", "NOT_APPLICABLE", "BLOCKED"]},
+    "source_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "dependency_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "supersedes": {"type": ["string", "null"]},
+    "invalidated_by": {"type": ["string", "null"]},
+    "rights_status": {"enum": ["CLEARED", "RESTRICTED", "PENDING", "UNKNOWN", "NOT_APPLICABLE"]},
+    "privacy_classification": {"enum": ["PUBLIC", "INTERNAL", "CONFIDENTIAL", "SENSITIVE", "UNKNOWN"]},
+    "capability_refs": {"type": "array", "items": {"type": "string"}},
+    "asset_paths": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+  },
+  "allOf": [
+    {"if": {"properties": {"status": {"const": "PASS"}}, "required": ["status"]}, "then": {"properties": {"validation_result": {"const": "PASS"}}}},
+    {"if": {"properties": {"validation_result": {"const": "PASS"}}, "required": ["validation_result"]}, "then": {"properties": {"status": {"const": "PASS"}}}}
+  ]
 }
