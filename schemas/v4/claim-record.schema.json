@@ -6,47 +6,44 @@
   "additionalProperties": false,
   "required": ["claim_id","text","claim_type","source_ids","evidence_level","population","jurisdiction","status","allowed_wording","forbidden_wording","reviewed_by_human","reviewer_role","schema_version"],
   "properties": {
-    "claim_id":{"type":"string","minLength":1},
-    "text":{"type":"string","minLength":1},
-    "claim_type":{"enum":["PREVENTION","TREATMENT","RISK","STATISTIC","CAUSAL","TESTIMONIAL","OTHER"]},
-    "source_ids":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},
-    "evidence_level":{"enum":["PRIMARY","SECONDARY","EXPERT","UNVERIFIED"]},
-    "population":{"type":["string","null"]},
-    "jurisdiction":{"type":["string","null"]},
-    "valid_from":{"type":["string","null"],"format":"date"},
-    "valid_to":{"type":["string","null"],"format":"date"},
-    "status":{"enum":["VERIFIED","PARTIALLY_SUPPORTED","MIXED","UNVERIFIED","CONTRADICTED","UNKNOWN","STALE"]},
-    "allowed_wording":{"type":"array","items":{"type":"string"}},
-    "forbidden_wording":{"type":"array","items":{"type":"string"}},
-    "reviewed_by_human":{"type":"boolean"},
-    "reviewer_id":{"type":["string","null"]},
-    "reviewer_role":{"enum":["CLINICIAN","LEGAL","NONE"]},
-    "reviewed_at":{"type":["string","null"],"format":"date-time"},
-    "source_hashes":{"type":"array","items":{"type":"string","pattern":"^sha256:[a-fA-F0-9]{64}$"}},
-    "schema_version":{"const":"1.0.0"}
+    "claim_id": {"type":"string","minLength":1},
+    "text": {"type":"string","minLength":1},
+    "claim_type": {"enum":["PREVENTION","TREATMENT","RISK","STATISTIC","CAUSAL","TESTIMONIAL","OTHER"]},
+    "source_ids": {"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},
+    "evidence_level": {"enum":["PRIMARY","SECONDARY","EXPERT","UNVERIFIED"]},
+    "population": {"type":["string","null"]},
+    "jurisdiction": {"type":["string","null"]},
+    "valid_from": {"type":["string","null"],"format":"date"},
+    "valid_to": {"type":["string","null"],"format":"date"},
+    "status": {"enum":["VERIFIED","PARTIALLY_SUPPORTED","MIXED","UNVERIFIED","CONTRADICTED","UNKNOWN","STALE"]},
+    "allowed_wording": {"type":"array","items":{"type":"string"}},
+    "forbidden_wording": {"type":"array","items":{"type":"string"}},
+    "reviewed_by_human": {"type":"boolean"},
+    "reviewer_id": {"type":["string","null"]},
+    "reviewer_role": {"enum":["CLINICIAN","LEGAL","NONE"]},
+    "reviewed_at": {"type":["string","null"],"format":"date-time"},
+    "source_hashes": {"type":"array","items":{"type":"string","pattern":"^sha256:[a-fA-F0-9]{64}$"}},
+    "schema_version": {"const":"1.0.0"}
   },
-  "allOf":[
-    {"if":{"properties":{"reviewed_by_human":{"const":true}}},"then":{"required":["reviewer_id","reviewed_at"],"properties":{"reviewer_id":{"type":"string","minLength":1},"reviewed_at":{"type":"string","format":"date-time"},"reviewer_role":{"enum":["CLINICIAN","LEGAL"]}}}},
-    {"if":{"properties":{"status":{"enum":["UNVERIFIED","CONTRADICTED","UNKNOWN","STALE"]}}},"then":{"properties":{"allowed_wording":{"maxItems":0}}}}
   "allOf": [
     {
-      "if": {"properties": {"reviewed_by_human": {"const": true}}, "required": ["reviewed_by_human"]},
+      "if": {"properties":{"reviewed_by_human":{"const":true}},"required":["reviewed_by_human"]},
       "then": {
-        "required": ["reviewer_id", "reviewed_at"],
-        "properties": {
-          "reviewer_id": {"type": "string", "minLength": 1},
-          "reviewed_at": {"type": "string", "format": "date-time"},
-          "reviewer_role": {"const": "CLINICIAN"}
+        "required":["reviewer_id","reviewed_at"],
+        "properties":{
+          "reviewer_id":{"type":"string","minLength":1},
+          "reviewed_at":{"type":"string","format":"date-time"},
+          "reviewer_role":{"const":"CLINICIAN"}
         }
       }
     },
     {
-      "if": {"properties": {"status": {"enum": ["UNVERIFIED", "CONTRADICTED", "UNKNOWN", "STALE"]}}, "required": ["status"]},
-      "then": {"properties": {"allowed_wording": {"maxItems": 0}}}
+      "if":{"properties":{"status":{"enum":["UNVERIFIED","CONTRADICTED","UNKNOWN","STALE"]}},"required":["status"]},
+      "then":{"properties":{"allowed_wording":{"maxItems":0}}}
     },
     {
-      "if": {"properties": {"status": {"const": "VERIFIED"}}, "required": ["status"]},
-      "then": {"properties": {"evidence_level": {"not": {"const": "UNVERIFIED"}}}}
+      "if":{"properties":{"status":{"const":"VERIFIED"}},"required":["status"]},
+      "then":{"properties":{"evidence_level":{"not":{"const":"UNVERIFIED"}}}}
     }
   ]
 }
