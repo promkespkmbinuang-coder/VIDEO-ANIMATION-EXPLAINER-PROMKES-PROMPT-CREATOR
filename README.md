@@ -1,8 +1,11 @@
-# Video Explainer Promkes — V4.0.5
+# Video Explainer Promkes — V4.0.6
 
 **Architecture:** M00 + S01–S13 production specialists, with S14 as a cross-cutting context/release auditor. **Production release:** HOLD pending external and human evidence.
 
 Sistem produksi explainer animasi promosi kesehatan yang menerjemahkan poster/foto/infografis plus caption, audio/transkrip, naskah atau kombinasi sumber menjadi paket produksi yang dapat ditelusuri dari intake hingga QA.
+
+
+The private Plugin Creator package additionally carries the executable-gate-engine operational helper; this is an intentional package-only support skill and is tracked separately from the 15 numbered GitHub modules. Exact binary/source parity is not claimed.
 
 ## Cakupan produksi
 
@@ -12,7 +15,7 @@ Sistem produksi explainer animasi promosi kesehatan yang menerjemahkan poster/fo
 - Visual canon, MCG/Guides, storyboard/shot plan, still-reference prompt dan optional video prompt.
 - Motion specification, audio intelligence, transcript/timing provenance, subtitle dan post-production.
 - Renderer-neutral manifest, capability checks, adapter/handoff, artifact QA, accessibility dan release disposition.
-- S14 preflight: conversation context register, source-to-requirement trace, release parity, change impact dan publication evidence.
+- S14 cross-cutting preflight: conversation context register, source-to-requirement trace, release parity, change impact dan publication evidence.
 - Package hygiene: duplicate-key JSON rejection, manifest/version parity, skill inventory dan cache-artifact rejection.
 
 ## Pengendalian konteks percakapan
