@@ -253,8 +253,8 @@ def main():
     required_skill_names = {
         'master-orchestrator', 'source-asset-intelligence', 'health-evidence-safety-auditor',
         'audience-campaign-strategy', 'story-screenplay-architect', 'visual-identity-art-direction',
-        'storyboard-cinematography', 'animation-motion-design', 'prompt-reference-video-engineering',
-        'voice-audio-intelligence', 'renderer-code-engineering', 'social-accessibility-distribution',
+        'storyboard-cinematography', 'animation-motion-design', 'ai-video-reference-engineering',
+        'voice-sound-design', 'editing-postproduction', 'social-accessibility-distribution',
         'quality-assurance-controller', 'continuity-guardian', 'conversation-release-audit'
     }
     if names != required_skill_names:
