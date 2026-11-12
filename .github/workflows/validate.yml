@@ -38,6 +38,11 @@ jobs:
           python scripts/v4_gate_engine.py gate build/v4-evidenced-project.json
           --target G6_CODE_VALID --report build/v4-pre-release-gates.json
       - name: Assert the synthetic fixture cannot pass production release
+      - name: Generate candidate-control index (not execution)
+        run: python scripts/generate_v4_control_candidates.py --output build/v4-control-candidates.json
+      - name: Risk-triage 1,000 candidate controls (heuristic only; no test execution)
+        run: python scripts/v4_control_risk_triage.py --input build/v4-control-candidates.json --output build/v4-control-risk-triage.json
+      - name: Exercise CLI fail-closed behavior on blocked fixture
         shell: bash
         run: |
           set +e
@@ -67,4 +72,7 @@ jobs:
             build/v4-evidenced-project.json
             build/v4-pre-release-gates.json
             build/v4-release-gate.json
+            build/v4-control-candidates.json
+            build/v4-control-risk-triage.json
+            build/v4-blocked-gate-report.json
           if-no-files-found: error

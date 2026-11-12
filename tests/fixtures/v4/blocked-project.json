@@ -1,0 +1,19 @@
+{
+  "project_id": "PRJ-CI-BLOCKED-FIXTURE",
+  "intake": {
+    "inputs": [
+      {
+        "input_id": "IN-CI-01",
+        "input_type": "poster",
+        "origin": "CI synthetic fixture"
+      }
+    ]
+  },
+  "privacy_classification": "UNKNOWN",
+  "rights": {
+    "status": "UNKNOWN",
+    "evidence_refs": []
+  },
+  "untrusted_inputs": [],
+  "no_untrusted_inputs_rationale": "Synthetic fixture has no external source payload; used only to assert fail-closed behavior."
+}

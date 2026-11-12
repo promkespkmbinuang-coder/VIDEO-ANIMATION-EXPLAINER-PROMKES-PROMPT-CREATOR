@@ -30,6 +30,8 @@
         "displayName": "Video Explainer Promkes",
         "shortDescription": "Evidence-gated promkes video",
         "longDescription": "Sistem produksi explainer animasi promosi kesehatan berbasis bukti. Mempertahankan M00 + S01–S13, Health Truth Registry, Fact Lock, campaign strategy, screenplay, visual continuity MCG, audio intelligence, timing provenance, subtitles, renderer-neutral handoff dan QA. M00 V4 menambahkan kontrak artefak, validator JSON Schema dan semantik, 21 kontrol deterministik aktif, gate fail-closed G0–G7, provenance, invalidasi dependensi, pemeriksaan keamanan/privasi/hak, batas sumber daya, serta verifikasi tanda tangan Ed25519 yang terikat pada hash claim/artefak. Output dan status selalu dibatasi oleh bukti yang benar-benar tersedia. Engine statis tidak membuktikan validitas klinis, identitas manusia, runtime AI eksternal, render video aktual, kualitas MP4, atau persetujuan publikasi; semua tetap memerlukan bukti dan otorisasi manusia yang berwenang.",
+        "shortDescription": "Evidence-gated Promkes",
+        "longDescription": "Sistem produksi explainer animasi promosi kesehatan berbasis bukti. Mengatur intake, Health Truth Registry, claim ledger, narasi, visual continuity, prompt security, scene timing, manifest, renderer capability, static code checks, QA artefak, aksesibilitas, dan persetujuan rilis. Engine V4 menyediakan validator kontrak dan delapan gate bertahap yang fail-closed. Status eksekusi eksternal, render nyata, inspeksi media, kewenangan reviewer, dan persetujuan manusia tetap memerlukan bukti independen.",
         "developerName": "Promkes pkm binuang",
         "category": "Healthcare",
         "capabilities": [],

@@ -28,5 +28,25 @@
   "allOf":[
     {"if":{"properties":{"reviewed_by_human":{"const":true}}},"then":{"required":["reviewer_id","reviewed_at"],"properties":{"reviewer_id":{"type":"string","minLength":1},"reviewed_at":{"type":"string","format":"date-time"},"reviewer_role":{"enum":["CLINICIAN","LEGAL"]}}}},
     {"if":{"properties":{"status":{"enum":["UNVERIFIED","CONTRADICTED","UNKNOWN","STALE"]}}},"then":{"properties":{"allowed_wording":{"maxItems":0}}}}
+  "allOf": [
+    {
+      "if": {"properties": {"reviewed_by_human": {"const": true}}, "required": ["reviewed_by_human"]},
+      "then": {
+        "required": ["reviewer_id", "reviewed_at"],
+        "properties": {
+          "reviewer_id": {"type": "string", "minLength": 1},
+          "reviewed_at": {"type": "string", "format": "date-time"},
+          "reviewer_role": {"const": "CLINICIAN"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"status": {"enum": ["UNVERIFIED", "CONTRADICTED", "UNKNOWN", "STALE"]}}, "required": ["status"]},
+      "then": {"properties": {"allowed_wording": {"maxItems": 0}}}
+    },
+    {
+      "if": {"properties": {"status": {"const": "VERIFIED"}}, "required": ["status"]},
+      "then": {"properties": {"evidence_level": {"not": {"const": "UNVERIFIED"}}}}
+    }
   ]
 }
