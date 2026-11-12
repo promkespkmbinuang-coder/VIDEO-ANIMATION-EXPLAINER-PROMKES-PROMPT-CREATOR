@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/promkes/schemas/v4/claim-record.schema.json",
+  "title": "Promkes V4 Claim Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claim_id",
+    "text",
+    "claim_type",
+    "source_ids",
+    "evidence_level",
+    "population",
+    "jurisdiction",
+    "status",
+    "allowed_wording",
+    "forbidden_wording",
+    "reviewed_by_human",
+    "reviewer_role",
+    "schema_version"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_type": {
+      "enum": [
+        "PREVENTION",
+        "TREATMENT",
+        "RISK",
+        "STATISTIC",
+        "CAUSAL",
+        "TESTIMONIAL",
+        "OTHER"
+      ]
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "evidence_level": {
+      "enum": [
+        "PRIMARY",
+        "SECONDARY",
+        "EXPERT",
+        "UNVERIFIED"
+      ]
+    },
+    "population": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "jurisdiction": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "valid_from": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "valid_to": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "status": {
+      "enum": [
+        "VERIFIED",
+        "PARTIALLY_SUPPORTED",
+        "MIXED",
+        "UNVERIFIED",
+        "CONTRADICTED",
+        "UNKNOWN",
+        "STALE"
+      ]
+    },
+    "allowed_wording": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_wording": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reviewed_by_human": {
+      "type": "boolean"
+    },
+    "reviewer_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reviewer_role": {
+      "enum": [
+        "CLINICIAN",
+        "LEGAL",
+        "NONE"
+      ]
+    },
+    "reviewed_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "source_hashes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^sha256:[a-fA-F0-9]{64}$"
+      }
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "reviewed_by_human": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "reviewer_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reviewed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reviewer_role": {
+            "enum": [
+              "CLINICIAN",
+              "LEGAL"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "UNVERIFIED",
+              "CONTRADICTED",
+              "UNKNOWN",
+              "STALE"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "allowed_wording": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}
