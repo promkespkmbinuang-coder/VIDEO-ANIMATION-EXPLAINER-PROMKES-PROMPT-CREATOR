@@ -56,6 +56,7 @@ def verify_approval_signature(approval,trusted_keys):
     if not encoded_key: return False,"signing key is not trusted for this role"
 
 import argparse
+import copy
 import hashlib
 import html
 import json
@@ -467,7 +468,7 @@ def _evidence_refs(value: Any) -> list[str]:
 def _valid_approval(project: dict[str, Any], domain: str, role: str, hashes: set[str] | None = None, approver_ids: set[str] | None = None) -> tuple[bool, str, list[str]]:
     registry = {x.get("approver_id"): x for x in project.get("approver_registry", []) if isinstance(x, dict)}
     for approval in project.get("approvals", []):
-        if not isinstance(approval, dict) or approval.get("domain") != domain or approval.get("decision") != "APPROVED":
+        if not isinstance(approval, dict) or approval.get("status") == "INVALIDATED" or approval.get("domain") != domain or approval.get("decision") != "APPROVED":
             continue
         approver_id = approval.get("approver_id")
         if approver_ids and approver_id not in approver_ids:
@@ -958,6 +959,162 @@ def invalidation_plan(records: list[dict[str, Any]], changed_ids: list[str]) -> 
                 frontier.append(child)
     return sorted(invalidated)
 
+
+def apply_invalidation(project: dict[str, Any], changed_ids: list[str]) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Return a revised project snapshot with transitive dependents invalidated.
+
+    This function never mutates the input project. The caller must write the
+    returned snapshot to a distinct output path. Every affected artifact needs
+    a versioned artifact envelope so its status and hash can be updated.
+    """
+    if not isinstance(project, dict):
+        raise ValueError("Project input must be a JSON object")
+    graph = project.get("dependency_graph")
+    if not isinstance(graph, list):
+        raise ValueError("dependency_graph is required")
+    invalidated_ids = invalidation_plan(graph, changed_ids)
+
+    records = project.get("artifact_records")
+    if not isinstance(records, list):
+        raise ValueError("artifact_records is required to apply invalidation; use invalidation-plan for plan-only output")
+    record_ids = [x.get("artifact_id") for x in records if isinstance(x, dict)]
+    if len(record_ids) != len(records) or len(record_ids) != len(set(record_ids)):
+        raise ValueError("artifact_records must contain objects with unique artifact_id values")
+    missing = sorted(set(invalidated_ids) - set(record_ids))
+    if missing:
+        raise ValueError(f"Cannot apply invalidation; artifact envelopes are missing for: {missing}")
+
+    revised = copy.deepcopy(project)
+    record_index = {x["artifact_id"]: x for x in revised["artifact_records"]}
+    previous_hashes: set[str] = set()
+    now = utc_now()
+
+    for artifact_id in invalidated_ids:
+        record = record_index[artifact_id]
+        previous_hash = record.get("content_hash")
+        if is_sha256(previous_hash):
+            previous_hashes.add(previous_hash)
+        record["status"] = "INVALIDATED"
+        record["validation_result"] = "NOT_RUN"
+        record["invalidated_by"] = ",".join(sorted(set(changed_ids)))
+        record["updated_at"] = now
+        record["content_hash"] = content_hash(record)
+        errors = validate_record(record, "artifact-envelope")
+        if errors:
+            raise ValueError(f"Invalidated artifact envelope {artifact_id} failed schema/hash validation: {errors}")
+
+    for node in revised.get("dependency_graph", []):
+        if isinstance(node, dict) and node.get("artifact_id") in invalidated_ids:
+            node["status"] = "INVALIDATED"
+
+    invalidated_approvals = 0
+    for approval in revised.get("approvals", []):
+        if not isinstance(approval, dict) or approval.get("status") == "INVALIDATED":
+            continue
+        bound_hashes = set(approval.get("artifact_hashes", []))
+        if previous_hashes.intersection(bound_hashes):
+            approval["status"] = "INVALIDATED"
+            approval["invalidated_at"] = now
+            approval["invalidated_by_artifact_ids"] = invalidated_ids
+            invalidated_approvals += 1
+
+    event_payload = {
+        "event_type": "DEPENDENCY_INVALIDATION",
+        "project_id": revised.get("project_id"),
+        "changed_artifact_ids": sorted(set(changed_ids)),
+        "invalidated_artifact_ids": invalidated_ids,
+        "previous_artifact_hashes": sorted(previous_hashes),
+        "invalidated_approval_count": invalidated_approvals,
+        "source_project_hash": content_hash(project),
+        "engine_version": ENGINE_VERSION,
+        "created_at": now,
+    }
+    event = dict(event_payload)
+    event["event_id"] = "INV-" + content_hash(event_payload).split(":", 1)[1][:20]
+    revised.setdefault("invalidation_events", []).append(event)
+    revised["last_invalidation_event_id"] = event["event_id"]
+    return revised, event
+
+
+def _load_json(path: Path) -> Any:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _write_json(path: Path, obj: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    sub = parser.add_subparsers(dest="command", required=True)
+    for command, kind in (("validate-claim", "claim-record"), ("validate-artifact", "artifact-envelope")):
+        p = sub.add_parser(command)
+        p.add_argument("--input", required=True, type=Path)
+    p = sub.add_parser("evaluate")
+    p.add_argument("--project", required=True, type=Path)
+    p.add_argument("--output", type=Path)
+    p.add_argument("--require-release", action="store_true", help="Exit non-zero unless all eight gates PASS")
+    p = sub.add_parser("invalidation-plan")
+    p.add_argument("--project", required=True, type=Path)
+    p.add_argument("--changed", required=True, nargs="+")
+    p.add_argument("--output", type=Path)
+    p = sub.add_parser("apply-invalidation")
+    p.add_argument("--project", required=True, type=Path)
+    p.add_argument("--changed", required=True, nargs="+")
+    p.add_argument("--output", required=True, type=Path)
+    p = sub.add_parser("hash")
+    p.add_argument("--input", required=True, type=Path)
+    args = parser.parse_args(argv)
+    try:
+        if args.command in {"validate-claim", "validate-artifact"}:
+            kind = "claim-record" if args.command == "validate-claim" else "artifact-envelope"
+            record = _load_json(args.input)
+            errors = validate_record(record, kind)
+            if errors:
+                print(json.dumps({"status": "FAIL", "errors": errors}, indent=2))
+                return 1
+            print(json.dumps({"status": "PASS", "kind": kind, "engine_version": ENGINE_VERSION}, indent=2))
+            return 0
+        if args.command == "evaluate":
+            report = evaluate_project(_load_json(args.project))
+            if args.output:
+                _write_json(args.output, report)
+            print(json.dumps(report, ensure_ascii=False, indent=2))
+            return 1 if args.require_release and not report["release_eligible"] else 0
+        if args.command == "invalidation-plan":
+            project = _load_json(args.project)
+            items = project.get("dependency_graph", [])
+            plan = {"changed": args.changed, "invalidated_dependents": invalidation_plan(items, args.changed), "status": "PLAN_ONLY_NO_MUTATION"}
+            if args.output:
+                _write_json(args.output, plan)
+            print(json.dumps(plan, indent=2))
+            return 0
+        if args.command == "apply-invalidation":
+            if args.output.resolve() == args.project.resolve():
+                raise ValueError("apply-invalidation requires a new output path; the input project is never overwritten")
+            revised, event = apply_invalidation(_load_json(args.project), args.changed)
+            _write_json(args.output, revised)
+            print(json.dumps({
+                "status": "INVALIDATION_APPLIED_TO_NEW_SNAPSHOT",
+                "output": str(args.output),
+                "event": event,
+                "invalidated_artifact_count": len(event["invalidated_artifact_ids"]),
+                "invalidated_approval_count": event["invalidated_approval_count"],
+                "original_input_mutated": False,
+            }, ensure_ascii=False, indent=2))
+            return 0
+        if args.command == "hash":
+            print(content_hash(_load_json(args.input)))
+            return 0
+    except Exception as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 2
+    return 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
 CONTROL_REGISTRY=[
 ("V4-CTL-001","claim_source_integrity","Every claim source reference resolves"),
 ("V4-CTL-002","claim_fail_closed","Unverified/contradicted/unknown/stale claims cannot authorize wording"),

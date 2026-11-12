@@ -61,7 +61,7 @@ jobs:
           print('PASS: synthetic fixture is prohibited from production release')
           PY
       - name: Upload reproducible validation evidence
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: promkes-v4-evidence-${{ github.sha }}
           path: |

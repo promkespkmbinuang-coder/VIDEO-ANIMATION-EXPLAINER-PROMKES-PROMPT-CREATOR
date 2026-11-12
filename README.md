@@ -17,7 +17,7 @@ Sistem produksi explainer animasi promosi kesehatan yang memisahkan klaim faktua
 - Prompt-injection heuristic scan, frame arithmetic, manifest hash/path validation.
 - Exact renderer/provider/version capability checks and evidenced static-code checks.
 - Artifact hash checks, accessibility evidence and hash-bound release approval records.
-- Dependency DAG validation and transitive invalidation planning.
+- Dependency DAG validation, transitive invalidation planning, non-destructive invalidation application, approval invalidation and hash-bound revised snapshot output.
 - Heuristic risk/applicability triage for the 1,000 candidate matrix; no control is auto-excluded or marked executed.
 - Reproducible pytest suite and CI evidence artifacts.
 
@@ -99,6 +99,7 @@ python scripts/v4_gate_engine.py validate-claim --input claim.json
 python scripts/v4_gate_engine.py validate-artifact --input artifact-envelope.json
 python scripts/v4_gate_engine.py evaluate --project project.json --output build/gate-report.json
 python scripts/v4_gate_engine.py evaluate --project project.json --require-release
+python scripts/v4_gate_engine.py apply-invalidation --project project.json --changed SRC-001 --output build/project-invalidated.json
 python scripts/v4_gate_engine.py invalidation-plan --project project.json --changed SRC-001
 ```
 
