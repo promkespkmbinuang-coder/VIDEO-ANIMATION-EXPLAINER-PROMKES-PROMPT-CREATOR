@@ -1,9 +1,9 @@
-# Release audit snapshot — V4.0.6
+# Release audit snapshot — V4.0.7
 
 **Audit date:** 2026-11-12 (Asia/Makassar). Coverage is partial: current conversation, available prior-conversation summaries, private Plugin Creator read-back and selected GitHub source/PR evidence; raw full text of every historical conversation was not available.
 
 ## Correction
-The private Plugin Creator package contains 16 skill files: 15 numbered modules (M00 + S01–S14) plus the operational helper skill executable-gate-engine. The GitHub source tree has 15 numbered modules and does not currently contain that helper. V4.0.6 records this as an intentional package-only support-skill divergence, not S15.
+The private Plugin Creator package contains 16 skill files: 15 numbered modules (M00 + S01–S14) plus the operational helper skill executable-gate-engine. The GitHub source tree has 15 numbered modules and does not currently contain that helper. V4.0.7 records this as an intentional package-only support-skill divergence, not S15.
 
 ## Other controls
 - Strict JSON duplicate-key rejection, root/Codex manifest parity, SemVer, README/changelog and shortDescription checks.
