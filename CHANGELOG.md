@@ -1,31 +1,27 @@
 # Changelog
 
+## 4.0.4 — conversation context and release-integrity controls (2026-11-12)
+- Added S14 conversation context/release-change audit to protect requirements and preferences distributed across project conversations.
+- Added explicit, confirmed preference, inferred, proposed, unknown and superseded classifications with source-to-release traceability.
+- Added strict release consistency checks for duplicate JSON keys, root/Codex manifest parity, README release title and changelog version.
+- Reconciled stale repository state: PR #7 is merged; PR-head CI and merge-commit evidence are distinguished.
+- Kept runtime, Remotion rendering, artifact QA, rights and human approvals fail-closed; production release remains HOLD.
+
 ## 4.0.0 — executable validator and gate-engine implementation
 - Introduced strict V4 project, claim, scene, capability and artifact contracts.
-- Added executable semantic validation, 21 active deterministic controls, evidence digests and G0–G7 fail-closed transition gates.
-- Added Ed25519 cryptographic approval checks bound to canonical claim/artifact hashes and role-scoped trusted keys.
-- Added transitive dependency invalidation, asset path/content integrity, capability expiry/version checks, rights/privacy/security/resource policies.
-- Added deterministic smoke fixtures, positive/negative mutation tests, CLI reproducibility and CI artifact reports.
-- Repaired duplicate/malformed root and compatibility manifests discovered in PR #3 CI.
-- Kept 1,000 10×10×10 enumerations strictly separate from implemented/executed controls.
-- Production runtime, real Remotion/AI/ASR integrations, MP4 QA and institutional sign-off remain separate evidence requirements.
+- Added executable semantic validation, 21 active deterministic controls and G0–G7 fail-closed transition gates.
+- Added source provenance, hash-bound approval structures, dependency invalidation and security/resource policies.
+- Added synthetic fixtures, mutation tests, CLI and CI evidence reports.
+- Kept 1,000 candidates separate from implemented/executed controls.
 
 ## 2.0.0
-- Extended intake to poster-first, audio-first, hybrid and script-first production modes.
-- Expanded audio intelligence, transcript provenance, SRT/VTT, renderer handoff and dual-layer QA.
-- Preserved M00 + S01–S13 ownership, Health Truth Registry and continuity governance.
+- Extended poster-first, audio-first, hybrid and script-first workflows; expanded audio intelligence, transcript provenance, SRT/VTT and renderer handoff.
 
 ## 1.2.2
-- Removed a fixed-version assumption from the validator; it now checks semantic-version syntax and manifest parity.
-
-## 1.2.1
-- Corrected suite-aware test-schema validation for baseline AT and reference REF cases.
+- Removed fixed-version assumptions and strengthened semantic-version checks.
 
 ## 1.2.0
-- Added strict YAML frontmatter parsing, reference validation, compatibility manifests and requirement/test/owner/dependency/output traceability.
-
-## 1.1.0
-- Clarified Prompt-to-Reference boundaries and downstream renderer handoff.
+- Added strict frontmatter parsing, references, manifests and requirement/test/owner/dependency/output traceability.
 
 ## 1.0.0
-- Initial modular release M00 + S01–S13.
+- Initial modular production workflow M00 + S01–S13.

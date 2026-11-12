@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:promkes:v4:conversation-context",
+  "title": "Promkes Conversation Context Register",
+  "description": "Versioned, provenance-aware context from available project conversations; not a clinical evidence schema.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "context_id",
+    "project_id",
+    "context_version",
+    "created_at",
+    "coverage_boundary",
+    "records"
+  ],
+  "properties": {
+    "context_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "coverage_boundary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ctx_id",
+          "statement",
+          "classification",
+          "status",
+          "source_refs",
+          "scope"
+        ],
+        "properties": {
+          "ctx_id": {
+            "type": "string",
+            "pattern": "^CTX-[A-Z0-9-]+$"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "classification": {
+            "enum": [
+              "EXPLICIT",
+              "CONFIRMED_PREFERENCE",
+              "INFERRED",
+              "PROPOSED",
+              "UNKNOWN",
+              "SUPERSEDED"
+            ]
+          },
+          "status": {
+            "enum": [
+              "ACTIVE",
+              "NEEDS_CONFIRMATION",
+              "CONFLICTED",
+              "SUPERSEDED",
+              "CLOSED"
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          },
+          "confidence": {
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW",
+              "NOT_ASSESSED"
+            ]
+          },
+          "downstream_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "confirmation_required": {
+            "type": "boolean"
+          },
+          "superseded_by": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "open_decisions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

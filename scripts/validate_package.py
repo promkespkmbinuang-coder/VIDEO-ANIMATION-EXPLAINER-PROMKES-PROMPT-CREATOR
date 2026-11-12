@@ -18,7 +18,7 @@ except ImportError as exc:  # fail closed; no regex-only fallback
     raise SystemExit("PyYAML is required. Install requirements-dev.txt first.") from exc
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_SKILLS = 14
+EXPECTED_SKILLS = 15
 EXPECTED_AT = 45
 EXPECTED_REF = 13
 ERRORS: list[str] = []
@@ -229,7 +229,7 @@ def main():
     skill_dirs = sorted(p for p in (ROOT / "skills").iterdir() if p.is_dir()) if (ROOT / "skills").is_dir() else []
     skill_files = sorted((ROOT / "skills").glob("*/SKILL.md")) if (ROOT / "skills").is_dir() else []
     if len(skill_files) != EXPECTED_SKILLS:
-        fail(f"Expected {EXPECTED_SKILLS} skills (M00 + S01-S13), found {len(skill_files)}")
+        fail(f"Expected {EXPECTED_SKILLS} skills (M00 + S01-S14), found {len(skill_files)}")
     names = set()
     for skill_file in skill_files:
         fm, _ = parse_frontmatter(skill_file)
