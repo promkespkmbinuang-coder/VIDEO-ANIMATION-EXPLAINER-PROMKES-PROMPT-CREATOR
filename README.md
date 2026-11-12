@@ -1,4 +1,4 @@
-# Video Explainer Promkes — V4.0.8
+# Video Explainer Promkes — V4.0.9
 
 **Architecture:** M00 + S01–S13 production specialists, with S14 as a cross-cutting context/release auditor. **Production release:** HOLD pending external and human evidence.
 
@@ -53,4 +53,4 @@ Validator release memeriksa strict JSON, manifest parity, SemVer, shortDescripti
 - External AI video provider belum dipilih; clinical/legal/rights/privacy/brand/accessibility dan final human release approvals tetap NOT_VERIFIED/NOT_RUN.
 - Tidak ada LICENSE yang ditambahkan. Repository visibility PUBLIC bukan lisensi open-source atau izin redistribusi.
 
-Lihat docs/release-audit-v4.0.8.md dan docs/skill-source-parity-matrix.md untuk batas parity antar paket. Source publication, CI, host runtime, renderer/media QA, lisensi dan persetujuan manusia adalah status berbeda. **Production/public release tetap HOLD.**
+Lihat docs/release-audit-v4.0.9.md dan docs/skill-source-parity-matrix.md untuk batas parity antar paket. Source publication, CI, host runtime, renderer/media QA, lisensi dan persetujuan manusia adalah status berbeda. **Production/public release tetap HOLD.**
