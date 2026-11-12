@@ -25,3 +25,10 @@
 6. Declare SYNCED only after exact evidence for all prior steps. Otherwise retain PARTIAL / NOT_SYNCED.
 
 A cryptographic signature against a supplied trust map alone does not prove real-world signer identity, clinical competence or delegated institutional authority. Runtime, media, rights and human approvals remain independent gates.
+
+
+## V4.1.5 PR #18 validation update
+- PR #18 is OPEN + DRAFT; current head ad18796b45bc37d433121d3a39cb856489629aad.
+- Exact-head validation run [43266406327](https://github.com/promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR/actions/runs/43266406327) succeeded with 95 pytest passing in 2.08s; link check [43266406293](https://github.com/promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR/actions/runs/43266406293) succeeded.
+- An earlier attempt failed 1 new test (94 passed) because of a mismatched source-field name; it was corrected in the current head. Report both attempt and correction, not just the green rerun.
+- No independent review submissions for #18 were present at this snapshot. This merge CI does not synchronize or validate the private CTRL engine.

@@ -43,3 +43,12 @@ The effective register keeps the prior 26 records and adds CTX-QA-027. It preser
 | Final human release approval | NOT_VERIFIED |
 
 **Production/public media release remains HOLD.** Passing repository CI does not mean deployment, plugin installation, external generation, media QA or clinical release.
+
+
+## 7. PR #18 exact-head validation after corrective regression fix
+- PR #18 remains OPEN + DRAFT and has not been merged. Current head SHA: ad18796b45bc37d433121d3a39cb856489629aad.
+- The first test attempt identified a real test-authoring defect: source cases use field status, not specification_status; initial run was 94 passed / 1 failed. The test was corrected to read the source schema's actual field and independently verify that the ledger uses its own specification_status field.
+- Corrected exact-head validate-package run [43266406327](https://github.com/promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR/actions/runs/43266406327): SUCCESS, strict checks passed, **95 pytest passed in 2.08s**, V4 contracts and active controls passed, TEST_FIXTURE negative gate passed. The 1,000 candidate control records were generated/triaged but were not executed.
+- Corrected exact-head markdown-link-check run [43266406293](https://github.com/promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR/actions/runs/43266406293): SUCCESS.
+- The 45 GitHub acceptance scenarios remain 45/45 NOT_RUN. CI does not run those cases as acceptance scenarios. Private 20-case suite also remains NOT_RUN.
+- No independent review submissions were requested/returned for PR #18 at this snapshot. Keep Draft / do not merge until independent technical review is available.

@@ -24,3 +24,7 @@ Converts supplied Promkes poster/photo/infographic plus caption, audio/transcrip
 
 ## Release boundary
 CI does not prove private package tests, live ChatGPT invocation, external AI/ASR/TTS, actual Remotion render, MP4/media QA, clinical/legal/rights/privacy/brand/accessibility approval, licensing or final human authorization. These remain NOT_RUN / NOT_VERIFIED / BLOCKED. **Production release remains HOLD.**
+
+
+## PR #18 exact-head validation update
+- Corrected an initial acceptance-coverage test oracle mismatch (source spec uses field status); the original attempt had 94 passed / 1 failed. The corrected head ad18796b45bc37d433121d3a39cb856489629aad now passes **95 pytest tests** in run [43266406327](https://github.com/promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR/actions/runs/43266406327), and Markdown link check in run [43266406293](https://github.com/promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR/actions/runs/43266406293). This remains PR-head CI, not main CI or private-package tests.

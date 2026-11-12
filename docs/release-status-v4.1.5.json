@@ -47,14 +47,51 @@
         "conclusion": "SUCCESS"
       }
     },
-    "publication": "V4.1.5 branch/PR pending"
+    "publication": "PR #18 OPEN + DRAFT; not merged; independent review pending.",
+    "current_pr": {
+      "number": 18,
+      "url": "https://github.com/promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR/pull/18",
+      "branch": "release/v4.1.5-audit-acceptance-parity",
+      "head_sha": "ad18796b45bc37d433121d3a39cb856489629aad",
+      "state": "OPEN",
+      "draft": true,
+      "merged": false,
+      "review_status": "NO_INDEPENDENT_REVIEW_SUBMISSION_VERIFIED"
+    },
+    "exact_pr_head_ci": {
+      "validate_package": {
+        "run_id": 43266406327,
+        "conclusion": "SUCCESS",
+        "pytest": "95 passed in 2.08s",
+        "scope": "Exact PR head only; not main and not private package."
+      },
+      "markdown_link_check": {
+        "run_id": 43266406293,
+        "conclusion": "SUCCESS"
+      },
+      "initial_failed_attempt": {
+        "run_id": 43265203753,
+        "conclusion": "FAILURE",
+        "summary": "94 passed, 1 failed due to test reading source field specification_status instead of status; corrected in commit ad18796b45bc37d433121d3a39cb856489629aad."
+      }
+    }
   },
   "acceptance": {
     "suite": "tests/acceptance-cases.json",
     "count": 45,
     "status": "NOT_RUN",
     "case_ids_source_sha": "f8bc26243bdc00c8f399425a22aa0c07f6a3eac6",
-    "rule": "Do not infer acceptance execution from pytest or active V4 controls."
+    "rule": "Do not infer acceptance execution from pytest or active V4 controls.",
+    "private_suite": {
+      "case_count": 20,
+      "status": "NOT_RUN"
+    },
+    "github_suite": {
+      "case_count": 45,
+      "status": "NOT_RUN"
+    },
+    "id_namespace": "PRIVATE-AT-### / GITHUB-AT-###",
+    "aggregate_pytest_is_not_acceptance": true
   },
   "engine_parity": {
     "status": "PARTIAL_NOT_SYNCED",
