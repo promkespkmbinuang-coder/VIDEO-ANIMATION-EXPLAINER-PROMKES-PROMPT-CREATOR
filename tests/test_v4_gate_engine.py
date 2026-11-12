@@ -235,12 +235,13 @@ def approved_project(tmp_path: Path) -> dict:
         "validation_result": "PASS", "source_refs": ["SRC-0001"], "dependency_refs": ["CLM-0001"],
         "supersedes": None, "invalidated_by": None, "rights_status": "CLEARED",
         "privacy_classification": "PUBLIC", "capability_refs": ["CAP-REMOTION-01"],
-        "asset_paths": ["artifacts/sample.mp4"],
+        "content_path": "artifacts/sample.mp4",
     }
     manifest["content_hash"] = content_hash(manifest)
     return {
         "project_id": "PRJ-TEST-01", "project_root": str(tmp_path),
         "intake": {"inputs": [{"input_id": "IN-01", "input_type": "poster", "origin": "user-upload"}]},
+        "project_mode": "TEST_FIXTURE",
         "privacy_classification": "PUBLIC",
         "rights": {"status": "CLEARED", "evidence_refs": ["evidence/rights-register.json"]},
         "untrusted_inputs": [],
@@ -334,18 +335,21 @@ def test_canonical_hash_is_key_order_independent_and_nfc():
     assert content_hash({"z": "cafe\u0301", "a": [1, 2]}) == content_hash({"a": [1, 2], "z": "café"})
 
 
-def test_artifact_hash_tampering_is_detected():
+def test_artifact_schema_rejects_legacy_asset_paths():
     artifact = copy.deepcopy(approved_project(Path(__file__).parent)["manifest"])
     artifact["asset_paths"] = ["../escape.mp4"]
-    assert any("content_hash mismatch" in e for e in validate_record(artifact, "artifact-envelope"))
+    errors = validate_record(artifact, "artifact-envelope")
+    assert any("asset_paths" in error for error in errors)
 
 
-def test_all_eight_gates_pass_for_complete_synthetic_fixture(tmp_path):
+def test_synthetic_fixture_cannot_enter_release_gate(tmp_path):
     report = evaluate_project(approved_project(tmp_path))
-    assert report["release_eligible"] is True
-    assert report["overall_status"] == "PASS"
+    assert report["release_eligible"] is False
+    assert report["overall_status"] == "BLOCKED"
     assert [x["gate_id"] for x in report["gates"]] == GATE_ORDER
-    assert all(x["status"] == "PASS" for x in report["gates"])
+    assert all(x["status"] == "PASS" for x in report["gates"][:-1])
+    assert report["gates"][-1]["status"] == "BLOCKED"
+    assert "TEST_FIXTURE" in report["gates"][-1]["reason"]
 
 
 def test_missing_intake_blocks_all_downstream_gates(tmp_path):

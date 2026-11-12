@@ -6,7 +6,6 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 
 ENGINE_ID = "promkes-v4-gate-engine"
-ENGINE_VERSION = "0.1.0"
 STATUSES = {"NOT_STARTED","IN_PROGRESS","PASS","FAIL","PARTIAL","NOT_RUN","NOT_VERIFIED","NOT_APPLICABLE","BLOCKED","STALE","INVALIDATED"}
 NON_PASS = {"NOT_RUN","NOT_VERIFIED","BLOCKED","STALE","INVALIDATED","FAIL","PARTIAL"}
 GATES = ["G0_INTAKE_OK","G1_FACT_LOCK","G2_NARRATIVE_LOCK","G3_VISUAL_LOCK","G4_PROMPT_PREFLIGHT","G5_MANIFEST_VALID","G6_CODE_VALID","G7_RELEASE_APPROVED"]
@@ -22,9 +21,6 @@ GATE_CONTROLS = {
 
 class EngineError(Exception): pass
 
-def utc_now():
-    return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z")
-
 def parse_time(value):
     if not value: return None
     try:
@@ -32,15 +28,6 @@ def parse_time(value):
         return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
     except (TypeError,ValueError): return None
 
-def canonical_json_bytes(value):
-    def normalize(obj):
-        if isinstance(obj,str): return unicodedata.normalize("NFC",obj.replace("\r\n","\n").replace("\r","\n"))
-        if isinstance(obj,list): return [normalize(x) for x in obj]
-        if isinstance(obj,dict): return {normalize(str(k)):normalize(v) for k,v in obj.items()}
-        return obj
-    return json.dumps(normalize(value),sort_keys=True,ensure_ascii=False,separators=(",",":"),allow_nan=False).encode("utf-8")
-
-def sha256_bytes(data): return "sha256:"+hashlib.sha256(data).hexdigest()
 def sha256_json(value): return sha256_bytes(canonical_json_bytes(value))
 
 def approval_signature_payload(approval):
@@ -48,12 +35,30 @@ def approval_signature_payload(approval):
     return {key:approval.get(key) for key in keys}
 
 def verify_approval_signature(approval,trusted_keys):
+    """Verify a canonical Ed25519 approval payload against the caller-supplied trust map.
+
+    The trust map must come from an independently protected authority registry.
+    A key embedded in the project payload alone does not authenticate identity or role.
+    """
     try:
         from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PublicKey
-    except ImportError as exc: raise EngineError("cryptography is required for Ed25519 approval verification") from exc
+    except ImportError as exc:
+        raise EngineError("cryptography is required for Ed25519 approval verification") from exc
     role,key_id=approval.get("role"),approval.get("signing_key_id")
     encoded_key=trusted_keys.get(role,{}).get(key_id)
-    if not encoded_key: return False,"signing key is not trusted for this role"
+    if not encoded_key:
+        return False,"signing key is not trusted for this role"
+    try:
+        public_key=base64.b64decode(encoded_key,validate=True)
+        signature=base64.b64decode(approval.get("signature",""),validate=True)
+        Ed25519PublicKey.from_public_bytes(public_key).verify(
+            signature,canonical_json_bytes(approval_signature_payload(approval))
+        )
+        return True,"Ed25519 signature verified"
+    except (ValueError,binascii.Error,TypeError):
+        return False,"malformed Ed25519 key/signature"
+    except Exception as exc:
+        return False,f"Ed25519 signature verification failed ({type(exc).__name__})"
 
 import argparse
 import copy
@@ -170,18 +175,9 @@ def safe_relative_path(value: Any) -> bool:
         return False
     if re.match(r"^[A-Za-z]:", value) or value.startswith(("/", "~")):
         return False
-    parts = PurePosixPath(value).parts
-    return bool(parts) and all(p not in {"", ".", ".."} for p in parts)
+    raw_parts = value.split("/")
+    return bool(raw_parts) and all(part not in {"", ".", ".."} for part in raw_parts)
 
-
-def _schema_validator(kind: str):
-    try:
-        public_key=base64.b64decode(encoded_key,validate=True)
-        signature=base64.b64decode(approval.get("signature",""),validate=True)
-        Ed25519PublicKey.from_public_bytes(public_key).verify(signature,canonical_json_bytes(approval_signature_payload(approval)))
-        return True,"Ed25519 signature verified"
-    except (ValueError,binascii.Error,TypeError): return False,"malformed Ed25519 key/signature"
-    except Exception as exc: return False,f"Ed25519 signature verification failed ({type(exc).__name__})"
 
 def strict_json_load(path):
     def no_dupes(pairs):
@@ -216,7 +212,7 @@ def validate_record(record: dict[str, Any], kind: str) -> list[str]:
     by project validation and the sequential gates.
     """
     if not isinstance(record, dict):
-        return ["Record must be a JSON object"]
+        return ["record must be a JSON object"]
     allowed = {"project", "claim-record", "scene-record", "capability-record", "artifact-envelope"}
     if kind not in allowed:
         return [f"Unknown record schema kind: {kind}"]
@@ -236,11 +232,6 @@ def index_records(items,key):
         elif identifier in result: errors.append(issue("ID_DUPLICATE",f"Duplicate {key}: {identifier}",f"$[{i}].{key}"))
         else: result[identifier]=item
     return result,errors
-
-def safe_relative_path(raw):
-    if not isinstance(raw,str) or not raw or "\\" in raw or "\x00" in raw: return False
-    p=PurePosixPath(raw)
-    return not p.is_absolute() and all(part not in {"",".",".."} for part in raw.split("/"))
 
 def resolve_project_path(project_file,raw):
     if not safe_relative_path(raw): return None
@@ -458,11 +449,16 @@ def evaluate_gates(project,project_file,target=None,now=None):
 def compute_invalidations(project,changed_id):
     graph,errors=dependency_graph(project)
     if errors: raise EngineError("Cannot compute invalidation with invalid dependency graph: "+"; ".join(x["message"] for x in errors))
-    invalidated=set(); queue=deque(graph.get(changed_id,set()))
+    nodes=set(graph)
+    nodes.update(child for children in graph.values() for child in children)
+    if changed_id not in nodes:
+        raise EngineError(f"Unknown changed artifact: {changed_id}")
+    invalidated=set(); queue=deque(sorted(graph.get(changed_id,set())))
     while queue:
         node=queue.popleft()
         if node==changed_id or node in invalidated: continue
-        invalidated.add(node); queue.extend(graph.get(node,set()))
+        invalidated.add(node); queue.extend(sorted(graph.get(node,set())))
+    return sorted(invalidated)
 
 def _out(control_id: str, status: str, reason: str, observed: Any = None, evidence: list[str] | None = None) -> dict[str, Any]:
     return {
@@ -790,13 +786,22 @@ def _control(project: dict[str, Any], control_id: str) -> dict[str, Any]:
         if not isinstance(manifest, dict):
             return _missing(control_id, "manifest")
         errors = validate_record(manifest, "artifact-envelope")
-        paths = manifest.get("asset_paths", [])
-        unsafe = [p for p in paths if not safe_relative_path(p)]
-        if unsafe:
-            errors.append(f"unsafe asset paths: {unsafe}")
+        content_path = manifest.get("content_path")
+        if not safe_relative_path(content_path):
+            errors.append(f"unsafe or missing content_path: {content_path!r}")
+        else:
+            base = Path(project.get("project_root", ROOT)).resolve()
+            target = (base / PurePosixPath(content_path)).resolve()
+            try:
+                target.relative_to(base)
+            except ValueError:
+                errors.append(f"content_path escapes project root: {content_path}")
+            else:
+                if not target.is_file():
+                    errors.append(f"content_path does not resolve to a file: {content_path}")
         if errors:
-            return _out(control_id, "FAIL", "Manifest schema/hash/path validation failed", {"errors": errors})
-        return _out(control_id, "PASS", "Manifest contract, canonical hash and asset paths validate", {"asset_count": len(paths)}, [f"engine://{control_id}/manifest-validation"])
+            return _out(control_id, "FAIL", "Manifest schema/path validation failed", {"errors": errors})
+        return _out(control_id, "PASS", "Manifest envelope and in-root content path validate", {"content_path": content_path}, [f"engine://{control_id}/manifest-validation"])
 
     if control_id == "CTRL-CAPABILITY-VERIFICATION":
         renderer = project.get("renderer")
@@ -869,6 +874,10 @@ def evaluate_project(project: dict[str, Any]) -> dict[str, Any]:
         control_results = []
         if prior_status != "PASS":
             gate_results.append({"gate_id": gate_id, "status": "BLOCKED", "reason": f"Predecessor gate did not PASS (status={prior_status})", "controls": []})
+            prior_status = "BLOCKED"
+            continue
+        if gate_id == "G7_RELEASE_APPROVED" and project.get("project_mode") != "PRODUCTION":
+            gate_results.append({"gate_id": gate_id, "status": "BLOCKED", "reason": "TEST_FIXTURE or non-production project_mode cannot enter the production release gate", "controls": []})
             prior_status = "BLOCKED"
             continue
         for control_id in CONTROL_IDS[gate_id]:
@@ -1056,85 +1065,6 @@ def apply_invalidation(project: dict[str, Any], changed_ids: list[str]) -> tuple
     return revised, event
 
 
-def _load_json(path: Path) -> Any:
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def _write_json(path: Path, obj: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-
-
-def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
-    sub = parser.add_subparsers(dest="command", required=True)
-    for command, kind in (("validate-claim", "claim-record"), ("validate-artifact", "artifact-envelope")):
-        p = sub.add_parser(command)
-        p.add_argument("--input", required=True, type=Path)
-    p = sub.add_parser("evaluate")
-    p.add_argument("--project", required=True, type=Path)
-    p.add_argument("--output", type=Path)
-    p.add_argument("--require-release", action="store_true", help="Exit non-zero unless all eight gates PASS")
-    p = sub.add_parser("invalidation-plan")
-    p.add_argument("--project", required=True, type=Path)
-    p.add_argument("--changed", required=True, nargs="+")
-    p.add_argument("--output", type=Path)
-    p = sub.add_parser("apply-invalidation")
-    p.add_argument("--project", required=True, type=Path)
-    p.add_argument("--changed", required=True, nargs="+")
-    p.add_argument("--output", required=True, type=Path)
-    p = sub.add_parser("hash")
-    p.add_argument("--input", required=True, type=Path)
-    args = parser.parse_args(argv)
-    try:
-        if args.command in {"validate-claim", "validate-artifact"}:
-            kind = "claim-record" if args.command == "validate-claim" else "artifact-envelope"
-            record = _load_json(args.input)
-            errors = validate_record(record, kind)
-            if errors:
-                print(json.dumps({"status": "FAIL", "errors": errors}, indent=2))
-                return 1
-            print(json.dumps({"status": "PASS", "kind": kind, "engine_version": ENGINE_VERSION}, indent=2))
-            return 0
-        if args.command == "evaluate":
-            report = evaluate_project(_load_json(args.project))
-            if args.output:
-                _write_json(args.output, report)
-            print(json.dumps(report, ensure_ascii=False, indent=2))
-            return 1 if args.require_release and not report["release_eligible"] else 0
-        if args.command == "invalidation-plan":
-            project = _load_json(args.project)
-            items = project.get("dependency_graph", [])
-            plan = {"changed": args.changed, "invalidated_dependents": invalidation_plan(items, args.changed), "status": "PLAN_ONLY_NO_MUTATION"}
-            if args.output:
-                _write_json(args.output, plan)
-            print(json.dumps(plan, indent=2))
-            return 0
-        if args.command == "apply-invalidation":
-            if args.output.resolve() == args.project.resolve():
-                raise ValueError("apply-invalidation requires a new output path; the input project is never overwritten")
-            revised, event = apply_invalidation(_load_json(args.project), args.changed)
-            _write_json(args.output, revised)
-            print(json.dumps({
-                "status": "INVALIDATION_APPLIED_TO_NEW_SNAPSHOT",
-                "output": str(args.output),
-                "event": event,
-                "invalidated_artifact_count": len(event["invalidated_artifact_ids"]),
-                "invalidated_approval_count": event["invalidated_approval_count"],
-                "original_input_mutated": False,
-            }, ensure_ascii=False, indent=2))
-            return 0
-        if args.command == "hash":
-            print(content_hash(_load_json(args.input)))
-            return 0
-    except Exception as exc:
-        print(f"ERROR: {exc}", file=sys.stderr)
-        return 2
-    return 2
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
 CONTROL_REGISTRY=[
 ("V4-CTL-001","claim_source_integrity","Every claim source reference resolves"),
 ("V4-CTL-002","claim_fail_closed","Unverified/contradicted/unknown/stale claims cannot authorize wording"),
@@ -1276,6 +1206,8 @@ def main(argv=None):
     run.add_argument("project",type=Path); run.add_argument("--only",action="append",default=[]); run.add_argument("--report",type=Path); run.add_argument("--updated-project",type=Path)
     inv=sub.add_parser("invalidate",help="List transitive dependents invalidated by an upstream change")
     inv.add_argument("project",type=Path); inv.add_argument("--changed",required=True); inv.add_argument("--report",type=Path)
+    apply=sub.add_parser("apply-invalidation",help="Write a new snapshot with transitive dependents invalidated")
+    apply.add_argument("project",type=Path); apply.add_argument("--changed",required=True,nargs="+"); apply.add_argument("--output",required=True,type=Path); apply.add_argument("--report",type=Path)
     args=ap.parse_args(argv)
     try:
         pp=args.project.resolve(); project=load_project(pp)
@@ -1307,6 +1239,13 @@ def main(argv=None):
             return 0 if report["overall"]=="PASS" else 1
         if args.command=="invalidate":
             invalidated=compute_invalidations(project,args.changed); report={"changed_id":args.changed,"invalidated_ids":invalidated,"count":len(invalidated),"execution_claim":True}; write_report(report,args.report); return 0
+        if args.command=="apply-invalidation":
+            if args.output.resolve()==pp:
+                raise EngineError("apply-invalidation requires a new output path; the input project is never overwritten")
+            revised,event=apply_invalidation(project,args.changed)
+            write_report(revised,args.output)
+            write_report({"status":"INVALIDATION_APPLIED_TO_NEW_SNAPSHOT","output":str(args.output),"event":event,"original_input_mutated":False},args.report)
+            return 0
     except EngineError as exc:
         print(f"ENGINE ERROR: {exc}",file=sys.stderr); return 3
     return 3

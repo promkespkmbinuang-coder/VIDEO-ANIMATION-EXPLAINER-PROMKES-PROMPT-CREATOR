@@ -3,11 +3,20 @@ name: editing-postproduction
 description: Use when approved Promkes storyboard, assets, motion, audio and subtitles need composition, renderer integration, project assembly, conditional rendering, export or renderer-ready handoff.
 ---
 
-# S10 — Composition, Renderer Integration, Render & Export
+# S10 — Editing, Post-Production, Renderer & Code Engineering
 
 ## Mission and ownership
 
 Own the path from approved renderer-neutral scene/asset/audio/overlay specifications to a validated renderer adapter, assembled project and actual export when the exact host/runtime supports it. Preserve S02 health locks, S05/S13 visual canon, S06 shot decisions, S07 motion values and S09 audio/timing evidence. Do not claim renderer availability or export from a manifest alone.
+
+## Single-owner responsibility lanes
+
+S10 combines two complementary lanes under one owner:
+
+1. **Editing and post-production:** editorial assembly, scene sequencing, pacing, transitions, overlays, titles, captions, subtitle integration, audio mix/ducking/loudness, synchronization, color/visual finishing, mastering and export preparation where the actual tools support them.
+2. **Renderer and code engineering:** renderer-neutral composition contract, target adapter, source code, typed input mapping, project assembly, runtime checks, render orchestration and export verification.
+
+S09 remains the owner of source-audio intelligence, transcript provenance, speaker/timing analysis, VO direction and sound-design specifications. S10 owns placing/processing those approved elements in the final timeline. S11 owns accessibility/distribution requirements; S12 independently verifies results. This division prevents duplicate authority and preserves both historical S10 scopes.
 
 ## Inputs
 
@@ -26,11 +35,19 @@ Check independently: file access; code execution; renderer availability/version;
 
 Do not assume that a model-generated short clip is a deterministic multi-scene timeline renderer. Do not assume generic manifest JSON is automatically valid Remotion props or TSX.
 
+## Editorial and post-production contract
+
+Record edit decision/version, scene order, source segment IDs, in/out points, frame-accurate duration, transitions, overlays, captions, subtitles, audio cues, mix settings, loudness target (only when a standard is supplied), color treatment, graphics, safe areas and rights status. Keep supplied VO, edited VO, transcript, subtitles and final mixed audio as distinct artifacts with hashes and provenance. Do not rewrite clinically approved wording during editing. Unsupported transitions, effects, audio operations or codecs must be declared unavailable or handed off, never silently omitted.
+
 ## Composition contract
 
 Create a deterministic mapping for project dimensions, aspect ratio, fps, timebase, total duration, ordered scene ranges, source segment IDs, reference asset IDs, asset paths/status, layer roles/z-order, transforms, crop/safe areas, transitions, overlays, captions, VO/music/SFX cues and rights. Exact health text, dates, statistics, institutional names, logos and CTA remain separate editable overlays. Use the manifest as one source of truth; never duplicate conflicting timestamps.
 
 Frame conversion requires declared fps and rounding rule. Scene ranges must be contiguous or explicitly describe holds/overlaps/transitions. Every missing asset/path remains a placeholder or `MISSING`.
+
+## Renderer/code engineering lane
+
+Keep the renderer-neutral manifest separate from target-specific props and source code. Validate schema, asset IDs, path containment, exact renderer/version, dependencies, fonts, codecs, permissions and output destination before generating or executing an adapter. Mark generated code, static checks, integration, runtime, render, export and artifact inspection as separate evidence states.
 
 ## Render workflow
 

@@ -29,7 +29,7 @@ def _artifact(artifact_id: str, dependencies: list[str]) -> dict:
         "rights_status": "CLEARED",
         "privacy_classification": "PUBLIC",
         "capability_refs": [],
-        "asset_paths": [],
+        "content_path": f"artifacts/{artifact_id}.json",
     }
     row["content_hash"] = content_hash(row)
     return row

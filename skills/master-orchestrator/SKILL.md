@@ -3,7 +3,7 @@ name: master-orchestrator
 description: Use when a user provides health-promotion poster, caption, script and/or voice-over and needs an evidence-controlled animated explainer production workflow, with conditional rendering and media QA when actual tools are available.
 ---
 
-# M00 — VIDEO EXPLAINER PROMKES V4.0.4 MASTER ORCHESTRATOR
+# M00 — VIDEO EXPLAINER PROMKES V4.1.2 MASTER ORCHESTRATOR
 
 ## 1. Mission
 
@@ -38,13 +38,15 @@ Do not force a long questionnaire. Use one essential clarification only when mis
 | S07 | Animation & Motion Design | Animation grammar, element states, easing, transitions and sync references |
 | S08 | AI Visual Reference Prompt Engineering | Still/reference prompts, asset IDs and reference manifest |
 | S09 | Audio Intelligence, Voice & Sound Production | Audio intake, metadata, transcript provenance, segmentation, timing, speaker labels when supported, VO direction, SRT/VTT, sound cue and audio post |
-| S10 | Composition, Renderer Integration & Render/Export | Composition, renderer capability, adapter, assembly, proof/full render, export and file checks |
+| S10 | Composition, Editing/Post-Production, Renderer Integration & Render/Export | Proposed combined capability map; owner confirmation of scope and ownership remains required |
 | S11 | Social Accessibility & Distribution | Titles, captions, hashtags, alt text, subtitles notes and platform packaging |
 | S12 | Dual-Layer Quality Assurance | Independent content/reference QA and conditional actual-media QA |
 | S13 | Continuity Guardian | MCG, seven Guides, locks, scene state, versions and change impact |
 | S14 | Conversation Context & Release-Change Auditor | Conversation coverage, explicit/inferred/proposed/unknown context, release parity, change trace and publication evidence |
 
-S14 runs before versioned change work and at release handoff; it does not decide clinical truth, campaign strategy, visual canon or independent QA. No specialist changes another owner's authoritative data. If a specialist cannot be invoked as a separate runtime unit, M00 follows its contract logically and does not claim independent invocation. See [S14 — Conversation Context & Release-Change Audit](../conversation-release-audit/SKILL.md).
+The current source trees propose a relationship between GitHub `editing-postproduction` and private `renderer-code-engineering`, but the owner has not explicitly confirmed that they are one owner or identical responsibilities. Preserve both paths and capabilities until scope and ownership are confirmed. A possible division is source-audio intelligence/transcript provenance in S09 and assembly/render/export capabilities in S10, with S11 accessibility/distribution and S12 independent QA; record this as a proposed architecture, not an approved consolidation.
+
+S14 is a cross-cutting release/context preflight, not an additional production-stage owner. It runs before versioned change work and at release handoff; it does not decide clinical truth, campaign strategy, visual canon or independent QA. No specialist changes another owner's authoritative data. If a specialist cannot be invoked as a separate runtime unit, M00 follows its contract logically and does not claim independent invocation. See [S14 — Conversation Context & Release-Change Audit](../conversation-release-audit/SKILL.md) and [the mandatory M00/S14 entrypoint contract](references/m00-s14-mandate.md) and [the M00 ↔ S14 integration contract](references/s14-integration-contract.md).
 
 ## 4. Shared project state
 
@@ -88,7 +90,7 @@ S09 owns transcript fidelity, timing provenance, subtitle segmentation, SRT/VTT 
 
 ### Gate 8 — Composition and rendering
 
-S10 maps scenes, assets, motion, overlays, subtitles and audio to a renderer-neutral composition contract. It may implement/execute a specific adapter only when explicitly requested, supported by the exact session, authorized and technically validated. Select `native`, `programmatic`, or `handoff` route after checking runtime, dependencies, fonts, codecs, file access, permissions and export. Proof render before full render when feasible. Do not install dependencies, access remote assets or send private content externally without authorization.
+S10 edits and assembles scenes, assets, motion, overlays, subtitles and audio into a renderer-neutral composition contract; it specifies transitions, safe areas, audio mix and post-production steps before mapping the result to a target renderer. It may implement/execute a specific adapter only when explicitly requested, supported by the exact session, authorized and technically validated. Select `native`, `programmatic`, or `handoff` route after checking runtime, dependencies, fonts, codecs, file access, permissions and export. Proof render before full render when feasible. Do not install dependencies, access remote assets or send private content externally without authorization.
 
 ### Gate 9 — Independent dual QA
 
@@ -145,3 +147,14 @@ Keep separate `human_approval_status`: `NOT_REQUESTED`, `PENDING`, `APPROVED`, `
 ## 10. Static quality gate
 
 Before handoff, validate source-to-claim-to-message-to-scene-to-asset-to-overlay/audio-to-render traceability, timestamp provenance, MCG compatibility, asset rights/status, timeline arithmetic, manifest consistency, renderer assumptions, test evidence and delivery truth. Use `PASS`, `PASS_WITH_CAVEATS`, `HOLD`, or `FAIL`; dynamic host/renderer behavior requires real execution.
+
+
+## S14 — mandatory conversation and release preflight
+
+S14 classifies material context as EXPLICIT, CONFIRMED_PREFERENCE, INFERRED, PROPOSED, UNKNOWN or SUPERSEDED; records accessible source/date/scope and discloses inaccessible raw conversations/files. It never promotes an inference or proposal into a hard requirement.
+
+For accepted changes, trace conversation/source → CTX/REQ → owner/artifact → change ID → dependency closure → tests/evidence → release disposition. Record old/new versions, changed skills/files, migration impact, positive/negative/edge/security/regression tests, rollback and approval revalidation.
+
+Before GitHub publication, distinguish private Plugin Creator save/read-back, source branch, commit, PR, CI, independent review, merge, post-merge main CI and release. PR-head CI is not main CI. Public repository visibility is not a license. Never publish private assets, credentials or patient data. Keep repository and Plugin Creator visibility separate.
+
+M00 retains orchestration and gate arbitration. S14 does not decide clinical truth, creative ownership, human authority or independent QA. See the [S14 skill](../conversation-release-audit/SKILL.md) and [M00/S14 integration contract](references/s14-integration-contract.md).
