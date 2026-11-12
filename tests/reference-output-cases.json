@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "suite": "promkes-prompt-to-reference-contract",
+  "suite_status": "SPECIFICATION_ONLY_NOT_RUN",
+  "cases": [
+    {"test_id":"REF-001","title":"Reference-only output boundary","expected":"Return still/reference prompts and structured references only; no direct text-to-video prompt or rendered video claim.","oracle":"No video-generator instruction for continuous scene generation; no render/export claim.","status":"NOT_RUN"},
+    {"test_id":"REF-002","title":"Master style reference","expected":"Create one master visual-language prompt tied to S05 Guide ID/version.","oracle":"Prompt contains style, palette, material, light, composition and prohibited drift; lock version traceable.","status":"NOT_RUN"},
+    {"test_id":"REF-003","title":"Character sheet reference","expected":"Create still/reference prompts for canonical character appearance, expressions and poses.","oracle":"Stable character ID, Guide version, allowed variations and negative constraints are present.","status":"NOT_RUN"},
+    {"test_id":"REF-004","title":"Environment and prop references","expected":"Create reference prompts and IDs for recurring environments and props.","oracle":"Asset IDs resolve to manifest records; absent generated files remain placeholders.","status":"NOT_RUN"},
+    {"test_id":"REF-005","title":"Scene keyframe reference","expected":"Each selected shot receives a still/keyframe prompt, not an instruction to generate a moving clip.","oracle":"Prompt describes one captured state/composition with scene/shot IDs and relevant locks.","status":"NOT_RUN"},
+    {"test_id":"REF-006","title":"Motion separated from image prompt","expected":"Motion path, transforms, key states and timing remain in S07 structured reference data.","oracle":"Image prompt contains no end-to-end animation/video generation request; motion record has distinct ID.","status":"NOT_RUN"},
+    {"test_id":"REF-007","title":"Exact text as overlay data","expected":"Dates, health claims, institutional name, logo and CTA are supplied separately for later renderer overlay.","oracle":"Exact text values trace to source/fact locks and are not entrusted to image-model text generation.","status":"NOT_RUN"},
+    {"test_id":"REF-008","title":"Reference asset lifecycle","expected":"Distinguish prompt drafted, reference generated, selected and approved states.","oracle":"No asset is marked CREATED/SELECTED/APPROVED without corresponding evidence.","status":"NOT_RUN"},
+    {"test_id":"REF-009","title":"Renderer-neutral scene handoff","expected":"Provide scene order, frame/time ranges, reference IDs, layer roles, overlays and audio cue mapping.","oracle":"All IDs and time ranges are valid; no renderer-specific executable code emitted.","status":"NOT_RUN"},
+    {"test_id":"REF-010","title":"Remotion schema not assumed","expected":"Describe possible mapping to Remotion props/compositions while requiring downstream schema adaptation.","oracle":"No claim that generic manifest is directly executable; no TSX or render command unless separately requested.","status":"NOT_RUN"},
+    {"test_id":"REF-011","title":"Missing renderer selected","expected":"Proceed with renderer-neutral references and label renderer as unspecified.","oracle":"No target-specific feature claims or implementation paths are invented.","status":"NOT_RUN"},
+    {"test_id":"REF-012","title":"Downstream render absent","expected":"Mark render and artifact QA as NOT_RUN, while allowing reference handoff readiness where appropriate.","oracle":"No video completion, render or artifact pass is claimed.","status":"NOT_RUN"},
+    {"test_id":"REF-013","title":"Renderer-specific implementation requested separately","expected":"Treat TSX/project/render implementation as a separate scoped task requiring target repo/schema/environment and explicit scope.","oracle":"Reference-only contract remains intact; implementation is not silently added to ordinary output.","status":"NOT_RUN"}
+  ]
+}

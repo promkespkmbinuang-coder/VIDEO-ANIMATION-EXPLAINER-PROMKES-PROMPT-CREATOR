@@ -1,71 +1,56 @@
-# VIDEO ANIMASI EXPLAINER PROMKES PROMPT CREATOR
+# VIDEO EXPLAINER PROMKES — HEALTH-FIRST PRODUCTION SYSTEM
 
-**Release:** 1.0.1 · **Package:** skill-only · **Architecture:** M00 + S01–S13
+**Version:** 2.0.0 · **Architecture:** M00 + S01–S13 · **Delivery:** capability-gated, from blueprint to verified media.
 
-Sistem modular untuk mentransformasikan poster/infografis promosi kesehatan dan caption copywriting menjadi paket perencanaan produksi video animasi explainer: analisis sumber, Health Truth Registry, campaign brief, screenplay, storyboard, shot list, visual/audio Guides, prompt master dan per-scene, editing plan, subtitle, caption distribusi, continuity controls, dan QA.
+Video Explainer Promkes 2.0 mempertahankan spesialisasi promosi kesehatan dan memperluas alur produksi dengan kemampuan audio intelligence, transcript/timing provenance, subtitle SRT/VTT, audio post, project manifest terpusat, render/export bersyarat, serta QA media aktual.
 
-> Plugin menghasilkan prompt dan dokumen produksi. Plugin ini tidak otomatis merender video, memberi persetujuan klinis, atau memublikasikan konten.
+## Apa yang berubah pada V2
 
-## Arsitektur
+- Input tidak lagi hanya poster + caption. Sistem mendukung `POSTER_FIRST`, `AUDIO_FIRST`, `HYBRID`, dan `SCRIPT_FIRST`.
+- S09 diperkuat menjadi **Audio Intelligence, Voice & Sound Production**: inspeksi audio, metadata, transkrip, pembandingan transcript, speaker/segment IDs, timing granularity, uncertainty, subtitle SRT/VTT, sound cue, dan mix specification.
+- S10 diperkuat menjadi **Composition, Renderer Integration, Render & Export**: renderer readiness, adapter contract, proof render, full render, export, troubleshooting dan file verification saat runtime benar-benar tersedia.
+- S12 menjadi **Dual-Layer QA**: QA konten/reference dan QA artefak media aktual. Hasil yang tidak diperiksa tetap `NOT_VERIFIED` atau `NOT_RUN`.
+- Project Manifest V2 menyatukan fakta kesehatan, audio, MCG, scene, reference assets, motion, subtitle, sound, render, QA, distribution dan delivery.
+- Targeted correction loop menginvalidasi hanya dependensi yang terdampak; perubahan sumber tidak boleh diam-diam mengubah fakta kesehatan atau canon karakter.
 
-- **M00 — Master Orchestrator:** routing, dependensi, arbitrase, integrasi, dan status akhir.
-- **S01–S13 — Domain specialists:** source/asset intelligence; health evidence/safety; audience/campaign; story/screenplay; visual identity; storyboard/cinematography; animation/motion; AI video prompt; voice/sound; editing/post; social/accessibility/distribution; QA; continuity guardian.
-- **S13 — Continuity Guardian:** mengelola MCG sebagai indeks kanonis dan tujuh Guide modules, scene-state ledger, locks, versioning, dan change-impact.
-- **S12 — QA Controller:** pemeriksaan independen dan defect routing. Human approval tetap terpisah.
+## Yang tidak berubah dan tidak boleh dilemahkan
 
-## Input minimum
+1. S02 tetap pemilik tunggal Health Truth Registry, klaim kesehatan, evidence, safe wording dan Fact Lock.
+2. S03 tetap pemilik tujuan kampanye, audience, behavior objective dan CTA.
+3. S13 tetap pemilik MCG, tujuh Guide modules, canonical locks dan scene continuity.
+4. S12 tetap independen dari penulis artefak; QA tidak boleh meluluskan hasil yang belum diperiksa.
+5. Otoritas klinis/institusional dan izin publikasi tetap pada manusia yang berwenang.
 
-1. Satu foto poster atau infografis.
-2. Satu caption copywriting.
+## Input modes
 
-Durasi, platform, model video, target audiens, rasio, gaya visual, dan arahan suara bersifat opsional. Default 45 detik, 9:16, Bahasa Indonesia, dan gaya visual mengikuti materi sumber digunakan hanya sebagai asumsi yang dapat diubah.
+| Mode | Input awal | Routing |
+|---|---|---|
+| `POSTER_FIRST` | Poster/infografis + caption | Source → Health Truth → Campaign → Story → Visual → Audio/Render |
+| `AUDIO_FIRST` | Voice-over/audio dan/atau transkrip | Audio Intelligence → Health Truth → Campaign/Story → Visual → Render |
+| `HYBRID` | Poster + caption + audio/transkrip | Source dan Audio intake dapat berjalan terpisah; konflik disatukan sebelum fact lock |
+| `SCRIPT_FIRST` | Naskah/transkrip tanpa audio | Story/Health Truth; timing tetap `none` atau `estimated` sampai ada bukti audio |
 
-## Integritas kesehatan
+Input yang tidak lengkap menghasilkan paket parsial dengan gap yang dinyatakan, bukan fakta yang ditebak.
 
-- Teks poster/caption adalah klaim sumber, bukan otomatis fakta tervalidasi.
-- Bedakan `USER_PROVIDED`, `OBSERVED`, `VERIFIED`, `ASSUMPTION`, `INFERENCE`, `CREATIVE`, `UNKNOWN`, dan `CONFLICTED`.
-- Jangan mengarang angka, dosis, gejala, risiko, diagnosis, sebab-akibat, atau rekomendasi medis.
-- Klaim material yang belum diperiksa tetap `BELUM DIVERIFIKASI`.
-- Tanggal, angka, tempat, logo, identitas institusi, dan CTA yang tidak terbaca tidak boleh ditebak.
-- Prompt siap handoff bukan bukti video hasil render sudah benar. QA aktual membutuhkan artefak video/audio yang diperiksa.
+## Tingkat delivery
 
-## Portabilitas
+- `BLUEPRINT_ONLY` — konsep, naskah, reference atau spesifikasi awal; belum ada paket render yang cukup.
+- `REFERENCE_READY` — reference package dan manifest telah memenuhi acceptance yang relevan.
+- `RENDER_READY` — project/adapter package siap dijalankan; belum ada MP4.
+- `RENDERED_PARTIALLY_VERIFIED` — file hasil ada, sebagian pemeriksaan belum dapat dilakukan.
+- `RENDERED_VERIFIED` — file aktual ada, dapat dibuka, metadata/streams dan pemeriksaan media yang diwajibkan telah diperiksa dengan bukti.
+- `BLOCKED` — kendala material pada sumber, kesehatan, izin, aset, kemampuan atau runtime.
 
-Direktori sumber kanonis adalah `skills/<skill-name>/SKILL.md`. Adapter ekspor yang disertakan menyalin skill ke lokasi discovery host yang relevan. Folder export tidak membuktikan kompatibilitas runtime atau kemampuan delegasi agen.
+Status delivery teknis bukan persetujuan klinis atau izin publikasi.
 
-| Host | Lokasi ekspor kandidat |
-|---|---|
-| Codex | `.agents/skills/` |
-| Claude Code | `.claude/skills/` |
-| GitHub Copilot | `.github/skills/` |
-| Gemini CLI | `.gemini/skills/` |
-| Cursor | `.cursor/skills/` |
+## Batas kemampuan dan integritas
 
-## Validasi dan acceptance
+- Skill adalah instruction modules, bukan bukti bahwa agen, ASR, diarization, TTS, image generator, editor, renderer atau cloud service telah tersedia.
+- Setiap operasi harus diperiksa terpisah: audio decode, metadata, ASR, alignment, diarization, audio processing, image/reference generation, code/runtime, rendering, export dan media inspection.
+- Timestamp hanya dianggap `word`/`phrase`/`segment` bila diberikan oleh sumber/tool yang benar-benar mendukungnya. Perkiraan harus dilabeli `estimated`.
+- `PROMPT`, `REFERENCE`, `GENERATED_ASSET`, `SELECTED_ASSET`, `APPROVED_ASSET`, `RENDERED_FILE` adalah status berbeda.
+- Tidak ada jaminan viral, FYP, hasil klinis, konsistensi karakter sempurna, atau zero hallucination.
 
-- 14 skill: M00 + S01–S13.
-- 45 kasus acceptance test tersedia dalam paket sumber.
-- Pemeriksaan statis baseline: **PASS**.
-- Pengujian dinamis terhadap host/model AI dan pemeriksaan hasil render: **BELUM DILAKUKAN**.
-- Semua kasus acceptance dalam baseline dicatat sebagai `NOT_RUN`, bukan `PASS`.
+## Package validation
 
-## Menambahkan paket sumber ke repositori ini
-
-Paket sumber v1.0.1 dibuat sebagai arsip mandiri. Arsip perlu diunggah/di-ekstrak ke repositori oleh maintainer sebelum struktur skill dan workflow CI muncul sebagai file terpisah di GitHub. Setelah arsip diekstrak ke working tree:
-
-```bash
-python3 scripts/validate_package.py
-git add .
-git commit -m "feat: add modular Promkes explainer skill system"
-git push origin main
-```
-
-Sebelum menjadikan repositori ini rilis publik yang dapat digunakan ulang, maintainer perlu memilih dan menambahkan lisensi, memeriksa kepemilikan aset, dan mencatat hasil tes pada platform target. Tidak ada lisensi atau identitas penerbit yang diasumsikan.
-
-## Plugin ChatGPT
-
-Plugin pribadi yang dibuat dari paket ini: [Buka Video Explainer Promkes](https://chatgpt.com/plugins/plugins_6af3d50cad6c81919ca6dbaa05bedbcc)
-
-## Release policy
-
-Perubahan lintas domain harus memperbarui owner skill, dependency map, continuity lock yang terdampak, acceptance cases, dan changelog. Jangan menyebut tes lulus sebelum dijalankan. Jangan menyebut video selesai sebelum artefak dan persetujuan yang relevan diperiksa.
+Validator statis V1 tetap memeriksa struktur inti M00 + S01–S13 dan 58 kasus baseline/reference. V2 menambahkan spesifikasi uji produksi di `tests/v2-production-cases.json`; kasus tersebut berstatus `SPECIFICATION_ONLY_NOT_RUN` sampai benar-benar dieksekusi. Static validation tidak membuktikan host runtime, ASR, renderer, media QA atau persetujuan manusia.
