@@ -18,6 +18,7 @@
     "test_untrusted_input_hash_must_match_supplied_bytes"
   ],
   "CTRL-CLAIM-SCHEMA": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
     "test_verified_material_claim_validates",
     "test_unverified_claim_cannot_publish_allowed_wording"
   ],
