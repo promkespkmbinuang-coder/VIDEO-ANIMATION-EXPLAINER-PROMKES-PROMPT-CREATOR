@@ -11,7 +11,7 @@ def package(root):
     common={"name":"example","version":"4.0.8","description":"Example","skills":"./skills","author":{"name":"Publisher"},"keywords":["example"]}
     (root/"plugin.json").write_text(json.dumps({**common,"$schema":"https://agent-plugins.org/schemas/1.0.0/plugin.schema.json","extensions":{"com.openai":{"interface":iface}}}))
     (root/".codex-plugin/plugin.json").write_text(json.dumps({**common,"interface":iface}))
-    (root/"README.md").write_text("# Example V4.0.6\n")
+    (root/"README.md").write_text("# Example V4.0.8\n")
     (root/"CHANGELOG.md").write_text("# Changelog\n\n## 4.0.8 — test\n")
     (root/".gitignore").write_text(".pytest_cache/\n__pycache__/\n*.py[cod]\n.venv/\nbuild/\nnode_modules/\n")
     (root/"skills/master-orchestrator/references/s14-integration-contract.md").write_text("# M00 S14 handoff\n")
