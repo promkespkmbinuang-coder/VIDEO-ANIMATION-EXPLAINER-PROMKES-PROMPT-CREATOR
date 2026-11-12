@@ -3,13 +3,13 @@ name: master-orchestrator
 description: Use when a user provides health-promotion poster, caption, script and/or voice-over and needs an evidence-controlled animated explainer production workflow, with conditional rendering and media QA when actual tools are available.
 ---
 
-# M00 — VIDEO EXPLAINER PROMKES 2.0 MASTER ORCHESTRATOR
+# M00 — VIDEO EXPLAINER PROMKES V4.0.4 MASTER ORCHESTRATOR
 
 ## 1. Mission
 
 Coordinate a health-first animated-explainer project from poster, caption, script and/or voice-over through creative references, audio-aware timing, subtitle/audio post, renderer integration and media QA. Deliver the highest level that the current host can genuinely produce: `BLUEPRINT_ONLY`, `REFERENCE_READY`, `RENDER_READY`, `RENDERED_PARTIALLY_VERIFIED`, `RENDERED_VERIFIED`, or `BLOCKED`.
 
-Preserve the system's defining authority: S02 owns health truth and fact locks; S03 owns campaign objective/CTA; S13 owns creative canon/continuity; S12 independently evaluates; humans retain clinical, institutional, legal/rights and publishing approvals.
+Before any version audit, upgrade or GitHub publication, route the available conversation history and release differences through S14. Preserve the system's defining authority: S02 owns health truth and fact locks; S03 owns campaign objective/CTA; S13 owns creative canon/continuity; S12 independently evaluates; S14 owns context classification and release-change trace assembly; humans retain clinical, institutional, legal/rights and publishing approvals.
 
 Skills are modular instruction contracts, not evidence of separately spawned agents, persistent databases, installed ASR models, image generators, renderers, or cloud services. Never claim tool execution without an actual operation and observable result.
 
@@ -42,12 +42,13 @@ Do not force a long questionnaire. Use one essential clarification only when mis
 | S11 | Social Accessibility & Distribution | Titles, captions, hashtags, alt text, subtitles notes and platform packaging |
 | S12 | Dual-Layer Quality Assurance | Independent content/reference QA and conditional actual-media QA |
 | S13 | Continuity Guardian | MCG, seven Guides, locks, scene state, versions and change impact |
+| S14 | Conversation Context & Release-Change Auditor | Conversation coverage, explicit/inferred/proposed/unknown context, release parity, change trace and publication evidence |
 
-No specialist changes another owner's authoritative data. If a specialist cannot be invoked as a separate runtime unit, M00 follows its contract logically and does not claim independent invocation.
+S14 runs before versioned change work and at release handoff; it does not decide clinical truth, campaign strategy, visual canon or independent QA. No specialist changes another owner's authoritative data. If a specialist cannot be invoked as a separate runtime unit, M00 follows its contract logically and does not claim independent invocation. See [S14 — Conversation Context & Release-Change Audit](../conversation-release-audit/SKILL.md).
 
 ## 4. Shared project state
 
-Create and maintain the Promkes Production Manifest V2 according to `references/promkes-production-manifest.schema.json`. It must link project settings, input mode, capability evidence, source dossier, health truth, campaign, narrative, audio, visual system, MCG references, scenes, reference assets, motion, captions, sound, renderer, artifacts, QA, distribution and delivery.
+Create and maintain the applicable versioned production manifest. For V4 governed projects, validate against `schemas/v4/project.schema.json` and relevant V4 scene/claim/artifact schemas; treat the legacy V2 manifest as a migration input, not an automatic reinterpretation. S14 conversation context uses `schemas/v4/conversation-context.schema.json`. It must link project settings, input mode, capability evidence, source dossier, health truth, campaign, narrative, audio, visual system, MCG references, scenes, reference assets, motion, captions, sound, renderer, artifacts, QA, distribution and delivery.
 
 Stable IDs are mandatory for material records. A schema or manifest is not a database and does not imply persistence across sessions unless a real store exists.
 
@@ -109,7 +110,7 @@ M00 aggregates stage results and emits exactly one delivery state. Targeted corr
 - Audio mix change → audio artifact and audio QA.
 - Renderer setting/code change → render output and all technical verification.
 
-Record `CHG-ID`, previous/new versions, reason, decision authority, impacted IDs, invalidated stages, tests to rerun and rollback/fallback. Never silently rewrite accepted history.
+Record `CHG-ID`, previous/new versions, reason, decision authority, impacted IDs, invalidated stages, tests to rerun and rollback/fallback. S14 maintains the conversation/source → context/requirement → owning artifact → change → dependent IDs → test/evidence → release disposition trace. Never silently rewrite accepted history or promote inferred preferences to requirements.
 
 ## 7. Output contract
 

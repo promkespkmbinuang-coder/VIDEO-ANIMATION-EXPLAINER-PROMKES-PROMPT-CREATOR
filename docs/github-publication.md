@@ -38,3 +38,13 @@ No license is selected in this release. Repository visibility alone does not gra
 ## Release policy
 
 No tag or public-directory readiness claim while the license decision, external runtime tests, downstream artifact QA, or human approval remains open. A review branch or pull request is a source-review checkpoint only.
+
+
+## V4.0.4 — conversation audit and release parity addendum (2026-11-12)
+
+- M00 + S01–S14 includes S14 for conversation coverage, explicit/inferred/proposed/unknown context classification, cross-release traceability and publication evidence.
+- Run `python scripts/validate_release_consistency.py --root .` in CI. It rejects duplicate JSON keys, root/Codex manifest drift, README/version drift and missing current changelog entries.
+- PR #7 is **merged** (merge commit `11e9d0c746d11934eadf8caa50aa12550b8eceaa`). Its successful CI run IDs `43212943964` and `43212943521` refer to PR head `ad8013ccfe4dbfa92a91cd4751cd0c30316bca27`, not a new run on the merge commit.
+- Private Plugin Creator V4.0.4 source read-back is separate from GitHub sync and ChatGPT installation.
+- Full private-plugin/GitHub tree parity remains **NOT_RECONCILED**; the private package contains Remotion adapter files/assets not found in the inspected GitHub main tree.
+- Public production release remains **HOLD** while runtime, media QA, rights, clinical/legal/privacy/accessibility and human approvals are open. Do not add a license without an explicit rights-holder decision.

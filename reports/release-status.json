@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0.0",
+  "release_candidate": "4.0.4",
+  "audit_date": "2026-11-12",
+  "timezone": "Asia/Makassar",
+  "conversation_coverage": {
+    "status": "PARTIAL_WITH_DISCLOSED_BOUNDARY",
+    "sources": [
+      "current conversation",
+      "available prior-conversation summaries",
+      "Plugin Creator V4.0.3 and V4.0.4 read-back",
+      "GitHub main/PR/CI records"
+    ],
+    "limitation": "Raw full text of every historical conversation was not available; audit covers accessible evidence, not exhaustive raw-history retrieval."
+  },
+  "private_plugin": {
+    "plugin_id": "plugins_6af57525bfdc8191af0a262699b6df58",
+    "name": "video-explainer-promkes-renderer-engine",
+    "previous_version": "4.0.3",
+    "previous_release_id": "pluginrel_6af5a9847a288191af10873f2d72b600",
+    "current_version": "4.0.4",
+    "current_release_id": "pluginrel_6af5b81e2dbc8191a7af92981b59f916",
+    "scope": "USER",
+    "discoverability": "PRIVATE",
+    "source_readback": "PASS",
+    "primary_skill_count": 15,
+    "missing_paths": [],
+    "size_limited_paths": []
+  },
+  "github": {
+    "repository": "promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR",
+    "visibility": "public",
+    "main_merge_commit": "11e9d0c746d11934eadf8caa50aa12550b8eceaa",
+    "pr7": {
+      "number": 7,
+      "state": "closed",
+      "merged": true,
+      "merge_commit": "11e9d0c746d11934eadf8caa50aa12550b8eceaa"
+    },
+    "ci": [
+      {
+        "run_id": 43212943964,
+        "workflow": "validate-package",
+        "head_sha": "ad8013ccfe4dbfa92a91cd4751cd0c30316bca27",
+        "conclusion": "success",
+        "scope": "PR head before merge"
+      },
+      {
+        "run_id": 43212943521,
+        "workflow": "markdown-link-check",
+        "head_sha": "ad8013ccfe4dbfa92a91cd4751cd0c30316bca27",
+        "conclusion": "success",
+        "scope": "PR head before merge"
+      }
+    ],
+    "pytest": {
+      "status": "PASS_REPORTED_IN_PR_DESCRIPTION",
+      "count": 51,
+      "scope": "PR head before merge; not main merge-commit run"
+    },
+    "merge_commit_direct_status": "NOT_VERIFIED",
+    "source_tree_parity": "NOT_RECONCILED",
+    "remotion_adapter_in_main": "NOT_FOUND",
+    "license": "UNKNOWN_NOT_ADDED"
+  },
+  "local_overlay_validation": {
+    "consistency_tests": "3 passed",
+    "schema_validation": "PASS",
+    "zip_integrity": "PASS",
+    "full_repository_suite": "NOT_RUN"
+  },
+  "chatgpt_host": {
+    "installation": "NOT_INSTALLED",
+    "live_invocation": "NOT_RUN",
+    "global_permission": "Always ask"
+  },
+  "remotion": {
+    "last_install": "BLOCKED_EAI_AGAIN",
+    "studio": "NOT_RUN",
+    "real_typecheck": "NOT_RUN",
+    "bundle": "NOT_RUN",
+    "render": "NOT_RUN",
+    "mp4_qa": "NOT_RUN",
+    "ffmpeg_smoke": "LEGACY_SEPARATE_NOT_REMOTION"
+  },
+  "external_ai_video_model": {
+    "status": "NOT_SELECTED",
+    "runtime": "NOT_RUN"
+  },
+  "human_approvals": {
+    "clinical": "NOT_VERIFIED",
+    "legal_privacy_rights": "NOT_VERIFIED",
+    "brand": "NOT_VERIFIED",
+    "accessibility": "NOT_RUN",
+    "final_release": "NOT_VERIFIED"
+  },
+  "overall_disposition": "HOLD"
+}

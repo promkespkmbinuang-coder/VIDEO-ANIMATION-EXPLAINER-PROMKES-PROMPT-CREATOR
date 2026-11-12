@@ -208,6 +208,26 @@ def schema_validate(instance,schema_path):
         errors.append(issue("SCHEMA_INVALID",err.message,path))
     return errors
 
+def validate_record(record: dict[str, Any], kind: str) -> list[str]:
+    """Validate one claim/artifact envelope against its versioned JSON Schema.
+
+    This public helper is shared by CLI paths and tests. It deliberately performs
+    structural validation only; semantic and human approval checks remain owned
+    by project validation and the sequential gates.
+    """
+    if not isinstance(record, dict):
+        return ["Record must be a JSON object"]
+    allowed = {"project", "claim-record", "scene-record", "capability-record", "artifact-envelope"}
+    if kind not in allowed:
+        return [f"Unknown record schema kind: {kind}"]
+    schema_path = SCHEMA_DIR / f"{kind}.schema.json"
+    if not schema_path.is_file():
+        return [f"Schema file not found: {schema_path}"]
+    return [
+        f"{error['path']}: {error['message']}"
+        for error in schema_validate(record, schema_path)
+    ]
+
 def index_records(items,key):
     result={}; errors=[]
     for i,item in enumerate(items):
