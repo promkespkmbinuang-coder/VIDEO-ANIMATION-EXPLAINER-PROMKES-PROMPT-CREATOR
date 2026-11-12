@@ -13,6 +13,7 @@
     "test_rights_not_applicable_requires_rationale"
   ],
   "CTRL-UNTRUSTED-INPUTS": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
     "test_untrusted_input_with_matching_byte_hash_passes_control",
     "test_untrusted_input_hash_must_match_supplied_bytes"
   ],
