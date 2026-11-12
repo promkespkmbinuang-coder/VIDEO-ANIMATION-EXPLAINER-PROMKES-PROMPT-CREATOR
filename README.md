@@ -1,96 +1,81 @@
-# Video Explainer Promkes — Evidence-Gated Production System
+# Video Explainer Promkes — V4.0.0
 
-**Architecture:** M00 + S01–S13 · **Target:** V4.0 · **Release posture:** private / public release HOLD
+**Architecture:** M00 + S01–S13 · **Governance:** Evidence-Contract-Gated Production Compiler · **Release:** private / public release HOLD
 
-Sistem produksi explainer animasi promosi kesehatan yang memisahkan klaim faktual, bukti, wording yang diizinkan, narasi, referensi visual, continuity, prompt, scene timing, manifest, renderer capability, QA artefak, aksesibilitas, dan persetujuan manusia. M00 mengoordinasikan spesialis S01–S13 tanpa menganggap spesialis sebagai agen runtime otomatis.
-
-## What V4 adds
-- JSON Schema Draft 2020-12 contracts for claim records and artifact envelopes.
-- A Python CLI validator and eight sequential fail-closed gates with 21 executable controls.
-- Claim-to-source provenance and snapshot hash checks; hash-bound structural approval records.
-- Narrative safe-wording/claim traceability; visual continuity/reference locks.
-- Prompt-injection heuristic scan and explicit untrusted-input boundaries.
-- Frame arithmetic, manifest hash/path validation, capability and static-code evidence checks.
-- Artifact hash, accessibility evidence and release approval controls.
-- Dependency DAG validation and transitive invalidation planning.
-- Reproducible pytest suite and CI artifacts.
-**Version:** 2.0.0 · **Architecture:** M00 + S01–S13 · **Delivery:** capability-gated, from blueprint to verified media.
+Sistem produksi explainer animasi promosi kesehatan yang menjaga integritas bukti kesehatan, kontinuitas kreatif, provenance, keamanan prompt, izin/hak, dan mutu artefak. V4 menambahkan validator kontrak yang dapat dijalankan dan gate G0–G7 yang fail-closed, sambil mempertahankan spesialisasi M00 + S01–S13.
 
 ## Quick start
-Install requirements-dev.txt, then run python -m pytest -q.
-Use python scripts/v4_gate_engine.py --help to inspect commands.
-Evaluate with: python scripts/v4_gate_engine.py evaluate --project project.json --output build/gate-report.json
-Add --require-release to return non-zero unless all eight gates pass.
 
-See docs/M00-V4.0-IMPLEMENTATION-AND-VALIDATION.md and docs/M00-V4.0-EVIDENCE-CONTRACT-GATED-PRODUCTION-COMPILER.md.
+```bash
+python -m pip install -r requirements-dev.txt
+python -m pytest -q
+python scripts/validate_package.py
+python scripts/v4_gate_engine.py validate examples/v4/smoke-project.json --schema-dir schemas/v4
+python scripts/v4_gate_engine.py run-controls examples/v4/smoke-project.json \
+  --report build/v4-controls.json \
+  --updated-project build/v4-evidenced-project.json
+python scripts/v4_gate_engine.py gate build/v4-evidenced-project.json \
+  --target G6_CODE_VALID --report build/v4-pre-release-gates.json
+```
+
+Untuk menguji penghalang rilis produksi pada fixture sintetis:
+
+```bash
+python scripts/v4_gate_engine.py gate build/v4-evidenced-project.json \
+  --target G7_RELEASE_APPROVED --report build/v4-release-gate.json
+```
+
+Perintah terakhir **sengaja mengembalikan exit code 2 / BLOCKED** kerana fixture berstatus `TEST_FIXTURE`; fixture uji tidak boleh meloloskan rilis produksi. CI menganggap penghalangan tersebut sebagai keberhasilan pengujian keamanan.
+
+## Yang aktif dan diuji
+
+- Validator JSON Schema Draft 2020-12 dan validasi semantik lintas-record.
+- 21 kontrol deterministik aktif, dengan positive-path dan negative/mutation tests.
+- Gate berurutan G0 Intake, G1 Fact Lock, G2 Narrative, G3 Visual, G4 Prompt Preflight, G5 Manifest, G6 Code/Renderer, G7 Release.
+- SHA-256 atas representasi JSON kanonis, provenance sumber, validitas klaim dan referensi.
+- Frame arithmetic/timeline, dependency DAG, transitive invalidation, path traversal/symlink guard, content hash artefak.
+- Capability verification terikat provider/operasi/versi/izin/waktu berlaku.
+- Hak, privacy classification, prompt/data boundary, resource ceiling, artifact status integrity.
+- Ed25519 signature verification untuk approval yang terikat pada hash klaim/artefak dan role/key yang dipercaya.
+- Machine-readable execution report per control; perubahan input membuat evidence lama stale.
 
 ## Gate map
-| Stage | Gate | Decision boundary |
+
+| Gate | Fungsi | Syarat inti |
 |---|---|---|
-| L0 | G0 Intake | Inventory, privacy, rights, untrusted data |
-| L1 | G1 Fact Lock | Claim schema, provenance, material claims, clinical reviewer evidence |
-| L2 | G2 Narrative | Claim traceability and safe wording |
-| L3 | G3 Visual | Continuity locks and reference resolution |
-| L4 | G4 Prompt | Injection scan and prompt/data boundary |
-| L5 | G5 Manifest | Timing, schema, hash and safe asset paths |
-| L6 | G6 Code | Verified capability and static-check evidence |
-| L7 | G7 Release | Artifact QA, accessibility evidence, release approval |
+| G0 | Intake | sumber, hak, privasi, security boundary |
+| G1 | Fact Lock | provenance, claim status, human clinical review |
+| G2 | Narrative | traceability klaim dan narasi |
+| G3 | Visual | canonical reference dan continuity approval |
+| G4 | Prompt | pemisahan instruksi dan data tak tepercaya |
+| G5 | Manifest | schema, scene timing, DAG, file/hash |
+| G6 | Code/Renderer | capability runtime versi tepat dan sandbox/code review |
+| G7 | Release | artefak aktual QA, approval tanda tangan dan status PRODUCTION |
 
-A failed/blocked/unrun predecessor prevents later stages from passing. NOT_APPLICABLE needs a reason. No automatic status promotion is allowed.
+Gate gagal/terblokir/belum diuji menghentikan semua gate downstream. `NOT_RUN`, `NOT_VERIFIED`, `BLOCKED`, `STALE`, `INVALIDATED`, `FAIL`, dan `PARTIAL` tidak dapat dianggap PASS.
 
-## 10×10×10 model is not a test result
-The generator can enumerate 1,000 candidate IDs (10 domains × 10 gates × 10 test families). Those rows are planning candidates only. The current executable engine implements 21 named control IDs, tested through synthetic unit fixtures. It is incorrect to say 1,000 controls have passed or even been individually executed.
+## 1,000 candidate controls ≠ 1,000 tests
 
-## Integrity and limitations
-A PASS means only that the engine's stated deterministic oracle accepted the supplied data/evidence. Source snapshots, artifacts, schemas, command line, software versions and reports should be retained for replay. Structural human-approval checks do not independently authenticate identity, credentials or digital signatures. Prompt scanning is heuristic. Artifact QA checks file presence/hash and evidence references, not actual video decoding or perceptual media inspection. Live ChatGPT, external AI/ASR, Remotion runtime/render, MP4 QA, accessibility user testing and institutional approvals remain separate and require actual evidence.
+Model 10×10×10 hanya menghasilkan 1.000 kandidat definisi kontrol. Itu bukan 1.000 kontrol executable dan bukan hasil pengujian. Registry aktif awal berisi 21 kontrol yang dijalankan dan diuji satu per satu; kandidat lainnya tetap belum dieksekusi sampai memiliki oracle, applicability, evidence contract, owner, remediation, dan test reproducible.
 
-## Status
-The V4 code and validation suite are proposed through PR #3. Keep this PR in Draft until CI and reviews are complete. Public distribution remains HOLD. No open-source licence is granted by repository visibility alone; publisher must decide and verify rights before distribution.
-- Input tidak lagi hanya poster + caption. Sistem mendukung `POSTER_FIRST`, `AUDIO_FIRST`, `HYBRID`, dan `SCRIPT_FIRST`.
-- S09 diperkuat menjadi **Audio Intelligence, Voice & Sound Production**: inspeksi audio, metadata, transkrip, pembandingan transcript, speaker/segment IDs, timing granularity, uncertainty, subtitle SRT/VTT, sound cue, dan mix specification.
-- S10 diperkuat menjadi **Composition, Renderer Integration, Render & Export**: renderer readiness, adapter contract, proof render, full render, export, troubleshooting dan file verification saat runtime benar-benar tersedia.
-- S12 menjadi **Dual-Layer QA**: QA konten/reference dan QA artefak media aktual. Hasil yang tidak diperiksa tetap `NOT_VERIFIED` atau `NOT_RUN`.
-- Project Manifest V2 menyatukan fakta kesehatan, audio, MCG, scene, reference assets, motion, subtitle, sound, render, QA, distribution dan delivery.
-- Targeted correction loop menginvalidasi hanya dependensi yang terdampak; perubahan sumber tidak boleh diam-diam mengubah fakta kesehatan atau canon karakter.
+## Integritas approval
 
-## Yang tidak berubah dan tidak boleh dilemahkan
+Tanda tangan Ed25519 memverifikasi payload kanonis terhadap public key yang dipetakan ke role tepercaya. Trust root, penerbitan/pencabutan key, kelayakan reviewer dan otoritas institusi wajib dikelola di luar project oleh organisasi berwenang. Flag `authority_verified` hanya attestation tambahan; bukan bukti identitas atau kompetensi dengan sendirinya. Key uji sintetis tidak boleh dipakai untuk produksi.
 
-1. S02 tetap pemilik tunggal Health Truth Registry, klaim kesehatan, evidence, safe wording dan Fact Lock.
-2. S03 tetap pemilik tujuan kampanye, audience, behavior objective dan CTA.
-3. S13 tetap pemilik MCG, tujuh Guide modules, canonical locks dan scene continuity.
-4. S12 tetap independen dari penulis artefak; QA tidak boleh meluluskan hasil yang belum diperiksa.
-5. Otoritas klinis/institusional dan izin publikasi tetap pada manusia yang berwenang.
+## Batas bukti
 
-## Input modes
+CI dan smoke fixture membuktikan perilaku kode terhadap input sintetis, bukan validitas klinis, otoritas sumber, identitas manusia, izin publikasi, instalasi AI/ASR/diarization/TTS, runtime Remotion, video hasil render, integritas MP4, atau inspeksi perseptual. Semua operasi eksternal tersebut tetap memerlukan bukti aktual dan persetujuan manusia. Engine tidak mengeksekusi kode renderer atau menjalankan arbitrary source instructions.
 
-| Mode | Input awal | Routing |
-|---|---|---|
-| `POSTER_FIRST` | Poster/infografis + caption | Source → Health Truth → Campaign → Story → Visual → Audio/Render |
-| `AUDIO_FIRST` | Voice-over/audio dan/atau transkrip | Audio Intelligence → Health Truth → Campaign/Story → Visual → Render |
-| `HYBRID` | Poster + caption + audio/transkrip | Source dan Audio intake dapat berjalan terpisah; konflik disatukan sebelum fact lock |
-| `SCRIPT_FIRST` | Naskah/transkrip tanpa audio | Story/Health Truth; timing tetap `none` atau `estimated` sampai ada bukti audio |
+Skill adalah instruction modules; 14 skill tidak berarti 14 agen independen otomatis bekerja. Periksa [architecture proposal](docs/M00-V4.0-EVIDENCE-CONTRACT-GATED-PRODUCTION-COMPILER.md) dan [executable gate engine contract](docs/V4-EXECUTABLE-GATE-ENGINE.md).
 
-Input yang tidak lengkap menghasilkan paket parsial dengan gap yang dinyatakan, bukan fakta yang ditebak.
+## CI evidence
 
-## Tingkat delivery
+GitHub Actions menjalankan package validation, unit/mutation tests, validator schema-semantic, semua 21 kontrol, gate G0–G6, dan assertion bahwa G7 menolak test fixture. Laporan mesin dan JUnit diunggah sebagai artifact workflow agar dapat direproduksi.
 
-- `BLUEPRINT_ONLY` — konsep, naskah, reference atau spesifikasi awal; belum ada paket render yang cukup.
-- `REFERENCE_READY` — reference package dan manifest telah memenuhi acceptance yang relevan.
-- `RENDER_READY` — project/adapter package siap dijalankan; belum ada MP4.
-- `RENDERED_PARTIALLY_VERIFIED` — file hasil ada, sebagian pemeriksaan belum dapat dilakukan.
-- `RENDERED_VERIFIED` — file aktual ada, dapat dibuka, metadata/streams dan pemeriksaan media yang diwajibkan telah diperiksa dengan bukti.
-- `BLOCKED` — kendala material pada sumber, kesehatan, izin, aset, kemampuan atau runtime.
+## Release status
 
-Status delivery teknis bukan persetujuan klinis atau izin publikasi.
-
-## Batas kemampuan dan integritas
-
-- Skill adalah instruction modules, bukan bukti bahwa agen, ASR, diarization, TTS, image generator, editor, renderer atau cloud service telah tersedia.
-- Setiap operasi harus diperiksa terpisah: audio decode, metadata, ASR, alignment, diarization, audio processing, image/reference generation, code/runtime, rendering, export dan media inspection.
-- Timestamp hanya dianggap `word`/`phrase`/`segment` bila diberikan oleh sumber/tool yang benar-benar mendukungnya. Perkiraan harus dilabeli `estimated`.
-- `PROMPT`, `REFERENCE`, `GENERATED_ASSET`, `SELECTED_ASSET`, `APPROVED_ASSET`, `RENDERED_FILE` adalah status berbeda.
-- Tidak ada jaminan viral, FYP, hasil klinis, konsistensi karakter sempurna, atau zero hallucination.
-
-## Package validation
+**Public release: HOLD.** Pull request #3 menggabungkan spesifikasi arsitektur ke `main`. Implementasi executable serta perbaikan CI sedang diajukan sebagai pull request lanjutan dan wajib melewati CI/review. Runtime ChatGPT lintas host, provider AI eksternal, ASR/diarization, Remotion render, MP4 QA, dan human sign-off produksi belum dibuktikan.
 
 Private ChatGPT plugin: https://chatgpt.com/plugins/plugins_6af57525bfdc8191af0a262699b6df58
+
+No open-source licence is granted by repository visibility alone. The publisher must verify ownership and explicitly decide the licence before public redistribution.

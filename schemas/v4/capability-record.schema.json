@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:promkes:v4:capability-record:1.0.0",
+  "title": "Promkes V4 Capability Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "capability_id",
+    "provider",
+    "operation",
+    "status",
+    "permission_granted",
+    "environment"
+  ],
+  "properties": {
+    "capability_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider": {
+      "type": "string",
+      "minLength": 1
+    },
+    "operation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "exact_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "AVAILABLE",
+        "VERIFIED",
+        "UNAVAILABLE",
+        "NOT_TESTED",
+        "BLOCKED",
+        "EXPIRED"
+      ]
+    },
+    "permission_granted": {
+      "type": "boolean"
+    },
+    "environment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "checked_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

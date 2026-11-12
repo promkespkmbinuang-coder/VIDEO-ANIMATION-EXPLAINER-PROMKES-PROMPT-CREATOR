@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:promkes:v4:scene-record:1.0.0",
+  "title": "Promkes V4 Scene Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "scene_id",
+    "order",
+    "start_frame",
+    "end_frame",
+    "fps",
+    "timebase",
+    "rounding_policy",
+    "claim_refs",
+    "reference_ids",
+    "motion_ref_ids",
+    "continuity_in",
+    "continuity_out",
+    "status",
+    "schema_version",
+    "content_hash"
+  ],
+  "properties": {
+    "scene_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "order": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "start_frame": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "end_frame": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "fps": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "timebase": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rounding_policy": {
+      "enum": [
+        "FLOOR",
+        "CEIL",
+        "HALF_UP",
+        "EXACT"
+      ]
+    },
+    "claim_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "reference_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "motion_ref_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "continuity_in": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "continuity_out": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "NOT_STARTED",
+        "IN_PROGRESS",
+        "PASS",
+        "FAIL",
+        "PARTIAL",
+        "NOT_RUN",
+        "NOT_VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED",
+        "STALE",
+        "INVALIDATED"
+      ]
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "content_hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    }
+  }
+}
