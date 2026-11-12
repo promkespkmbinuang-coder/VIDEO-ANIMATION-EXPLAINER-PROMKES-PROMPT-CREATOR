@@ -10,12 +10,14 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import html
 import json
 import re
 import sys
 import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
+from urllib.parse import unquote
 from typing import Any, Callable
 
 ENGINE_ID = "promkes-v4-gate-engine"
@@ -53,13 +55,30 @@ PRIVACY_CLASSES = {"PUBLIC", "INTERNAL", "CONFIDENTIAL", "SENSITIVE"}
 RIGHTS_STATES = {"CLEARED", "RESTRICTED", "PENDING", "UNKNOWN", "NOT_APPLICABLE"}
 
 INJECTION_PATTERNS = [
-    re.compile(r"ignore\s+(all\s+)?(previous|prior|above)\s+instructions", re.I),
-    re.compile(r"reveal\s+(the\s+)?(system|developer)\s+prompt", re.I),
-    re.compile(r"show\s+(me\s+)?hidden\s+instructions", re.I),
-    re.compile(r"exfiltrat(e|ion)|send\s+(all\s+)?secrets", re.I),
-    re.compile(r"print\s+(the\s+)?(api\s+)?keys?\s+or\s+tokens", re.I),
-    re.compile(r"override\s+(the\s+)?safety\s+policy", re.I),
+    re.compile(r"(ignore|disregard|forget|bypass|override)\s+(all\s+)?(the\s+)?(previous|prior|above|earlier)\s+(system\s+|developer\s+)?instructions?", re.I),
+    re.compile(r"(reveal|show|print|expose|dump)\s+(the\s+)?(hidden\s+)?(system|developer|internal)\s+prompt", re.I),
+    re.compile(r"(show|reveal|print|expose)\s+(me\s+)?hidden\s+instructions", re.I),
+    re.compile(r"(exfiltrat(e|ion)|send|forward|upload|post)\s+(all\s+)?(the\s+)?(secrets|credentials|api\s+keys|tokens|passwords)", re.I),
+    re.compile(r"(disable|override|bypass|suspend)\s+(the\s+)?(safety|security|content)\s+(policy|rules?|guardrails?)", re.I),
+    re.compile(r"(act\s+as|become|switch\s+to)\s+(an?\s+)?(dan|jailbreak|unrestricted|unfiltered)\b", re.I),
+    re.compile(r"you\s+are\s+now\s+.*(not\s+bound|no\s+restrictions|ignore\s+policy)", re.I),
+    re.compile(r"(call|invoke|use)\s+(the\s+)?(browser|tool|function)(\s+tool)?\s+and\s+(send|upload|exfiltrate)", re.I),
 ]
+
+
+def normalize_prompt_text(value: str) -> str:
+    """Normalize common obfuscation before applying heuristic injection patterns."""
+    text = unicodedata.normalize("NFKC", html.unescape(value))
+    text = unquote(text)
+    text = re.sub(r"[\u200b-\u200f\u2060\ufeff]", "", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def detect_prompt_injection(value: str) -> list[str]:
+    """Return matched heuristic pattern labels; absence of a match is not proof of safety."""
+    normalized = normalize_prompt_text(value)
+    return [pattern.pattern for pattern in INJECTION_PATTERNS if pattern.search(normalized)]
+
 
 
 def utc_now() -> str:
@@ -433,9 +452,8 @@ def _control(project: dict[str, Any], control_id: str) -> dict[str, Any]:
                 hits.append(f"prompt[{i}] is not an object")
                 continue
             body = str(item.get("trusted_instructions", ""))
-            for pattern in INJECTION_PATTERNS:
-                if pattern.search(body):
-                    hits.append(f"prompt[{i}] matched heuristic {pattern.pattern}")
+            for pattern_label in detect_prompt_injection(body):
+                hits.append(f"prompt[{i}] matched heuristic {pattern_label}")
         if hits:
             return _out(control_id, "BLOCKED", "Potential instruction-smuggling text detected in trusted instruction area; heuristic requires human inspection", {"hits": hits})
         return _out(control_id, "PASS", "No configured injection heuristic matched trusted instruction fields (not a proof of safety)", {"prompt_count": len(prompts)}, [f"engine://{control_id}/heuristic-scan"])
