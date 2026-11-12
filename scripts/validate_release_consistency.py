@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fail-closed release consistency and package hygiene validator."""
 from __future__ import annotations
-import argparse, json, re
+import argparse, json
 from pathlib import Path
 from typing import Any
 
@@ -39,8 +39,8 @@ def validate_release(root: Path) -> list[str]:
     for k in ("name","version","description","skills","author","keywords"):
         if a.get(k)!=b.get(k): errors.append("manifest parity mismatch: "+k)
     version=a.get("version")
-    if not isinstance(version,str) or not re.fullmatch(r"(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)",version):
-        errors.append("invalid SemVer")
+    if not isinstance(version,str) or not all(part.isdigit() for part in version.split(".")) or len(version.split("."))!=3:
+        errors.append("invalid strict SemVer")
     ia=a.get("extensions",{}).get("com.openai",{}).get("interface",{})
     ib=b.get("interface",{})
     for k in ("displayName","shortDescription","longDescription","developerName","category","capabilities","defaultPrompt"):
@@ -50,17 +50,20 @@ def validate_release(root: Path) -> list[str]:
     skills=sorted((root/"skills").glob("*/SKILL.md"))
     actual={p.parent.name for p in skills}
     if actual!=EXPECTED: errors.append(f"skill inventory mismatch: missing={sorted(EXPECTED-actual)} extra={sorted(actual-EXPECTED)}")
-    if len(skills)!=15: errors.append(f"expected 15 skill modules, found {len(skills)}")
+    if len(skills)!=15: errors.append(f"expected 15 numbered GitHub modules, found {len(skills)}")
     for p in skills:
-        s=p.read_text(encoding="utf-8")
-        m=re.match(r"^---\\s*\\nname:\\s*([a-z0-9-]+)\\s*\\n",s)
-        if not m or m.group(1)!=p.parent.name: errors.append("invalid skill frontmatter: "+str(p.relative_to(root)))
+        lines=p.read_text(encoding="utf-8").splitlines()
+        if len(lines)<3 or lines[0]!="---" or not lines[1].startswith("name: "):
+            errors.append("invalid skill frontmatter: "+str(p.relative_to(root)))
+        elif lines[1].split(":",1)[1].strip().strip("'\"")!=p.parent.name:
+            errors.append("skill name/directory mismatch: "+str(p.relative_to(root)))
     bridge=root/"skills/master-orchestrator/references/s14-integration-contract.md"
     if not bridge.is_file(): errors.append("M00/S14 integration contract missing")
     readme=(root/"README.md").read_text(encoding="utf-8")
     changelog=(root/"CHANGELOG.md").read_text(encoding="utf-8")
     if not readme.splitlines() or version not in readme.splitlines()[0]: errors.append("README title/version mismatch")
-    if not re.search(rf"^##\\s+{re.escape(version)}(?:\\s|$)",changelog,re.M): errors.append("CHANGELOG version entry missing")
+    if not any(line=="## "+version or line.startswith("## "+version+" ") for line in changelog.splitlines()):
+        errors.append("CHANGELOG version entry missing")
     ig=root/".gitignore"
     if not ig.is_file(): errors.append(".gitignore missing")
     else:
