@@ -6,11 +6,21 @@ from pathlib import Path
 from typing import Any
 
 EXPECTED = {
-"master-orchestrator","source-asset-intelligence","health-evidence-safety-auditor",
-"audience-campaign-strategy","story-screenplay-architect","visual-identity-art-direction",
-"storyboard-cinematography","animation-motion-design","prompt-reference-video-engineering",
-"voice-audio-intelligence","renderer-code-engineering","social-accessibility-distribution",
-"quality-assurance-controller","continuity-guardian","conversation-release-audit"
+    "master-orchestrator",
+    "source-asset-intelligence",
+    "health-evidence-safety-auditor",
+    "audience-campaign-strategy",
+    "story-screenplay-architect",
+    "visual-identity-art-direction",
+    "storyboard-cinematography",
+    "animation-motion-design",
+    "ai-video-reference-engineering",
+    "voice-sound-design",
+    "editing-postproduction",
+    "social-accessibility-distribution",
+    "quality-assurance-controller",
+    "continuity-guardian",
+    "conversation-release-audit",
 }
 CACHE = {".pytest_cache","__pycache__",".mypy_cache",".ruff_cache",".venv","node_modules"}
 IGNORE = {".pytest_cache/","__pycache__/","*.py[cod]",".venv/","build/","node_modules/"}
