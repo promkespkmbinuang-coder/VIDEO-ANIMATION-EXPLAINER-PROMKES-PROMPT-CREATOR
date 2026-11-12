@@ -47,7 +47,7 @@ Validator release memeriksa strict JSON, manifest parity, SemVer, shortDescripti
 
 - PR #13 merged pada 6aa128ebaa8d561fcedf7a52f027bd2a2a931198. Review independen tidak tercatat pada pemeriksaan audit.
 - Tidak ada workflow run atau combined status yang terkonfirmasi pada merge commit PR #13; validasi main pada SHA itu NOT_VERIFIED.
-- Plugin Creator V4.0.9 adalah rilis privat terpisah; source tree dan binary assets belum sepenuhnya direkonsiliasi dengan GitHub. PR #14 carries the source reconciliation; its exact current head must pass fresh CI and independent review before merge.
+- Plugin Creator V4.1.0 is verified by private read-back (release `pluginrel_6af5cf26722081918100567dee41059c`, discoverability PRIVATE). Source tree and binary assets remain distinct from GitHub; PR #14 carries the public source reconciliation and must pass fresh CI on its exact head plus independent review before merge.
 - Plugin save/read-back bukan bukti instalasi/invokasi ChatGPT.
 - Remotion install pernah BLOCKED oleh npm DNS EAI_AGAIN; Studio, bundle, render dan MP4 QA tetap NOT_RUN sampai ada bukti baru.
 - External AI video provider belum dipilih; clinical/legal/rights/privacy/brand/accessibility dan final human release approvals tetap NOT_VERIFIED/NOT_RUN.
