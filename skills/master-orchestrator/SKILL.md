@@ -145,3 +145,14 @@ Keep separate `human_approval_status`: `NOT_REQUESTED`, `PENDING`, `APPROVED`, `
 ## 10. Static quality gate
 
 Before handoff, validate source-to-claim-to-message-to-scene-to-asset-to-overlay/audio-to-render traceability, timestamp provenance, MCG compatibility, asset rights/status, timeline arithmetic, manifest consistency, renderer assumptions, test evidence and delivery truth. Use `PASS`, `PASS_WITH_CAVEATS`, `HOLD`, or `FAIL`; dynamic host/renderer behavior requires real execution.
+
+
+## S14 — mandatory conversation and release preflight
+
+S14 classifies material context as EXPLICIT, CONFIRMED_PREFERENCE, INFERRED, PROPOSED, UNKNOWN or SUPERSEDED; records accessible source/date/scope and discloses inaccessible raw conversations/files. It never promotes an inference or proposal into a hard requirement.
+
+For accepted changes, trace conversation/source → CTX/REQ → owner/artifact → change ID → dependency closure → tests/evidence → release disposition. Record old/new versions, changed skills/files, migration impact, positive/negative/edge/security/regression tests, rollback and approval revalidation.
+
+Before GitHub publication, distinguish private Plugin Creator save/read-back, source branch, commit, PR, CI, independent review, merge, post-merge main CI and release. PR-head CI is not main CI. Public repository visibility is not a license. Never publish private assets, credentials or patient data. Keep repository and Plugin Creator visibility separate.
+
+M00 retains orchestration and gate arbitration. S14 does not decide clinical truth, creative ownership, human authority or independent QA. See the [S14 skill](../conversation-release-audit/SKILL.md) and [M00/S14 integration contract](references/s14-integration-contract.md).
