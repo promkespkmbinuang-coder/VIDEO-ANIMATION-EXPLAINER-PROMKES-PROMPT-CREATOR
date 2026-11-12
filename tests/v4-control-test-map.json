@@ -8,6 +8,7 @@
     "test_unknown_privacy_classification_blocks_intake"
   ],
   "CTRL-RIGHTS-BASIS": [
+    "test_all_eight_gates_pass_for_complete_synthetic_fixture",
     "test_rights_not_applicable_with_rationale_can_pass",
     "test_rights_not_applicable_requires_rationale"
   ],
