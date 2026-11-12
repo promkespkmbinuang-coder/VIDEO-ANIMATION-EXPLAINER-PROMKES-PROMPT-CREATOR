@@ -1,6 +1,6 @@
 {
   "interface": {
-    "displayName": "Video Explainer Promkes V4.1.3",
+    "displayName": "Video Explainer Promkes V4.1.4",
     "shortDescription": "Evidence-gated Promkes",
     "longDescription": "Health-first Promkes production compiler with mandatory M00/S14 conversation preflight, a summary-bounded context register, evidence contracts and fail-closed gates. Social distribution is optional; reach, FYP, virality and engagement are never promised. Private legacy CTRL engine remains separate from GitHub V4-CTL candidate pending independent review and controlled synchronization. Host, AI, Remotion runtime/render, media QA, rights, license and human approval require separate evidence.",
     "developerName": "Promkes pkm binuang",
@@ -15,7 +15,7 @@
     ]
   },
   "name": "video-animasi-explainer-promkes-prompt-creator",
-  "version": "4.1.3",
+  "version": "4.1.4",
   "description": "Evidence-governed health-promotion explainer production workflow with conversation continuity, source traceability and fail-closed release governance.",
   "author": {
     "name": "Promkes pkm binuang",

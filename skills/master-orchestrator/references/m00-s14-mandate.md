@@ -1,4 +1,4 @@
-# M00 mandatory S14 entrypoint — V4.1.3
+# M00 mandatory S14 entrypoint — V4.1.4
 
 For every conversation-history audit, plugin/version update, private/public source reconciliation, GitHub publication or release-readiness decision, M00 must apply `s14-integration-contract.md` before changing versioned artifacts.
 

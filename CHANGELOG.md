@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.4 — context-oracle alignment and corrective regression fix (2026-11-12)
+- Aligns distribution aspiration wording with the fail-closed regression oracle: reach/FYP/trending/engagement are not guaranteed.
+- Adds no new production capability; preserves the 26-record context register, optional S11 scope and unchanged private CTRL engine.
+- Records the V4.1.3 candidate CI result honestly (92 passed, 1 assertion failed) and supersedes its test result with a corrected patch candidate.
+- Full private package test suite remains NOT_RUN; exact-head GitHub CI for V4.1.4 is required before review/merge.
+
 ## 4.1.3 — cross-domain conversation continuity and evidence hygiene (2026-11-12)
 - Expands the bounded context register from 19 to 26 records, adding explicit static infographic dimensions, optional social distribution aspirations, figurative copywriting limits, campaign-scoped environmental CTA, style preferences, product/repository identity ambiguity and historical V3-test boundaries.
 - Strengthens S11 optional captions/hashtags/platform packaging while prohibiting promises of reach, FYP, trending, virality or engagement.

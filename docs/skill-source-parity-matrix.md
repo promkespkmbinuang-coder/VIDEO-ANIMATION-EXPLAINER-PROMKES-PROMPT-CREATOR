@@ -1,4 +1,4 @@
-# Source and skill parity — V4.1.3
+# Source and skill parity — V4.1.4
 
 This is a path/semantic inventory, not proof of byte or runtime equivalence.
 

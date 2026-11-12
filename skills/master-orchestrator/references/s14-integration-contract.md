@@ -1,4 +1,4 @@
-# M00 ↔ S14 integration contract — V4.1.3
+# M00 ↔ S14 integration contract — V4.1.4
 
 S14 is a mandatory cross-cutting release/context preflight, not an extra creative production stage.
 
