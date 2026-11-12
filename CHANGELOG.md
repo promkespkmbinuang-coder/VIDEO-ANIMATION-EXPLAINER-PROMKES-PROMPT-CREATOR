@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.9 — mandatory M00/S14 preflight (2026-11-12)
+- Makes S14 an explicit M00-owned preflight before conversation audits, versioned changes, source reconciliation, GitHub publication and release decisions.
+- Preserves S01–S13 production ownership and makes S14 cross-cutting rather than a creative stage.
+- Documents poster/image-first, audio-first, transcript-first, script-first and hybrid intake; SRT/VTT, audio-post, SOURCE-to-DELIVERY trace and independent S12 QA boundaries.
+- Keeps GitHub editing/post-production and private renderer-code-engineering scopes separate pending owner-approved mapping.
+
 ## 4.0.8 — cache-safe validator execution (2026-11-12)
 - Prevents the package validator from generating its own Python bytecode before cache-artifact scanning.
 - Reorders documented local validation so package hygiene runs before tests and disables pytest bytecode/cache generation for reproducible checks.
