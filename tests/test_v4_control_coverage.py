@@ -12,6 +12,6 @@ def test_every_control_has_explicit_positive_and_negative_test_mapping():
     test_source = (root / "tests/test_v4_gate_engine.py").read_text(encoding="utf-8")
     for control_id, test_names in mapping.items():
         assert len(test_names) >= 2, f"{control_id} needs positive and negative test mapping"
-        assert "test_all_eight_gates_pass_for_complete_synthetic_fixture" in test_names, control_id
+        assert "test_synthetic_fixture_cannot_enter_release_gate" in test_names, control_id
         for test_name in test_names:
             assert f"def {test_name}(" in test_source, f"{control_id} maps to missing test {test_name}"
