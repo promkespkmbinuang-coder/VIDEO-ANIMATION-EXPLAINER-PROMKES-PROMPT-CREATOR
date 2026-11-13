@@ -65,3 +65,9 @@ Frame arithmetic uses a half-open interval: start_frame is inclusive, end_frame_
 S06 remains the owner of camera, lens, framing and shot design. A CAMERA_REFERENCE motion record must reference an S06 camera plan. S07 records motion mechanics, not camera authorship. Generative-video easing and numeric controls are requests unless verified for the exact provider/model/version.
 
 A valid record is not proof of animation execution or render. Route renderer mappings to S10 and checks to S12. See docs/motion-specification-contract-v4.1.7.md.
+
+
+
+## V4.1.8 beat-sheet handoff
+
+For each meaningful narrative beat, provide stable beat ID, order, half-open time interval, timing precision/source, narrative function, message/claim refs, scene/shot/camera refs, S07 motion/element refs, S09 audio refs, approved overlay/transition refs, MCG state in/out, accessibility fallback and observable QA oracle. Use schemas/v4/beat-sheet.schema.json and scripts/validate_beat_sheet.py. S07 owns motion only; it does not author S04 narrative, S06 camera, S09 audio source timing or S10 renderer implementation. Any exact audio/source timing must have a source reference; estimated timing stays estimated. A beat sheet is a trace contract, not evidence that animation or render occurred.
