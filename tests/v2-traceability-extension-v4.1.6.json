@@ -1,0 +1,317 @@
+{
+  "schema_version": "1.0.0",
+  "release_version": "4.1.6",
+  "extension_id": "TRACE-EXT-V2-4.1.6",
+  "base_traceability_ref": "tests/traceability.json",
+  "suite_source": "tests/v2-production-cases.json",
+  "execution_status": "NOT_RUN",
+  "mapping_status": "MAPPED_NOT_EXECUTED",
+  "cases": [
+    {
+      "test_id": "V2-001",
+      "title": "Poster-first mode routes source and health evidence before screenplay",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-002",
+      "title": "Audio-first mode verifies transcript provenance",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "voice-sound-design",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-003",
+      "title": "Hybrid mode reconciles poster-caption-audio conflicts",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-004",
+      "title": "No measured timing without alignment evidence",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "voice-sound-design",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-005",
+      "title": "Speaker labels do not reveal unsupported real identities",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "voice-sound-design",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-006",
+      "title": "SRT/VTT syntax and cue chronology are validated",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "voice-sound-design",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-007",
+      "title": "Subtitle generation remains untimed if timestamps unavailable",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "voice-sound-design",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-008",
+      "title": "Audio processing is not claimed from a mix specification",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "voice-sound-design",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-009",
+      "title": "Renderer absence yields handoff, not fabricated MP4",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "editing-postproduction",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-010",
+      "title": "Renderer integration uses exact target schema",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "editing-postproduction",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-011",
+      "title": "Proof render precedes full render when feasible",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "editing-postproduction",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-012",
+      "title": "Actual media metadata is verified independently",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "quality-assurance-controller",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-013",
+      "title": "Missing artifact blocks media QA PASS",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "quality-assurance-controller",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-014",
+      "title": "Health fact changes invalidate dependent production artifacts",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "continuity-guardian",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-015",
+      "title": "Technical render verification remains separate from human approval",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-016",
+      "title": "Delivery state cannot exceed weakest critical gate",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-017",
+      "title": "Private audio is not sent to external processor without authorization",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "voice-sound-design",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "V2-018",
+      "title": "Change repair uses targeted invalidation and regression",
+      "requirement_ids": [
+        "REQ-11",
+        "REQ-12"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ],
+      "source": "tests/v2-production-cases.json",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    }
+  ]
+}

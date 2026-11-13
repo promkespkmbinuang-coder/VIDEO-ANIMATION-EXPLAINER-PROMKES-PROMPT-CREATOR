@@ -73,3 +73,12 @@ def test_audio_input_ownership_is_enforced():
     assert any('input mode' in e for e in semantic_errors(m, ROOT))
     m['source_catalog'] = [{'source_id':'A1','source_kind':'AUDIO','owner':'S05:visual-identity-art-direction','source_ref':'fixture:audio','provenance_ref':'fixture:source','rights_status':'USER_ATTESTED','privacy_classification':'PUBLIC','status':'AVAILABLE'}]
     assert any('owned by S09' in e for e in semantic_errors(m, ROOT))
+
+
+def test_v2_traceability_extension_has_18_cases():
+    extension = json.loads((ROOT / 'tests/v2-traceability-extension-v4.1.6.json').read_text(encoding='utf-8'))
+    source = json.loads((ROOT / 'tests/v2-production-cases.json').read_text(encoding='utf-8'))
+    cases = extension['cases']
+    assert len(cases) == 18 and len({x['test_id'] for x in cases}) == 18
+    assert {x['test_id'] for x in cases} == {x['test_id'] for x in source['cases']}
+    assert all(x['status'] == 'NOT_RUN' and x['requirement_ids'] and x['owner_skill'] for x in cases)
