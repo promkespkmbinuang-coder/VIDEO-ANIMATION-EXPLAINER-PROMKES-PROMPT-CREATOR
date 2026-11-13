@@ -79,3 +79,10 @@ Keep the renderer-neutral manifest separate from target-specific props and sourc
 ## Stop conditions
 
 Never invent commands, dependencies, APIs, codecs, file paths or export URLs. Do not install packages or transmit private media without authorization. If renderer unavailable, stop at handoff. A project/code file is not an MP4. A present MP4 is not verified until inspected. Missing critical assets, broken audio, invalid timing, rights issues or failed proof checks block publish-ready export.
+
+
+## V4.1.7 canonical motion adapter mapping
+
+S10 consumes S07 canonical motion records and maps them to an exact renderer and version. Remotion, GSAP, Lottie and HyperFrames are not interchangeable schemas. Record each field as MAPPED, APPROXIMATED, QUANTIZED, OMITTED or MANUAL, with reason and fallback. Validate half-open frame ranges, fps/timebase conversion, element/track IDs, easing/path support, overlay/audio synchronization and asset references before execution.
+
+A valid canonical motion record is not a renderer-runtime PASS. Actual integration, proof render, export and S12 inspection remain separate evidence stages. Do not silently convert unsupported motion controls or change health text to fit renderer limitations.

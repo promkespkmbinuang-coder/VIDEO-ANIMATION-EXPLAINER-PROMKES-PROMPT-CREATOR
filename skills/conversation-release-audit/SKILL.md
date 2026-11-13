@@ -44,3 +44,12 @@ M00 retains orchestration and gate arbitration. S14 does not decide clinical tru
 Report separately: conversation coverage; requirement/context completeness; private package save/read-back; GitHub source publication/merge; CI/static tests; live ChatGPT installation/invocation; external AI/ASR/TTS; Remotion install/Studio/bundle/render/media QA; clinical/legal/rights/privacy/brand/accessibility approval; license/redistribution decision; final human release approval.
 
 `NOT_RUN`, `BLOCKED`, `NOT_VERIFIED`, `UNKNOWN`, `PARTIAL`, `STALE` and `INVALIDATED` are never `PASS`. Production/public release remains `HOLD` while mandatory external or human gates are open.
+
+
+## V4.1.7 repository evaluation and motion/platform change impact
+
+For repository/skill evaluations, S14 owns the context, source-parity and release-change workstream; M00 orchestrates; S12 independently evaluates production QA. Inspect the exact default-branch SHA/tree, package identity, both manifests, skill inventory, schemas, examples, tests, scripts, CI workflows, docs, binary/report inventories, Plugin Creator read-back and comparator evidence. Label each claim FACT, INFERENCE or ASSUMPTION and cite exact paths/sections. Equal version strings do not prove source, behavior or runtime parity.
+
+Motion/platform change impact must cover S06 camera ownership, S07 motion record/schema/validator, S08 prompt anatomy/adapter registry, S10 renderer mapping, S12 cinematic QA, S13 continuity dependencies, M00 risk routing, schemas, fixtures, tests, docs, manifests and release read-back.
+
+A static schema/unit test does not close scenario acceptance, live host invocation, external model runtime, renderer integration, MP4/media QA, legal/rights/privacy review, clinical approval or publication authorization. Track these separately with exact evidence/status. Retain parity gaps instead of silently syncing private and GitHub implementations.

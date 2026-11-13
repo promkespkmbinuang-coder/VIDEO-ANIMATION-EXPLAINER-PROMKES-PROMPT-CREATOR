@@ -26,6 +26,8 @@ jobs:
         run: python scripts/validate_release_consistency.py --root .
       - name: Reproducible V4 unit and adversarial tests
         run: PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider --junitxml=build/v4-junit.xml
+      - name: Validate V4.1.7 motion and platform adapter contracts
+        run: python scripts/validate_motion_contract.py
       - name: Validate V4 project contracts and semantics
         run: >-
           python scripts/v4_gate_engine.py validate examples/v4/smoke-project.json

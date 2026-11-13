@@ -52,3 +52,16 @@ Stop or mark the affected component `HOLD/BLOCKED` when a critical missing fact,
 ## Supporting reference
 
 For shared definitions and project-wide contracts, consult `../master-orchestrator/references/` where the host resolves relative paths. If cross-skill file reading is unavailable, follow this skill's local contract and pass the missing reference dependency to M00.
+
+
+## V4.1.7 quantified motion-record contract
+
+S07 remains the sole owner of renderer-neutral element motion. For every material animated element, create one record conforming to schemas/v4/motion-record.schema.json and run scripts/validate_motion_contract.py.
+
+Required data: stable project/scene/element/motion IDs; initial/final states; ordered keyframes; motion phases (anticipation, action, follow-through, settle, hold, exit); path and coordinate system; easing intent and parameters; unit-bearing transforms; timing source, precision and rounding; negative constraints; continuity/claim/source refs; accessibility fallback and intended renderer targets.
+
+Frame arithmetic uses a half-open interval: start_frame is inclusive, end_frame_exclusive is exclusive, and duration_frames equals end_frame_exclusive minus start_frame. Use frame values only with a known fps/timebase. S09-derived timing must retain the actual source precision and source_time_ref; never upgrade estimated timing to exact.
+
+S06 remains the owner of camera, lens, framing and shot design. A CAMERA_REFERENCE motion record must reference an S06 camera plan. S07 records motion mechanics, not camera authorship. Generative-video easing and numeric controls are requests unless verified for the exact provider/model/version.
+
+A valid record is not proof of animation execution or render. Route renderer mappings to S10 and checks to S12. See docs/motion-specification-contract-v4.1.7.md.

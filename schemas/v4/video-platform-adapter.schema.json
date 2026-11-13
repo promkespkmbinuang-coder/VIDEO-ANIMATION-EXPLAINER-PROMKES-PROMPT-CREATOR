@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:promkes:v4:video-platform-adapter:1.0.0",
+  "title": "Promkes V4 AI Video Platform Adapter Record",
+  "description": "Version-pinned adapter evidence contract. Platform names alone never establish capability or runtime support.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "adapter_id", "platform", "provider", "model_name", "model_version", "checked_at", "status", "prompt_dialect", "feature_matrix", "official_docs_refs", "runtime_test_refs", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "adapter_id": {"type": "string", "minLength": 1},
+    "platform": {"enum": ["SORA", "VEO", "KLING", "RUNWAY", "SEEDANCE", "OTHER"]},
+    "provider": {"type": "string", "minLength": 1},
+    "model_name": {"type": "string", "minLength": 1},
+    "model_version": {"type": "string", "minLength": 1},
+    "checked_at": {"type": ["string", "null"], "format": "date-time"},
+    "status": {"enum": ["NOT_CHECKED", "DOCS_VERIFIED", "RUNTIME_TESTED", "UNAVAILABLE", "DEPRECATED", "BLOCKED"]},
+    "prompt_dialect": {
+      "type": "object", "additionalProperties": false,
+      "required": ["language", "structure", "prompt_length_policy"],
+      "properties": {
+        "language": {"enum": ["ENGLISH", "CHINESE", "INDONESIAN", "MIXED", "PROVIDER_DEFINED", "UNKNOWN"]},
+        "structure": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "prompt_length_policy": {"type": "string"},
+        "reference_image_policy": {"type": "string"},
+        "audio_policy": {"type": "string"},
+        "parameter_mapping_notes": {"type": "string"}
+      }
+    },
+    "feature_matrix": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["feature", "support", "evidence_refs"],
+        "properties": {
+          "feature": {"type": "string", "minLength": 1},
+          "support": {"enum": ["SUPPORTED", "UNSUPPORTED", "CONDITIONAL", "UNKNOWN"]},
+          "evidence_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "limit_or_condition": {"type": "string"}
+        }
+      }
+    },
+    "official_docs_refs": {"type": "array", "items": {"type": "string", "format": "uri"}, "uniqueItems": true},
+    "runtime_test_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "test_environment": {"type": ["object", "null"]},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "fallback_strategy": {"type": "string"},
+    "review_trigger": {"type": "string"}
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "motion_spec_id": "MOT-EXAMPLE-001",
+  "project_id": "PROJECT-EXAMPLE",
+  "scene_id": "SCENE-001",
+  "element_id": "ELEMENT-HEART-01",
+  "owner": "S07:animation-motion-design",
+  "target_kind": "GRAPHIC",
+  "timing": {
+    "fps": 24,
+    "start_frame": 0,
+    "end_frame_exclusive": 24,
+    "duration_frames": 24,
+    "timebase": "PROJECT_FRAMES",
+    "timing_source": "USER_PROVIDED",
+    "source_precision": "FRAME_EXACT",
+    "rounding_policy": "EXACT",
+    "source_time_ref": "brief:timing-example"
+  },
+  "start_state": {"opacity": 0, "scale": 0.9, "translate_y_px": 18},
+  "end_state": {"opacity": 1, "scale": 1, "translate_y_px": 0},
+  "keyframes": [
+    {"frame": 0, "state": {"opacity": 0, "scale": 0.9, "translate_y_px": 18}, "interpolation_to_next": "EASED"},
+    {"frame": 12, "state": {"opacity": 0.85, "scale": 1.02, "translate_y_px": -2}, "interpolation_to_next": "EASED"},
+    {"frame": 23, "state": {"opacity": 1, "scale": 1, "translate_y_px": 0}}
+  ],
+  "motion_phases": [
+    {"phase": "ANTICIPATION", "start_frame": 0, "end_frame_exclusive": 3, "purpose": "Small preparatory offset before entry"},
+    {"phase": "ACTION", "start_frame": 3, "end_frame_exclusive": 16, "purpose": "Main reveal and settle approach"},
+    {"phase": "SETTLE", "start_frame": 16, "end_frame_exclusive": 24, "purpose": "Resolve overshoot and hold readable state"}
+  ],
+  "easing": {"type": "CUBIC_BEZIER", "cubic_bezier": [0.16, 1, 0.3, 1]},
+  "motion_path": {"type": "STRAIGHT", "coordinate_system": "PIXELS", "unit": "px"},
+  "camera_plan_ref": null,
+  "transition_in": "TRANSITION-001",
+  "transition_out": null,
+  "negative_constraints": ["Do not alter locked health text", "No flicker or unintended deformation"],
+  "continuity_refs": ["MCG:1.0.0", "GUIDE-03:1.0.0"],
+  "claim_refs": [],
+  "source_refs": ["brief:timing-example"],
+  "accessibility": {"reduced_motion_required": true, "reduced_motion_fallback": "Static state with a short opacity fade", "flicker_or_flash_check_required": true},
+  "renderer_targets": ["REMOTION"],
+  "approval_ref": null,
+  "status": "DRAFT"
+}
