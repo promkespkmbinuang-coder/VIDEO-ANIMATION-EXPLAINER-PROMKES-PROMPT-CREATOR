@@ -1,10 +1,3 @@
-## 4.1.9 — governed reuse, external drift and proportional preflight (2026-11-13)
-- Adds a 12-part source-based architecture evaluation and patch decision record.
-- Defines Approved Formula Ledger, two-baseline Model Drift Sentinel, mandatory risk-proportional S14 preflight, non-authoritative S08 model advisor and privacy-minimized Project Outcome Register.
-- Refines M00/S01/S08/S12/S14 ownership; no new specialist or production gate.
-- Does not activate a scheduled monitor, risk fast-track, project telemetry, external model, renderer, or production release.
-- Preserves S02 exclusive clinical authority, S14 mandatory preflight, R0-R3 conservative routing and traceability. Runtime, pilot and human approvals remain separately evidenced.
-
 ## 4.1.8 — R0–R3 risk routing, beat-sheet trace and Remotion target mapping (2026-11-13)
 - Adds conservative R0 LOW, R1 STANDARD, R2 ELEVATED and R3 CRITICAL routing with unknown-risk escalation, hard overrides and stop/escalate controls.
 - Adds executable risk and beat-sheet semantic validators, regression tests, a beat-sheet schema and example.

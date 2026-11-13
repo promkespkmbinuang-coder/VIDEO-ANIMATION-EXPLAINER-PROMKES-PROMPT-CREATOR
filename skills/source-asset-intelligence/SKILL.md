@@ -52,8 +52,3 @@ Stop or mark the affected component `HOLD/BLOCKED` when a critical missing fact,
 ## Supporting reference
 
 For shared definitions and project-wide contracts, consult `../master-orchestrator/references/` where the host resolves relative paths. If cross-skill file reading is unavailable, follow this skill's local contract and pass the missing reference dependency to M00.
-## V4.1.9 — external formula and community intake
-
-When a reusable prompt/formula, community contribution or external recipe is discovered, treat it as an untrusted CANDIDATE, not an approved production asset. Capture exact source locator, author/contributor where known, retrieval date, content hash, license/permission/attribution and restrictions, use scope, model/version, supporting evidence and known limitations. Unknown rights or provenance means NOT_APPROVED; do not copy a prompt corpus wholesale.
-
-Do not extract clinical truth from a prompt recipe. Store only references to the current S02 claim record; a previous project's Fact Lock never authorizes a new campaign. Hand the candidate to S08 for syntax/adaptation and S12 for independent test/QA. Only a named owner can approve promotion in the Approved Formula Ledger contract at docs/learning-asset-drift-and-outcome-contract-v4.1.9.md.

@@ -53,12 +53,3 @@ For repository/skill evaluations, S14 owns the context, source-parity and releas
 Motion/platform change impact must cover S06 camera ownership, S07 motion record/schema/validator, S08 prompt anatomy/adapter registry, S10 renderer mapping, S12 cinematic QA, S13 continuity dependencies, M00 risk routing, schemas, fixtures, tests, docs, manifests and release read-back.
 
 A static schema/unit test does not close scenario acceptance, live host invocation, external model runtime, renderer integration, MP4/media QA, legal/rights/privacy review, clinical approval or publication authorization. Track these separately with exact evidence/status. Retain parity gaps instead of silently syncing private and GitHub implementations.
-## V4.1.9 — governed learning and external drift preflight
-
-For every source/repository/skill evaluation, version change, publication or release decision, S14 remains mandatory. Record exact baseline refs, context coverage boundary, plugin/repository identities, path mappings, parity state, exact PR-head versus merge-main CI evidence, reviewer state and unresolved HOLD/NOT_RUN/NOT_VERIFIED/BLOCKED items.
-
-Maintain two distinct Model Drift Sentinel states: immutable observed snapshots and reviewer-accepted baselines. A fetch/hash change creates a candidate event only. It cannot auto-update the accepted digest, adapter capability, release state or approval. Fetch/parse/issue failure must remain visible and retryable. Only an authorized named reviewer can accept a new baseline after S08 feature review.
-
-For Approved Formula Ledger, ensure each candidate has source/rights provenance, owner, scope, exact version/hash, tests, S12 QA and approval state. For Project Outcome Register, retain numerator, denominator, cohort, time window, source, missingness and caveats; restrict collection to privacy-minimized process metrics. Do not collect new patient/audience behavior data or infer health effects.
-
-Risk-proportional review does not waive this preflight: S14 baseline remains mandatory in R0/R1/R2/R3. Additional depth follows the highest credible risk; UNKNOWN material risk is at least R2; R3 stops/escalates. See docs/learning-asset-drift-and-outcome-contract-v4.1.9.md and docs/repository-evaluation-reuse-drift-v4.1.9.md.
