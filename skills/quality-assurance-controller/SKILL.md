@@ -79,3 +79,11 @@ Cinematic criteria must be observable and assigned an oracle. Minimum checks:
 - target model/renderer controls are supported by exact versioned evidence.
 
 Each criterion records expected and observed result, status, evidence refs, limitation, defect ID, owner, correction and retest. Avoid subjective aesthetic scoring as an acceptance oracle. Static contract PASS does not imply model runtime, renderer integration, render, MP4 inspection or human approval. Missing media remains NOT_RUN; inaccessible properties remain NOT_VERIFIED.
+
+
+
+## V4.1.8 risk and beat-sheet QA
+
+Independently inspect risk-lane rationale and ensure no critical trigger is downgraded, UNKNOWN is not treated as R0, and lane assignment is not confused with release approval. For beat sheets, verify complete traceability, unique IDs, sequence order, positive half-open time/frame intervals, timing provenance, claim/overlay hash references, scene/shot/motion/audio/transition links, MCG continuity, accessibility fallback and a testable QA oracle. Run scripts/validate_beat_sheet.py and scripts/validate_risk_assessment.py; record exact command and result. These validators prove only structural/semantic checks on the supplied records.
+
+For Remotion, inspect canonical-to-target mapping, exact package/runtime versions, mapping-loss records, frame boundary behavior, overlays, audio timing, accessibility and actual rendered artifact. Without an actual render and independent inspection, bundle/render/media QA remain NOT_RUN or NOT_VERIFIED. Baselines for adoption/usability/cycle time and reviewer effort remain NOT_MEASURED until data are collected.
