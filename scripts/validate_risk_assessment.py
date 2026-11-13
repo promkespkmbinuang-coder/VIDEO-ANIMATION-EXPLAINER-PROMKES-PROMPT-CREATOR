@@ -24,6 +24,8 @@ def main():
     declared=data.get("declared_lane")
     if declared not in LANES or LANES.index(declared)<LANES.index(lane):
         print(f"FAIL: declared lane {declared!r} is lower than minimum {lane}"); return 1
+    if declared=="R0" and (data.get("s02_disposition")!="NO_MATERIAL_HEALTH_CLAIM" or not data.get("s02_disposition_ref")):
+        print("FAIL: R0 requires explicit S02 NO_MATERIAL_HEALTH_CLAIM disposition and evidence reference"); return 1
     print(f"PASS: minimum lane {lane}; this is triage only, not approval")
     return 0
 if __name__=="__main__": raise SystemExit(main())
