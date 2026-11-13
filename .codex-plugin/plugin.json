@@ -1,8 +1,8 @@
 {
   "interface": {
-    "displayName": "Video Explainer Promkes V4.1.8",
+    "displayName": "Video Explainer Promkes V4.1.9",
     "shortDescription": "Evidence-gated Promkes",
-    "longDescription": "Health-first Promkes production with canonical MCG, quantified motion, R0-R3 risk routing, beat-sheet traceability, Remotion target mapping design and independent cinematic QA. Runtime, pilot and human approvals remain evidence-gated.",
+    "longDescription": "Health-first evidence-gated Promkes production with canonical MCG, quantified motion, R0-R3 routing, beat-sheet traceability and governed reuse/drift review. No new specialist or gate; scheduled monitoring, runtime and human approvals remain separately evidenced.",
     "developerName": "Promkes pkm binuang",
     "category": "Healthcare",
     "capabilities": [],
@@ -19,7 +19,7 @@
     ]
   },
   "name": "video-animasi-explainer-promkes-prompt-creator",
-  "version": "4.1.8",
+  "version": "4.1.9",
   "description": "Evidence-governed health-promotion explainer production with canonical MCG, quantified renderer-neutral motion contracts, evidence-bound AI video adapters and independent cinematic QA.",
   "author": {
     "name": "Promkes pkm binuang",
@@ -53,7 +53,11 @@
     "motion specification",
     "cinematic QA",
     "AI video platform adapter",
-    "motion schema"
+    "motion schema",
+    "approved formula ledger",
+    "model drift review",
+    "risk-proportional preflight",
+    "project outcome register"
   ],
   "skills": "./skills"
 }
