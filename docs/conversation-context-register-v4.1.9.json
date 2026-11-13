@@ -888,6 +888,5 @@
     "S14 remains mandatory in every risk lane; proportional review does not waive S02, evidence, rights/privacy, continuity, S12 or human approval.",
     "GitHub PR #24 is draft; package validation FAILURE is not resolved by markdown-link-check SUCCESS; job log retrieval was unavailable at this audit point.",
     "This V4.1.9 register is context/provenance metadata, not clinical evidence, current source verification, license, permission, pilot authorization or release approval."
-  ],
-  "updated_at": "2026-11-13"
+  ]
 }
