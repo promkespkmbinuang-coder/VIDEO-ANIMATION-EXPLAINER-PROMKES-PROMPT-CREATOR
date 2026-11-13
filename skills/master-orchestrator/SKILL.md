@@ -196,16 +196,3 @@ M00 requires a beat-sheet trace from approved source/message/claim refs through 
 ## V4.1.8 renderer target boundary
 
 Remotion is the first concrete renderer mapping target, owned by S10. The mapping design is not execution evidence. Package/version pinning, typecheck, bundle, render, MP4 inspection and independent S12 media QA remain NOT_RUN until performed against an exact runtime and artifact.
-## V4.1.9 — governed learning, drift and risk-proportional preflight
-
-Before any repository/skill evaluation or versioned release change, S14 remains a mandatory cross-cutting preflight. It must disclose source coverage, identity/parity uncertainty, superseded decisions and missing evidence. The contract is docs/learning-asset-drift-and-outcome-contract-v4.1.9.md.
-
-M00 orchestrates four existing functions; it does not add a new specialist or production gate:
-1. AFL: S01 captures source/rights/provenance; S08 compiles and reuses only APPROVED records; S12 independently checks the reusable recipe; S13 contributes only continuity dependencies; S02 alone reviews current health claims.
-2. MDS: S14 records observed external changes and accepted-baseline decisions; S08 assesses per-feature impact. Drift detection never changes a model to supported or runtime-tested automatically.
-3. MSA: S08 may return up to three evidence-bound candidates as advice only. The user/project owner remains the selector; unknown features stay UNKNOWN/NOT_CHECKED.
-4. POR: M00 aggregates privacy-minimized process metrics with numerator, denominator, cohort, period, evidence and limitations. Do not collect new audience/patient behavioral-health data or infer health outcomes.
-
-Risk-proportional preflight changes only the depth of additional review and duplicate clerical capture. S14's baseline preflight remains mandatory for every lane. Preserve highest-lane-wins, R3 critical override, UNKNOWN material risk >= R2, no averaging away a critical trigger, explicit S02 no-material-claim disposition for R0, and full R2/R3 isolation. R0/R1 fast-track stays inactive until written sponsor authorization, owner, S02/S12 concurrence, privacy/rights review, measured baseline, shadow adjudication and rollback readiness.
-
-Never promote CANDIDATE, UNKNOWN, STALE, NOT_RUN, NOT_VERIFIED, HOLD or BLOCKED to APPROVED/PASS from a summary, prompt quality, hash change, unit test or version label. Changes to source, claim, model/version, rights, MCG lock, motion, renderer or QA oracle invalidate dependent records and require new evidence.

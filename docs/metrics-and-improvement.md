@@ -21,16 +21,3 @@ Establish a measured pilot baseline before setting numerical targets. Every metr
 The previous six dashboard dimensions remain useful grouping headings, but counts per dimension are not quality scores. The indicators above should be populated from pilot observations; no percentage target is asserted before a representative baseline exists.
 
 Collect only authorized and minimized feedback. The plugin does not imply self-learning, persistent telemetry or automatic renderer monitoring.
-
-
-## V4.1.9 — reuse and drift metrics
-
-Add only after a project-local record and privacy review exist:
-- Approved reuse ratio = APPROVED ledger references reused / eligible formula lookups.
-- Reuse acceptance = reused formulas accepted without material rework / reused formulas reviewed.
-- Drift detection latency = time from sourced provider change evidence to candidate event; it does not prove materiality.
-- Stale evidence detection = stale/unknown adapter records found / records reviewed.
-- Reviewer effort and median/P90 cycle time, stratified by risk lane and complexity.
-- Rework, trace completeness, risk misclassification and major/critical QA escape.
-
-Every metric requires a numerator, denominator, cohort, time window, version/host/model, evidence locator, missingness, owner and caveat. Do not create one composite score. Baselines remain NOT_MEASURED until a representative cohort is approved. Collect only privacy-minimized process data; do not collect new patient/audience behavioral-health data or infer clinical outcomes.
