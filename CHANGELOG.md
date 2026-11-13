@@ -1,3 +1,9 @@
+## 4.1.8 — R0–R3 risk routing, beat-sheet trace and Remotion target mapping (2026-11-13)
+- Adds conservative R0 LOW, R1 STANDARD, R2 ELEVATED and R3 CRITICAL routing with unknown-risk escalation, hard overrides and stop/escalate controls.
+- Adds executable risk and beat-sheet semantic validators, regression tests, a beat-sheet schema and example.
+- Adds a Remotion target mapping design with explicit mapping-loss and evidence stages; runtime, bundle, render, MP4 inspection and media QA remain NOT_RUN.
+- Adds KPI baseline and controlled-pilot evaluation protocol; baselines remain NOT_MEASURED and R0/R1 pilot remains PROPOSED/inactive.
+
 ## 4.1.7 — quantified motion, platform evidence and cinematic QA (2026-11-13)
 - Adds a renderer-neutral S07 motion-record schema and semantic validator for half-open frame intervals, keyframes, phases, easing, paths, source precision and S06 camera references.
 - Adds a version-pinned S08 platform adapter evidence schema and nine-slot prompt completeness model; platform candidates are not declared supported without exact documentation/runtime evidence.
