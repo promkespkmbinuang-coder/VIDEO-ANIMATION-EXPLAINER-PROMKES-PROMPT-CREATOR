@@ -87,3 +87,14 @@ Each criterion records expected and observed result, status, evidence refs, limi
 Independently inspect risk-lane rationale and ensure no critical trigger is downgraded, UNKNOWN is not treated as R0, and lane assignment is not confused with release approval. For beat sheets, verify complete traceability, unique IDs, sequence order, positive half-open time/frame intervals, timing provenance, claim/overlay hash references, scene/shot/motion/audio/transition links, MCG continuity, accessibility fallback and a testable QA oracle. Run scripts/validate_beat_sheet.py and scripts/validate_risk_assessment.py; record exact command and result. These validators prove only structural/semantic checks on the supplied records.
 
 For Remotion, inspect canonical-to-target mapping, exact package/runtime versions, mapping-loss records, frame boundary behavior, overlays, audio timing, accessibility and actual rendered artifact. Without an actual render and independent inspection, bundle/render/media QA remain NOT_RUN or NOT_VERIFIED. Baselines for adoption/usability/cycle time and reviewer effort remain NOT_MEASURED until data are collected.
+## V4.1.9 — reusable formula and drift QA
+
+For any proposed Approved Formula Ledger entry, independently verify:
+- Source locator, provenance, license/rights/attribution and scope are present and internally consistent.
+- Exact prompt/formula version/hash and exact provider/model/version are recorded, or the formula is explicitly provider-neutral.
+- Positive, negative and edge-case oracles exist; observed outputs and limits are attached to the record.
+- No health claim or clinical meaning has been copied from a prior project without current S02 reference/approval.
+- No prompt-injection instruction, private/patient information, unauthorized brand/voice asset or unlicensed material is promoted.
+- Reuse state is APPROVED only after owner approval; stale evidence, drift candidates and unknown rights remain blocked from active reuse.
+
+For model drift, verify that observed source changes are separate from accepted baselines, fetch errors do not silently become no-change, and a hash does not imply feature support. Documentation review and runtime evidence remain separate. Keep each finding at the actual QA layer; do not mark actual media QA PASS without observable media.
