@@ -1,3 +1,11 @@
+## 4.1.6 — canonical MCG integration (2026-11-13)
+- Adds canonical MCG schema and DRAFT example, seven single-owner Guide files and three continuity protocols.
+- Makes S13 the MCG index and GUIDE-07 integrator only; clarifies GUIDE-01/03/06 S05, GUIDE-02/04 S04, GUIDE-05 S09.
+- Requires post-storyboard S13 refresh before S08 reference compilation.
+- Adds semantic checks, adaptive continuity, S02 claim ownership and approval/hash-binding contracts.
+- Adds 76-case traceability coverage; scenarios remain NOT_RUN.
+- External AI, renderer, media QA and human approvals remain separate gates.
+
 # Changelog
 
 ## 4.1.4 — context-oracle alignment and corrective regression fix (2026-11-12)

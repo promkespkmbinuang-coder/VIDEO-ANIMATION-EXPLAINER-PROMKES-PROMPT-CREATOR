@@ -111,6 +111,16 @@
       "requirement_id": "REQ-REF-09",
       "title": "Artifact QA evidence gate",
       "statement": "Do not claim render QA without actual artifact and reviewer evidence."
+    },
+    {
+      "requirement_id": "REQ-11",
+      "title": "Canonical MCG and single-owner Guide integration",
+      "statement": "Maintain one canonical MCG manifest, exactly seven modular Guides and three protocols with one primary owner per Guide and traceable versions."
+    },
+    {
+      "requirement_id": "REQ-12",
+      "title": "Post-storyboard continuity and adaptive scene state",
+      "statement": "Refresh S13 Scene Continuity after storyboard plus S07/S09/S10 inputs and before S08; enforce immutable, controlled-variation and scene-dependent attributes."
     }
   ],
   "outputs": [
@@ -878,6 +888,312 @@
       "output_ids": [
         "OUT-RENDERER-HANDOFF",
         "OUT-QA-REPORT"
+      ]
+    },
+    "V2-001": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-002": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "voice-sound-design",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-003": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-004": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "voice-sound-design",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-005": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "voice-sound-design",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-006": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "voice-sound-design",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-007": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "voice-sound-design",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-008": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "voice-sound-design",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-009": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "editing-postproduction",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-010": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "editing-postproduction",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-011": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "editing-postproduction",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-012": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "quality-assurance-controller",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-013": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "quality-assurance-controller",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-014": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "continuity-guardian",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-015": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-016": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-017": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "voice-sound-design",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
+      ]
+    },
+    "V2-018": {
+      "requirement_ids": [
+        "REQ-05",
+        "REQ-06",
+        "REQ-07",
+        "REQ-10",
+        "REQ-11",
+        "REQ-12",
+        "NFR-02"
+      ],
+      "owner_skill": "master-orchestrator",
+      "dependency_ids": [],
+      "output_ids": [
+        "OUT-CONTINUITY-MCG",
+        "OUT-TEST-TRACEABILITY"
       ]
     }
   }

@@ -3,7 +3,7 @@ name: master-orchestrator
 description: Use when a user provides health-promotion poster, caption, script and/or voice-over and needs an evidence-controlled animated explainer production workflow, with conditional rendering and media QA when actual tools are available.
 ---
 
-# M00 — VIDEO EXPLAINER PROMKES V4.1.4 MASTER ORCHESTRATOR
+# M00 — VIDEO EXPLAINER PROMKES V4.1.6 MASTER ORCHESTRATOR
 
 ## 1. Mission
 
@@ -168,3 +168,6 @@ For accepted changes, trace conversation/source → CTX/REQ → owner/artifact �
 Before GitHub publication, distinguish private Plugin Creator save/read-back, source branch, commit, PR, CI, independent review, merge, post-merge main CI and release. PR-head CI is not main CI. Public repository visibility is not a license. Never publish private assets, credentials or patient data. Keep repository and Plugin Creator visibility separate.
 
 M00 retains orchestration and gate arbitration. S14 does not decide clinical truth, creative ownership, human authority or independent QA. See the [S14 skill](../conversation-release-audit/SKILL.md) and [M00/S14 integration contract](references/s14-integration-contract.md).
+
+## Mandatory MCG integration gate — V4.1.6
+Before S08 compiles still/reference prompts, verify one canonical MCG manifest, exactly seven Guide refs and three protocols, one primary owner per Guide, acyclic/resolvable dependencies, S02-only Health Truth references, adaptive continuity classes, exact model capability evidence, rights/privacy and artifact-bound human approvals. Mandatory order: S06 storyboard → S07 motion + S09 audio/time refs + S10 edit context → S13 refresh GUIDE-07/MCG → schema and semantic validation → S08. Affected scenes remain BLOCKED while refresh is NOT_RUN, BLOCKED, STALE or INVALIDATED.

@@ -1,4 +1,4 @@
-# Video Explainer Promkes V4.1.4 — evidence-gated production compiler
+# Video Explainer Promkes V4.1.6 — evidence-gated production compiler
 
 **Architecture:** M00 + S01–S13 production specialists with S14 as mandatory cross-cutting conversation/release preflight. **Private engine parity:** PARTIAL / NOT_SYNCED. **Production/public release:** HOLD.
 
@@ -24,3 +24,15 @@ V4.1.4 context coverage is summary-bounded (`PARTIAL_WITH_DISCLOSED_BOUNDARY`), 
 Live ChatGPT invocation, external AI/ASR/diarization/TTS, Remotion install/Studio/bundle/render, MP4 QA, clinical/legal/rights/privacy/brand/accessibility approval, license decision and final human release approval remain NOT_RUN/NOT_VERIFIED/BLOCKED as applicable. Public repository visibility is not a license.
 
 See `docs/conversation-context-register-v4.1.4.json`, `docs/release-audit-v4.1.4.md`, `docs/source-tree-parity-v4.1.4.md` and `docs/engine-parity-status.md`.
+
+
+## V4.1.6 canonical MCG integration
+
+- One canonical MCG manifest; exactly seven single-owner Guides and three protocols.
+- GUIDE-01/03/06 S05; GUIDE-02/04 S04; GUIDE-05 S09; GUIDE-07 integrated continuity S13.
+- S13 owns the index and integrated GUIDE-07, not domain authoring. S02 alone owns health claims and evidence interpretation.
+- Mandatory post-storyboard sequence: S06 → S07/S09/S10 → S13 refresh → validation → S08.
+- Still prompts and temporal motion are separate. Capabilities require provider/model/version evidence.
+- 76 case IDs mapped (45 AT + 13 REF + 18 V2); all remain NOT_RUN.
+- Private plugin and GitHub repo remain distinct products; slug aliases are documented, not byte parity.
+- Production/public release HOLD pending independent review, scenario execution, external runtime/render/media QA and human approvals.
