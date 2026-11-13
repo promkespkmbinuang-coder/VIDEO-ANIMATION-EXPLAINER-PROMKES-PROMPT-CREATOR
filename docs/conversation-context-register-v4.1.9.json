@@ -1,0 +1,893 @@
+{
+  "context_id": "CTX-REGISTER-PROMKES-2026-11",
+  "project_id": "VIDEO-EXPLAINER-PROMKES",
+  "context_version": "4.1.9",
+  "created_at": "2026-11-13T16:45:00+08:00",
+  "coverage_boundary": "Compiled from the current conversation, available prior-conversation summaries, selected private Plugin Creator read-backs and GitHub repository/PR read-backs on 12 November 2026. Raw full text of every historical conversation and all earlier project files is not available. Coverage is PARTIAL_WITH_DISCLOSED_BOUNDARY. This is a context index, not clinical evidence, current campaign-fact verification, rights/permission record, identity proof or test evidence. V4.1.6 update on 13 November 2026 adds the current MCG canonical ownership and regression contract records; this remains a context register, not execution or approval evidence. V4.1.8 adds a proposed R0-R3 risk routing contract, beat-sheet trace contract, Remotion mapping design and KPI baseline protocol; these are implementation records, not pilot authorization or renderer execution evidence. V4.1.9 adds a source-based comparison with Lanshu and design contracts for approved formula reuse, two-baseline model drift review, mandatory risk-proportional S14 preflight, non-authoritative model advisory and privacy-minimized project process outcomes. This is an evaluation/contract snapshot, not an activated scheduler, pilot authorization, capability approval, measured outcome or production release. GitHub PR #24 is a draft candidate and its current package-validation result is FAILURE pending log-level diagnosis/fix; review is outstanding. Private Plugin Creator remains V4.1.7 and GitHub main remains V4.1.8; parity is PARTIAL/NOT_SYNCED.",
+  "records": [
+    {
+      "ctx_id": "CTX-INPUT-001",
+      "statement": "Poster/photo/infographic plus caption is a recurring optional starting pattern for Promkes explainer work.",
+      "classification": "CONFIRMED_PREFERENCE",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-10-16",
+        "available summary:2026-10-30"
+      ],
+      "scope": "Optional input mode; do not assume assets/caption are always present.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S01",
+        "S02",
+        "S04",
+        "S06"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-INPUT-002",
+      "statement": "Audio-first, transcript-first, script-first and hybrid poster/audio/transcript inputs should be supported.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-11-10",
+        "available summary:2026-11-12"
+      ],
+      "scope": "Select from supplied materials; never invent acoustic observations, transcript text or timing.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S01",
+        "S09",
+        "S04",
+        "S06"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-VOICE-003",
+      "statement": "Accessible, down-to-earth Indonesian and story-led persuasive communication are recurring preferences.",
+      "classification": "CONFIRMED_PREFERENCE",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-10-28",
+        "available summary:2026-10-30"
+      ],
+      "scope": "Editable voice profile per campaign, audience and channel.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S03",
+        "S04",
+        "S11"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-VOICE-004",
+      "statement": "Curiosity-building hooks, useful educational insight and a non-lecturing tone are preferred, but must remain truthful and non-stigmatizing.",
+      "classification": "CONFIRMED_PREFERENCE",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-10-28",
+        "available summary:2026-10-30"
+      ],
+      "scope": "Creative direction per brief; no deceptive clickbait, fear manipulation or unsupported health claims.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S02",
+        "S03",
+        "S04",
+        "S11"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-VOICE-005",
+      "statement": "A key message and actionable audience CTA are commonly requested.",
+      "classification": "CONFIRMED_PREFERENCE",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-10-28",
+        "available summary:2026-10-30"
+      ],
+      "scope": "Tie CTA to defined audience and behavior objective; do not globalize campaign-specific CTA.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S03",
+        "S04",
+        "S11"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-VOICE-006",
+      "statement": "The greeting Halo Sola Seha’ has been requested as a recognizable opener.",
+      "classification": "EXPLICIT",
+      "status": "NEEDS_CONFIRMATION",
+      "source_refs": [
+        "available summary:2026-10-28",
+        "available summary:2026-10-30"
+      ],
+      "scope": "Optional brand profile element; confirm current brand fit, spelling and authority before reuse.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S03",
+        "S04",
+        "S11"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-VOICE-007",
+      "statement": "Polewali Mandar local speech flavor has been requested for some community-facing outputs.",
+      "classification": "CONFIRMED_PREFERENCE",
+      "status": "NEEDS_CONFIRMATION",
+      "source_refs": [
+        "available summary:2026-10-28",
+        "available summary:2026-10-30"
+      ],
+      "scope": "Use only grounded idioms reviewed for authenticity; do not fabricate dialect or stereotype.",
+      "confidence": "MEDIUM",
+      "downstream_refs": [
+        "S03",
+        "S04",
+        "S11"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-DESIGN-008",
+      "statement": "Portrait 4:5 and generous top/bottom logo safe areas were requested for static poster/infographic design, including a 1080×1350 px infographic.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-10-16",
+        "available summary:2026-10-30"
+      ],
+      "scope": "Static artwork only. The 1080×1350 px size, 4:5 ratio and logo safe areas do not define video aspect ratio, resolution or scene safe areas.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S01",
+        "S05",
+        "S06",
+        "S10",
+        "S11"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-DESIGN-009",
+      "statement": "A 300×130 cm landscape CKG/HKN banner for Pasar Kanang on 30 October 2026 was a one-off event brief.",
+      "classification": "EXPLICIT",
+      "status": "SUPERSEDED",
+      "source_refs": [
+        "available summary:2026-10-26"
+      ],
+      "scope": "Historical event reference only; date is past as of 12 November 2026. Reuse only with a new explicit request and new event facts.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S01",
+        "S05",
+        "S06",
+        "S11"
+      ],
+      "confirmation_required": false,
+      "superseded_by": "Closed one-off event brief; reuse only with a new explicit request"
+    },
+    {
+      "ctx_id": "CTX-CAMPAIGN-010",
+      "statement": "DBD, TBC, fogging, named institutions/locations, event dates, statistics and campaign CTAs from individual campaigns are campaign-specific.",
+      "classification": "CONFIRMED_PREFERENCE",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-10-30",
+        "available summary:2026-11-11"
+      ],
+      "scope": "Never hard-code prior campaign facts in global health truth, default scenes or generic templates; verify new claims per project.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S11"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-DISTRIBUTION-011",
+      "statement": "Social captions and strategic hashtags are useful optional downstream deliverables when requested, not mandatory render stages.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-10-28",
+        "available summary:2026-10-30"
+      ],
+      "scope": "S11 may produce short/long captions, titles, hooks, key messages, CTAs, platform variants, relevant hashtags and alt text from approved facts; do not require external caption/hashtag plugins.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S03",
+        "S04",
+        "S11"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-RENDER-012",
+      "statement": "Remotion/React TSX compatibility and deterministic handoff are evaluation targets when Remotion is selected.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-11-12"
+      ],
+      "scope": "Candidate adapter is not proof of package install, Studio discovery, bundle, actual render or media QA.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S10",
+        "S12",
+        "M00"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-AI-013",
+      "statement": "The AI video model/provider remains deliberately unspecified unless selected for a specific project.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-11-12"
+      ],
+      "scope": "Keep handoff provider-neutral; do not infer model capabilities or availability.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S08",
+        "S10",
+        "M00"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-QA-014",
+      "statement": "A test, runtime, renderer, export or media inspection may be marked PASS only after execution and inspection of matching evidence.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-11-12",
+        "current request:2026-11-12"
+      ],
+      "scope": "All CI, unit test, external AI, ASR/diarization, renderer, MP4 and approval reports require exact evidence.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S10",
+        "S12",
+        "S14"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-QA-015",
+      "statement": "Previous open test gaps included cross-platform runtime, actual ASR/diarization, renderer integration, MP4 export/inspection and 18 V2 acceptance tests.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-11-12"
+      ],
+      "scope": "Remain NOT_RUN unless fresh matching evidence exists; V4 CI does not automatically close legacy checks.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S09",
+        "S10",
+        "S12"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-PUBLISH-016",
+      "statement": "The user requests continued GitHub publication of source updates.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "current request:2026-11-12"
+      ],
+      "scope": "Use auditable branches/commits/PRs; report CI, review, merge and deployment separately.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S14"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-SCOPE-017",
+      "statement": "Caption-copywriting, hashtag generation, infographics and image/banner editing are adjacent workflows, not mandatory for every video project.",
+      "classification": "INFERRED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summaries:2026-10-16",
+        "2026-10-26",
+        "2026-10-28",
+        "2026-10-30"
+      ],
+      "scope": "Integrate as optional S01/S05/S11 tasks when useful; do not add overhead to every production.",
+      "confidence": "MEDIUM",
+      "downstream_refs": [
+        "M00",
+        "S01",
+        "S05",
+        "S11"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-ARCH-018",
+      "statement": "GitHub S10 editing-postproduction and private S10 renderer-code-engineering appear related but are not confirmed as one owner or identical scope.",
+      "classification": "INFERRED",
+      "status": "NEEDS_CONFIRMATION",
+      "source_refs": [
+        "selected GitHub M00 read-back:2026-11-12",
+        "private Plugin Creator V4.1.2 read-back:2026-11-12"
+      ],
+      "scope": "Preserve both paths/capabilities until owner confirms responsibilities and migration.",
+      "confidence": "MEDIUM",
+      "downstream_refs": [
+        "M00",
+        "S09",
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-UNKNOWN-019",
+      "statement": "Complete raw historical conversation coverage, byte-level private/GitHub source parity and canonical plugin/repository naming alignment are not demonstrated.",
+      "classification": "UNKNOWN",
+      "status": "ACTIVE",
+      "source_refs": [
+        "current conversation:2026-11-12",
+        "selected source read-backs:2026-11-12"
+      ],
+      "scope": "Audit boundary; do not claim exhaustive history, byte parity or canonical identity until verified/confirmed.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S14"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-DIST-020",
+      "statement": "The user has expressed goals to improve social discovery, reach, views and interactions such as likes, comments and shares, including platform concepts such as FYP and trending.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-10-29",
+        "available summary:2026-10-30"
+      ],
+      "scope": "Treat as campaign/distribution aspirations, not guaranteed performance outcomes. Do not promise virality, FYP, trending or engagement; measure only with platform analytics supplied for the project.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S03",
+        "S11",
+        "M00"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-VOICE-021",
+      "statement": "Figurative storytelling with metaphor and hyperbole has been requested for some social copywriting.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-10-28",
+        "available summary:2026-10-30"
+      ],
+      "scope": "Optional rhetorical style only. Never exaggerate clinical risk, statistics, certainty, cause/effect or health outcomes; S02 Fact Lock takes precedence.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S02",
+        "S03",
+        "S04",
+        "S11"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-CAMPAIGN-022",
+      "statement": "An environmental-care and community-participation CTA was requested for a DBD/fogging campaign.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-10-30"
+      ],
+      "scope": "Campaign-scoped example only; derive future environmental CTAs from the current behavior objective and validated public-health guidance.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S02",
+        "S03",
+        "S04",
+        "S11"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-DESIGN-023",
+      "statement": "Modern, aesthetic, persuasive and youth-aware visual language was requested for specific infographics and banners.",
+      "classification": "CONFIRMED_PREFERENCE",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-10-26",
+        "available summary:2026-10-29",
+        "available summary:2026-10-30"
+      ],
+      "scope": "Editable style direction per audience and artifact; not an assumed demographic profile or universal video art direction.",
+      "confidence": "MEDIUM",
+      "downstream_refs": [
+        "S03",
+        "S05",
+        "S06",
+        "S11"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-ID-024",
+      "statement": "Private Plugin Creator name, GitHub root manifest name and repository slug are not identical; canonical product identity has not been explicitly confirmed.",
+      "classification": "UNKNOWN",
+      "status": "NEEDS_CONFIRMATION",
+      "source_refs": [
+        "Plugin Creator metadata:2026-11-12",
+        "GitHub repository metadata:2026-11-12",
+        "GitHub branch manifest:2026-11-12"
+      ],
+      "scope": "Do not rename manifests, repository or plugin until owner confirms canonical public/private identity and migration strategy.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S14"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-QUALITY-025",
+      "statement": "Social copy should remain accessible, broadly understandable and persuasive without a lecturing tone, while avoiding manipulative or misleading clickbait.",
+      "classification": "CONFIRMED_PREFERENCE",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available summary:2026-10-28",
+        "available summary:2026-10-30"
+      ],
+      "scope": "Apply as editable voice profile; broad audience acceptance must not be claimed without audience testing.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S03",
+        "S04",
+        "S11"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-RELEASE-026",
+      "statement": "Historical V3 test ledger records are not evidence for V4.1.3 implementation or runtime.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "private Plugin Creator read-back:2026-11-12",
+        "current audit:2026-11-12"
+      ],
+      "scope": "Keep legacy V3 test records clearly labelled; V4.1.3 private tests remain NOT_RUN until the updated private package is executed.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S12",
+        "S14"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-MCG-027",
+      "statement": "V4.1.6 MCG integration defines one canonical MCG index, seven single-owner Guide modules and three continuity protocols. S13 owns the index and GUIDE-07 integration only; S02 owns Health Truth claims and evidence interpretation.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "current user-approved remediation scope:2026-11-13",
+        "private Plugin Creator release v4.1.6",
+        "GitHub PR #21 branch fix/mcg-canonical-integration-v4.1.6"
+      ],
+      "scope": "Architecture and ownership statement only; PR remains Draft and this record does not imply runtime, clinical, legal, rights or publication approval.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S02",
+        "S04",
+        "S05",
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-TEST-028",
+      "statement": "GitHub V4.1.6 coverage inventory separates 45 baseline acceptance cases, 13 reference-output cases and 18 V2 production cases. All 76 scenario cases remain NOT_RUN until individually executed with an oracle and evidence.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "tests/acceptance-cases.json",
+        "tests/reference-output-cases.json",
+        "tests/v2-production-cases.json",
+        "docs/acceptance-coverage-v4.1.6.json"
+      ],
+      "scope": "A mapped test specification is not an executed test; CI/package validation is a separate evidence class.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-MOTION-029",
+      "statement": "A dedicated element-level renderer-neutral motion record is proposed to normalize half-open frame intervals, keyframes, phases, easing, paths, units, timing precision and continuity refs.",
+      "classification": "PROPOSED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "repository evaluation V4.1.7:2026-11-13",
+        "proposed schema:schemas/v4/motion-record.schema.json"
+      ],
+      "scope": "Draft S07 contract proposal; static schema/semantic validation does not prove renderer execution or generated motion.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S06",
+        "S07",
+        "S10",
+        "S12",
+        "S13",
+        "M00"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-PROMPT-030",
+      "statement": "An adaptive nine-slot video prompt completeness model is proposed for S08, keeping still prompts, video prompts, motion records and renderer code separate.",
+      "classification": "PROPOSED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "repository evaluation V4.1.7:2026-11-13",
+        "docs/video-platform-adapter-contract-v4.1.7.md"
+      ],
+      "scope": "Slots may be NOT_APPLICABLE with reason; not an inflexible universal prompt or evidence of platform compatibility.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S05",
+        "S06",
+        "S07",
+        "S08",
+        "S09",
+        "S12"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-PLATFORM-031",
+      "statement": "Sora, Veo, Kling, Runway and Seedance are candidate model families only; adapter support must be evidenced for exact provider/model/version.",
+      "classification": "PROPOSED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "repository evaluation V4.1.7:2026-11-13",
+        "schemas/v4/video-platform-adapter.schema.json"
+      ],
+      "scope": "DOCS_VERIFIED and RUNTIME_TESTED are different evidence states; unknown capability remains NOT_CHECKED.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S08",
+        "S10",
+        "S12",
+        "S14"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-ARCH-032",
+      "statement": "A separate S15 is not proposed; motion/cinematic improvements should be assigned to the existing S06/S07/S08/S10/S12/S13/M00/S14 ownership chain.",
+      "classification": "PROPOSED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "repository evaluation V4.1.7:2026-11-13",
+        "docs/architecture.md"
+      ],
+      "scope": "Architecture recommendation pending owner review; S02 remains sole owner of health truth and evidence interpretation.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S02",
+        "S06",
+        "S07",
+        "S08",
+        "S10",
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-RISK-033",
+      "statement": "R0-R3 risk-proportional routing is proposed as a measured pilot only and must not bypass evidence, rights, privacy, S02, S12, MCG continuity or human approval controls.",
+      "classification": "PROPOSED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "repository evaluation V4.1.7:2026-11-13",
+        "docs/fast-track-governance-v4.1.7.md"
+      ],
+      "scope": "Unknown risk is not low risk; no automated fast-track promotion or waiver is authorized.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S02",
+        "S12",
+        "S14"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-METRIC-034",
+      "statement": "Adoption, usability, low-risk cycle time, prompt iteration, QA escape and adapter portability should be measured from a baseline before numeric targets are adopted.",
+      "classification": "PROPOSED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "repository evaluation V4.1.7:2026-11-13",
+        "docs/repository-evaluation-motion-cinematic-v4.1.7.md"
+      ],
+      "scope": "Metrics require privacy-minimized data and comparable cohorts; no empirical improvement is claimed by this proposal.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S12",
+        "S14"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-RISK-035",
+      "statement": "R0-R3 risk lane resolver and conservative routing contract added; R0/R1 pilot remains inactive pending written approval and baseline.",
+      "classification": "PROPOSED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "docs/risk-routing-r0-r3-v4.1.8.md",
+        "scripts/validate_risk_assessment.py"
+      ],
+      "scope": "Triage aid only; not clinical certification or publication authorization.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S02",
+        "S12",
+        "S14"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-BEAT-036",
+      "statement": "Beat-sheet schema and semantic validator link approved source/message/claim through scene/shot/motion/audio/overlay/renderer/QA.",
+      "classification": "PROPOSED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "schemas/v4/beat-sheet.schema.json",
+        "scripts/validate_beat_sheet.py",
+        "docs/beat-sheet-scene-motion-trace-v4.1.8.md"
+      ],
+      "scope": "Schema/semantic validation does not prove complete project integration or rendered output.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S04",
+        "S06",
+        "S07",
+        "S09",
+        "S10",
+        "S12",
+        "S13",
+        "M00"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-REMOTION-037",
+      "statement": "Remotion selected as first concrete renderer target for a target mapping design; exact runtime, package versions and MP4 render remain NOT_RUN.",
+      "classification": "PROPOSED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "docs/remotion-target-mapping-v4.1.8.md",
+        "examples/renderer/remotion/mapping-status.json"
+      ],
+      "scope": "Design-only adapter; no compatibility or runtime claim.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S10",
+        "S12",
+        "M00"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-KPI-038",
+      "statement": "Adoption, usability, cycle-time, reviewer effort, rework, QA escape, misclassification and renderer fidelity require baseline measurement before targets.",
+      "classification": "PROPOSED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "docs/pilot-kpi-baseline-v4.1.8.md"
+      ],
+      "scope": "Baseline NOT_MEASURED; pilot not approved.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S12",
+        "S14"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-AFL-039",
+      "statement": "Approved Formula Ledger is proposed as a governed reuse index; only provenance-, rights-, scope-, model/version- and QA-reviewed APPROVED formulas may be reused.",
+      "classification": "PROPOSED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "docs/learning-asset-drift-and-outcome-contract-v4.1.9.md",
+        "docs/repository-evaluation-reuse-drift-v4.1.9.md"
+      ],
+      "scope": "S01 intake; S08 compile/adapt; S12 independent QA; S13 continuity dependencies. No clinical meaning or Fact Lock is inherited; current claims remain S02-owned.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S01",
+        "S02",
+        "S08",
+        "S12",
+        "S13",
+        "S14",
+        "M00"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-MDS-040",
+      "statement": "Model Drift Sentinel is proposed with immutable observed snapshots and a separate human-accepted baseline; detection never auto-approves capability or updates accepted baseline.",
+      "classification": "PROPOSED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "docs/learning-asset-drift-and-outcome-contract-v4.1.9.md",
+        "docs/repository-evaluation-reuse-drift-v4.1.9.md"
+      ],
+      "scope": "S14 owns change provenance and baseline review; S08 assesses feature-level impact. Scheduled activation requires official endpoint allowlist, source/terms review, named owner, failure handling and written approval.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S08",
+        "S14",
+        "M00"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-RPF-041",
+      "statement": "Risk-Proportional Preflight Depth refines existing M00/S14 workflow only; S14 remains mandatory in all lanes, UNKNOWN material risk is at least R2, highest credible trigger wins, and critical trigger forces R3.",
+      "classification": "PROPOSED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "docs/risk-routing-r0-r3-v4.1.8.md",
+        "docs/learning-asset-drift-and-outcome-contract-v4.1.9.md"
+      ],
+      "scope": "Only duplicate clerical capture/additional depth may vary. R2/R3 are excluded from fast-track. R0/R1 fast-track remains inactive until separate written authorization and a measured reversible pilot.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S02",
+        "S12",
+        "S14"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-MSA-042",
+      "statement": "A non-authoritative Model Selection Advisor may be merged into S08 to shortlist up to three candidates using exact provider/model/version feature evidence and explicit UNKNOWN states.",
+      "classification": "PROPOSED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "skills/ai-video-reference-engineering/SKILL.md",
+        "docs/learning-asset-drift-and-outcome-contract-v4.1.9.md"
+      ],
+      "scope": "No automatic selection, global best/safety claim, risk-lane change, health claim interpretation or support-status promotion. User/project owner remains selector.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S08",
+        "S14",
+        "M00"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-POR-043",
+      "statement": "Project Outcome Register is proposed for privacy-minimized process metrics such as cycle time, reviewer effort, rework, reuse, stale evidence and trace completeness.",
+      "classification": "PROPOSED",
+      "status": "ACTIVE",
+      "source_refs": [
+        "docs/metrics-and-improvement.md",
+        "docs/learning-asset-drift-and-outcome-contract-v4.1.9.md",
+        "docs/repository-evaluation-reuse-drift-v4.1.9.md"
+      ],
+      "scope": "Every metric requires numerator, denominator, cohort, window, evidence, missingness and limitation. No new patient/audience behavioral-health data, clinical effect claim or unsupplied analytics.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S12",
+        "S14"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-PARITY-044",
+      "statement": "On 13 November 2026, selected private Plugin Creator read-back is V4.1.7 while GitHub main is V4.1.8; GitHub PR #24 proposes V4.1.9 and is draft/open with package validation failed, Markdown link check succeeded and independent reviews absent at the latest inspected state.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "Plugin Creator read-back 2026-11-13",
+        "GitHub main commit 2d469eee5069f21cd231c1b732c4359fd1ce3838",
+        "GitHub PR #24"
+      ],
+      "scope": "Version strings and names do not prove parity. PR-head CI, merge-main CI, private package save/read-back and live host/runtime evidence are separate status classes.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S14",
+        "M00"
+      ],
+      "confirmation_required": false
+    }
+  ],
+  "open_decisions": [
+    "Raw full history and all prior project artifacts were not available; this register remains summary-bounded.",
+    "Owner confirmation is needed for the proposed relationship between GitHub S10 editing-postproduction and private S10 renderer-code-engineering.",
+    "Private legacy CTRL engine and GitHub V4-CTL candidate stay separate until independent review, authorized merge, main CI and controlled synchronization.",
+    "Private-only executable-gate helper and Remotion adapter/assets remain outside verified GitHub source parity.",
+    "Canonical private plugin name, GitHub root manifest name and repository identity require explicit owner confirmation before rename.",
+    "Brand approval is not recorded for reusing Halo Sola Seha’ or Polewali Mandar dialect in every campaign.",
+    "Video aspect ratio, resolution, platform, duration, audio policy, renderer and AI model remain project-specific until selected.",
+    "Social reach, FYP, trending and engagement outcomes cannot be promised; project analytics and platform context are needed for measurement.",
+    "Live ChatGPT invocation, real ASR/diarization, Remotion runtime/render, MP4 QA and human clinical/legal/rights/privacy/brand/accessibility approvals remain NOT_RUN or NOT_VERIFIED.",
+    "Open-source license and third-party redistribution rights are unknown; public repository visibility is not a license.",
+    "Owner confirmation of the V4.1.7 motion-record schema and nine-slot video prompt completeness model.",
+    "Owner approval of exact provider/model/version adapter targets after documentation and runtime evidence exist.",
+    "Approval of whether and how to pilot R0/R1 routing; no fast-track is active by this proposal.",
+    "Approval of measurement definitions and privacy-minimized adoption/usability instrumentation.",
+    "Approval of the R0-R3 risk routing contract and named accountable lane owner.",
+    "Approval of a baseline and shadow-mode R0/R1 pilot; no pilot is active.",
+    "Remotion exact package/runtime version selection and execution of the non-clinical integration smoke test.",
+    "Beat-sheet adoption and project-level end-to-end trace coverage have not yet been measured.",
+    "Approval of Approved Formula Ledger source/rights policy, lifecycle owner and pilot cohort.",
+    "Approval of Model Drift Sentinel official endpoint allowlist, scheduled workflow, accepted-baseline owner and failure policy; monitor remains inactive.",
+    "Approval of Model Selection Advisor evidence criteria and candidate-only presentation.",
+    "Approval of privacy-minimized Project Outcome Register metric dictionary and project cohort/window.",
+    "Written sponsor/owner approval and S02/S12 concurrence for any R0/R1 fast-track pilot; none is active.",
+    "Reconcile private Plugin Creator V4.1.7 with GitHub V4.1.8/V4.1.9 only after explicit path/identity mapping and guarded read-back.",
+    "Resolve GitHub PR #24 package-validation failure and obtain independent review before any merge."
+  ],
+  "notes": [
+    "This context index is not clinical evidence, source freshness, consent, permission, identity or authority.",
+    "Prior conversation sources refer to available summaries, not complete raw chat transcripts.",
+    "1,000 candidate-control definitions are not 1,000 executed tests.",
+    "The 30 October 2026 banner brief is historical; never reuse it as an upcoming event.",
+    "Static infographic dimensions of 1080×1350 px and 4:5 are not video configuration.",
+    "Social discovery and engagement aims are aspirations, not reach or virality guarantees.",
+    "V3 test records remain historical and do not validate V4.1.3.",
+    "V4.1.7 motion, prompt, adapter, R0-R3 routing and KPI additions are PROPOSED records pending owner review.",
+    "This context register is not clinical evidence, authority, runtime evidence, model capability evidence, legal/rights approval or release approval.",
+    "Approved Formula Ledger, Model Drift Sentinel, Model Selection Advisor and Project Outcome Register are design contracts in V4.1.9; they are not activated autonomous services.",
+    "The observed drift digest and accepted baseline must be separate; fetch or issue failure must never advance the accepted baseline.",
+    "S14 remains mandatory in every risk lane; proportional review does not waive S02, evidence, rights/privacy, continuity, S12 or human approval.",
+    "GitHub PR #24 is draft; package validation FAILURE is not resolved by markdown-link-check SUCCESS; job log retrieval was unavailable at this audit point.",
+    "This V4.1.9 register is context/provenance metadata, not clinical evidence, current source verification, license, permission, pilot authorization or release approval."
+  ],
+  "updated_at": "2026-11-13"
+}
