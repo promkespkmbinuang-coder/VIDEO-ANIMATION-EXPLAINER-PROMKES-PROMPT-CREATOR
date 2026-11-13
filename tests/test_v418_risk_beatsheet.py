@@ -31,3 +31,16 @@ def test_declared_lane_cannot_understate_minimum():
 def test_invalid_risk_value_rejected():
     lane,errors=risk.resolve({"dimensions":{"health_claim":"MAYBE"}})
     assert lane is None and errors
+
+def test_r0_requires_s02_no_claim_evidence(tmp_path, monkeypatch, capsys):
+    assessment={"dimensions":{"health_claim":"LOW"},"declared_lane":"R0"}
+    p=tmp_path/"risk.json"; p.write_text(json.dumps(assessment))
+    monkeypatch.setattr("sys.argv",["validate_risk_assessment.py",str(p)])
+    assert risk.main()==1
+    assert "S02 NO_MATERIAL_HEALTH_CLAIM" in capsys.readouterr().out
+def test_r0_passes_only_with_s02_disposition_ref(tmp_path, monkeypatch, capsys):
+    assessment={"dimensions":{"health_claim":"LOW"},"declared_lane":"R0","s02_disposition":"NO_MATERIAL_HEALTH_CLAIM","s02_disposition_ref":"S02-DISP-001"}
+    p=tmp_path/"risk.json"; p.write_text(json.dumps(assessment))
+    monkeypatch.setattr("sys.argv",["validate_risk_assessment.py",str(p)])
+    assert risk.main()==0
+    assert "PASS" in capsys.readouterr().out
