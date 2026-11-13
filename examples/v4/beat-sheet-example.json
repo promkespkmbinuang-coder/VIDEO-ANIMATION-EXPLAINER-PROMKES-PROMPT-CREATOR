@@ -1,0 +1,42 @@
+{
+  "project_id": "DEMO-NONCLINICAL",
+  "beat_sheet_id": "BS-DEMO-001",
+  "version": "4.1.8",
+  "status": "DRAFT",
+  "beats": [
+    {
+      "beat_id": "B01",
+      "sequence": 1,
+      "time_in": 0,
+      "time_out": 3.5,
+      "timing_precision": "ESTIMATED",
+      "timing_source_ref": null,
+      "start_frame": null,
+      "end_frame_exclusive": null,
+      "narrative_function": "Establish context",
+      "message_refs": [],
+      "claim_refs": [],
+      "scene_id": "SC01",
+      "shot_id": "SH01",
+      "camera_plan_ref": null,
+      "motion_refs": [
+        "MOT01"
+      ],
+      "element_refs": [
+        "EL-TITLE"
+      ],
+      "audio_refs": [],
+      "overlay_refs": [
+        "OVL01"
+      ],
+      "transition_refs": [],
+      "mcg_state_in": null,
+      "mcg_state_out": null,
+      "accessibility_fallback": "Static title card; captions not applicable in silent demo",
+      "qa_oracle": "Title is readable and adds no unapproved factual assertion",
+      "not_applicable_reasons": [
+        "Audio absent in non-clinical example"
+      ]
+    }
+  ]
+}

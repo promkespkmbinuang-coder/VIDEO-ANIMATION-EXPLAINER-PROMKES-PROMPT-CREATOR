@@ -180,3 +180,19 @@ Keep the existing ownership chain; do not add S15. S06 owns camera/shot design, 
 Use schemas/v4/motion-record.schema.json and scripts/validate_motion_contract.py. Validate half-open frame intervals, fps/timebase, units, timing source/precision, keyframes, phases, easing, path and S06 camera references. Platform-specific prompts require exact model/version evidence through the adapter schema; unknown capabilities stay UNKNOWN/NOT_CHECKED.
 
 Risk-proportional R0–R3 routing may reduce duplicated process for genuinely low-risk, non-claim work after a pilot. It never skips intake/source scanning, S02 review of health claims, rights/privacy/consent, applicable MCG continuity, independent S12 QA or required human approval. Unknown risk is not low risk. Any gate escape, misclassification or critical defect stops the pilot and restores the stricter route.
+
+
+
+## V4.1.8 risk-lane routing and controlled pilot
+
+Before Gate 0, M00 records a project risk assessment across health harm, audience vulnerability, evidence uncertainty, privacy/consent, rights/authority, reach/reversibility and production integrity. Highest credible lane wins; a critical trigger forces R3; UNKNOWN material risk is at least R2 and never R0. R0 requires S02's explicit no-material-health-claim disposition. R1 remains on the standard evidence and QA route. R2 requires full evidence and specialist/human review. R3 stops affected work and escalates to an authorized human. No lane waives S02, S12, rights/privacy/consent, continuity or applicable human approval. See docs/risk-routing-r0-r3-v4.1.8.md.
+
+R0/R1 fast-track is inactive until written sponsor approval, named owner, S02/S12 concurrence, privacy-minimized logging, baseline, shadow adjudication and rollback readiness. R2/R3 are excluded. See docs/pilot-kpi-baseline-v4.1.8.md.
+
+## V4.1.8 beat-sheet integration
+
+M00 requires a beat-sheet trace from approved source/message/claim refs through beat, scene/shot, S07 motion/element, S09 audio, overlays/transitions, S10 renderer layers and S12 QA oracles. S04 owns narrative function; S06 shot/camera; S07 motion; S09 audio timing; S10 mapping; S13 continuity; S12 independent QA. Validate with schemas/v4/beat-sheet.schema.json and scripts/validate_beat_sheet.py. Exact timing must retain source provenance; estimated timing cannot be upgraded downstream.
+
+## V4.1.8 renderer target boundary
+
+Remotion is the first concrete renderer mapping target, owned by S10. The mapping design is not execution evidence. Package/version pinning, typecheck, bundle, render, MP4 inspection and independent S12 media QA remain NOT_RUN until performed against an exact runtime and artifact.

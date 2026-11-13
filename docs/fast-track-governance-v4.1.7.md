@@ -1,40 +1,36 @@
-# V4.1.7 — Risk-Proportional / Fast-Track Governance Proposal
+# V4.1.8 — Risk-Proportional Routing R0–R3 and controlled-pilot governance
 
-**Status:** proposed routing policy for validation. It is not a gate bypass and does not prove production time has fallen. It operates within existing M00/S02/S12/S14 ownership and gate architecture.
+**Status:** Operational contract implemented for review; R0/R1 fast-track remains PROPOSED and inactive. This is not a validated clinical risk instrument, policy waiver or gate bypass.
 
-## 1. Principle
+## 1. Decision rule
 
-Fast-track means less duplicate paperwork and more efficient sequencing for demonstrably low-risk work. It does not mean automatic clinical NOT_APPLICABLE, no human approval, or release without evidence. Unknown risk is never low risk.
+Assess health/clinical harm, audience vulnerability, evidence uncertainty, privacy/consent, rights/authority, public reach/reversibility and production integrity. The highest credible risk determines the lane. Never average away a critical trigger. Unknown or ambiguous material risk is at least R2 until resolved; it is never R0.
 
-## 2. Risk lanes
+## 2. Four lanes
 
-| Lane | Entry conditions | Routing | Release constraints |
-|---|---|---|---|
-| R0 — LOW / NON-CLAIM | No material health claim, clinical instruction, statistic, diagnosis/treatment/prevention promise, sensitive personal data, unresolved rights or contested source; scope limited and reversible | Compact intake, one source/asset dossier, template-driven creative work, consolidated static QA | Rights/privacy/consent and brand checks remain; S02 no-claim disposition is explicit and traceable; S12 static QA and authorized release decision remain |
-| R1 — STANDARD | Routine health promotion with sourced claims within approved guidance; no elevated-risk instruction or unresolved conflict | Normal S01–S14 path with targeted rather than duplicated checks | S02 claim review/fact lock, source trace, continuity, S12 and applicable human approvals remain |
-| R2 — ELEVATED | Clinical advice, treatment, dosage, vulnerable groups, high-impact statistics, outbreak/emergency or disputed/ambiguous evidence | Full evidence review, specialist escalation, detailed clinical/rights/privacy review, proof render and independent artifact QA | Fail-closed on unresolved material claims, unsupported wording or missing authorization |
-| R3 — CRITICAL / STOP-AND-ESCALATE | Potential serious harm, unsafe medical instruction, fabricated/contradicted claim, privacy/consent breach, unauthorized release or serious rights issue | Stop affected deliverable, preserve evidence, escalate to authorized humans, remediate and retest | No fast-track; explicit authorized resolution required before resumption |
+| Lane | Definition | Routing |
+|---|---|---|
+| R0 — LOW | Non-claim, low-impact, reversible work; no material health claim/instruction/statistic, sensitive data, unresolved rights or source conflict | Compact intake only after explicit S02 NO_MATERIAL_HEALTH_CLAIM; rights/privacy/brand/accessibility and S12 remain |
+| R1 — STANDARD | Routine health promotion using current, sourced, approved guidance; no elevated-risk instruction or unresolved conflict | Standard S01–S14 route, S02 claim review/Fact Lock, MCG as applicable and independent S12 |
+| R2 — ELEVATED | Treatment/dosage/diagnosis advice, vulnerable groups, high-impact statistics, outbreak/emergency, disputed evidence or material uncertainty | Full evidence dossier, specialist + human clinical/institutional review, rights/privacy review, proof artifact and independent S12 |
+| R3 — CRITICAL | Plausible serious harm, materially false dangerous instruction, unauthorized sensitive data/asset disclosure, unauthorized publication or deliberate gate evasion | Stop and contain; preserve evidence; escalate to authorized human; remediate, invalidate dependents, retest and obtain explicit clearance |
 
-A user-facing lane is an operational routing aid, not a clinical risk score. Record rationale, source evidence, reviewer and re-triage trigger. When assignment is ambiguous, use the more protective lane.
+A single R3 trigger sets R3. Dosage/treatment, children/pregnancy/other vulnerable populations, emergency/outbreak guidance and contested evidence are at least R2. Suspected serious privacy/rights/consent breach is R3. Missing approvals never lower risk.
 
-## 3. Safe efficiencies
+## 3. Triage record and reclassification
 
-- combine repeated metadata capture into one versioned intake record;
-- reuse approved templates, Guide references and schemas without copying locked content;
-- parallelize only independent source/audio/rights checks;
-- automate deterministic schema/static tests;
-- run targeted regression based on dependency closure while retaining mandatory high-risk regression;
-- use concise review records for clear low-risk cases;
-- allow NOT_APPLICABLE only with named criterion, evidence of non-applicability, rationale and reviewer/owner.
+Record assessment ID, project/version, assessor/date, intended audience/use/channel/reach, dimension ratings (LOW|STANDARD|ELEVATED|CRITICAL|UNKNOWN), evidence refs, triggers, highest lane, rationale, required reviewers, residual risk, expiry/reassessment triggers, decision owner and approval state. Reassess after claim/source/audience/asset/data/platform/model/renderer/scene/overlay/rights changes, new evidence, complaint or defect. Downgrade requires written evidence and named accountable reviewer.
+
+Executable helper: scripts/validate_risk_assessment.py. It enforces conservative maximum-lane selection and R3 overrides; it is triage support only, not a clinical determination or publication authorization.
 
 ## 4. Non-skippable controls
 
-Source classification and untrusted-input handling; health claim scan and S02 ownership; source/claim/message/scene/overlay traceability; rights/privacy/consent/brand authority; MCG continuity where applicable; independent S12 QA; accessibility; and human clinical/legal/institutional/release approval where required.
+Source classification/untrusted-input handling; S02 authority for all material health claims; claim-to-scene/overlay traceability; rights/privacy/consent/brand; MCG continuity where applicable; independent S12 QA; accessibility; and authorized human clinical/legal/institutional/release approval where required. No lane promotes NOT_RUN, UNKNOWN, NOT_VERIFIED, BLOCKED or assumptions to PASS.
 
-No lane may promote NOT_RUN, UNKNOWN, NOT_VERIFIED or an unreviewed assumption to PASS. No lane overrides a predecessor gate.
+## 5. Controlled R0/R1 pilot
 
-## 5. Pilot and rollback
+R0/R1 remains inactive until written sponsor approval, named pilot owner, S02/S12 concurrence, privacy-minimized logging, defined cohort, baseline collection, independent shadow adjudication and rollback readiness. Start in shadow mode; only then consider limited controlled operation. R2/R3 excluded. Stop on serious claim, privacy, rights, authorization, continuity or QA gate escape. KPI definitions and baseline protocol: docs/pilot-kpi-baseline-v4.1.8.md.
 
-Before operational adoption, run a reversible pilot on a representative low-risk sample. Capture intake-to-handoff timestamps, reviewer effort, iteration count, static QA defects, reopened gates, misclassification and downstream rework. Compare cohorts only when scope, platform, input type and review needs are sufficiently comparable. Establish a baseline before targets.
+## 6. Status
 
-Rollback to standard routing if claim misses, rights/privacy defects, critical continuity issues, QA escape or misclassification increase. Stop the pilot on a serious gate escape.
+PROPOSED, SHADOW_MODE, PILOT_APPROVED, PILOT_ACTIVE, PAUSED, ROLLED_BACK, EVALUATED. Current state: PROPOSED. This contract does not imply sponsor approval, measured cycle-time improvement or live pilot operation.

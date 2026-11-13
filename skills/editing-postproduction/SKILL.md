@@ -86,3 +86,8 @@ Never invent commands, dependencies, APIs, codecs, file paths or export URLs. Do
 S10 consumes S07 canonical motion records and maps them to an exact renderer and version. Remotion, GSAP, Lottie and HyperFrames are not interchangeable schemas. Record each field as MAPPED, APPROXIMATED, QUANTIZED, OMITTED or MANUAL, with reason and fallback. Validate half-open frame ranges, fps/timebase conversion, element/track IDs, easing/path support, overlay/audio synchronization and asset references before execution.
 
 A valid canonical motion record is not a renderer-runtime PASS. Actual integration, proof render, export and S12 inspection remain separate evidence stages. Do not silently convert unsupported motion controls or change health text to fit renderer limitations.
+
+
+## V4.1.8 Remotion target adapter contract
+
+Remotion is the first concrete target selected for a deterministic renderer mapping design. S10 maps canonical composition settings to Composition, scenes/shots to Sequence ranges, S07 keyframes to supported React interpolation/style transforms, S06 camera plan to composition layers, approved overlays to exact-text layers, S09 audio refs to timeline audio elements, and accessibility requirements to reduced-motion/caption alternatives. Preserve half-open frame arithmetic and report every unsupported/approximated/quantized/manual mapping. Pin exact Node/package versions before runtime testing. Current adapter status is DESIGN_ONLY_NOT_RUN: no install, typecheck, bundle, render, MP4 export or media QA has been executed. See docs/remotion-target-mapping-v4.1.8.md.

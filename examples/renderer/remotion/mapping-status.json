@@ -1,0 +1,20 @@
+{
+  "adapter_id": "ADAPTER-REMOTION-001",
+  "target": "Remotion",
+  "target_version": null,
+  "status": "DESIGN_ONLY_NOT_RUN",
+  "canonical_contract": "schemas/v4/motion-record.schema.json",
+  "beat_sheet_contract": "schemas/v4/beat-sheet.schema.json",
+  "runtime_install": "NOT_RUN",
+  "typecheck": "NOT_RUN",
+  "bundle": "NOT_RUN",
+  "render": "NOT_RUN",
+  "mp4_inspection": "NOT_RUN",
+  "media_qa": "NOT_RUN",
+  "limitations": [
+    "No package version selected or pinned",
+    "No runtime integration or export evidence",
+    "No general compatibility claim"
+  ],
+  "next_action": "Run the isolated non-clinical smoke test in docs/remotion-target-mapping-v4.1.8.md"
+}
