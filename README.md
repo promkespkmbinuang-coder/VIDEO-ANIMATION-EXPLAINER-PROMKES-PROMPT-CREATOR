@@ -1,4 +1,4 @@
-# Video Explainer Promkes V4.1.7 — evidence-gated production compiler
+# Video Explainer Promkes V4.1.8 — evidence-gated production compiler
 
 **Architecture:** M00 + S01–S13 production specialists with S14 as mandatory cross-cutting conversation/release preflight. **Private engine parity:** PARTIAL / NOT_SYNCED. **Production/public release:** HOLD.
 
@@ -54,6 +54,17 @@ See `docs/conversation-context-register-v4.1.4.json`, `docs/release-audit-v4.1.4
 
 - Defines conservative R0 LOW / R1 STANDARD / R2 ELEVATED / R3 CRITICAL routing. Highest credible trigger wins; UNKNOWN is at least R2; critical triggers cannot be averaged away. R0/R1 fast-track remains PROPOSED and inactive pending sponsor approval and measured pilot.
 - Adds executable risk triage helper and beat-sheet semantic validator. These validate declared data only; they do not make clinical decisions or authorize publication.
+- Adds beat-sheet schema and example to trace approved source/message/claim → beat → scene/shot → motion/element → audio/overlay/transition → renderer layer → QA oracle.
+- Adds Remotion as one concrete renderer target mapping design. Runtime installation, pinned version, bundle, render, MP4 inspection and S12 media QA remain NOT_RUN.
+- Adoption, usability, cycle-time, reviewer effort, rework, QA escape, misclassification and renderer fidelity baselines remain NOT MEASURED; no target or performance improvement is claimed.
+- R0/R1 pilot needs baseline, shadow adjudication, written authorization, named owner, S02/S12 concurrence and rollback readiness. R2/R3 excluded.
+
+
+
+## V4.1.8 risk, beat-sheet and renderer-target contracts
+
+- Defines conservative R0 LOW / R1 STANDARD / R2 ELEVATED / R3 CRITICAL routing. Highest credible trigger wins; UNKNOWN is at least R2; critical triggers cannot be averaged away. R0/R1 fast-track remains PROPOSED and inactive pending sponsor approval and measured pilot.
+- Adds executable risk triage and beat-sheet semantic validators. These validate declared data only; they do not make clinical decisions or authorize publication.
 - Adds beat-sheet schema and example to trace approved source/message/claim → beat → scene/shot → motion/element → audio/overlay/transition → renderer layer → QA oracle.
 - Adds Remotion as one concrete renderer target mapping design. Runtime installation, pinned version, bundle, render, MP4 inspection and S12 media QA remain NOT_RUN.
 - Adoption, usability, cycle-time, reviewer effort, rework, QA escape, misclassification and renderer fidelity baselines remain NOT MEASURED; no target or performance improvement is claimed.
