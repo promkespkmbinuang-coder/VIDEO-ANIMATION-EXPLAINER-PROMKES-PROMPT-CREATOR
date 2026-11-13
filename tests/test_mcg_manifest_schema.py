@@ -1,6 +1,9 @@
 import json
 from pathlib import Path
 from jsonschema import Draft202012Validator
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
+from validate_mcg_manifest import semantic_errors
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA = ROOT / "schemas/v4/mcg-manifest.schema.json"
@@ -49,3 +52,24 @@ def test_post_storyboard_gate_starts_not_run_and_cannot_claim_ready():
     assert m["scene_continuity"]["refresh_gate_status"] == "NOT_RUN"
     m["status"] = "READY_FOR_SCENE_PROMPTS"
     assert list(Draft202012Validator(load(SCHEMA)).iter_errors(m))
+
+
+def test_semantic_validator_accepts_canonical_example():
+    assert semantic_errors(load(EXAMPLE), ROOT) == []
+
+
+def test_semantic_validator_rejects_dependency_cycle_and_broken_reference():
+    m = load(EXAMPLE)
+    m['dependency_edges'].append({'from_id':'GUIDE-07','to_id':'GUIDE-01','reason':'cycle fixture'})
+    assert any('cycle' in e for e in semantic_errors(m, ROOT))
+    m = load(EXAMPLE)
+    m['dependency_edges'].append({'from_id':'GUIDE-01','to_id':'GUIDE-MISSING','reason':'broken fixture'})
+    assert any('broken dependency' in e for e in semantic_errors(m, ROOT))
+
+
+def test_audio_input_ownership_is_enforced():
+    m = load(EXAMPLE)
+    m['input_mode'] = 'AUDIO_FIRST'
+    assert any('input mode' in e for e in semantic_errors(m, ROOT))
+    m['source_catalog'] = [{'source_id':'A1','source_kind':'AUDIO','owner':'S05:visual-identity-art-direction','source_ref':'fixture:audio','provenance_ref':'fixture:source','rights_status':'USER_ATTESTED','privacy_classification':'PUBLIC','status':'AVAILABLE'}]
+    assert any('owned by S09' in e for e in semantic_errors(m, ROOT))

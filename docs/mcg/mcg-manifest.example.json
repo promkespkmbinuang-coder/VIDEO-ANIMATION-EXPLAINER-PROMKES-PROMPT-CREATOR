@@ -218,5 +218,17 @@
   "model_capabilities": [],
   "approval_records": [],
   "change_history": [],
-  "release_manifest_ref": "release-manifest:NOT_CREATED"
+  "release_manifest_ref": "release-manifest:NOT_CREATED",
+  "source_catalog": [
+    {
+      "source_id": "SRC-EXAMPLE-SCRIPT",
+      "source_kind": "SCRIPT",
+      "owner": "S04:story-screenplay-architect",
+      "source_ref": "example:synthetic-script",
+      "provenance_ref": "fixture:synthetic-only",
+      "rights_status": "NOT_APPLICABLE",
+      "privacy_classification": "PUBLIC",
+      "status": "AVAILABLE"
+    }
+  ]
 }
