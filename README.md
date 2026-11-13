@@ -1,4 +1,4 @@
-# Video Explainer Promkes V4.1.8 — evidence-gated production compiler
+# Video Explainer Promkes V4.1.9 — evidence-gated production compiler
 
 **Architecture:** M00 + S01–S13 production specialists with S14 as mandatory cross-cutting conversation/release preflight. **Private engine parity:** PARTIAL / NOT_SYNCED. **Production/public release:** HOLD.
 
@@ -69,3 +69,14 @@ See `docs/conversation-context-register-v4.1.4.json`, `docs/release-audit-v4.1.4
 - Adds Remotion as one concrete renderer target mapping design. Runtime installation, pinned version, bundle, render, MP4 inspection and S12 media QA remain NOT_RUN.
 - Adoption, usability, cycle-time, reviewer effort, rework, QA escape, misclassification and renderer fidelity baselines remain NOT MEASURED; no target or performance improvement is claimed.
 - R0/R1 pilot needs baseline, shadow adjudication, written authorization, named owner, S02/S12 concurrence and rollback readiness. R2/R3 excluded.
+
+
+## V4.1.9 — governed reuse and external drift
+
+- Adds an evaluation and implementation contract for Approved Formula Ledger, Model Drift Sentinel, Risk-Proportional Preflight Depth, non-authoritative Model Selection Advisor and Project Outcome Register.
+- Merges the responsibilities into M00/S01/S08/S12/S14; no S15/S16 or duplicate gate is created.
+- Reuse is restricted to provenance-, rights-, scope-, model/version- and QA-reviewed APPROVED records. Current clinical claims remain owned exclusively by S02.
+- Model drift creates a review candidate and cannot auto-approve adapters or advance accepted baselines.
+- S14 remains mandatory; R0/R1 fast-track remains inactive pending written authorization and pilot evidence. R2/R3 stay isolated.
+- Operational metrics are process-only and privacy-minimized; no new audience health behavior collection or unsupplied analytics.
+- Runtime, scheduled drift monitoring, pilot, private/GitHub parity, media QA and human approvals are not claimed by this documentation patch. Production/public release remains HOLD.

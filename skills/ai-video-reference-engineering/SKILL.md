@@ -112,3 +112,12 @@ Use schemas/v4/video-platform-adapter.schema.json for exact provider, product/mo
 Do not claim a model supports camera controls, duration/fps, audio, reference images, negative prompts or prompt-length behavior unless the exact model/version documentation supports that claim. Keep S02-locked health text, dates, statistics, logos and CTA in verified editable overlay data rather than relying on model-generated typography.
 
 See docs/video-platform-adapter-contract-v4.1.7.md.
+## V4.1.9 — Approved Formula Ledger and Model Selection Advisor
+
+Use the Approved Formula Ledger only as a governed reuse index. Reuse only records with state APPROVED and matching scope, rights, source provenance, model/provider/version and test evidence. CANDIDATE, UNDER_REVIEW, STALE, REVOKED, REJECTED or UNKNOWN records must not be presented as current approved recipes. Preserve exact formula version/hash and record any adaptation as a new candidate; do not silently overwrite an approved formula.
+
+A reusable formula does not transfer clinical facts, source validity or S02 Fact Lock between projects. Any current health claim or changed factual wording returns to S02. Rights/consent, MCG continuity and S12 QA remain independently applicable.
+
+When the user asks which model to use, provide an advisory shortlist of up to three candidates from supplied constraints. For every decisive feature, cite the exact provider/model/version documentation or mark UNKNOWN/NOT_CHECKED. Keep DOCS_VERIFIED separate from RUNTIME_TESTED; do not hard-code rankings, claim global best/safety, auto-select a provider, or change the project risk lane. The user/project owner remains the selector.
+
+When external documentation drift is reported by S14, assess only the affected feature/version. Mark evidence STALE/UNKNOWN pending review; a page hash or version hint is not proof of capability. Do not auto-promote adapter support. See docs/learning-asset-drift-and-outcome-contract-v4.1.9.md.
