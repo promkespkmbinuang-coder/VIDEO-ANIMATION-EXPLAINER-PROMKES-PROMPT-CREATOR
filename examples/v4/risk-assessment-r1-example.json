@@ -1,0 +1,18 @@
+{
+  "assessment_id": "RISK-DEMO-001",
+  "project_id": "DEMO-NONCLINICAL",
+  "dimensions": {
+    "health_claim": "STANDARD",
+    "audience": "LOW",
+    "evidence": "STANDARD",
+    "privacy": "LOW",
+    "rights": "LOW",
+    "reach_reversibility": "LOW",
+    "production_integrity": "LOW"
+  },
+  "serious_harm_trigger": false,
+  "unauthorized_sensitive_data": false,
+  "declared_lane": "R1",
+  "status": "PROPOSED",
+  "note": "Illustrative only; not a real project assessment or publication approval."
+}
