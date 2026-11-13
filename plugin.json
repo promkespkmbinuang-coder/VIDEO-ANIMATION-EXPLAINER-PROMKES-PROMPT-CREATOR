@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "video-animasi-explainer-promkes-prompt-creator",
-  "version": "4.1.7",
+  "version": "4.1.8",
   "description": "Evidence-governed health-promotion explainer production with canonical MCG, quantified renderer-neutral motion contracts, evidence-bound AI video adapters and independent cinematic QA.",
   "keywords": [
     "health promotion",
@@ -36,9 +36,9 @@
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "Video Explainer Promkes V4.1.7",
+        "displayName": "Video Explainer Promkes V4.1.8",
         "shortDescription": "Evidence-gated Promkes",
-        "longDescription": "Health-first Promkes production with canonical MCG, seven single-owner Guides, three continuity protocols, quantified motion records, evidence-bound model adapters and independent cinematic QA. No S15 is added; S02 health truth, S06 camera, S07 motion, S10 renderer, S12 QA, S13 continuity and human approval boundaries remain distinct.",
+        "longDescription": "Health-first Promkes production with canonical MCG, quantified motion, R0-R3 risk routing, beat-sheet traceability, Remotion target mapping design and independent cinematic QA. Runtime, pilot and human approvals remain evidence-gated.",
         "developerName": "Promkes pkm binuang",
         "category": "Healthcare",
         "capabilities": [],
@@ -48,7 +48,10 @@
           "Separate explicit instructions, preferences, inferences, proposals, unknowns and superseded decisions. Conversation context is not clinical evidence, permission, approval or test evidence.",
           "Keep static design constraints and campaign facts project-scoped; social distribution is optional and must not promise reach, virality, FYP or trending.",
           "Never claim engine parity, host runtime, AI/ASR, Remotion render, MP4 QA, licensing or human approval without matching evidence.",
-          "Validate one canonical MCG, exactly seven single-owner Guides and three protocols; refresh S13 Scene Continuity after storyboard and before S08 reference prompts."
+          "Validate one canonical MCG, exactly seven single-owner Guides and three protocols; refresh S13 Scene Continuity after storyboard and before S08 reference prompts.",
+          "Apply conservative R0-R3 risk routing; unknown material risk is at least R2 and critical triggers stop work. R0/R1 fast-track remains inactive pending written approval and measured pilot.",
+          "Build beat-sheet trace from approved source and claims through scene, shot, motion, audio, overlays, renderer and QA. Estimated timing must never become exact.",
+          "Remotion is a candidate concrete renderer target; never claim runtime, bundle, render or MP4 QA without exact execution evidence."
         ]
       }
     }
