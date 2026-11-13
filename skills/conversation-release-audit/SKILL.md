@@ -28,23 +28,19 @@ Build: `conversation/source → CTX/INT/REQ-ID → owning skill/artifact → CHG
 
 For each accepted change record old/new version, reason, source intent, affected files/skills, dependency IDs, migration impact, positive/negative/edge/security/regression tests, evidence, rollback and approval revalidation. Preserve superseded records; do not overwrite source project snapshots. Revalidate dependent artifacts and renew approvals bound to old hashes when necessary.
 
-## 5. Acceptance coverage ledger
-
-For every release/version update, read the canonical `tests/acceptance-cases.json` (or project acceptance source) and build a case-by-case ledger mapping each AC ID to owner, oracle, matching executable test, evidence, status and limitation. Distinguish unit/pytest suites, deterministic active controls, candidate-control definitions, manual scenario acceptance and external/human validation. Passing aggregate pytest or active controls never marks a scenario acceptance case PASS. A case leaves `NOT_RUN` only with its own execution evidence and acceptance oracle.
-
-## 6. Release parity and publication
+## 5. Release parity and publication
 Compare root/Codex manifests, plugin/repository identity, skills, schemas, scripts, docs, examples, binary assets, reports, CI, private Plugin Creator read-back and GitHub main/branch/PR/commit. Mark each component `SYNCED`, `INTENTIONALLY_DIVERGENT`, `MISSING`, `STALE`, `BLOCKED` or `NOT_CHECKED`. Matching version strings or similar names do not prove identity, source-tree, byte or runtime parity.
 
 Publish source changes on an auditable branch and pull request. Strictly validate duplicate JSON keys, manifest parity, version/changelog/README, skill inventory, context-register schema/uniqueness, package hygiene, Markdown links, pytest and fail-closed fixtures. Record branch, exact commit, PR, CI run IDs, review and merge state. A PR-head CI result is not a post-merge main CI result.
 
 Do not add a license without an explicit rights-holder decision. Repository visibility is not a license. Source publication does not authorize clinical, legal, rights, institutional or media release. Never publish private assets, patient data, credentials or unreviewed licensed material.
 
-## 7. M00 handoff contract
+## 6. M00 handoff contract
 For version audit, package update, source reconciliation, GitHub publication or release-readiness work, S14 is a mandatory preflight before M00 changes versioned artifacts. Hand off coverage boundary, context register, confirmed requirements/preferences versus inference/proposal/unknown, superseded decisions, source-to-requirement trace, changed files/dependency closure, tests/evidence to rerun, identity/parity questions and release blockers.
 
 M00 retains orchestration and gate arbitration. S14 does not decide clinical truth, campaign strategy, creative ownership, human authority or independent QA. If S14 is unavailable, mark the preflight `NOT_RUN`; do not imply it occurred.
 
-## 8. Release status
+## 7. Release status
 Report separately: conversation coverage; requirement/context completeness; private package save/read-back; GitHub source publication/merge; CI/static tests; live ChatGPT installation/invocation; external AI/ASR/TTS; Remotion install/Studio/bundle/render/media QA; clinical/legal/rights/privacy/brand/accessibility approval; license/redistribution decision; final human release approval.
 
 `NOT_RUN`, `BLOCKED`, `NOT_VERIFIED`, `UNKNOWN`, `PARTIAL`, `STALE` and `INVALIDATED` are never `PASS`. Production/public release remains `HOLD` while mandatory external or human gates are open.
