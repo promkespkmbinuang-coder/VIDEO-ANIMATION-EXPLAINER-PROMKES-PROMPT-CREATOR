@@ -1,30 +1,26 @@
-# Video Explainer Promkes V4.1.5 — evidence-governed production compiler
+# Video Explainer Promkes V4.1.4 — evidence-gated production compiler
 
-**Architecture:** M00 + S01–S13 production specialists; S14 mandatory cross-cutting context/release preflight. **Engine parity:** PARTIAL / NOT_SYNCED. **Production/public media release:** HOLD.
+**Architecture:** M00 + S01–S13 production specialists with S14 as mandatory cross-cutting conversation/release preflight. **Private engine parity:** PARTIAL / NOT_SYNCED. **Production/public release:** HOLD.
 
-Converts supplied Promkes poster/photo/infographic plus caption, audio/transcript, script or hybrid materials into traceable explainer production packages. AI provider and renderer capabilities remain project-specific and evidence-bound.
+Converts supplied poster/photo/infographic plus caption, audio/transcript, script or hybrid materials into traceable Promkes explainer production packages.
 
 ## Continuity retained
-- Accessible, down-to-earth Indonesian storytelling; truthful curiosity-building hooks; non-lecturing tone; educational insight, key message and actionable CTA are editable preferences, not mandatory defaults.
-- Metaphor/hyperbole is optional and must not amplify clinical risk, certainty or outcomes.
+- Accessible, down-to-earth Indonesian storytelling; truthful curiosity-building hook; non-lecturing tone; educational insight, key message and actionable CTA are adaptable preferences, not mandatory defaults.
+- Metaphor/hyperbole may be used as optional rhetorical devices, never to exaggerate clinical risk, evidence, certainty or health outcomes.
 - “Halo Sola Seha’” and Polewali Mandar speech flavor are optional and require current brand/audience fit and authentic examples.
-- 1080×1350 px / 4:5 / generous logo-safe margins apply to static infographics only, not video dimensions.
-- The CKG/HKN banner dated 30 October 2026 is a superseded one-off historical brief.
-- DBD/TBC/fogging, institutions, locations, dates, statistics and environmental CTAs are campaign-specific.
-- Captions, hashtags, alt text and platform variants are optional S11 outputs. Reach, FYP, trending and engagement are aspirations, never promises.
-- Poster/caption, audio/transcript, script-first and hybrid intake remain supported.
-- AI video provider/model remains NOT_SELECTED until selected and verified per project.
+- Static infographic specifications may include 1080×1350 px, 4:5 portrait and generous top/bottom logo-safe margins. These do not define video ratio or safe areas.
+- A 300×130 cm CKG/HKN banner dated 30 October 2026 is a superseded historical brief, not an upcoming event.
+- DBD/TBC/fogging, institutional names, dates, locations, statistics and campaign CTAs are project-specific.
+- Captions, hashtags, alt text and social platform variants are optional S11 distribution deliverables, not mandatory render stages.
+- Reach, views, FYP, trending and engagement are aspirations; do not promise virality, ranking or algorithmic lift. Measure only with supplied analytics.
+- AI video provider remains NOT_SELECTED until selected for a specific project.
 
-## V4.1.5 evidence
-- GitHub main baseline was V4.1.4 at `8330b9e61eb37c94d38630188dce3a75721d1643`. PR #14 and #16 are merged. Exact-main CI: 93 pytest passed (run 43258911702) and markdown-link-check succeeded (run 43258911670).
-- The repository contains **45 scenario-based acceptance cases, all 45 NOT_RUN**. The 93-test pytest suite is separate and does not execute those cases.
-- Context register adds CTX-QA-027 while retaining the 26 earlier records. Coverage remains PARTIAL_WITH_DISCLOSED_BOUNDARY.
-- Private legacy CTRL engine is not synchronized with GitHub V4-CTL; private Remotion files are not proven in GitHub. Canonical private/GitHub name and S10 ownership mapping remain unresolved.
-- See [release audit](docs/release-audit-v4.1.5.md), [acceptance coverage](docs/acceptance-coverage-v4.1.5.json), [source parity](docs/source-tree-parity-v4.1.5.md) and [engine parity](docs/engine-parity-status.md).
+## Ownership and parity
+The relationship between GitHub S10 `editing-postproduction` and private S10 `renderer-code-engineering` is PROPOSED pending owner confirmation; both paths and functions are retained. The private `executable-gate-engine` is a helper, not S15. Private Remotion adapter/assets are not yet proven present in GitHub. Private legacy `CTRL-*` engine and GitHub PR #14 `V4-CTL-*` candidate remain different; do not synchronize without independent review, authorized merge and exact-main CI.
 
-## Release boundary
-CI does not prove private package tests, live ChatGPT invocation, external AI/ASR/TTS, actual Remotion render, MP4/media QA, clinical/legal/rights/privacy/brand/accessibility approval, licensing or final human authorization. These remain NOT_RUN / NOT_VERIFIED / BLOCKED. **Production release remains HOLD.**
+## Evidence boundary
+V4.1.4 context coverage is summary-bounded (`PARTIAL_WITH_DISCLOSED_BOUNDARY`), not a complete raw conversation-history audit. The old `reports/test-results.json` contains V3-era results; see `docs/legacy-v3-test-results-scope.md`. Those records do not validate V4.1.4. Private V4.1.4 tests after overlay remain NOT_RUN until executed.
 
+Live ChatGPT invocation, external AI/ASR/diarization/TTS, Remotion install/Studio/bundle/render, MP4 QA, clinical/legal/rights/privacy/brand/accessibility approval, license decision and final human release approval remain NOT_RUN/NOT_VERIFIED/BLOCKED as applicable. Public repository visibility is not a license.
 
-## PR #18 exact-head validation update
-- Corrected an initial acceptance-coverage test oracle mismatch (source spec uses field status); the original attempt had 94 passed / 1 failed. The corrected head ad18796b45bc37d433121d3a39cb856489629aad now passes **95 pytest tests** in run [43266406327](https://github.com/promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR/actions/runs/43266406327), and Markdown link check in run [43266406293](https://github.com/promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR/actions/runs/43266406293). This remains PR-head CI, not main CI or private-package tests.
+See `docs/conversation-context-register-v4.1.4.json`, `docs/release-audit-v4.1.4.md`, `docs/source-tree-parity-v4.1.4.md` and `docs/engine-parity-status.md`.

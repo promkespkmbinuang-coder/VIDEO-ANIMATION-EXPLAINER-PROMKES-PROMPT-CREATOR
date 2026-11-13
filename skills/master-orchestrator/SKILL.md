@@ -168,6 +168,3 @@ For accepted changes, trace conversation/source → CTX/REQ → owner/artifact �
 Before GitHub publication, distinguish private Plugin Creator save/read-back, source branch, commit, PR, CI, independent review, merge, post-merge main CI and release. PR-head CI is not main CI. Public repository visibility is not a license. Never publish private assets, credentials or patient data. Keep repository and Plugin Creator visibility separate.
 
 M00 retains orchestration and gate arbitration. S14 does not decide clinical truth, creative ownership, human authority or independent QA. See the [S14 skill](../conversation-release-audit/SKILL.md) and [M00/S14 integration contract](references/s14-integration-contract.md).
-
-## Acceptance coverage handoff
-Before every version update or release recommendation, reconcile every ID in `tests/acceptance-cases.json` against a versioned acceptance-coverage ledger. Record exact test/oracle, evidence artifact, run/commit, status and limitations per case. A pytest total, static package check, active control, generated candidate-control definition or demo fixture must never be treated as execution of a scenario acceptance case. Keep unexecuted cases `NOT_RUN` and carry their blockers forward.
