@@ -1,24 +1,34 @@
-# Engine source parity — V4.1.4 audit snapshot
+# Engine source parity — V4.1.5 audit snapshot
 
-**Status: PARTIAL / NOT_SYNCED.** Private Plugin Creator and GitHub PR candidate are different executable engines. Shared release numbering is not evidence of source/runtime parity.
+**Status: PARTIAL / NOT_SYNCED.** GitHub and private Plugin Creator packages have different executable gate engines. Release version equality is not engine parity.
 
-## Private Plugin Creator V4.1.4
-- Package release: `pluginrel_6af5e443fb8c8191a6c52afacb0a05ea` was the V4.1.3 baseline; V4.1.4 overlay release/read-back is pending.
-- Engine remains legacy `CTRL-*` (engine core unchanged from prior package), not the GitHub candidate registry.
-- No V4-CTL candidate, verified Ed25519 trust chain or explicit TEST_FIXTURE production guard was merged into this private update. Legacy `release_eligible` is diagnostic, not production authorization.
+## Private Plugin Creator engine
+- Baseline private release at audit intake: V4.1.4, `pluginrel_6af5e73b7bb88191909f75be1cd0de41`, USER / PRIVATE.
+- Private `scripts/v4_gate_engine.py` remains the legacy 21-control `CTRL-*` engine with structural approval records.
+- It does not include GitHub's V4-CTL candidate implementation, trusted institutional Ed25519 identity/authority chain, or the GitHub TEST_FIXTURE production guard.
+- Do not use the legacy `evaluate` or `--require-release` result as final production authorization. Treat synthetic, test, demo, mock, incomplete, unsigned or non-production projects as BLOCKED.
 
-## GitHub PR #14 candidate at audit intake
-- Branch `release/v4.0.5-package-hygiene-s14`; previously checked head `b92eb75e8be09c86e4dbd7f391a7913da163ba9e`.
-- At that exact head: validate-package run `43241911591` SUCCESS (93 passed in 1.49s); markdown-link-check run `43241911577` SUCCESS.
-- PR #14 was OPEN + DRAFT, unmerged, with no independent review submission or review thread at audit intake.
-- V4.1.4 branch changes require fresh CI on the new exact SHA; previous-head evidence does not carry forward.
+## GitHub candidate now in main
+- PR #14 is MERGED at `0e9c56a0246852d3a36bf1b28b8bb5078cb8bd11`.
+- PR #16 is MERGED at `8330b9e61eb37c94d38630188dce3a75721d1643`.
+- Current main SHA: `8330b9e61eb37c94d38630188dce3a75721d1643`.
+- Exact-main `validate-package` run [43258911702](https://github.com/promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR/actions/runs/43258911702): SUCCESS, 93 pytest passed, strict package validation passed, and fail-closed V4 gate smoke checks completed.
+- Exact-main `markdown-link-check` run [43258911670](https://github.com/promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR/actions/runs/43258911670): SUCCESS.
+- No review submissions were returned for PR #14 or #16. CI/merge does not establish independent review or institutional authorization.
 
-## Safe synchronization
-1. Independent review of engine semantics, schemas, control registry, approval model, trust-root provenance and CLI.
-2. Resolve review findings and require green CI on exact latest PR head.
-3. Merge only after authorized approval; verify merge SHA and direct main CI.
-4. Synchronize engine, schemas, fixtures, tests, control map and docs together in a guarded private release.
-5. Run private validator/full tests, read back release and compare files/hashes/behavior.
-6. Declare SYNCED only after all above; otherwise retain PARTIAL / NOT_SYNCED.
+## Safe synchronization protocol
+1. Obtain independent technical review of the GitHub gate semantics, schema, controls, signature verification, trust-root provenance, fixtures and CLI.
+2. Resolve review findings and confirm owner authorization for private engine migration.
+3. Pin the exact main commit, schemas, fixtures, test suite and registry.
+4. Synchronize the engine and all dependent schemas, tests, fixtures, docs and control maps atomically in a guarded private package update.
+5. Run the private package validator and full test suite; read back release ID; compare file hashes and behavior; exercise positive and negative paths.
+6. Declare SYNCED only after exact evidence for all prior steps. Otherwise retain PARTIAL / NOT_SYNCED.
 
-A valid Ed25519 signature against a supplied trust map does not by itself establish the real-world identity or authority of the signer. Runtime, media, rights and human approvals are separate gates.
+A cryptographic signature against a supplied trust map alone does not prove real-world signer identity, clinical competence or delegated institutional authority. Runtime, media, rights and human approvals remain independent gates.
+
+
+## V4.1.5 PR #18 validation update
+- PR #18 is OPEN + DRAFT; current head ad18796b45bc37d433121d3a39cb856489629aad.
+- Exact-head validation run [43266406327](https://github.com/promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR/actions/runs/43266406327) succeeded with 95 pytest passing in 2.08s; link check [43266406293](https://github.com/promkespkmbinuang-coder/VIDEO-ANIMATION-EXPLAINER-PROMKES-PROMPT-CREATOR/actions/runs/43266406293) succeeded.
+- An earlier attempt failed 1 new test (94 passed) because of a mismatched source-field name; it was corrected in the current head. Report both attempt and correction, not just the green rerun.
+- No independent review submissions for #18 were present at this snapshot. This merge CI does not synchronize or validate the private CTRL engine.

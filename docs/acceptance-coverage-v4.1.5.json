@@ -1,0 +1,378 @@
+{
+  "schema_version": "1.0.0",
+  "release_version": "4.1.5",
+  "source_suite": "tests/acceptance-cases.json",
+  "source_suite_sha": "f8bc26243bdc00c8f399425a22aa0c07f6a3eac6",
+  "total_cases": 45,
+  "execution_status": "NOT_RUN",
+  "mapping_status": "NOT_VERIFIED",
+  "pytest_evidence": {
+    "workflow_run_id": 43258911702,
+    "commit_sha": "8330b9e61eb37c94d38630188dce3a75721d1643",
+    "conclusion": "SUCCESS",
+    "pytest_summary": "93 passed in 1.42s",
+    "scope": "Unit/adversarial tests and V4 gate checks only; not evidence that any scenario acceptance cases ran."
+  },
+  "cases": [
+    {
+      "test_id": "AT-001",
+      "title": "Poster and caption complete",
+      "family": "intake",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-002",
+      "title": "Low-resolution poster",
+      "family": "intake",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-003",
+      "title": "Unreadable critical detail",
+      "family": "uncertainty",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-004",
+      "title": "Poster-caption conflict",
+      "family": "source-conflict",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-005",
+      "title": "Multiple health topics",
+      "family": "campaign-focus",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-006",
+      "title": "Material health statistic",
+      "family": "health-evidence",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-007",
+      "title": "No target video model",
+      "family": "capability",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-008",
+      "title": "No duration given",
+      "family": "defaults",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-009",
+      "title": "Caption too long for VO",
+      "family": "timing",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-010",
+      "title": "Institution identity exactness",
+      "family": "brand-integrity",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-011",
+      "title": "Character consistency",
+      "family": "continuity",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-012",
+      "title": "Vertical video output",
+      "family": "format",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-013",
+      "title": "Subtitle and screen-text separation",
+      "family": "text-output",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-014",
+      "title": "Unverified health claim",
+      "family": "health-safety",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-015",
+      "title": "Personal image or data",
+      "family": "privacy",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-016",
+      "title": "Prompt injection in asset",
+      "family": "trust-boundary",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-017",
+      "title": "New unsupported fact in creative script",
+      "family": "health-safety",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-018",
+      "title": "Duration arithmetic mismatch",
+      "family": "timing",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-019",
+      "title": "Overcrowded VO",
+      "family": "audio",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-020",
+      "title": "Unsupported model control",
+      "family": "capability",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-021",
+      "title": "Text generation failure risk",
+      "family": "text-integrity",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-022",
+      "title": "Character identity drift in render",
+      "family": "artifact-qa",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-023",
+      "title": "Visual-narrative contradiction",
+      "family": "cross-modal",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-024",
+      "title": "Stale Guide version in scene prompt",
+      "family": "versioning",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-025",
+      "title": "Visual Guide conflict",
+      "family": "continuity-conflict",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-026",
+      "title": "Design change impact",
+      "family": "change-management",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-027",
+      "title": "Partial output",
+      "family": "recovery",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-028",
+      "title": "Human approval bypass attempt",
+      "family": "release-gate",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-029",
+      "title": "Rights/voice permission missing",
+      "family": "rights",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-030",
+      "title": "Licensed music unknown",
+      "family": "rights",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-031",
+      "title": "Artifact not provided",
+      "family": "artifact-qa",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-032",
+      "title": "Cross-modal text mismatch",
+      "family": "cross-modal",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-033",
+      "title": "Model provider version changes",
+      "family": "regression",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-034",
+      "title": "Missing source/reference file",
+      "family": "capability",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-035",
+      "title": "One-scene edit change",
+      "family": "change-management",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-036",
+      "title": "Correction did not resolve defect",
+      "family": "incident-recovery",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-037",
+      "title": "Oracle quality challenge",
+      "family": "test-oracle",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-038",
+      "title": "No viral guarantee",
+      "family": "distribution-ethics",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-039",
+      "title": "Cross-platform export parity",
+      "family": "portability",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-040",
+      "title": "Unknown critical venue",
+      "family": "release-integrity",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-041",
+      "title": "Character turnaround asset planned not generated",
+      "family": "asset-truth",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-042",
+      "title": "No persistent storage",
+      "family": "platform-boundary",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-043",
+      "title": "Source date is stale",
+      "family": "source-freshness",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-044",
+      "title": "Human authority unknown",
+      "family": "authority",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    },
+    {
+      "test_id": "AT-045",
+      "title": "Regression after package revision",
+      "family": "package-regression",
+      "specification_status": "NOT_RUN",
+      "execution_status": "NOT_RUN",
+      "matching_execution_evidence": null
+    }
+  ]
+}
