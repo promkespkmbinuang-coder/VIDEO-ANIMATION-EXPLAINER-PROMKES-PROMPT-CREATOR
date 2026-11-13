@@ -28,6 +28,10 @@ jobs:
         run: PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider --junitxml=build/v4-junit.xml
       - name: Validate V4.1.7 motion and platform adapter contracts
         run: python scripts/validate_motion_contract.py
+      - name: Validate V4.1.8 beat-sheet and risk contracts
+        run: |
+          python scripts/validate_beat_sheet.py examples/v4/beat-sheet-example.json
+          python scripts/validate_risk_assessment.py examples/v4/risk-assessment-r1-example.json
       - name: Validate V4 project contracts and semantics
         run: >-
           python scripts/v4_gate_engine.py validate examples/v4/smoke-project.json
