@@ -1,4 +1,4 @@
-# Video Explainer Promkes V4.1.6 — evidence-gated production compiler
+# Video Explainer Promkes V4.1.7 — evidence-gated production compiler
 
 **Architecture:** M00 + S01–S13 production specialists with S14 as mandatory cross-cutting conversation/release preflight. **Private engine parity:** PARTIAL / NOT_SYNCED. **Production/public release:** HOLD.
 
@@ -36,3 +36,14 @@ See `docs/conversation-context-register-v4.1.4.json`, `docs/release-audit-v4.1.4
 - 76 case IDs mapped (45 AT + 13 REF + 18 V2); all remain NOT_RUN.
 - Private plugin and GitHub repo remain distinct products; slug aliases are documented, not byte parity.
 - Production/public release HOLD pending independent review, scenario execution, external runtime/render/media QA and human approvals.
+
+
+## V4.1.7 additive motion, model-adapter and cinematic QA integration
+
+- No S15 is added. Existing owners already cover the required domains: S06 camera/shot design, S07 motion, S08 prompt and model adapter, S10 renderer mapping, S12 independent QA, S13 continuity and M00 orchestration.
+- S07 now has a quantified renderer-neutral motion-record contract with half-open frame ranges, fps/timebase, timing provenance, keyframes, phases, easing, paths, units and negative constraints.
+- New files: schemas/v4/motion-record.schema.json, schemas/v4/video-platform-adapter.schema.json and scripts/validate_motion_contract.py.
+- S08 uses an adaptive nine-slot prompt completeness check and exact provider/model/version adapter evidence. Sora, Veo, Kling, Runway and Seedance are candidate families, not claims of current support.
+- S12 adds observable cinematic/motion QA to existing QA layers. Static validation never proves host execution, model runtime, renderer integration or actual media properties.
+- Risk-proportional R0–R3 routing is a proposal for a measured pilot. It cannot bypass health evidence, rights, privacy, consent, applicable continuity, independent QA or authorized human approval.
+- New unit tests are separate from the 76 existing scenario acceptance cases. Those cases remain NOT_RUN until their own oracles and evidence are recorded.

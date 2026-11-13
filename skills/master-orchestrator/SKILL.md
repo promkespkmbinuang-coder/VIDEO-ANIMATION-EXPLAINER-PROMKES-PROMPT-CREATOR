@@ -171,3 +171,12 @@ M00 retains orchestration and gate arbitration. S14 does not decide clinical tru
 
 ## Mandatory MCG integration gate — V4.1.6
 Before S08 compiles still/reference prompts, verify one canonical MCG manifest, exactly seven Guide refs and three protocols, one primary owner per Guide, acyclic/resolvable dependencies, S02-only Health Truth references, adaptive continuity classes, exact model capability evidence, rights/privacy and artifact-bound human approvals. Mandatory order: S06 storyboard → S07 motion + S09 audio/time refs + S10 edit context → S13 refresh GUIDE-07/MCG → schema and semantic validation → S08. Affected scenes remain BLOCKED while refresh is NOT_RUN, BLOCKED, STALE or INVALIDATED.
+
+
+## V4.1.7 motion, adapter and risk-proportional routing
+
+Keep the existing ownership chain; do not add S15. S06 owns camera/shot design, S07 owns quantified element motion, S08 owns still/reference and optional video prompt adapters, S10 owns renderer translation, S12 owns independent QA, S13 owns continuity and M00 owns orchestration/gate arbitration. A beat sheet connects approved narrative/claim refs to scenes, shots, motion, audio, overlays and QA.
+
+Use schemas/v4/motion-record.schema.json and scripts/validate_motion_contract.py. Validate half-open frame intervals, fps/timebase, units, timing source/precision, keyframes, phases, easing, path and S06 camera references. Platform-specific prompts require exact model/version evidence through the adapter schema; unknown capabilities stay UNKNOWN/NOT_CHECKED.
+
+Risk-proportional R0–R3 routing may reduce duplicated process for genuinely low-risk, non-claim work after a pilot. It never skips intake/source scanning, S02 review of health claims, rights/privacy/consent, applicable MCG continuity, independent S12 QA or required human approval. Unknown risk is not low risk. Any gate escape, misclassification or critical defect stops the pilot and restores the stricter route.

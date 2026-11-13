@@ -1,3 +1,10 @@
+## 4.1.7 — quantified motion, platform evidence and cinematic QA (2026-11-13)
+- Adds a renderer-neutral S07 motion-record schema and semantic validator for half-open frame intervals, keyframes, phases, easing, paths, source precision and S06 camera references.
+- Adds a version-pinned S08 platform adapter evidence schema and nine-slot prompt completeness model; platform candidates are not declared supported without exact documentation/runtime evidence.
+- Extends S12 observable cinematic/motion QA inside existing QA layers; no S15 and no duplicate gate.
+- Adds risk-proportional routing as a proposed low-risk pilot while preserving required evidence, rights/privacy/consent and human controls.
+- Adds repository evaluation, roadmap and metric documentation. New unit tests remain separate from the existing scenario acceptance suites.
+
 ## 4.1.6 — canonical MCG integration (2026-11-13)
 - Adds canonical MCG schema and DRAFT example, seven single-owner Guide files and three continuity protocols.
 - Makes S13 the MCG index and GUIDE-07 integrator only; clarifies GUIDE-01/03/06 S05, GUIDE-02/04 S04, GUIDE-05 S09.

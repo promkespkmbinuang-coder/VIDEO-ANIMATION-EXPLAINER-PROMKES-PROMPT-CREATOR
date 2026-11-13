@@ -90,3 +90,25 @@ S08 supplies renderer-neutral references and IDs. S10 may describe a mapping to 
 ## Quality gate
 
 PASS only when reference prompts are still/reference-specific (not text-to-video directions), every reference is traceable to the right Guide/version, source facts remain locked, exact text is separated as overlay data, assets are not claimed generated/approved unless observed, and the handoff can be interpreted without inventing renderer code. Otherwise use `PASS_WITH_CAVEATS`, `HOLD`, or `BLOCKED`.
+
+
+## V4.1.7 nine-slot prompt anatomy and platform adapter evidence
+
+For optional video-generation prompts, use an adaptive nine-slot completeness model:
+1. Subject and factual/identity boundary.
+2. Action or behavior.
+3. Setting, staging and physical context.
+4. S06-owned camera-plan reference and shot intent.
+5. S07-owned motion arc and element-state reference.
+6. Time, beat, duration and upstream timing precision.
+7. S05 visual treatment and MCG continuity anchors.
+8. Positive/negative constraints and prohibited drift.
+9. S09 audio intent plus accessibility and overlay notes.
+
+Slots may be marked NOT_APPLICABLE with reason. Missing project variables remain explicit; do not fabricate values. Keep still/reference prompts separate from temporal video prompts, motion records, renderer code and actual generated assets.
+
+Use schemas/v4/video-platform-adapter.schema.json for exact provider, product/model/version, checked_at, prompt dialect, feature-level evidence, official documentation refs, runtime-test refs, limitations and fallback. Candidate families may include Sora, Veo, Kling, Runway and Seedance; names alone do not count as supported adapters. DOCS_VERIFIED is not RUNTIME_TESTED. Without exact target/version evidence, provide a provider-neutral draft and mark adapter NOT_CHECKED.
+
+Do not claim a model supports camera controls, duration/fps, audio, reference images, negative prompts or prompt-length behavior unless the exact model/version documentation supports that claim. Keep S02-locked health text, dates, statistics, logos and CTA in verified editable overlay data rather than relying on model-generated typography.
+
+See docs/video-platform-adapter-contract-v4.1.7.md.

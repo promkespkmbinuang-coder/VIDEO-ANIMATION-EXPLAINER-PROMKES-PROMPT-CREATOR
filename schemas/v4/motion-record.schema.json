@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:promkes:v4:motion-record:1.0.0",
+  "title": "Promkes V4 Renderer-Neutral Motion Record",
+  "description": "Quantified, renderer-neutral motion contract. It describes intended motion; it does not prove model execution or rendering.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "motion_spec_id", "project_id", "scene_id", "element_id",
+    "owner", "target_kind", "timing", "start_state", "end_state", "keyframes",
+    "motion_phases", "easing", "motion_path", "negative_constraints",
+    "continuity_refs", "claim_refs", "source_refs", "status"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "motion_spec_id": {"type": "string", "minLength": 1},
+    "project_id": {"type": "string", "minLength": 1},
+    "scene_id": {"type": "string", "minLength": 1},
+    "element_id": {"type": "string", "minLength": 1},
+    "owner": {"const": "S07:animation-motion-design"},
+    "target_kind": {
+      "enum": ["CHARACTER", "OBJECT", "ENVIRONMENT", "GRAPHIC", "TEXT_OVERLAY", "CAMERA_REFERENCE"]
+    },
+    "timing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fps", "start_frame", "end_frame_exclusive", "duration_frames", "timebase", "timing_source", "source_precision", "rounding_policy"],
+      "properties": {
+        "fps": {"type": "number", "exclusiveMinimum": 0},
+        "start_frame": {"type": "integer", "minimum": 0},
+        "end_frame_exclusive": {"type": "integer", "minimum": 1},
+        "duration_frames": {"type": "integer", "minimum": 1},
+        "timebase": {"enum": ["PROJECT_FRAMES", "SOURCE_AUDIO_CLOCK", "TIMECODE", "ESTIMATED_SECONDS"]},
+        "timing_source": {"enum": ["USER_PROVIDED", "S06_STORYBOARD", "S09_AUDIO", "PROJECT_DEFAULT", "ESTIMATED"]},
+        "source_precision": {"enum": ["FRAME_EXACT", "SAMPLE_ALIGNED", "WORD_ALIGNED", "ESTIMATED", "UNKNOWN"]},
+        "rounding_policy": {"enum": ["EXACT", "FLOOR", "CEIL", "HALF_UP"]},
+        "source_time_ref": {"type": ["string", "null"]},
+        "notes": {"type": "string"}
+      }
+    },
+    "start_state": {"type": "object", "minProperties": 1},
+    "end_state": {"type": "object", "minProperties": 1},
+    "keyframes": {
+      "type": "array", "minItems": 2,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["frame", "state"],
+        "properties": {
+          "frame": {"type": "integer", "minimum": 0},
+          "state": {"type": "object", "minProperties": 1},
+          "interpolation_to_next": {"enum": ["STEP", "LINEAR", "EASED", "SPRING", "MANUAL"]},
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "motion_phases": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["phase", "start_frame", "end_frame_exclusive", "purpose"],
+        "properties": {
+          "phase": {"enum": ["ANTICIPATION", "ACTION", "FOLLOW_THROUGH", "SETTLE", "HOLD", "EXIT"]},
+          "start_frame": {"type": "integer", "minimum": 0},
+          "end_frame_exclusive": {"type": "integer", "minimum": 1},
+          "purpose": {"type": "string", "minLength": 1},
+          "overlap_allowed": {"type": "boolean", "default": false}
+        }
+      }
+    },
+    "easing": {
+      "type": "object", "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": {"enum": ["LINEAR", "CUBIC_BEZIER", "SPRING", "MODEL_LANGUAGE_ONLY", "UNSPECIFIED"]},
+        "cubic_bezier": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "number"}},
+        "spring": {
+          "type": "object", "additionalProperties": false,
+          "required": ["stiffness", "damping", "mass"],
+          "properties": {
+            "stiffness": {"type": "number", "exclusiveMinimum": 0},
+            "damping": {"type": "number", "exclusiveMinimum": 0},
+            "mass": {"type": "number", "exclusiveMinimum": 0}
+          }
+        },
+        "model_language": {"type": "string"},
+        "renderer_interpretation": {"type": "string"}
+      }
+    },
+    "motion_path": {
+      "type": "object", "additionalProperties": false,
+      "required": ["type", "coordinate_system", "unit"],
+      "properties": {
+        "type": {"enum": ["NONE", "STRAIGHT", "ARC", "BEZIER", "CUSTOM"]},
+        "coordinate_system": {"enum": ["NORMALIZED_0_1", "PIXELS", "WORLD", "LOCAL_ELEMENT", "OTHER"]},
+        "unit": {"type": "string", "minLength": 1},
+        "control_points": {
+          "type": "array",
+          "items": {"type": "array", "minItems": 2, "maxItems": 3, "items": {"type": "number"}}
+        },
+        "physical_notes": {"type": "string"}
+      }
+    },
+    "camera_plan_ref": {"type": ["string", "null"]},
+    "transition_in": {"type": ["string", "null"]},
+    "transition_out": {"type": ["string", "null"]},
+    "negative_constraints": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "continuity_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "claim_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "source_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "accessibility": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "reduced_motion_required": {"type": "boolean"},
+        "reduced_motion_fallback": {"type": ["string", "null"]},
+        "flicker_or_flash_check_required": {"type": "boolean"}
+      }
+    },
+    "renderer_targets": {"type": "array", "items": {"enum": ["REMOTION", "GSAP", "LOTTIE", "HYPERFRAMES", "OTHER"]}, "uniqueItems": true},
+    "approval_ref": {"type": ["string", "null"]},
+    "status": {"enum": ["DRAFT", "STATIC_VALIDATED", "REVIEWED", "APPROVED", "NOT_RUN", "NOT_VERIFIED", "BLOCKED", "STALE", "INVALIDATED"]}
+  },
+  "allOf": [
+    {"if": {"properties": {"target_kind": {"const": "CAMERA_REFERENCE"}}, "required": ["target_kind"]}, "then": {"required": ["camera_plan_ref"], "properties": {"camera_plan_ref": {"type": "string", "minLength": 1}}}}
+  ]
+}

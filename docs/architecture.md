@@ -67,3 +67,10 @@ S01 and S09 may intake concurrently only when independent inputs exist. Source f
 ## Continuity and changes
 
 MCG controls creative identity; the production manifest controls operational state. Every upstream change records changed IDs, affected downstream artifacts, invalidations and retests. Use targeted correction loops and preserve unaffected approvals.
+
+
+## V4.1.7 additive motion and adapter layer
+
+The existing S06/S07/S08/S10/S12/M00/S13 ownership model is retained. S06 owns camera and shot plans; S07 owns quantified element motion records; S08 owns prompt compilation and version-pinned model dialect adapters; S10 owns renderer field mapping; S12 owns independent cinematic QA; S13 owns continuity; M00 arbitrates dependencies and gates. No S15 is added.
+
+Motion records are validated by schemas/v4/motion-record.schema.json and scripts/validate_motion_contract.py. Platform adapter evidence is represented by schemas/v4/video-platform-adapter.schema.json. These are additive contracts and do not assert that any target model or renderer has been tested.

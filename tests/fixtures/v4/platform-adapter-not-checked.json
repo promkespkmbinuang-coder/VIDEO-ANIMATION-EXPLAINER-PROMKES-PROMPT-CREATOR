@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "adapter_id": "ADAPTER-SORA-CANDIDATE",
+  "platform": "SORA",
+  "provider": "OpenAI",
+  "model_name": "NOT_SELECTED",
+  "model_version": "NOT_SELECTED",
+  "checked_at": null,
+  "status": "NOT_CHECKED",
+  "prompt_dialect": {
+    "language": "UNKNOWN",
+    "structure": ["SUBJECT", "ACTION", "SETTING", "CAMERA_INTENT", "TEMPORAL_BEHAVIOR", "CONSTRAINTS"],
+    "prompt_length_policy": "Do not assume a token or word limit before checking the exact target model/version documentation."
+  },
+  "feature_matrix": [
+    {"feature": "Reference image input", "support": "UNKNOWN", "evidence_refs": []},
+    {"feature": "Camera control", "support": "UNKNOWN", "evidence_refs": []},
+    {"feature": "Native audio", "support": "UNKNOWN", "evidence_refs": []},
+     {"feature": "Duration and aspect ratio controls", "support": "UNKNOWN", "evidence_refs": []}
+  ],
+  "official_docs_refs": [],
+  "runtime_test_refs": [],
+  "test_environment": null,
+  "limitations": ["Candidate adapter only; not evidence of current availability, model capability, API access, or runtime testing."],
+  "fallback_strategy": "Use provider-neutral prompt and manual review until an exact model/version adapter is verified."
+}

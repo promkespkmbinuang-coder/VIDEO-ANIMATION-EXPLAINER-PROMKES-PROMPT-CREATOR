@@ -1,8 +1,8 @@
 {
   "interface": {
-    "displayName": "Video Explainer Promkes V4.1.6",
+    "displayName": "Video Explainer Promkes V4.1.7",
     "shortDescription": "Evidence-gated Promkes",
-    "longDescription": "Health-first Promkes production with one canonical MCG, seven single-owner Guides, three protocols, mandatory post-storyboard S13 refresh, S02-owned health truth and evidence-bound model capability and human approval gates. External runtime, renderer and media QA remain separate.",
+    "longDescription": "Health-first Promkes production with canonical MCG, seven single-owner Guides, three continuity protocols, quantified motion records, evidence-bound model adapters and independent cinematic QA. No S15 is added; S02 health truth, S06 camera, S07 motion, S10 renderer, S12 QA, S13 continuity and human approval boundaries remain distinct.",
     "developerName": "Promkes pkm binuang",
     "category": "Healthcare",
     "capabilities": [],
@@ -16,8 +16,8 @@
     ]
   },
   "name": "video-animasi-explainer-promkes-prompt-creator",
-  "version": "4.1.6",
-  "description": "Evidence-governed health-promotion explainer production with canonical MCG, seven single-owner Guides, three continuity protocols and fail-closed release governance.",
+  "version": "4.1.7",
+  "description": "Evidence-governed health-promotion explainer production with canonical MCG, quantified renderer-neutral motion contracts, evidence-bound AI video adapters and independent cinematic QA.",
   "author": {
     "name": "Promkes pkm binuang",
     "email": "promkes.pkm.binuang@gmail.com"
@@ -46,7 +46,11 @@
     "release consistency",
     "master continuity guide",
     "adaptive continuity",
-    "scene continuity"
+    "scene continuity",
+    "motion specification",
+    "cinematic QA",
+    "AI video platform adapter",
+    "motion schema"
   ],
   "skills": "./skills"
 }

@@ -61,3 +61,21 @@ Route source/claim issue to S01/S02; campaign/story issue to S03/S04; visual/can
 ## Stop conditions
 
 Do not pass a health claim without appropriate evidence; do not claim inspection from a textual specification; do not approve missing/unknown rights; do not claim loudness, clipping, image quality, A/V sync or output metadata without the needed observation/tool; do not conflate technical QA with clinical/institutional approval or publication permission.
+
+
+## V4.1.7 cinematic and motion QA extension
+
+Integrate cinematic/motion checks into existing S12 QA levels. Do not add a duplicate release gate or new owner. For static package QA, inspect the S07 schema and semantic contract: half-open frame arithmetic, keyframe order/range, phase bounds, units, easing parameters, timing provenance/precision, negative constraints, S06 camera-plan refs, continuity refs and accessibility fallback.
+
+Cinematic criteria must be observable and assigned an oracle. Minimum checks:
+- narrative and beat function mapped to approved message/claim refs;
+- shot/framing/camera intent matches the S06 shot contract;
+- subject/object/environment motion readability and state arc;
+- exact duration arithmetic and timing precision consistent with S09 evidence;
+- transition purpose and scene-in/out continuity against MCG/S13;
+- no visual mutation of locked claims, names, dates, logo or CTA overlays;
+- no unintended flicker, deformation, clipping, unsafe crop or unreadable text;
+- accessibility, reduced-motion behavior and sufficient reading time;
+- target model/renderer controls are supported by exact versioned evidence.
+
+Each criterion records expected and observed result, status, evidence refs, limitation, defect ID, owner, correction and retest. Avoid subjective aesthetic scoring as an acceptance oracle. Static contract PASS does not imply model runtime, renderer integration, render, MP4 inspection or human approval. Missing media remains NOT_RUN; inaccessible properties remain NOT_VERIFIED.
