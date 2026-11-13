@@ -1,0 +1,234 @@
+{
+  "schema_version": "1.0.0",
+  "mcg_id": "MCG-EXAMPLE-001",
+  "project_id": "PROJECT-EXAMPLE-001",
+  "version": "1.0.0",
+  "status": "DRAFT",
+  "canonical_owner": "S13:continuity-guardian",
+  "input_mode": "SCRIPT_FIRST",
+  "guide_registry": [
+    {
+      "guide_id": "GUIDE-01",
+      "name": "GUIDE-01",
+      "primary_owner": "S05:visual-identity-art-direction",
+      "version": "1.0.0",
+      "status": "DRAFT",
+      "content_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "source_refs": [],
+      "dependencies": [],
+      "approval_record_ids": []
+    },
+    {
+      "guide_id": "GUIDE-02",
+      "name": "GUIDE-02",
+      "primary_owner": "S04:story-screenplay-architect",
+      "version": "1.0.0",
+      "status": "DRAFT",
+      "content_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "source_refs": [],
+      "dependencies": [],
+      "approval_record_ids": []
+    },
+    {
+      "guide_id": "GUIDE-03",
+      "name": "GUIDE-03",
+      "primary_owner": "S05:visual-identity-art-direction",
+      "version": "1.0.0",
+      "status": "DRAFT",
+      "content_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "source_refs": [],
+      "dependencies": [],
+      "approval_record_ids": []
+    },
+    {
+      "guide_id": "GUIDE-04",
+      "name": "GUIDE-04",
+      "primary_owner": "S04:story-screenplay-architect",
+      "version": "1.0.0",
+      "status": "DRAFT",
+      "content_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "source_refs": [],
+      "dependencies": [],
+      "approval_record_ids": []
+    },
+    {
+      "guide_id": "GUIDE-05",
+      "name": "GUIDE-05",
+      "primary_owner": "S09:voice-sound-design",
+      "version": "1.0.0",
+      "status": "DRAFT",
+      "content_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "source_refs": [],
+      "dependencies": [],
+      "approval_record_ids": []
+    },
+    {
+      "guide_id": "GUIDE-06",
+      "name": "GUIDE-06",
+      "primary_owner": "S05:visual-identity-art-direction",
+      "version": "1.0.0",
+      "status": "DRAFT",
+      "content_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "source_refs": [],
+      "dependencies": [],
+      "approval_record_ids": []
+    },
+    {
+      "guide_id": "GUIDE-07",
+      "name": "GUIDE-07",
+      "primary_owner": "S13:continuity-guardian",
+      "version": "1.0.0",
+      "status": "DRAFT",
+      "content_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "source_refs": [],
+      "dependencies": [],
+      "approval_record_ids": []
+    }
+  ],
+  "protocol_refs": [
+    {
+      "protocol_id": "GCL-01",
+      "name": "Global Continuity Lock",
+      "version": "1.0.0",
+      "ref": "docs/mcg/protocols/GCL-01-global-continuity-lock.md",
+      "status": "DRAFT"
+    },
+    {
+      "protocol_id": "CCM-01",
+      "name": "Continuity Change Management",
+      "version": "1.0.0",
+      "ref": "docs/mcg/protocols/CCM-01-continuity-change-management.md",
+      "status": "DRAFT"
+    },
+    {
+      "protocol_id": "CQA-01",
+      "name": "Continuity Quality Assurance",
+      "version": "1.0.0",
+      "ref": "docs/mcg/protocols/CQA-01-continuity-quality-assurance.md",
+      "status": "DRAFT"
+    }
+  ],
+  "domain_ownership": [
+    {
+      "guide_id": "GUIDE-01",
+      "primary_owner": "S05:visual-identity-art-direction"
+    },
+    {
+      "guide_id": "GUIDE-02",
+      "primary_owner": "S04:story-screenplay-architect"
+    },
+    {
+      "guide_id": "GUIDE-03",
+      "primary_owner": "S05:visual-identity-art-direction"
+    },
+    {
+      "guide_id": "GUIDE-04",
+      "primary_owner": "S04:story-screenplay-architect"
+    },
+    {
+      "guide_id": "GUIDE-05",
+      "primary_owner": "S09:voice-sound-design"
+    },
+    {
+      "guide_id": "GUIDE-06",
+      "primary_owner": "S05:visual-identity-art-direction"
+    },
+    {
+      "guide_id": "GUIDE-07",
+      "primary_owner": "S13:continuity-guardian"
+    }
+  ],
+  "dependency_edges": [
+    {
+      "from_id": "GUIDE-01",
+      "to_id": "GUIDE-03",
+      "reason": "Character visual definition informs visual style."
+    },
+    {
+      "from_id": "GUIDE-03",
+      "to_id": "GUIDE-06",
+      "reason": "Visual style informs world treatment."
+    },
+    {
+      "from_id": "GUIDE-02",
+      "to_id": "GUIDE-04",
+      "reason": "Personality informs narrative style."
+    },
+    {
+      "from_id": "GUIDE-04",
+      "to_id": "GUIDE-05",
+      "reason": "Approved script informs voice treatment."
+    },
+    {
+      "from_id": "GUIDE-05",
+      "to_id": "GUIDE-07",
+      "reason": "Audio contributes to scene state."
+    },
+    {
+      "from_id": "GUIDE-06",
+      "to_id": "GUIDE-07",
+      "reason": "Environment contributes to scene state."
+    }
+  ],
+  "health_truth_registry_ref": {
+    "registry_ref": "health-truth:PROJECT-EXAMPLE-001",
+    "owner": "S02:health-evidence-safety-auditor",
+    "claim_refs": []
+  },
+  "scene_continuity": {
+    "guide_id": "GUIDE-07",
+    "refresh_after_storyboard": false,
+    "refresh_gate_status": "NOT_RUN",
+    "refresh_evidence_ref": null,
+    "scene_refs": []
+  },
+  "lock_registry": [],
+  "adaptive_attributes": [
+    {
+      "attribute_id": "ATTR-CHAR-IDENTITY",
+      "domain": "CHARACTER_IDENTITY",
+      "classification": "IMMUTABLE",
+      "owner": "S05:visual-identity-art-direction",
+      "allowed_variations": [],
+      "affected_scenes": []
+    },
+    {
+      "attribute_id": "ATTR-VISUAL-EXPRESSION",
+      "domain": "VISUAL",
+      "classification": "CONTROLLED_VARIATION",
+      "owner": "S05:visual-identity-art-direction",
+      "allowed_variations": [
+        "approved-A",
+        "approved-B"
+      ],
+      "affected_scenes": []
+    },
+    {
+      "attribute_id": "ATTR-SCENE-POSE",
+      "domain": "SCENE_CONTINUITY",
+      "classification": "SCENE_DEPENDENT",
+      "owner": "S13:continuity-guardian",
+      "allowed_variations": [],
+      "affected_scenes": [
+        "SCENE-EXAMPLE-01"
+      ]
+    }
+  ],
+  "asset_registry": [],
+  "model_capabilities": [],
+  "approval_records": [],
+  "change_history": [],
+  "release_manifest_ref": "release-manifest:NOT_CREATED",
+  "source_catalog": [
+    {
+      "source_id": "SRC-EXAMPLE-SCRIPT",
+      "source_kind": "SCRIPT",
+      "owner": "S04:story-screenplay-architect",
+      "source_ref": "example:synthetic-script",
+      "provenance_ref": "fixture:synthetic-only",
+      "rights_status": "NOT_APPLICABLE",
+      "privacy_classification": "PUBLIC",
+      "status": "AVAILABLE"
+    }
+  ]
+}

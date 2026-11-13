@@ -1,0 +1,1301 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Promkes Canonical MCG Manifest V4.1.6",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "mcg_id",
+    "project_id",
+    "version",
+    "status",
+    "canonical_owner",
+    "input_mode",
+    "guide_registry",
+    "protocol_refs",
+    "domain_ownership",
+    "dependency_edges",
+    "health_truth_registry_ref",
+    "scene_continuity",
+    "lock_registry",
+    "adaptive_attributes",
+    "asset_registry",
+    "model_capabilities",
+    "approval_records",
+    "change_history",
+    "release_manifest_ref",
+    "source_catalog"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "mcg_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "READY_FOR_STORYBOARD",
+        "READY_FOR_SCENE_PROMPTS",
+        "READY_FOR_HANDOFF",
+        "HOLD",
+        "BLOCKED"
+      ]
+    },
+    "canonical_owner": {
+      "const": "S13:continuity-guardian"
+    },
+    "input_mode": {
+      "enum": [
+        "POSTER_FIRST",
+        "AUDIO_FIRST",
+        "HYBRID",
+        "SCRIPT_FIRST",
+        "TRANSCRIPT_FIRST"
+      ]
+    },
+    "guide_registry": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "$ref": "#/$defs/guide"
+      }
+    },
+    "protocol_refs": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/$defs/protocol"
+      }
+    },
+    "domain_ownership": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "$ref": "#/$defs/owner"
+      }
+    },
+    "dependency_edges": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/edge"
+      }
+    },
+    "health_truth_registry_ref": {
+      "$ref": "#/$defs/health"
+    },
+    "scene_continuity": {
+      "$ref": "#/$defs/scene"
+    },
+    "lock_registry": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/lock"
+      }
+    },
+    "adaptive_attributes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/adaptive"
+      }
+    },
+    "asset_registry": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/asset"
+      }
+    },
+    "model_capabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/capability"
+      }
+    },
+    "approval_records": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/approval"
+      }
+    },
+    "change_history": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/change"
+      }
+    },
+    "release_manifest_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_catalog": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "READY_FOR_SCENE_PROMPTS"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "scene_continuity": {
+            "properties": {
+              "refresh_after_storyboard": {
+                "const": true
+              },
+              "refresh_gate_status": {
+                "const": "PASS"
+              },
+              "refresh_evidence_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "guide": {
+      "type": "object",
+      "required": [
+        "guide_id",
+        "name",
+        "primary_owner",
+        "version",
+        "status",
+        "content_hash",
+        "approval_record_ids"
+      ],
+      "properties": {
+        "guide_id": {
+          "enum": [
+            "GUIDE-01",
+            "GUIDE-02",
+            "GUIDE-03",
+            "GUIDE-04",
+            "GUIDE-05",
+            "GUIDE-06",
+            "GUIDE-07"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "primary_owner": {
+          "enum": [
+            "S05:visual-identity-art-direction",
+            "S04:story-screenplay-architect",
+            "S09:voice-sound-design",
+            "S13:continuity-guardian"
+          ]
+        },
+        "version": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "DRAFT",
+            "PROPOSED",
+            "REVIEWED",
+            "LOCKED",
+            "REVISED",
+            "PARTIAL",
+            "BLOCKED"
+          ]
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "approval_record_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "guide_id": {
+                "const": "GUIDE-01"
+              }
+            },
+            "required": [
+              "guide_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primary_owner": {
+                "const": "S05:visual-identity-art-direction"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "guide_id": {
+                "const": "GUIDE-02"
+              }
+            },
+            "required": [
+              "guide_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primary_owner": {
+                "const": "S04:story-screenplay-architect"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "guide_id": {
+                "const": "GUIDE-03"
+              }
+            },
+            "required": [
+              "guide_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primary_owner": {
+                "const": "S05:visual-identity-art-direction"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "guide_id": {
+                "const": "GUIDE-04"
+              }
+            },
+            "required": [
+              "guide_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primary_owner": {
+                "const": "S04:story-screenplay-architect"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "guide_id": {
+                "const": "GUIDE-05"
+              }
+            },
+            "required": [
+              "guide_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primary_owner": {
+                "const": "S09:voice-sound-design"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "guide_id": {
+                "const": "GUIDE-06"
+              }
+            },
+            "required": [
+              "guide_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primary_owner": {
+                "const": "S05:visual-identity-art-direction"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "guide_id": {
+                "const": "GUIDE-07"
+              }
+            },
+            "required": [
+              "guide_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primary_owner": {
+                "const": "S13:continuity-guardian"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "LOCKED"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "approval_record_ids": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "protocol": {
+      "type": "object",
+      "required": [
+        "protocol_id",
+        "name",
+        "version",
+        "ref",
+        "status"
+      ],
+      "properties": {
+        "protocol_id": {
+          "enum": [
+            "GCL-01",
+            "CCM-01",
+            "CQA-01"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "DRAFT",
+            "ACTIVE",
+            "REVISED",
+            "BLOCKED"
+          ]
+        }
+      }
+    },
+    "edge": {
+      "type": "object",
+      "required": [
+        "from_id",
+        "to_id",
+        "reason"
+      ],
+      "properties": {
+        "from_id": {
+          "type": "string"
+        },
+        "to_id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "health": {
+      "type": "object",
+      "required": [
+        "registry_ref",
+        "owner",
+        "claim_refs"
+      ],
+      "properties": {
+        "registry_ref": {
+          "type": "string"
+        },
+        "owner": {
+          "const": "S02:health-evidence-safety-auditor"
+        },
+        "claim_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "claim_id",
+              "status",
+              "evidence_refs"
+            ],
+            "properties": {
+              "claim_id": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "VERIFIED",
+                  "PARTIALLY_SUPPORTED",
+                  "MIXED_OR_CONTESTED",
+                  "BELUM_DIVERIFIKASI",
+                  "CONTRADICTED",
+                  "UNKNOWN"
+                ]
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "status": {
+                      "const": "VERIFIED"
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "evidence_refs": {
+                      "minItems": 1
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "scene": {
+      "type": "object",
+      "required": [
+        "guide_id",
+        "refresh_after_storyboard",
+        "refresh_gate_status",
+        "scene_refs"
+      ],
+      "properties": {
+        "guide_id": {
+          "const": "GUIDE-07"
+        },
+        "refresh_after_storyboard": {
+          "type": "boolean"
+        },
+        "refresh_gate_status": {
+          "enum": [
+            "NOT_RUN",
+            "PASS",
+            "FAIL",
+            "BLOCKED",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "refresh_evidence_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scene_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "lock": {
+      "type": "object",
+      "required": [
+        "lock_id",
+        "guide_id",
+        "attribute_id",
+        "owner",
+        "version",
+        "classification",
+        "canonical_value_ref",
+        "content_hash",
+        "status",
+        "approval_record_id"
+      ],
+      "properties": {
+        "lock_id": {
+          "type": "string"
+        },
+        "guide_id": {
+          "type": "string"
+        },
+        "attribute_id": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "classification": {
+          "enum": [
+            "IMMUTABLE",
+            "CONTROLLED_VARIATION",
+            "SCENE_DEPENDENT"
+          ]
+        },
+        "canonical_value_ref": {
+          "type": "string"
+        },
+        "content_hash": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "PROPOSED",
+            "REVIEWED",
+            "LOCKED",
+            "BLOCKED"
+          ]
+        },
+        "approval_record_id": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "LOCKED"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "approval_record_id": {
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "adaptive": {
+      "type": "object",
+      "required": [
+        "attribute_id",
+        "domain",
+        "classification",
+        "owner",
+        "allowed_variations",
+        "affected_scenes"
+      ],
+      "properties": {
+        "attribute_id": {
+          "type": "string"
+        },
+        "domain": {
+          "enum": [
+            "CHARACTER_IDENTITY",
+            "NARRATIVE",
+            "VISUAL",
+            "VOICE_AUDIO",
+            "WORLD_ENVIRONMENT",
+            "SCENE_CONTINUITY"
+          ]
+        },
+        "classification": {
+          "enum": [
+            "IMMUTABLE",
+            "CONTROLLED_VARIATION",
+            "SCENE_DEPENDENT"
+          ]
+        },
+        "owner": {
+          "type": "string"
+        },
+        "allowed_variations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "affected_scenes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "required": [
+        "asset_id",
+        "owner",
+        "provenance_ref",
+        "lifecycle_status",
+        "rights_status",
+        "privacy_classification"
+      ],
+      "properties": {
+        "asset_id": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "provenance_ref": {
+          "type": "string"
+        },
+        "lifecycle_status": {
+          "enum": [
+            "PROMPTED",
+            "GENERATED",
+            "SELECTED",
+            "APPROVED",
+            "REJECTED",
+            "BLOCKED"
+          ]
+        },
+        "rights_status": {
+          "enum": [
+            "VERIFIED",
+            "USER_ATTESTED",
+            "UNVERIFIED",
+            "NOT_APPLICABLE",
+            "REJECTED"
+          ]
+        },
+        "privacy_classification": {
+          "enum": [
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PERSONAL_DATA",
+            "SENSITIVE_PERSONAL_DATA"
+          ]
+        },
+        "consent_ref": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "lifecycle_status": {
+                "const": "APPROVED"
+              }
+            },
+            "required": [
+              "lifecycle_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "rights_status": {
+                "enum": [
+                  "VERIFIED",
+                  "NOT_APPLICABLE"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "privacy_classification": {
+                "enum": [
+                  "PERSONAL_DATA",
+                  "SENSITIVE_PERSONAL_DATA"
+                ]
+              }
+            },
+            "required": [
+              "privacy_classification"
+            ]
+          },
+          "then": {
+            "required": [
+              "consent_ref"
+            ]
+          }
+        }
+      ]
+    },
+    "capability": {
+      "type": "object",
+      "required": [
+        "provider",
+        "model",
+        "model_version",
+        "capability",
+        "status",
+        "limitations"
+      ],
+      "properties": {
+        "provider": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "model_version": {
+          "type": "string"
+        },
+        "capability": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "VERIFIED",
+            "UNAVAILABLE",
+            "NOT_TESTED",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "evidence_ref": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "VERIFIED"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "evidence_ref"
+            ]
+          }
+        }
+      ]
+    },
+    "approval": {
+      "type": "object",
+      "required": [
+        "approval_id",
+        "approver_role",
+        "approver_identity_ref",
+        "authority_basis_ref",
+        "scope",
+        "artifact_hashes",
+        "decision",
+        "approved_at"
+      ],
+      "properties": {
+        "approval_id": {
+          "type": "string"
+        },
+        "approver_role": {
+          "enum": [
+            "CLINICAL",
+            "INSTITUTIONAL",
+            "LEGAL_RIGHTS",
+            "PRIVACY",
+            "BRAND",
+            "ACCESSIBILITY",
+            "PUBLICATION"
+          ]
+        },
+        "approver_identity_ref": {
+          "type": "string"
+        },
+        "authority_basis_ref": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "artifact_hashes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "decision": {
+          "enum": [
+            "APPROVED",
+            "REJECTED",
+            "PENDING",
+            "REVOKED"
+          ]
+        },
+        "approved_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "change": {
+      "type": "object",
+      "required": [
+        "change_id",
+        "item_id",
+        "previous_version",
+        "new_version",
+        "change_class",
+        "reason",
+        "decision_owner",
+        "affected_refs",
+        "regression_case_ids",
+        "rollback_ref",
+        "status"
+      ],
+      "properties": {
+        "change_id": {
+          "type": "string"
+        },
+        "item_id": {
+          "type": "string"
+        },
+        "previous_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "new_version": {
+          "type": "string"
+        },
+        "change_class": {
+          "enum": [
+            "COSMETIC",
+            "PLANNED",
+            "STRUCTURAL",
+            "RETCON",
+            "CORRECTION"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "decision_owner": {
+          "type": "string"
+        },
+        "affected_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "regression_case_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rollback_ref": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "PROPOSED",
+            "PENDING_HUMAN",
+            "APPROVED",
+            "REJECTED",
+            "BLOCKED"
+          ]
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "source_kind",
+        "owner",
+        "source_ref",
+        "provenance_ref",
+        "rights_status",
+        "privacy_classification",
+        "status"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_kind": {
+          "enum": [
+            "POSTER_IMAGE",
+            "CAPTION_TEXT",
+            "AUDIO",
+            "TRANSCRIPT",
+            "SCRIPT",
+            "VIDEO",
+            "BRAND_GUIDE",
+            "OTHER"
+          ]
+        },
+        "owner": {
+          "enum": [
+            "S01:source-asset-intelligence",
+            "S04:story-screenplay-architect",
+            "S05:visual-identity-art-direction",
+            "S09:voice-sound-design",
+            "S11:social-accessibility-distribution"
+          ]
+        },
+        "source_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provenance_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^sha256:[a-fA-F0-9]{64}$"
+        },
+        "rights_status": {
+          "enum": [
+            "VERIFIED",
+            "USER_ATTESTED",
+            "UNVERIFIED",
+            "NOT_APPLICABLE",
+            "REJECTED"
+          ]
+        },
+        "privacy_classification": {
+          "enum": [
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PERSONAL_DATA",
+            "SENSITIVE_PERSONAL_DATA"
+          ]
+        },
+        "consent_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "AVAILABLE",
+            "PARTIAL",
+            "UNVERIFIED",
+            "STALE",
+            "BLOCKED"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "source_kind": {
+                "enum": [
+                  "AUDIO",
+                  "TRANSCRIPT"
+                ]
+              }
+            },
+            "required": [
+              "source_kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "owner": {
+                "const": "S09:voice-sound-design"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "source_kind": {
+                "const": "SCRIPT"
+              }
+            },
+            "required": [
+              "source_kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "owner": {
+                "const": "S04:story-screenplay-architect"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "privacy_classification": {
+                "enum": [
+                  "PERSONAL_DATA",
+                  "SENSITIVE_PERSONAL_DATA"
+                ]
+              }
+            },
+            "required": [
+              "privacy_classification"
+            ]
+          },
+          "then": {
+            "required": [
+              "consent_ref"
+            ]
+          }
+        }
+      ]
+    },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "guide_id",
+        "primary_owner"
+      ],
+      "properties": {
+        "guide_id": {
+          "enum": [
+            "GUIDE-01",
+            "GUIDE-02",
+            "GUIDE-03",
+            "GUIDE-04",
+            "GUIDE-05",
+            "GUIDE-06",
+            "GUIDE-07"
+          ]
+        },
+        "primary_owner": {
+          "enum": [
+            "S05:visual-identity-art-direction",
+            "S04:story-screenplay-architect",
+            "S05:visual-identity-art-direction",
+            "S04:story-screenplay-architect",
+            "S09:voice-sound-design",
+            "S05:visual-identity-art-direction",
+            "S13:continuity-guardian"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "guide_id": {
+                "const": "GUIDE-01"
+              }
+            },
+            "required": [
+              "guide_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primary_owner": {
+                "const": "S05:visual-identity-art-direction"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "guide_id": {
+                "const": "GUIDE-02"
+              }
+            },
+            "required": [
+              "guide_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primary_owner": {
+                "const": "S04:story-screenplay-architect"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "guide_id": {
+                "const": "GUIDE-03"
+              }
+            },
+            "required": [
+              "guide_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primary_owner": {
+                "const": "S05:visual-identity-art-direction"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "guide_id": {
+                "const": "GUIDE-04"
+              }
+            },
+            "required": [
+              "guide_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primary_owner": {
+                "const": "S04:story-screenplay-architect"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "guide_id": {
+                "const": "GUIDE-05"
+              }
+            },
+            "required": [
+              "guide_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primary_owner": {
+                "const": "S09:voice-sound-design"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "guide_id": {
+                "const": "GUIDE-06"
+              }
+            },
+            "required": [
+              "guide_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primary_owner": {
+                "const": "S05:visual-identity-art-direction"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "guide_id": {
+                "const": "GUIDE-07"
+              }
+            },
+            "required": [
+              "guide_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "primary_owner": {
+                "const": "S13:continuity-guardian"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

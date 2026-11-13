@@ -111,6 +111,16 @@
       "requirement_id": "REQ-REF-09",
       "title": "Artifact QA evidence gate",
       "statement": "Do not claim render QA without actual artifact and reviewer evidence."
+    },
+    {
+      "requirement_id": "REQ-11",
+      "title": "Canonical MCG and single-owner Guide integration",
+      "statement": "Maintain one canonical MCG manifest, exactly seven modular Guides and three protocols with one primary owner per Guide and traceable versions."
+    },
+    {
+      "requirement_id": "REQ-12",
+      "title": "Post-storyboard continuity and adaptive scene state",
+      "statement": "Refresh S13 Scene Continuity after storyboard plus S07/S09/S10 inputs and before S08; enforce immutable, controlled-variation and scene-dependent attributes."
     }
   ],
   "outputs": [

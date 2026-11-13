@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "release_version": "4.1.6",
+  "suite": "Canonical MCG cross-module regression specification",
+  "execution_status": "NOT_RUN",
+  "cases": [
+    {
+      "test_id": "MCG-001",
+      "title": "One canonical manifest, exactly seven Guides and three protocols",
+      "oracle": "schema and manifest validator",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "MCG-002",
+      "title": "Single canonical owner for every Guide",
+      "oracle": "domain ownership map",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "MCG-003",
+      "title": "No broken refs, duplicate nodes, self-edges or cycles",
+      "oracle": "dependency graph",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "MCG-004",
+      "title": "S02 exclusively owns health claim text and evidence interpretation",
+      "oracle": "Health Truth ownership boundary",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "MCG-005",
+      "title": "VERIFIED claims require evidence/provenance refs",
+      "oracle": "claim registry",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "MCG-006",
+      "title": "Immutable, controlled-variation and scene-dependent states are enforced",
+      "oracle": "adaptive continuity",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "MCG-007",
+      "title": "Character, narrative, visual, audio, world and scene attributes remain in their owner domains",
+      "oracle": "Guide contracts",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "MCG-008",
+      "title": "S13 post-storyboard refresh precedes S08",
+      "oracle": "scene continuity gate",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "MCG-009",
+      "title": "Still prompts exclude temporal motion; video features require capability evidence",
+      "oracle": "prompt portability",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "MCG-010",
+      "title": "Exact provider/model/version capability record required",
+      "oracle": "model adapter contract",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "MCG-011",
+      "title": "Asset rights, privacy, consent and artifact-bound human approval are traceable",
+      "oracle": "asset and approval registry",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "test_id": "MCG-012",
+      "title": "Changes propagate to all dependent scenes/assets/prompts/release refs",
+      "oracle": "change impact and regression",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    }
+  ],
+  "note": "Specification only. These cases have not been executed by this change."
+}
