@@ -33,3 +33,10 @@
 - Adds summary-bounded context register and mandatory M00/S14 preflight.
 - Corrects S10 mapping as proposed; preserves both source paths.
 - Separates private legacy CTRL engine from GitHub V4-CTL candidate.
+
+## 4.1.8 — R0–R3 risk routing, beat-sheet trace and Remotion target mapping (2026-11-13)
+- Operationalizes R0 LOW, R1 STANDARD, R2 ELEVATED and R3 CRITICAL risk routing with conservative max-lane logic, unknown-risk escalation, critical overrides and stop/escalate requirements.
+- Adds executable risk-assessment and beat-sheet semantic validators with regression tests; validation is not clinical risk certification or release approval.
+- Adds beat-sheet schema, example and source-to-message-to-scene/shot-to-motion/audio/overlay-to-QA trace contract.
+- Adds a concrete Remotion mapping contract and status record; no runtime, bundle, render, MP4 inspection or media QA is claimed.
+- Adds KPI baseline and controlled-pilot evaluation blueprint. Baselines are NOT MEASURED; R0/R1 pilot remains PROPOSED, inactive and approval-gated.
