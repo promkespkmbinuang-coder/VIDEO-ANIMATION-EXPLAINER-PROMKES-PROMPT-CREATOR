@@ -84,3 +84,8 @@ Classify attributes as IMMUTABLE, CONTROLLED_VARIATION or SCENE_DEPENDENT. Missi
 
 ## Acceptance
 No duplicate canonical source; exactly seven Guides and three protocols; one owner per Guide; no broken refs or dependency cycles; LOCKED bound to authorized human approval and exact hash; no health-fact mutation; exact target capability evidence; S13 refresh before S08; no PASS without execution evidence.
+
+
+## V4.1.9 learning-asset dependency boundary
+
+S13 stores formula IDs, approved formula version/hash refs and affected scene/shot/Guide dependencies only when continuity is affected. It does not author, approve or own AFL content, decide rights or interpret health claims. A changed formula hash/version, model adapter or MCG lock invalidates only its transitive dependent artifacts; preserve unaffected approvals. Rebuild and re-QA the dependency closure, and never copy formula reuse approval into a health Fact Lock. S02 remains the sole health-claim authority.

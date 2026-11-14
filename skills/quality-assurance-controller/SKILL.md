@@ -87,3 +87,10 @@ Each criterion records expected and observed result, status, evidence refs, limi
 Independently inspect risk-lane rationale and ensure no critical trigger is downgraded, UNKNOWN is not treated as R0, and lane assignment is not confused with release approval. For beat sheets, verify complete traceability, unique IDs, sequence order, positive half-open time/frame intervals, timing provenance, claim/overlay hash references, scene/shot/motion/audio/transition links, MCG continuity, accessibility fallback and a testable QA oracle. Run scripts/validate_beat_sheet.py and scripts/validate_risk_assessment.py; record exact command and result. These validators prove only structural/semantic checks on the supplied records.
 
 For Remotion, inspect canonical-to-target mapping, exact package/runtime versions, mapping-loss records, frame boundary behavior, overlays, audio timing, accessibility and actual rendered artifact. Without an actual render and independent inspection, bundle/render/media QA remain NOT_RUN or NOT_VERIFIED. Baselines for adoption/usability/cycle time and reviewer effort remain NOT_MEASURED until data are collected.
+
+
+## V4.1.9 reusable-formula QA and outcome measurement
+
+Before a formula may enter AFL APPROVED, independently inspect source provenance, rights basis, scope/exclusions, exact model/version binding, content hash, test oracles/evidence, failure cases and whether the asset contains unapproved factual/health wording. S12 approval is hash-bound and scoped to reuse quality; it is not clinical review or rights-holder authorization. Do not QA your own authored formula. Any material health claim routes exclusively to S02.
+
+For POR, review only process metrics with explicit numerator, denominator, cohort, window, evidence, missingness and limitations. Reject audience/patient behavioral-health data, inferred clinical outcomes, unsupplied analytics, denominator-free percentages and targets invented before baseline measurement. QA escape and risk misclassification are not averaged away.

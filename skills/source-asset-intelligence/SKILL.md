@@ -52,3 +52,10 @@ Stop or mark the affected component `HOLD/BLOCKED` when a critical missing fact,
 ## Supporting reference
 
 For shared definitions and project-wide contracts, consult `../master-orchestrator/references/` where the host resolves relative paths. If cross-skill file reading is unavailable, follow this skill's local contract and pass the missing reference dependency to M00.
+
+
+## V4.1.9 Approved Formula Ledger intake
+
+S01 owns candidate formula intake, not approval. For each candidate capture immutable source locator/snapshot, source type, observation date, version/hash where available, provenance, rights-holder/permission basis, usage restrictions, intended task, audience context, language, exclusions and known failure modes. Label community material unverified until independently checked. Never copy Lanshu prompt text, data or methodology verbatim; its MIT file applies to its own repository, not PROMKES or third-party linked assets.
+
+Create a DRAFT/CANDIDATE AFL record. S01 cannot mark it APPROVED, interpret health claims or transfer Fact Lock. Missing/unclear rights means UNKNOWN/RESTRICTED and blocks reuse/publication. Formula records store claim IDs as references only, never copied claim wording or clinical interpretation. Route candidate to S08 for fit assessment and S12 for independent QA; require authorized human approval bound to the exact formula content hash.

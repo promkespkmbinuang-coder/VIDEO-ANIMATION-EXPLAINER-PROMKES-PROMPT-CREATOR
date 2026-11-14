@@ -1,4 +1,4 @@
-# Video Explainer Promkes V4.1.8 — evidence-gated production compiler
+# Video Explainer Promkes V4.1.9 — evidence-gated production compiler
 
 **Architecture:** M00 + S01–S13 production specialists with S14 as mandatory cross-cutting conversation/release preflight. **Private engine parity:** PARTIAL / NOT_SYNCED. **Production/public release:** HOLD.
 
@@ -69,3 +69,16 @@ See `docs/conversation-context-register-v4.1.4.json`, `docs/release-audit-v4.1.4
 - Adds Remotion as one concrete renderer target mapping design. Runtime installation, pinned version, bundle, render, MP4 inspection and S12 media QA remain NOT_RUN.
 - Adoption, usability, cycle-time, reviewer effort, rework, QA escape, misclassification and renderer fidelity baselines remain NOT MEASURED; no target or performance improvement is claimed.
 - R0/R1 pilot needs baseline, shadow adjudication, written authorization, named owner, S02/S12 concurrence and rollback readiness. R2/R3 excluded.
+
+
+## V4.1.9 governed learning, reuse, drift and process outcomes
+
+- Approved Formula Ledger is an asset registry, not a clinical evidence registry. Reuse requires APPROVED state, clear rights, provenance, matching task/audience/language/model scope, evidence-backed tests, independent S12 QA and hash-bound human approval.
+- Model Drift Sentinel records immutable observations separately from human-accepted baselines. Fetch, parse, rate-limit, redirect or policy failures are SOURCE_UNAVAILABLE, never NO_CHANGE. A changed hash opens review; it does not promote capabilities or update the accepted baseline.
+- Risk-Proportional Preflight varies only additional review depth and duplicate clerical capture. S14 remains mandatory and COMPLETE in every lane; UNKNOWN material risk is at least R2; highest credible trigger wins; critical triggers force R3; R2/R3 never fast-track.
+- Model Selection Advisor is advisory-only and returns at most three exact-version candidates with feature evidence, trade-offs and unknowns. The user/project owner makes the selection.
+- Project Outcome Register permits only privacy-minimized process metrics with numerator, denominator, cohort, time window, evidence, missingness and limitations. No audience/patient behavioral-health data or clinical-effect inference.
+- Adds learning-governance schema, semantic validator and regression tests. These validate supplied records only; no external monitoring, baseline approval, model selection, renderer execution or release authorization.
+- No S15/S16 and no new production gate. Existing ownership remains M00/S01/S08/S12/S13/S14; S02 retains exclusive health-claim interpretation.
+- PR #24 exact-head CI was successful (120 pytest checks; package and link jobs success). PR #25 reverted that merge; rationale remains unknown.
+- Scenario acceptance suites, live host invocation, scheduler, external model runtime, renderer render/export, MP4 inspection, independent human review and publication approvals remain separately evidenced.
