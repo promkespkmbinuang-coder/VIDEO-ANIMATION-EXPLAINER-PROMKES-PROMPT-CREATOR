@@ -31,7 +31,8 @@ def load(path):
 def schema_errors(kind,row):
     schema=load(SCHEMA)
     if kind not in schema["$defs"]: return ["unknown record kind: "+kind]
-    return [f"{list(e.path)}: {e.message}" for e in Draft202012Validator(schema["$defs"][kind]).iter_errors(row)]
+    isolated = {"$schema": schema["$schema"], "$defs": schema["$defs"], "$ref": f"#/$defs/{kind}"}
+    return [f"{list(e.path)}: {e.message}" for e in Draft202012Validator(isolated).iter_errors(row)]
 
 def validate_formula(x):
     errors=schema_errors("formula",x)
