@@ -1,0 +1,210 @@
+{
+  "context_id": "CTX-REGISTER-PROMKES-2026-11-14",
+  "project_id": "VIDEO-EXPLAINER-PROMKES",
+  "context_version": "4.1.9",
+  "created_at": "2026-11-14T13:15:00+08:00",
+  "coverage_boundary": "PARTIAL_WITH_DISCLOSED_BOUNDARY. Built from current request, verified GitHub main/PR/CI records, private Plugin Creator file read-back and comparator file inspection. Not a complete raw historical conversation audit, clinical evidence, current source validation, permission, runtime or release approval.",
+  "records": [
+    {
+      "ctx_id": "CTX-DESIGN-008",
+      "statement": "Static infographic design may specify 1080×1350 px and 4:5 portrait with generous logo margins.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available conversation summary 2026-10-16",
+        "available conversation summary 2026-10-30"
+      ],
+      "scope": "Static artwork only; these dimensions do not define video ratio, duration or scene safe areas.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S01",
+        "S05",
+        "S06"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-DIST-020",
+      "statement": "Social reach, views, FYP, trending and engagement are distribution aspirations only.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "available conversation summary 2026-10-29",
+        "available conversation summary 2026-10-30"
+      ],
+      "scope": "These outcomes are not guaranteed; only supplied platform analytics may be reported, without causal or algorithmic claims.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S03",
+        "S11",
+        "M00"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-UNKNOWN-019",
+      "statement": "Complete raw historical conversation coverage and byte/runtime parity between private Plugin Creator and public GitHub package have not been demonstrated.",
+      "classification": "UNKNOWN",
+      "status": "ACTIVE",
+      "source_refs": [
+        "current audit 2026-11-14",
+        "private package read-back",
+        "GitHub main tree"
+      ],
+      "scope": "Audit boundary only; do not claim exhaustive history, full package identity, byte parity or runtime parity.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S14"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-AFL-028",
+      "statement": "Approved Formula Ledger is an evidence- and rights-governed reusable-pattern index.",
+      "classification": "PROPOSED",
+      "status": "NEEDS_CONFIRMATION",
+      "source_refs": [
+        "user request 2026-11-14",
+        "private contract V4.1.9",
+        "new schema and validator proposal"
+      ],
+      "scope": "APPROVED requires clear rights, provenance, exact scope, test evidence, independent S12 QA and human approval bound to exact content hash. Never inherits S02 Fact Lock.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S01",
+        "S02",
+        "S08",
+        "S12",
+        "S13",
+        "S14",
+        "M00"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-MDS-029",
+      "statement": "Model Drift Sentinel uses immutable observations and a separate human-accepted baseline.",
+      "classification": "PROPOSED",
+      "status": "NEEDS_CONFIRMATION",
+      "source_refs": [
+        "user request 2026-11-14",
+        "Lanshu scripts/monitor_models.py",
+        "private contract V4.1.9"
+      ],
+      "scope": "Errors are SOURCE_UNAVAILABLE, not NO_CHANGE; hash changes create review candidates only. Scheduler and baseline automation remain inactive.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S08",
+        "S14",
+        "M00"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-RPF-030",
+      "statement": "Risk-proportional preflight may vary only incremental review depth and duplicate clerical capture.",
+      "classification": "PROPOSED",
+      "status": "NEEDS_CONFIRMATION",
+      "source_refs": [
+        "user request 2026-11-14",
+        "docs/risk-routing-r0-r3-v4.1.8.md",
+        "private M00 contract V4.1.9"
+      ],
+      "scope": "S14 remains mandatory in every lane; UNKNOWN material risk at least R2; highest credible trigger wins; critical forces R3; R2/R3 never fast-track; no fast-track activated.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S02",
+        "S12",
+        "S14"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-MSA-031",
+      "statement": "Model Selection Advisor is a non-authoritative shortlist integrated into S08.",
+      "classification": "PROPOSED",
+      "status": "NEEDS_CONFIRMATION",
+      "source_refs": [
+        "user request 2026-11-14",
+        "Lanshu skills/model-selector/SKILL.md"
+      ],
+      "scope": "At most three exact-version candidates with feature-level evidence, unknowns and trade-offs; USER/PROJECT_OWNER alone selects.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "S08",
+        "S14",
+        "M00"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-POR-032",
+      "statement": "Project Outcome Register measures privacy-minimized production process outcomes only.",
+      "classification": "PROPOSED",
+      "status": "NEEDS_CONFIRMATION",
+      "source_refs": [
+        "user request 2026-11-14",
+        "docs/metrics-and-improvement.md"
+      ],
+      "scope": "Numerator, denominator, cohort, window, evidence, missingness and limitations required. No audience/patient behavioral-health data or clinical-effect claims.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S12",
+        "S14"
+      ],
+      "confirmation_required": true
+    },
+    {
+      "ctx_id": "CTX-CI-034",
+      "statement": "PR #24 exact-head CI runs 43407423582 and 43407423425 completed successfully; package validator log recorded 120 passed and link check recorded 17 successful links with zero errors.",
+      "classification": "EXPLICIT",
+      "status": "ACTIVE",
+      "source_refs": [
+        "GitHub Actions run 43407423582",
+        "GitHub Actions run 43407423425",
+        "PR #24 head a379245e882b8b6dd6a881248f20162bf90a19ac"
+      ],
+      "scope": "Static CI evidence for PR #24 head only; not runtime, private-package tests, clinical/legal approval or production release.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S12",
+        "S14"
+      ],
+      "confirmation_required": false
+    },
+    {
+      "ctx_id": "CTX-REVERT-035",
+      "statement": "PR #25 reverted the PR #24 merge; the rationale was not established from the retrieved PR body, comments, reviews or review threads.",
+      "classification": "UNKNOWN",
+      "status": "ACTIVE",
+      "source_refs": [
+        "GitHub PR #25",
+        "GitHub PR #24 review and comment inventory"
+      ],
+      "scope": "Do not infer why the revert occurred. Keep the rationale as an open governance question before merging this proposal.",
+      "confidence": "HIGH",
+      "downstream_refs": [
+        "M00",
+        "S14"
+      ],
+      "confirmation_required": false
+    }
+  ],
+  "open_decisions": [
+    "Confirm human owner and rights policy for AFL APPROVED state.",
+    "Approve official model endpoint allowlist, terms/permissions, snapshot retention, monitor owner and rollback before MDS scheduler activation.",
+    "Do not activate R0/R1 fast-track; any future pilot needs written authorization, baseline, independent shadow adjudication, S02/S12 concurrence and rollback.",
+    "Approve metric dictionary and privacy/data retention boundaries before POR operational use.",
+    "Obtain independent review of the new PR and determine whether PR #25 revert had an external or process rationale.",
+    "Private plugin and GitHub repository have different slugs and skill paths; verify source mapping/content parity separately."
+  ],
+  "notes": [
+    "Context registers capture request/provenance, not clinical truth, capability, permission, approval or test execution.",
+    "No new specialist or gate is introduced. S02 and S14 retain mandatory ownership boundaries.",
+    "GitHub pytest tests are not the separate 45-case GitHub scenario suite or private 20-case suite; both remain NOT_RUN."
+  ]
+}
