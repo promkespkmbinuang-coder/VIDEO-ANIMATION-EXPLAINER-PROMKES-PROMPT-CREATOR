@@ -71,3 +71,8 @@ A valid record is not proof of animation execution or render. Route renderer map
 ## V4.1.8 beat-sheet handoff
 
 For each meaningful narrative beat, provide stable beat ID, order, half-open time interval, timing precision/source, narrative function, message/claim refs, scene/shot/camera refs, S07 motion/element refs, S09 audio refs, approved overlay/transition refs, MCG state in/out, accessibility fallback and observable QA oracle. Use schemas/v4/beat-sheet.schema.json and scripts/validate_beat_sheet.py. S07 owns motion only; it does not author S04 narrative, S06 camera, S09 audio source timing or S10 renderer implementation. Any exact audio/source timing must have a source reference; estimated timing stays estimated. A beat sheet is a trace contract, not evidence that animation or render occurred.
+
+
+## V4.1.11 optional Remotion pattern catalogue
+
+For Remotion-targeted motion specification, consult `references/remotion-pattern-adoption-v4.1.11.md`. Treat the catalogue as optional pattern candidates, not universal style rules. Keep source timing precision, visual canon, approved health claims, reduced-motion and accessibility constraints. A selected pattern is not evidence of renderer support; S10 must verify the exact target mapping.
