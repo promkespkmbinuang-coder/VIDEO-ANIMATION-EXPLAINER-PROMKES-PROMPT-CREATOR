@@ -91,3 +91,7 @@ A valid canonical motion record is not a renderer-runtime PASS. Actual integrati
 ## V4.1.8 Remotion target adapter contract
 
 Remotion is the first concrete target selected for a deterministic renderer mapping design. S10 maps canonical composition settings to Composition, scenes/shots to Sequence ranges, S07 keyframes to supported React interpolation/style transforms, S06 camera plan to composition layers, approved overlays to exact-text layers, S09 audio refs to timeline audio elements, and accessibility requirements to reduced-motion/caption alternatives. Preserve half-open frame arithmetic and report every unsupported/approximated/quantized/manual mapping. Pin exact Node/package versions before runtime testing. Current adapter status is DESIGN_ONLY_NOT_RUN: no install, typecheck, bundle, render, MP4 export or media QA has been executed. See docs/remotion-target-mapping-v4.1.8.md.
+
+## V4.1.11 Remotion pattern mapping
+
+For Remotion-targeted assembly, consult `../animation-motion-design/references/remotion-pattern-adoption-v4.1.11.md`. Check the exact runtime and adapter feature profile before mapping any pattern. Preserve unsupported features as mapping loss or fail-closed handoff. Distinguish composition-frame inspection from encoded-MP4 inspection; a source still is not encoded-media QA.
