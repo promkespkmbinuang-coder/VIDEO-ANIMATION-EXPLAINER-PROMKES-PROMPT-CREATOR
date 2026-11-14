@@ -1,8 +1,8 @@
 {
   "interface": {
-    "displayName": "Video Explainer Promkes V4.1.8",
+    "displayName": "Video Explainer Promkes V4.1.9",
     "shortDescription": "Evidence-gated Promkes",
-    "longDescription": "Health-first Promkes production with canonical MCG, quantified motion, R0-R3 risk routing, beat-sheet traceability, Remotion target mapping design and independent cinematic QA. Runtime, pilot and human approvals remain evidence-gated.",
+    "longDescription": "Evidence-gated production compiler with governed reuse, immutable model drift observations, mandatory S14 preflight in every risk lane, conservative R0-R3 routing and process-only outcomes. No scheduler, model auto-approval, runtime, render or human release approval is claimed.",
     "developerName": "Promkes pkm binuang",
     "category": "Healthcare",
     "capabilities": [],
@@ -15,12 +15,18 @@
       "Validate one canonical MCG, exactly seven single-owner Guides and three protocols; refresh S13 Scene Continuity after storyboard and before S08 reference prompts.",
       "Apply conservative R0-R3 risk routing; unknown material risk is at least R2 and critical triggers stop work. R0/R1 fast-track remains inactive pending written approval and measured pilot.",
       "Build beat-sheet trace from approved source and claims through scene, shot, motion, audio, overlays, renderer and QA. Estimated timing must never become exact.",
-      "Remotion is a candidate concrete renderer target; never claim runtime, bundle, render or MP4 QA without exact execution evidence."
+      "Remotion is a candidate concrete renderer target; never claim runtime, bundle, render or MP4 QA without exact execution evidence.",
+      "Reuse formula assets only when APPROVED, rights-cleared, scope-matched, version-pinned, independently QA-passed by S12 and human-approved against the exact content hash; reuse never transfers Fact Lock or clinical interpretation.",
+      "Model drift observations are immutable; fetch/parse/policy errors are SOURCE_UNAVAILABLE, never NO_CHANGE. Only a human-reviewed accepted baseline may change; monitoring scheduler remains inactive until separately approved and evidenced.",
+      "Model selection advice is non-authoritative, limited to three evidenced candidates, displays UNKNOWN/NOT_CHECKED/STALE and trade-offs, and never selects or promotes a capability for the user.",
+      "Risk-proportional preflight may reduce duplicate clerical depth only. S14 remains COMPLETE and mandatory in every lane; UNKNOWN is at least R2; highest credible trigger wins; critical triggers force R3; R2/R3 never fast-track; fast-track remains inactive.",
+      "Project outcomes are process-only with numerator, denominator, cohort, window, evidence and missingness. Do not collect new audience/patient behavioral-health data, infer clinical effects or use unsupplied analytics.",
+      "Validate learning governance records with scripts/learning_asset_engine.py; schema/unit tests do not prove scheduler, provider runtime, renderer, media QA, clinical review, rights clearance or release approval."
     ]
   },
   "name": "video-animasi-explainer-promkes-prompt-creator",
-  "version": "4.1.8",
-  "description": "Evidence-governed health-promotion explainer production with canonical MCG, quantified renderer-neutral motion contracts, evidence-bound AI video adapters and independent cinematic QA.",
+  "version": "4.1.9",
+  "description": "Evidence-governed health-promotion explainer production with governed formula reuse, model-drift review, conservative risk-proportional preflight and process-only outcome measurement.",
   "author": {
     "name": "Promkes pkm binuang",
     "email": "promkes.pkm.binuang@gmail.com"
@@ -53,7 +59,13 @@
     "motion specification",
     "cinematic QA",
     "AI video platform adapter",
-    "motion schema"
+    "motion schema",
+    "approved formula ledger",
+    "model drift sentinel",
+    "risk proportional preflight",
+    "model selection advisor",
+    "project outcome register",
+    "learning governance validator"
   ],
   "skills": "./skills"
 }
