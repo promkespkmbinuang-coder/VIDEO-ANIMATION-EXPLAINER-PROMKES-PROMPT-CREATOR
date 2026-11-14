@@ -1,3 +1,12 @@
+## 4.1.9 — governed reuse, drift review and risk-proportional preflight (2026-11-14)
+- Adds JSON Schema and semantic validation for AFL, immutable MDS observations and human-accepted baselines, non-authoritative MSA, process-only POR and risk-proportional preflight.
+- APPROVED formula requires clear rights, provenance, scope, test evidence, independent S12 QA and human approval bound to exact formula hash.
+- Drift observations are separate from accepted baseline; failed fetch/parse/policy checks never mean no change. No scheduler or automatic baseline update is activated.
+- S14 remains COMPLETE and mandatory in every lane; UNKNOWN material risk is at least R2; critical triggers force R3; R2/R3 never fast-track.
+- New unit tests do not close the GitHub 45-case or private 20-case acceptance suites.
+- PR #24 exact-head CI verified successful (120 pytest checks plus successful link check); PR #25 subsequently reverted it for an unknown reason. No release approval is inferred.
+- External runtime, scheduled monitoring, renderer render, MP4/media QA, independent review and human release approvals remain NOT_RUN/NOT_VERIFIED/HOLD as applicable.
+
 ## 4.1.8 — R0–R3 risk routing, beat-sheet trace and Remotion target mapping (2026-11-13)
 - Adds conservative R0 LOW, R1 STANDARD, R2 ELEVATED and R3 CRITICAL routing with unknown-risk escalation, hard overrides and stop/escalate controls.
 - Adds executable risk and beat-sheet semantic validators, regression tests, a beat-sheet schema and example.
