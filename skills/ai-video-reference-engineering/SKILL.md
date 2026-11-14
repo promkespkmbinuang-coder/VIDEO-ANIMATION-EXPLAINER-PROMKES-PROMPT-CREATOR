@@ -112,3 +112,10 @@ Use schemas/v4/video-platform-adapter.schema.json for exact provider, product/mo
 Do not claim a model supports camera controls, duration/fps, audio, reference images, negative prompts or prompt-length behavior unless the exact model/version documentation supports that claim. Keep S02-locked health text, dates, statistics, logos and CTA in verified editable overlay data rather than relying on model-generated typography.
 
 See docs/video-platform-adapter-contract-v4.1.7.md.
+
+
+## V4.1.9 Approved Formula retrieval and Model Selection Advisor
+
+Retrieve formula patterns only from AFL records that validate as APPROVED, rights_status=CLEAR, pass S12 QA, have a hash-bound human approval and exactly match requested task, audience context, language and any exact provider/model/version binding. Expose provenance, exclusions, validation history and known failure modes. An APPROVED formula is a reusable production pattern only; it conveys no clinical truth or Fact Lock. Any health claim remains under S02.
+
+For model advice, return at most three candidates. Every candidate needs exact provider, model and version; list each relevant feature as DOCS_VERIFIED, RUNTIME_TESTED, UNKNOWN, NOT_CHECKED, STALE or BLOCKED with evidence refs. State trade-offs and unknowns. Never invent a global-best/safest model, silently choose for the user, promote capability status, or change risk lane. Explicit selection belongs to USER/PROJECT_OWNER.
