@@ -196,3 +196,15 @@ M00 requires a beat-sheet trace from approved source/message/claim refs through 
 ## V4.1.8 renderer target boundary
 
 Remotion is the first concrete renderer mapping target, owned by S10. The mapping design is not execution evidence. Package/version pinning, typecheck, bundle, render, MP4 inspection and independent S12 media QA remain NOT_RUN until performed against an exact runtime and artifact.
+
+
+## V4.1.9 learning and governance orchestration (no new specialist or gate)
+
+M00 orchestrates existing owners and does not absorb their domain decisions.
+- AFL: S01 establishes source/rights/provenance; S08 retrieves and applies only APPROVED, rights-cleared, scope-matched formulas; S12 independently QA-checks proposed reuse; S13 records only continuity/dependency refs when affected; S14 records change provenance; M00 arbitrates gates. S02 alone interprets any health claim and Fact Lock. Formula reuse never transfers clinical approval.
+- MDS: S14 owns source observation and drift review; S08 assesses affected feature/model-adapter evidence. Observation snapshots are immutable. An error is SOURCE_UNAVAILABLE, not NO_CHANGE. Accepted baselines change only after authorized human review and evidence. No scheduled watcher is assumed active.
+- RPF: S14 is mandatory and COMPLETE in every lane. Reduce only redundant administrative capture; do not remove evidence, rights, privacy, S02, S12, S13 or human controls. UNKNOWN material risk is at least R2; highest credible trigger wins; critical triggers force R3; R2/R3 never fast-track. Fast-track remains inactive.
+- MSA: S08 may offer at most three exact-version candidates and show per-feature evidence, unknowns and trade-offs. Advice is non-authoritative; only USER/PROJECT_OWNER can select. It cannot change risk lane or capability state.
+- POR: M00/S12/S14 may report privacy-minimized process outcomes only. Require cohort, window, numerator, denominator, evidence, missingness and limitations. No new audience/patient behavioral-health telemetry or clinical-effect inference.
+
+Run python scripts/learning_asset_engine.py schema-check and validate each supplied governance bundle before use. Static validation establishes record conformance only, not persistent storage, external fetch, model runtime, scheduler, renderer, human authority or release approval.
