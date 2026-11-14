@@ -15,7 +15,7 @@ def test_catalogue_lists_reusable_motion_families_and_guardrails():
 def test_motion_catalogue_is_optional_and_not_a_universal_style_rule():
     text = CATALOG.read_text(encoding="utf-8").lower()
     assert "not a mandatory style" in text
-    assert "static holds" in text
+    assert "static hold" in text
     assert "not universal" in text
 
 
