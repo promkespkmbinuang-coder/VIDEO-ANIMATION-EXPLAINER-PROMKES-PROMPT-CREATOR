@@ -20,6 +20,8 @@ jobs:
           cache-dependency-path: requirements-dev.txt
       - name: Install validator and test dependencies
         run: python -m pip install -r requirements-dev.txt
+      - name: Validate V4.1.9 learning governance schema
+        run: python scripts/learning_asset_engine.py schema-check
       - name: Strict package and traceability validation
         run: python scripts/validate_package.py --summary-json build/static-validation.json
       - name: Check release manifests, duplicate JSON keys and version documents
