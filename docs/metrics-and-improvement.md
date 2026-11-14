@@ -21,3 +21,12 @@ Establish a measured pilot baseline before setting numerical targets. Every metr
 The previous six dashboard dimensions remain useful grouping headings, but counts per dimension are not quality scores. The indicators above should be populated from pilot observations; no percentage target is asserted before a representative baseline exists.
 
 Collect only authorized and minimized feedback. The plugin does not imply self-learning, persistent telemetry or automatic renderer monitoring.
+
+
+## V4.1.9 process-only outcome register
+
+The Project Outcome Register is descriptive process measurement, not a clinical or audience-impact system. Allowed measures: cycle time, reviewer effort, rework rate, first-pass acceptance, approved formula reuse rate, stale-evidence detection latency, trace completeness, risk misclassification and QA escape count.
+
+Each observation requires a defined cohort, reporting window, numerator, denominator, unit, missing count, evidence reference and limitations. A rate is undefined when its denominator is zero. Report counts alongside rates; stratify by risk lane and artifact class where sample size permits, but never average away an R2/R3 critical trigger.
+
+No baseline, target, improvement percentage or causal effect is asserted before a measured cohort exists. Do not collect new audience/patient behavioral-health data, infer clinical effects or import analytics not supplied for the project. Small cohorts, survivorship, missing records, changing case mix and reviewer learning remain explicit limitations.
