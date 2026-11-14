@@ -53,3 +53,14 @@ For repository/skill evaluations, S14 owns the context, source-parity and releas
 Motion/platform change impact must cover S06 camera ownership, S07 motion record/schema/validator, S08 prompt anatomy/adapter registry, S10 renderer mapping, S12 cinematic QA, S13 continuity dependencies, M00 risk routing, schemas, fixtures, tests, docs, manifests and release read-back.
 
 A static schema/unit test does not close scenario acceptance, live host invocation, external model runtime, renderer integration, MP4/media QA, legal/rights/privacy review, clinical approval or publication authorization. Track these separately with exact evidence/status. Retain parity gaps instead of silently syncing private and GitHub implementations.
+
+
+## V4.1.9 Model Drift Sentinel and accepted-baseline controls
+
+S14 owns MDS source observation, audit history and review handoff. Keep each observation immutable with endpoint identity, exact URL, model/provider, observed time, fetch/parse/policy status, HTTP result, normalizer version, normalized SHA-256 only on successful parse, snapshot reference and error code. Fetch, parse, redirect, rate-limit or policy errors are SOURCE_UNAVAILABLE; never turn them into NO_CHANGE. A normalized hash change, endpoint identity change or normalizer change creates a review candidate.
+
+The human-accepted baseline is a separate record. Do not update it in the monitor, on successful fetch, after issue creation, or because a scheduler succeeded. Require authorized human review, evidence, exact endpoint/model/version and explicit acceptance. If a fetch/issue/commit operation fails, preserve the error and retry safely; never erase an unresolved candidate by silently advancing the baseline. Scheduled monitoring remains INACTIVE pending endpoint allowlist, official-source/terms review, named owner, permission, retries/timeouts, rate limits, snapshot retention, idempotency, alert delivery evidence, rollback and security review.
+
+For each drift event trace endpoint → observation/snapshot → feature delta → affected adapter/formula/scene dependencies → S08 reassessment → S12 regression → human disposition. No observation auto-approves a model or changes any capability status.
+
+S14 remains COMPLETE and mandatory in all risk lanes. Record any preflight shortfall as BLOCKED; do not reduce required controls of R2/R3.
