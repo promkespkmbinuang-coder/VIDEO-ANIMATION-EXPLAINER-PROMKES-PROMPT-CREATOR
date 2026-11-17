@@ -4,7 +4,7 @@
 **Dokumen:** Target Architecture V2  
 **Baseline:** `workspace.tar(2).gz`, direktori `repo/` dan paket `remediasi/`  
 **Cakupan:** M00 + S01–S14, universal handoff, executable gates, dependency graph, acceptance dan integrasi  
-**Status:** Target design / patch-ready specification; belum diterapkan ke repository  
+**Status:** Implemented candidate on the V2 branch; exact-head CI, private-plugin read-back and external production gates are tracked separately  
 **Prinsip:** memperkuat arsitektur secara evolusioner, bukan membangun ulang
 
 ---
