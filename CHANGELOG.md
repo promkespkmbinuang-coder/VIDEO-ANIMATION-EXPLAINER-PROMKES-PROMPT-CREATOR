@@ -55,3 +55,4 @@
 - Adds beat-sheet schema, example and source-to-message-to-scene/shot-to-motion/audio/overlay-to-QA trace contract.
 - Adds a concrete Remotion mapping contract and status record; no runtime, bundle, render, MP4 inspection or media QA is claimed.
 - Adds KPI baseline and controlled-pilot evaluation blueprint. Baselines are NOT MEASURED; R0/R1 pilot remains PROPOSED, inactive and approval-gated.
+undefined

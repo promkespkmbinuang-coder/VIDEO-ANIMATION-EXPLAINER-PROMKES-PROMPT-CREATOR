@@ -82,3 +82,12 @@ See `docs/conversation-context-register-v4.1.4.json`, `docs/release-audit-v4.1.4
 - No S15/S16 and no new production gate. Existing ownership remains M00/S01/S08/S12/S13/S14; S02 retains exclusive health-claim interpretation.
 - PR #24 exact-head CI was successful (120 pytest checks; package and link jobs success). PR #25 reverted that merge; rationale remains unknown.
 - Scenario acceptance suites, live host invocation, scheduler, external model runtime, renderer render/export, MP4 inspection, independent human review and publication approvals remain separately evidenced.
+
+
+## S11 multiplatform distribution extension — design candidate
+
+S11 now has a proposed, source-controlled extension architecture for Instagram, Facebook, TikTok and YouTube, while remaining one specialist in the existing M00 + S01–S14 topology. The extension classifies all 18 Instagram Agent capabilities as ADOPTABLE, PARTIAL or ABSENT and specifies platform-specific surfaces, packaging, analytics and safety procedures.
+
+The extension does not claim hidden ranking weights, guaranteed reach, live account access or automatic publishing. It inherits S02 Fact Lock, S03 campaign intent, S04 narrative ownership, S12 independent QA and S14 change governance. New social acceptance specifications are separate from the existing 45 AT + 13 REF suite and remain NOT_RUN until individually executed.
+
+Design reference: skills/social-accessibility-distribution/references/multiplatform-distribution-architecture-v1.md. This is an Unreleased branch candidate; it does not change the public plugin manifest version or establish private-plugin/runtime parity.

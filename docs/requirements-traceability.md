@@ -41,3 +41,15 @@ The canonical requirement catalog is in `tests/traceability.json` and includes t
 ## No inferred pass
 
 A documented test, a successful export, a valid manifest, or an empty CI result is not evidence that a model/host generated correct output. A status may become `PASS` only when its oracle and evidence are recorded. Otherwise use `NOT_RUN`, `BLOCKED`, or `NOT_APPLICABLE` with a reason.
+
+
+## S11 multiplatform social-distribution acceptance extension
+
+The social-distribution scenarios are maintained as a separate, additive test family so that the existing baseline inventory and ownership contract remain unchanged:
+
+- Suite: tests/social-distribution-cases.json (34 proposed scenarios, all NOT_RUN).
+- Traceability sidecar: tests/social-distribution-traceability.json.
+- Static contract tests: tests/test_social_distribution_contract.py.
+- Owner: S11 social-accessibility-distribution; M00 retains orchestration and S12 independent QA.
+
+The social suite is not included in the 45 AT + 13 REF counts or the existing canonical 58-case traceability sidecar. Its tests must be individually executed against their own oracle and matching evidence before any status changes from NOT_RUN.

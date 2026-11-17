@@ -74,3 +74,14 @@ MCG controls creative identity; the production manifest controls operational sta
 The existing S06/S07/S08/S10/S12/M00/S13 ownership model is retained. S06 owns camera and shot plans; S07 owns quantified element motion records; S08 owns prompt compilation and version-pinned model dialect adapters; S10 owns renderer field mapping; S12 owns independent cinematic QA; S13 owns continuity; M00 arbitrates dependencies and gates. No S15 is added.
 
 Motion records are validated by schemas/v4/motion-record.schema.json and scripts/validate_motion_contract.py. Platform adapter evidence is represented by schemas/v4/video-platform-adapter.schema.json. These are additive contracts and do not assert that any target model or renderer has been tested.
+
+
+## S11 multiplatform social distribution extension
+
+S11 remains the sole owner of social distribution and now contains five bounded internal lanes: Editorial Intelligence; Format Engineering; Platform Intelligence & Planning; Community & Service Interaction; and Repurposing & Learning. These are sub-procedures within S11, not additional skills or autonomous agents. No S15 is introduced.
+
+S11 starts from S02 Fact Lock and S03 audience/objective/key-message/CTA. It preserves S04 narrative, S13 continuity and M00/S14 change governance, then submits applicable outputs to independent S12 QA and human institutional/publication authorization. S11 cannot author health claims, diagnose, collect unnecessary personal health data or publish/interact without explicit authority and supported tooling.
+
+Instagram, Facebook, TikTok and YouTube use separate surface-specific adapters. Their public signal families, format conventions, recommendation eligibility, metrics and source dates remain distinct. There is no universal algorithm score, fixed ranking weight, guaranteed reach or automatic cross-post rule. Platform observations are dated evidence snapshots; unavailable/failed sources are not interpreted as no change.
+
+The full capability classification and adapter contract are in skills/social-accessibility-distribution/references/multiplatform-distribution-architecture-v1.md. The additional S11 social acceptance inventory is maintained separately from the existing 45 AT + 13 REF scenario cases and their canonical traceability sidecar. It does not alter the validator's 15-skill package invariant or existing acceptance counts.
