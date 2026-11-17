@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:promkes:v4:resource-profile:2.0.0",
+  "title": "Promkes Approved Resource Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "route",
+    "profile_id",
+    "approved_by",
+    "approval_ref",
+    "ceilings"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "APPROVED",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "route": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "approved_by": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "approval_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "ceilings": {
+      "type": "object",
+      "properties": {
+        "provider_cost": {
+          "type": "number",
+          "minimum": 0
+        },
+        "render_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "memory_mb": {
+          "type": "number",
+          "minimum": 0
+        },
+        "asset_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "retry_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cpu_seconds": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "APPROVED"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "profile_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "approved_by": {
+            "type": "string",
+            "minLength": 1
+          },
+          "approval_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "NOT_APPLICABLE"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "required": [
+          "reason"
+        ],
+        "properties": {
+          "profile_id": {"type": "string", "minLength": 1},
+          "approved_by": {"type": "null"},
+          "approval_ref": {"type": "null"},
+          "reason": {"minLength": 1},
+          "ceilings": {"maxProperties": 0}
+        }
+      }
+    }
+  ]
+}

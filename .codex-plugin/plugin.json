@@ -1,8 +1,8 @@
 {
   "interface": {
-    "displayName": "Video Explainer Promkes V4.1.9",
+    "displayName": "Video Explainer Promkes 4.1.12",
     "shortDescription": "Evidence-gated Promkes",
-    "longDescription": "Evidence-gated production compiler with governed reuse, immutable model drift observations, mandatory S14 preflight in every risk lane, conservative R0-R3 routing and process-only outcomes. No scheduler, model auto-approval, runtime, render or human release approval is claimed.",
+    "longDescription": "Evidence-gated production compiler with governed reuse, immutable model drift observations, mandatory S14 preflight in every risk lane, conservative R0-R3 routing and process-only outcomes. No scheduler, model auto-approval, runtime, render or human release approval is claimed. Adds universal handoff validation, external trust controls, specialist procedures and the S10 two-lane responsibility contract.",
     "developerName": "Promkes pkm binuang",
     "category": "Healthcare",
     "capabilities": [],
@@ -21,12 +21,13 @@
       "Model selection advice is non-authoritative, limited to three evidenced candidates, displays UNKNOWN/NOT_CHECKED/STALE and trade-offs, and never selects or promotes a capability for the user.",
       "Risk-proportional preflight may reduce duplicate clerical depth only. S14 remains COMPLETE and mandatory in every lane; UNKNOWN is at least R2; highest credible trigger wins; critical triggers force R3; R2/R3 never fast-track; fast-track remains inactive.",
       "Project outcomes are process-only with numerator, denominator, cohort, window, evidence and missingness. Do not collect new audience/patient behavioral-health data, infer clinical effects or use unsupplied analytics.",
-      "Validate learning governance records with scripts/learning_asset_engine.py; schema/unit tests do not prove scheduler, provider runtime, renderer, media QA, clinical review, rights clearance or release approval."
+      "Validate learning governance records with scripts/learning_asset_engine.py; schema/unit tests do not prove scheduler, provider runtime, renderer, media QA, clinical review, rights clearance or release approval.",
+      "Gunakan universal handoff contract V2 dan semantic validation; pertahankan batas kewenangan M00–S14 dan dua jalur internal S10."
     ]
   },
   "name": "video-animasi-explainer-promkes-prompt-creator",
-  "version": "4.1.9",
-  "description": "Evidence-governed health-promotion explainer production with governed formula reuse, model-drift review, conservative risk-proportional preflight and process-only outcome measurement.",
+  "version": "4.1.12",
+  "description": "Evidence-governed health-promotion explainer production with governed formula reuse, model-drift review, conservative risk-proportional preflight and process-only outcome measurement. V2 adds a universal handoff contract, external trust controls, intake quarantine, specialist procedures and two internal S10 responsibility lanes.",
   "author": {
     "name": "Promkes pkm binuang",
     "email": "promkes.pkm.binuang@gmail.com"

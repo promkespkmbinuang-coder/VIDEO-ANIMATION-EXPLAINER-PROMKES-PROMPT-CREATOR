@@ -1,0 +1,39 @@
+name: Promkes V2 Acceptance and Regression
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  acceptance-and-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+      - name: Install development requirements
+        run: python -m pip install -r requirements-dev.txt
+      - name: Run V2 acceptance tests (44 cases)
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python -m pytest -p no:cacheprovider -q tests/test_v2_acceptance.py
+      - name: Run full regression suite
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python -m pytest -p no:cacheprovider -q tests
+      - name: Validate V2 control registry
+        run: PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. python -m scripts.promkes_v2 validate-control-registry --registry schemas/v4/control-registry.v2.json
+      - name: Remove transient test caches before package validation
+        if: always()
+        run: |
+          find . -type d -name '__pycache__' -prune -exec rm -rf {} +
+          find . -type d -name '.pytest_cache' -prune -exec rm -rf {} +
+          find . -type f -name '*.pyc' -delete
+          find . -type f -name '*.pyo' -delete
+      - name: Validate package and release consistency
+        run: |
+          python scripts/validate_package.py
+          python scripts/validate_release_consistency.py

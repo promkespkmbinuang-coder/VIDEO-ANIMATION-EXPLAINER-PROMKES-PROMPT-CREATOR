@@ -1,3 +1,13 @@
+# Changelog
+
+## 4.1.12 — V2 evolutionary enforcement overlay (2026-11-17; candidate under Draft PR review)
+- Adds universal handoff schema and semantic validation for external artifact index, exact byte hashes, producer/owner identity and dependency status.
+- Preserves M00 + S01–S14 public skill identities and introduces only internal S10-MP/S10-RE lane responsibilities.
+- Adds domain-specific S02/S03/S04/S05/S06/S07/S13 operating procedures.
+- Adds deterministic trust, prompt isolation, source-snapshot, resource-profile, control-registry, dependency, motion, continuity, media-status, routing and compatibility modules.
+- Adds 44 V2 acceptance cases, hardening tests and exact-head GitHub Actions validation.
+- Local PASS does not imply external identity provisioning, clinical approval, live AI/ASR/TTS, renderer execution, media QA or human release approval.
+
 ## 4.1.9 — governed reuse, drift review and risk-proportional preflight (2026-11-14)
 - Adds JSON Schema and semantic validation for AFL, immutable MDS observations and human-accepted baselines, non-authoritative MSA, process-only POR and risk-proportional preflight.
 - APPROVED formula requires clear rights, provenance, scope, test evidence, independent S12 QA and human approval bound to exact formula hash.

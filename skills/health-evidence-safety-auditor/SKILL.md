@@ -52,3 +52,12 @@ Stop or mark the affected component `HOLD/BLOCKED` when a critical missing fact,
 ## Supporting reference
 
 For shared definitions and project-wide contracts, consult `../master-orchestrator/references/` where the host resolves relative paths. If cross-skill file reading is unavailable, follow this skill's local contract and pass the missing reference dependency to M00.
+
+
+## V2 Universal Handoff Contract
+
+For every producer/receiver transfer, emit and validate `schemas/v4/handoff-envelope.schema.json` through the M00 V2 handoff procedure. Preserve this skill's public ID, trigger and domain ownership. Populate producer/recipient, case/project IDs, typed input/output artifact refs, decisions, inferences, assumptions, unknowns, conflicts, inherited constraints, trace links, acceptance checks and limitations. A JSON Schema PASS is structural only: semantic validation must resolve externally indexed artifacts, verify actual bytes/hashes, check producer identity from M00 dispatch context and confirm dependency status. Missing evidence remains `UNKNOWN`, `NOT_RUN` or `BLOCKED`; never manufacture PASS.
+
+## V2 operating procedure
+
+Follow `skills/health-evidence-safety-auditor/references/v2-operational-protocol.md` for claim extraction, evidence hierarchy, source snapshots, claim-to-source support, safe wording, counterevidence and human clinical escalation. S02 remains sole owner of Health Truth Registry and Fact Lock. Hash integrity, provenance, semantic support and clinical approval are distinct states.

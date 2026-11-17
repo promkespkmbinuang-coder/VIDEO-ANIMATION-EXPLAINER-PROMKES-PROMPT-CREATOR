@@ -95,3 +95,12 @@ Remotion is the first concrete target selected for a deterministic renderer mapp
 ## V4.1.11 Remotion pattern mapping
 
 For Remotion-targeted assembly, consult `../animation-motion-design/references/remotion-pattern-adoption-v4.1.11.md`. Check the exact runtime and adapter feature profile before mapping any pattern. Preserve unsupported features as mapping loss or fail-closed handoff. Distinguish composition-frame inspection from encoded-MP4 inspection; a source still is not encoded-media QA.
+
+
+## V2 Universal Handoff Contract
+
+For every producer/receiver transfer, emit and validate `schemas/v4/handoff-envelope.schema.json` through the M00 V2 handoff procedure. Preserve this skill's public ID, trigger and domain ownership. Populate producer/recipient, case/project IDs, typed input/output artifact refs, decisions, inferences, assumptions, unknowns, conflicts, inherited constraints, trace links, acceptance checks and limitations. A JSON Schema PASS is structural only: semantic validation must resolve externally indexed artifacts, verify actual bytes/hashes, check producer identity from M00 dispatch context and confirm dependency status. Missing evidence remains `UNKNOWN`, `NOT_RUN` or `BLOCKED`; never manufacture PASS.
+
+## V2 S10 two-lane responsibility
+
+Use `skills/editing-postproduction/references/s10-two-lane-contract.md`. S10-MP owns editorial decisions, composition, timeline/assembly, overlay/audio/subtitle integration and export specification. S10-RE owns capability assessment, renderer adapter, code/build, runtime, render and technical output verification. These are internal lanes of one S10 identity, not additional public skills. Renderer incompatibility returns a Technical Change Request to the editorial owner; S12 remains independent QA.

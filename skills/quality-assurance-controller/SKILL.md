@@ -94,3 +94,12 @@ For Remotion, inspect canonical-to-target mapping, exact package/runtime version
 Before a formula may enter AFL APPROVED, independently inspect source provenance, rights basis, scope/exclusions, exact model/version binding, content hash, test oracles/evidence, failure cases and whether the asset contains unapproved factual/health wording. S12 approval is hash-bound and scoped to reuse quality; it is not clinical review or rights-holder authorization. Do not QA your own authored formula. Any material health claim routes exclusively to S02.
 
 For POR, review only process metrics with explicit numerator, denominator, cohort, window, evidence, missingness and limitations. Reject audience/patient behavioral-health data, inferred clinical outcomes, unsupplied analytics, denominator-free percentages and targets invented before baseline measurement. QA escape and risk misclassification are not averaged away.
+
+
+## V2 Universal Handoff Contract
+
+For every producer/receiver transfer, emit and validate `schemas/v4/handoff-envelope.schema.json` through the M00 V2 handoff procedure. Preserve this skill's public ID, trigger and domain ownership. Populate producer/recipient, case/project IDs, typed input/output artifact refs, decisions, inferences, assumptions, unknowns, conflicts, inherited constraints, trace links, acceptance checks and limitations. A JSON Schema PASS is structural only: semantic validation must resolve externally indexed artifacts, verify actual bytes/hashes, check producer identity from M00 dispatch context and confirm dependency status. Missing evidence remains `UNKNOWN`, `NOT_RUN` or `BLOCKED`; never manufacture PASS.
+
+## V2 handoff and enforcement QA
+
+Inspect handoff schema and semantic validation as separate criteria. Verify exact artifact-index pin, actual file bytes, producer dispatch context and dependency status. Local helper tests are not evidence of actual video/audio/render properties; media QA requires the actual media and inspection capability.

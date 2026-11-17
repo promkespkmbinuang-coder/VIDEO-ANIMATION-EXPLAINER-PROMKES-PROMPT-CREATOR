@@ -1,0 +1,287 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:promkes:v4:composition-manifest:2.0.0",
+  "title": "S10 Media Production Composition Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "composition_id",
+    "editorial_decision_list_ref",
+    "scene_order",
+    "shot_map",
+    "layers",
+    "overlay_map",
+    "subtitle_map",
+    "audio_map",
+    "safe_areas",
+    "fps",
+    "timebase",
+    "resolution",
+    "duration_policy",
+    "transitions",
+    "export_profile"
+  ],
+  "properties": {
+    "composition_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "editorial_decision_list_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scene_order": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "shot_map": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "shot_id",
+          "scene_id",
+          "source_ref",
+          "start_frame",
+          "end_frame"
+        ],
+        "properties": {
+          "shot_id": {
+            "type": "string"
+          },
+          "scene_id": {
+            "type": "string"
+          },
+          "source_ref": {
+            "type": "string"
+          },
+          "start_frame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "end_frame": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "layers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "layer_id",
+          "source_ref",
+          "z_index",
+          "role"
+        ],
+        "properties": {
+          "layer_id": {
+            "type": "string"
+          },
+          "source_ref": {
+            "type": "string"
+          },
+          "z_index": {
+            "type": "integer"
+          },
+          "role": {
+            "type": "string"
+          },
+          "transform_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "overlay_map": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "overlay_id",
+          "text_ref",
+          "claim_refs"
+        ],
+        "properties": {
+          "overlay_id": {
+            "type": "string"
+          },
+          "text_ref": {
+            "type": "string"
+          },
+          "claim_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "subtitle_map": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "audio_map": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "safe_areas": {
+      "type": "object",
+      "required": [
+        "top",
+        "right",
+        "bottom",
+        "left"
+      ],
+      "properties": {
+        "top": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "right": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "bottom": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "left": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "fps": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "timebase": {
+      "enum": [
+        "FRAMES",
+        "SECONDS"
+      ]
+    },
+    "resolution": {
+      "type": "object",
+      "required": [
+        "width",
+        "height"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "duration_policy": {
+      "type": "object",
+      "required": [
+        "basis"
+      ],
+      "properties": {
+        "basis": {
+          "enum": [
+            "MEASURED",
+            "ESTIMATED",
+            "APPROVED_PROFILE",
+            "NONE"
+          ]
+        },
+        "seconds": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "profile_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from_scene",
+          "to_scene",
+          "overlap_frames"
+        ],
+        "properties": {
+          "from_scene": {
+            "type": "string"
+          },
+          "to_scene": {
+            "type": "string"
+          },
+          "overlap_frames": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "export_profile": {
+      "type": "object",
+      "required": [
+        "container",
+        "codec",
+        "profile_id"
+      ],
+      "properties": {
+        "container": {
+          "type": "string"
+        },
+        "codec": {
+          "type": "string"
+        },
+        "profile_id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

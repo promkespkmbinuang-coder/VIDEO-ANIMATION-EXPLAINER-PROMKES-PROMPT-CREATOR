@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:promkes:v4:handoff-envelope:1.0.0",
+  "title": "Video Explainer Promkes Universal Handoff Envelope",
+  "description": "Universal, immutable inter-skill handoff contract. Cross-record authority, hash, ownership and dependency checks are enforced by the semantic validator, not by JSON Schema alone.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "handoff_id",
+    "project_id",
+    "case_id",
+    "skill_id",
+    "skill_version",
+    "invocation_status",
+    "created_at",
+    "status",
+    "input_refs",
+    "outputs",
+    "decisions",
+    "inferences",
+    "assumptions",
+    "unknowns",
+    "conflicts",
+    "inherited_constraints",
+    "trace_links",
+    "acceptance_checks",
+    "handoff_to",
+    "limitations",
+    "payload_hash"
+  ],
+  "properties": {
+    "contract_version": {"const": "1.0.0"},
+    "handoff_id": {"type": "string", "pattern": "^HOF-[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"},
+    "project_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "case_id": {"type": "string", "minLength": 1, "maxLength": 128},
+    "skill_id": {"enum": ["M00", "S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10", "S11", "S12", "S13", "S14"]},
+    "skill_version": {"type": "string", "minLength": 1, "maxLength": 64},
+    "lane_id": {"enum": ["S10-MP", "S10-RE"]},
+    "invocation_status": {"enum": ["INVOKED", "PROCEDURE_APPLIED", "UNAVAILABLE", "NOT_USED"]},
+    "created_at": {"type": "string", "format": "date-time"},
+    "status": {"enum": ["COMPLETE", "PARTIAL", "BLOCKED", "NOT_APPLICABLE", "STALE", "INVALIDATED"]},
+    "input_refs": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/artifactReference"},
+      "uniqueItems": true
+    },
+    "outputs": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/artifactReference"},
+      "uniqueItems": true
+    },
+    "decisions": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/decision"}
+    },
+    "inferences": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/statement"}
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/statement"}
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/unknown"}
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/conflict"}
+    },
+    "inherited_constraints": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/inheritedConstraint"}
+    },
+    "trace_links": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/traceLink"}
+    },
+    "acceptance_checks": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/acceptanceCheck"},
+      "minItems": 1
+    },
+    "handoff_to": {
+      "type": "array",
+      "items": {"enum": ["M00", "S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10", "S11", "S12", "S13", "S14", "USER"]},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "limitations": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "payload_hash": {"type": "string", "pattern": "^sha256:[a-fA-F0-9]{64}$"},
+    "metadata": {
+      "type": "object",
+      "additionalProperties": {"type": ["string", "number", "boolean", "null"]}
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"skill_id": {"const": "S10"}}, "required": ["skill_id"]},
+      "then": {"required": ["lane_id"]},
+      "else": {"not": {"required": ["lane_id"]}}
+    },
+    {
+      "if": {"properties": {"status": {"const": "COMPLETE"}}, "required": ["status"]},
+      "then": {"properties": {"outputs": {"minItems": 1}}}
+    },
+    {
+      "if": {"properties": {"status": {"enum": ["BLOCKED", "STALE", "INVALIDATED"]}}, "required": ["status"]},
+      "then": {"properties": {"limitations": {"minItems": 1}}}
+    },
+    {
+      "if": {"properties": {"status": {"const": "NOT_APPLICABLE"}}, "required": ["status"]},
+      "then": {"properties": {"limitations": {"minItems": 1}}}
+    }
+  ],
+  "$defs": {
+    "artifactReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ref_id", "artifact_type", "status", "content_hash"],
+      "properties": {
+        "ref_id": {"type": "string", "minLength": 1, "maxLength": 200},
+        "artifact_type": {"type": "string", "minLength": 1, "maxLength": 100},
+        "schema_id": {"type": ["string", "null"]},
+        "schema_version": {"type": ["string", "null"]},
+        "status": {"enum": ["DRAFT", "PROPOSED", "IN_PROGRESS", "PASS", "PARTIAL", "NOT_RUN", "NOT_VERIFIED", "NOT_APPLICABLE", "BLOCKED", "STALE", "INVALIDATED", "APPROVED", "REJECTED"]},
+        "content_hash": {"type": "string", "pattern": "^sha256:[a-fA-F0-9]{64}$"},
+        "content_ref": {"type": ["string", "null"]},
+        "owner_skill_id": {"enum": ["M00", "S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10", "S11", "S12", "S13", "S14", null]}
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision_id", "domain", "decision", "decision_status", "decision_owner_skill_id", "rationale"],
+      "properties": {
+        "decision_id": {"type": "string", "minLength": 1},
+        "domain": {"type": "string", "minLength": 1},
+        "decision": {"type": "string", "minLength": 1},
+        "decision_status": {"enum": ["PROPOSED", "ACCEPTED", "LOCKED", "REJECTED", "PENDING", "SUPERSEDED"]},
+        "decision_owner_skill_id": {"enum": ["M00", "S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10", "S11", "S12", "S13", "S14", "HUMAN"]},
+        "rationale": {"type": "string", "minLength": 1},
+        "evidence_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "statement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["statement_id", "statement", "confidence", "basis_refs"],
+      "properties": {
+        "statement_id": {"type": "string", "minLength": 1},
+        "statement": {"type": "string", "minLength": 1},
+        "confidence": {"enum": ["LOW", "MEDIUM", "HIGH", "UNKNOWN"]},
+        "basis_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "confirmation_required": {"type": "boolean", "default": true}
+      }
+    },
+    "unknown": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unknown_id", "description", "impact", "blocks_completion"],
+      "properties": {
+        "unknown_id": {"type": "string", "minLength": 1},
+        "description": {"type": "string", "minLength": 1},
+        "impact": {"type": "string", "minLength": 1},
+        "blocks_completion": {"type": "boolean"},
+        "resolution_owner_skill_id": {"enum": ["M00", "S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10", "S11", "S12", "S13", "S14", "HUMAN", null]}
+      }
+    },
+    "conflict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["conflict_id", "description", "severity", "affected_refs", "resolution_status"],
+      "properties": {
+        "conflict_id": {"type": "string", "minLength": 1},
+        "description": {"type": "string", "minLength": 1},
+        "severity": {"enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"]},
+        "affected_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "resolution_status": {"enum": ["OPEN", "ROUTED", "RESOLVED", "ACCEPTED_RISK"]},
+        "resolution_owner_skill_id": {"enum": ["M00", "S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10", "S11", "S12", "S13", "S14", "HUMAN", null]}
+      }
+    },
+    "inheritedConstraint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["constraint_id", "statement", "source_skill_id", "source_ref", "immutable"],
+      "properties": {
+        "constraint_id": {"type": "string", "minLength": 1},
+        "statement": {"type": "string", "minLength": 1},
+        "source_skill_id": {"enum": ["M00", "S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10", "S11", "S12", "S13", "S14", "HUMAN"]},
+        "source_ref": {"type": "string", "minLength": 1},
+        "immutable": {"type": "boolean"},
+        "override_requires": {"type": "string"}
+      }
+    },
+    "traceLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from_ref", "to_ref", "relation"],
+      "properties": {
+        "from_ref": {"type": "string", "minLength": 1},
+        "to_ref": {"type": "string", "minLength": 1},
+        "relation": {"enum": ["DERIVED_FROM", "SUPPORTED_BY", "CONSTRAINED_BY", "IMPLEMENTS", "VALIDATES", "APPROVED_BY", "SUPERSEDES", "INVALIDATES", "DEPENDS_ON", "REFERENCES"]},
+        "requirement_id": {"type": "string"}
+      }
+    },
+    "acceptanceCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["check_id", "criterion", "expected", "status", "evidence_refs", "limitation"],
+      "properties": {
+        "check_id": {"type": "string", "minLength": 1},
+        "criterion": {"type": "string", "minLength": 1},
+        "expected": {"type": "string", "minLength": 1},
+        "observed": {"type": ["string", "null"]},
+        "status": {"enum": ["PASS", "FAIL", "PARTIAL", "NOT_RUN", "NOT_VERIFIED", "BLOCKED", "NOT_APPLICABLE"]},
+        "evidence_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "limitation": {"type": "string"}
+      }
+    }
+  }
+}

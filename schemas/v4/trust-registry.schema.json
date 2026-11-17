@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:promkes:v4:external-trust-registry:1.0.0",
+  "title": "Promkes External Trust Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "registry_id",
+    "registry_version",
+    "valid_from",
+    "valid_to",
+    "root_fingerprint",
+    "authorities",
+    "revoked_key_ids",
+    "root_signature"
+  ],
+  "properties": {
+    "registry_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "registry_version": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$"
+    },
+    "valid_from": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "valid_to": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "root_fingerprint": {
+      "type": "string",
+      "pattern": "^sha256:[a-fA-F0-9]{64}$"
+    },
+    "revoked_key_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "resource_profiles": {
+      "type": "array",
+      "description": "Externally root-signed exact resource profile identity, route and immutable content hash.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["profile_id", "route", "content_hash", "required_categories"],
+        "properties": {
+          "profile_id": {"type": "string", "minLength": 1},
+          "route": {"type": "string", "minLength": 1},
+          "content_hash": {"type": "string", "pattern": "^sha256:[a-fA-F0-9]{64}$"},
+          "required_categories": {"type": "array", "uniqueItems": true, "items": {"enum": ["provider_cost", "render_seconds", "memory_mb", "asset_bytes", "retry_count", "cpu_seconds"]}}
+        }
+      },
+      "uniqueItems": true
+    },
+    "root_signature": {
+      "type": "string",
+      "minLength": 40
+    },
+    "authorities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "approver_id",
+          "role",
+          "key_id",
+          "public_key_b64",
+          "active",
+          "valid_from",
+          "valid_to",
+          "credential_ref",
+          "credential_status",
+          "credential_verified_at",
+          "issuer_ref"
+        ],
+        "properties": {
+          "approver_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "key_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "public_key_b64": {
+            "type": "string",
+            "minLength": 40
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "valid_from": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "valid_to": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "credential_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "credential_status": {
+            "enum": [
+              "VERIFIED",
+              "UNVERIFIED",
+              "REVOKED",
+              "EXPIRED"
+            ]
+          },
+          "credential_verified_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "issuer_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "properties": {
+        "valid_to": {
+          "format": "date-time"
+        }
+      }
+    }
+  ]
+}

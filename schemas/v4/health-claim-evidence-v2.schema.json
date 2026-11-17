@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:promkes:v4:health-claim-evidence:2.0.0",
+  "title": "Health Claim Evidence Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claim_id",
+    "text",
+    "claim_type",
+    "source_refs",
+    "context",
+    "support_status",
+    "human_clinical_approval",
+    "status"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_type": {
+      "enum": [
+        "PREVENTION",
+        "TREATMENT",
+        "RISK",
+        "STATISTIC",
+        "CAUSAL",
+        "GENERAL",
+        "OTHER"
+      ]
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "source_quote": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "context": {
+      "type": "object",
+      "required": [
+        "date",
+        "jurisdiction",
+        "population"
+      ],
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "jurisdiction": {
+          "type": "string"
+        },
+        "population": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "support_status": {
+      "enum": [
+        "SUPPORTED_LEXICALLY",
+        "CONTRADICTED",
+        "INSUFFICIENT",
+        "NOT_CHECKED"
+      ]
+    },
+    "human_clinical_approval": {
+      "type": "boolean"
+    },
+    "status": {
+      "enum": [
+        "UNVERIFIED",
+        "HUMAN_REVIEW",
+        "PENDING_HUMAN_APPROVAL",
+        "APPROVED_BY_HUMAN",
+        "HOLD"
+      ]
+    },
+    "approved_wording": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "forbidden_wording": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "APPROVED_BY_HUMAN"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "human_clinical_approval": {
+            "const": true
+          }
+        }
+      }
+    }
+  ]
+}
