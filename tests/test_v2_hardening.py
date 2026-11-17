@@ -349,7 +349,9 @@ def test_ci_workflow_runs_v2_acceptance_and_full_regression():
     steps = workflow["jobs"]["acceptance-and-regression"]["steps"]
     runs = "\n".join(step.get("run", "") for step in steps)
     assert "tests/test_v2_acceptance.py" in runs
-    assert "python -m pytest -q tests" in runs
+    assert "python -m pytest" in runs and " -q tests" in runs
+    assert "-p no:cacheprovider" in runs and "PYTHONDONTWRITEBYTECODE=1" in runs
+    assert any(step.get("name") == "Remove transient test caches before package validation" for step in steps)
     assert "validate_release_consistency.py" in runs
 
 

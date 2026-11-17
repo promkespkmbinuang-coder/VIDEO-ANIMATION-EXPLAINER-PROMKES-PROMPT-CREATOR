@@ -29,8 +29,10 @@ jobs:
       - name: Remove transient test caches before package validation
         if: always()
         run: |
-          find . -type d \\( -name __pycache__ -o -name .pytest_cache \\) -prune -exec rm -rf {} +
-          find . -type f \\( -name '*.pyc' -o -name '*.pyo' \\) -delete
+          find . -type d -name '__pycache__' -prune -exec rm -rf {} +
+          find . -type d -name '.pytest_cache' -prune -exec rm -rf {} +
+          find . -type f -name '*.pyc' -delete
+          find . -type f -name '*.pyo' -delete
       - name: Validate package and release consistency
         run: |
           python scripts/validate_package.py
