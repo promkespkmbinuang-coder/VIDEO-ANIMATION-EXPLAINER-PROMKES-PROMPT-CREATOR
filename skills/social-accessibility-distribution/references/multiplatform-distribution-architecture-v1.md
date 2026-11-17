@@ -227,3 +227,8 @@ Completion requires:
 - the new social acceptance suite is separate from the existing 45 AT + 13 REF + 18 V2 inventories;
 - exact branch commit, PR metadata, CI and test evidence are reported independently;
 - no main merge, public release or account publication without separate authorization.
+
+
+## 12. Controlled change record
+
+The first implementation candidate and its evidence boundary are recorded in docs/change-records/CHG-S11-MP-2026-11-17-01.md. It remains a draft PR, not a merged release or private-plugin runtime update.

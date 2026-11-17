@@ -53,3 +53,6 @@ The social-distribution scenarios are maintained as a separate, additive test fa
 - Owner: S11 social-accessibility-distribution; M00 retains orchestration and S12 independent QA.
 
 The social suite is not included in the 45 AT + 13 REF counts or the existing canonical 58-case traceability sidecar. Its tests must be individually executed against their own oracle and matching evidence before any status changes from NOT_RUN.
+
+
+Change-control record: docs/change-records/CHG-S11-MP-2026-11-17-01.md.
