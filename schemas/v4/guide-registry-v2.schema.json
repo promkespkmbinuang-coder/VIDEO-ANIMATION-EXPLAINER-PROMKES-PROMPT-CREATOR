@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:promkes:v4:guide-registry:2.0.0",
+  "title": "Seven Canonical Guide Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "mcg_id",
+    "mcg_version",
+    "guides"
+  ],
+  "properties": {
+    "mcg_id": {
+      "type": "string"
+    },
+    "mcg_version": {
+      "type": "string"
+    },
+    "guides": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "guide_id",
+          "title",
+          "owner_skill_id",
+          "version",
+          "status"
+        ],
+        "properties": {
+          "guide_id": {
+            "enum": [
+              "GUIDE-01",
+              "GUIDE-02",
+              "GUIDE-03",
+              "GUIDE-04",
+              "GUIDE-05",
+              "GUIDE-06",
+              "GUIDE-07"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "owner_skill_id": {
+            "enum": [
+              "S04",
+              "S05",
+              "S09",
+              "S13"
+            ]
+          },
+          "version": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "DRAFT",
+              "PROPOSED",
+              "LOCKED",
+              "SUPERSEDED"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

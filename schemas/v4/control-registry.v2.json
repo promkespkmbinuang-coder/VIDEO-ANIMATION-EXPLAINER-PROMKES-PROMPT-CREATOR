@@ -1,0 +1,532 @@
+{
+  "control_count": 21,
+  "controls": [
+    {
+      "adapter": "claim_source_integrity",
+      "control_id": "V4-CTL-001",
+      "gates": [
+        "G1_FACT_LOCK"
+      ],
+      "objective": "Every claim source reference resolves",
+      "owner_skill_ids": [
+        "S01",
+        "S02"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-009",
+        "TST-010"
+      ]
+    },
+    {
+      "adapter": "claim_fail_closed",
+      "control_id": "V4-CTL-002",
+      "gates": [
+        "G1_FACT_LOCK",
+        "G2_NARRATIVE_LOCK"
+      ],
+      "objective": "Unverified/contradicted/unknown/stale claims cannot authorize wording",
+      "owner_skill_ids": [
+        "S02",
+        "S04"
+      ],
+      "risk": "CRITICAL",
+      "test_ids": [
+        "TST-025",
+        "TST-026",
+        "TST-029",
+        "TST-030"
+      ]
+    },
+    {
+      "adapter": "clinical_review",
+      "control_id": "V4-CTL-003",
+      "gates": [
+        "G1_FACT_LOCK",
+        "G2_NARRATIVE_LOCK"
+      ],
+      "objective": "Material health claims require clinician review",
+      "owner_skill_ids": [
+        "S02",
+        "M00"
+      ],
+      "risk": "CRITICAL",
+      "test_ids": [
+        "TST-002",
+        "TST-003",
+        "TST-022"
+      ]
+    },
+    {
+      "adapter": "source_provenance",
+      "control_id": "V4-CTL-004",
+      "gates": [
+        "G1_FACT_LOCK"
+      ],
+      "objective": "Verified sources carry provenance and content hash",
+      "owner_skill_ids": [
+        "S01",
+        "S02"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-009",
+        "TST-011"
+      ]
+    },
+    {
+      "adapter": "scene_timing",
+      "control_id": "V4-CTL-005",
+      "gates": [
+        "G5_MANIFEST_VALID"
+      ],
+      "objective": "Scene ranges are valid, ordered, contiguous and consistent",
+      "owner_skill_ids": [
+        "S06",
+        "M00"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-032",
+        "TST-033"
+      ]
+    },
+    {
+      "adapter": "scene_identity",
+      "control_id": "V4-CTL-006",
+      "gates": [
+        "G5_MANIFEST_VALID"
+      ],
+      "objective": "Scene identifiers are unique",
+      "owner_skill_ids": [
+        "S06",
+        "S13"
+      ],
+      "risk": "MEDIUM",
+      "test_ids": [
+        "TST-036"
+      ]
+    },
+    {
+      "adapter": "dependency_integrity",
+      "control_id": "V4-CTL-007",
+      "gates": [
+        "G5_MANIFEST_VALID"
+      ],
+      "objective": "Dependencies resolve and form a DAG",
+      "owner_skill_ids": [
+        "M00",
+        "S13"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-012",
+        "TST-013",
+        "TST-037"
+      ]
+    },
+    {
+      "adapter": "asset_path_safety",
+      "control_id": "V4-CTL-008",
+      "gates": [
+        "G5_MANIFEST_VALID"
+      ],
+      "objective": "Asset paths are confined to project root",
+      "owner_skill_ids": [
+        "S08",
+        "S10"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-031",
+        "TST-038"
+      ]
+    },
+    {
+      "adapter": "artifact_hash_integrity",
+      "control_id": "V4-CTL-009",
+      "gates": [
+        "G5_MANIFEST_VALID"
+      ],
+      "objective": "Artifact files match their declared SHA-256",
+      "owner_skill_ids": [
+        "M00",
+        "S10"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-020",
+        "TST-040"
+      ]
+    },
+    {
+      "adapter": "capability_evidence",
+      "control_id": "V4-CTL-010",
+      "gates": [
+        "G6_CODE_VALID"
+      ],
+      "objective": "Verified capabilities are specific, evidenced and current",
+      "owner_skill_ids": [
+        "S10",
+        "M00"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-039"
+      ]
+    },
+    {
+      "adapter": "renderer_fail_closed",
+      "control_id": "V4-CTL-011",
+      "gates": [
+        "G6_CODE_VALID"
+      ],
+      "objective": "Executable code cannot route to unverified target runtime",
+      "owner_skill_ids": [
+        "S10",
+        "M00"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-039",
+        "TST-043"
+      ]
+    },
+    {
+      "adapter": "rights_clearance",
+      "control_id": "V4-CTL-012",
+      "gates": [
+        "G0_INTAKE_OK"
+      ],
+      "objective": "Rights are cleared or explicitly not applicable",
+      "owner_skill_ids": [
+        "S05",
+        "M00"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-031"
+      ]
+    },
+    {
+      "adapter": "privacy_classification",
+      "control_id": "V4-CTL-013",
+      "gates": [
+        "G0_INTAKE_OK"
+      ],
+      "objective": "Privacy classification cannot remain unknown",
+      "owner_skill_ids": [
+        "S01",
+        "M00"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-005",
+        "TST-008"
+      ]
+    },
+    {
+      "adapter": "prompt_firewall",
+      "control_id": "V4-CTL-014",
+      "gates": [
+        "G0_INTAKE_OK",
+        "G4_PROMPT_PREFLIGHT"
+      ],
+      "objective": "Untrusted source content is isolated and not executed as instructions",
+      "owner_skill_ids": [
+        "M00",
+        "S01"
+      ],
+      "risk": "CRITICAL",
+      "test_ids": [
+        "TST-005",
+        "TST-006",
+        "TST-007",
+        "TST-008"
+      ]
+    },
+    {
+      "adapter": "resource_ceiling",
+      "control_id": "V4-CTL-015",
+      "gates": [
+        "G0_INTAKE_OK"
+      ],
+      "objective": "Cost, retry and asset ceilings are enforced",
+      "owner_skill_ids": [
+        "M00",
+        "S10"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-014",
+        "TST-015"
+      ]
+    },
+    {
+      "adapter": "approval_hash_binding",
+      "control_id": "V4-CTL-016",
+      "gates": [
+        "G7_RELEASE_APPROVED"
+      ],
+      "objective": "Human approvals are authorized and bound to artifact hashes",
+      "owner_skill_ids": [
+        "M00",
+        "HUMAN"
+      ],
+      "risk": "CRITICAL",
+      "test_ids": [
+        "TST-001",
+        "TST-002",
+        "TST-003",
+        "TST-004"
+      ]
+    },
+    {
+      "adapter": "gate_fail_closed",
+      "control_id": "V4-CTL-017",
+      "gates": [
+        "G7_RELEASE_APPROVED"
+      ],
+      "objective": "Gate transition cannot pass without predecessor evidence",
+      "owner_skill_ids": [
+        "M00"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-018",
+        "TST-019",
+        "TST-023"
+      ]
+    },
+    {
+      "adapter": "invalidation_propagation",
+      "control_id": "V4-CTL-018",
+      "gates": [
+        "G7_RELEASE_APPROVED"
+      ],
+      "objective": "Upstream changes invalidate transitive dependents",
+      "owner_skill_ids": [
+        "M00",
+        "S13"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-012",
+        "TST-013",
+        "TST-037"
+      ]
+    },
+    {
+      "adapter": "artifact_status_integrity",
+      "control_id": "V4-CTL-019",
+      "gates": [
+        "G5_MANIFEST_VALID"
+      ],
+      "objective": "Artifact status cannot be elevated beyond validation result",
+      "owner_skill_ids": [
+        "M00",
+        "S12"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-019",
+        "TST-020"
+      ]
+    },
+    {
+      "adapter": "control_evidence_integrity",
+      "control_id": "V4-CTL-020",
+      "gates": [
+        "G7_RELEASE_APPROVED"
+      ],
+      "objective": "PASS control result includes execution/evidence metadata",
+      "owner_skill_ids": [
+        "S12"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-041",
+        "TST-042"
+      ]
+    },
+    {
+      "adapter": "visual_reference_lock",
+      "control_id": "V4-CTL-021",
+      "gates": [
+        "G3_VISUAL_LOCK"
+      ],
+      "objective": "Visual continuity has an approved canonical reference hash",
+      "owner_skill_ids": [
+        "S05",
+        "S13"
+      ],
+      "risk": "HIGH",
+      "test_ids": [
+        "TST-031",
+        "TST-036"
+      ]
+    }
+  ],
+  "legacy_aliases": {
+    "CTRL-ACCESSIBILITY-QA": {
+      "mapping_kind": "ONE_TO_ONE",
+      "rationale": "recorded QA evidence; detailed accessibility remains S12",
+      "targets": [
+        "V4-CTL-020"
+      ]
+    },
+    "CTRL-ARTIFACT-QA": {
+      "mapping_kind": "ONE_TO_MANY",
+      "rationale": "artifact status and QA evidence",
+      "targets": [
+        "V4-CTL-019",
+        "V4-CTL-020"
+      ]
+    },
+    "CTRL-CAPABILITY-VERIFICATION": {
+      "mapping_kind": "ONE_TO_ONE",
+      "rationale": "capability evidence",
+      "targets": [
+        "V4-CTL-010"
+      ]
+    },
+    "CTRL-CLAIM-SCHEMA": {
+      "mapping_kind": "ONE_TO_MANY",
+      "rationale": "claim source and fail-closed status",
+      "targets": [
+        "V4-CTL-001",
+        "V4-CTL-002"
+      ]
+    },
+    "CTRL-CLINICAL-APPROVAL": {
+      "mapping_kind": "ONE_TO_MANY",
+      "rationale": "clinical review and signed authority",
+      "targets": [
+        "V4-CTL-003",
+        "V4-CTL-016"
+      ]
+    },
+    "CTRL-CODE-STATIC": {
+      "mapping_kind": "ONE_TO_ONE",
+      "rationale": "renderer/code gate",
+      "targets": [
+        "V4-CTL-011"
+      ]
+    },
+    "CTRL-CONTINUITY-LOCKS": {
+      "mapping_kind": "ONE_TO_MANY",
+      "rationale": "dependency and visual locks",
+      "targets": [
+        "V4-CTL-007",
+        "V4-CTL-021"
+      ]
+    },
+    "CTRL-INTAKE-INVENTORY": {
+      "mapping_kind": "ONE_TO_MANY",
+      "rationale": "rights and privacy intake controls",
+      "targets": [
+        "V4-CTL-012",
+        "V4-CTL-013"
+      ]
+    },
+    "CTRL-MANIFEST-INTEGRITY": {
+      "mapping_kind": "ONE_TO_MANY",
+      "rationale": "identity, dependencies, hashes and status",
+      "targets": [
+        "V4-CTL-006",
+        "V4-CTL-007",
+        "V4-CTL-009",
+        "V4-CTL-019"
+      ]
+    },
+    "CTRL-MATERIAL-CLAIMS": {
+      "mapping_kind": "ONE_TO_MANY",
+      "rationale": "materiality and clinical review",
+      "targets": [
+        "V4-CTL-002",
+        "V4-CTL-003"
+      ]
+    },
+    "CTRL-NARRATIVE-TRACEABILITY": {
+      "mapping_kind": "ONE_TO_ONE",
+      "rationale": "claim-safe narrative traceability",
+      "targets": [
+        "V4-CTL-002"
+      ]
+    },
+    "CTRL-PRIVACY-CLASSIFICATION": {
+      "mapping_kind": "ONE_TO_ONE",
+      "rationale": "privacy classification",
+      "targets": [
+        "V4-CTL-013"
+      ]
+    },
+    "CTRL-PROMPT-BOUNDARY": {
+      "mapping_kind": "ONE_TO_ONE",
+      "rationale": "tool boundary",
+      "targets": [
+        "V4-CTL-014"
+      ]
+    },
+    "CTRL-PROMPT-INJECTION": {
+      "mapping_kind": "ONE_TO_ONE",
+      "rationale": "prompt injection",
+      "targets": [
+        "V4-CTL-014"
+      ]
+    },
+    "CTRL-RELEASE-APPROVAL": {
+      "mapping_kind": "ONE_TO_MANY",
+      "rationale": "authorized approval and fail-closed gate",
+      "targets": [
+        "V4-CTL-016",
+        "V4-CTL-017"
+      ]
+    },
+    "CTRL-RIGHTS-BASIS": {
+      "mapping_kind": "ONE_TO_ONE",
+      "rationale": "rights clearance",
+      "targets": [
+        "V4-CTL-012"
+      ]
+    },
+    "CTRL-SAFE-WORDING": {
+      "mapping_kind": "ONE_TO_ONE",
+      "rationale": "safe wording",
+      "targets": [
+        "V4-CTL-002"
+      ]
+    },
+    "CTRL-SCENE-TIMING": {
+      "mapping_kind": "ONE_TO_ONE",
+      "rationale": "scene timing",
+      "targets": [
+        "V4-CTL-005"
+      ]
+    },
+    "CTRL-SOURCE-PROVENANCE": {
+      "mapping_kind": "ONE_TO_ONE",
+      "rationale": "source provenance",
+      "targets": [
+        "V4-CTL-004"
+      ]
+    },
+    "CTRL-UNTRUSTED-INPUTS": {
+      "mapping_kind": "ONE_TO_ONE",
+      "rationale": "source firewall",
+      "targets": [
+        "V4-CTL-014"
+      ]
+    },
+    "CTRL-VISUAL-REFERENCES": {
+      "mapping_kind": "ONE_TO_ONE",
+      "rationale": "visual references",
+      "targets": [
+        "V4-CTL-021"
+      ]
+    }
+  },
+  "migration_policy": "Additive aliases only; do not rename public skill IDs, paths, triggers or states.",
+  "registry_version": "2.0.0",
+  "status": "CANONICAL"
+}

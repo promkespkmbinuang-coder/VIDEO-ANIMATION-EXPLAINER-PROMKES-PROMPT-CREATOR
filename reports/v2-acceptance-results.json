@@ -1,0 +1,597 @@
+{
+  "catalog_id": "TA-V2-ACCEPTANCE",
+  "generated_at": "2026-11-17T12:00:02+08:00",
+  "summary": {
+    "status": "PASS",
+    "tests": 44,
+    "passed": 44,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "junit": "reports/v2-acceptance-junit.xml"
+  },
+  "cases": [
+    {
+      "test_id": "TST-001",
+      "status": "PASS",
+      "test_function": "test_tst_001_project_supplied_key_cannot_self_authorize",
+      "duration_seconds": 0.048,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_001_project_supplied_key_cannot_self_authorize",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Cryptographic and authority checks were exercised using deterministic test keys and external-registry fixtures.",
+        "Production root-key custody, real identity provider, and institutional approver enrollment remain operational setup decisions."
+      ]
+    },
+    {
+      "test_id": "TST-002",
+      "status": "PASS",
+      "test_function": "test_tst_002_revoked_expired_wrong_role_and_wrong_person_rejected",
+      "duration_seconds": 0.03,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_002_revoked_expired_wrong_role_and_wrong_person_rejected",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Cryptographic and authority checks were exercised using deterministic test keys and external-registry fixtures.",
+        "Production root-key custody, real identity provider, and institutional approver enrollment remain operational setup decisions."
+      ]
+    },
+    {
+      "test_id": "TST-003",
+      "status": "PASS",
+      "test_function": "test_tst_003_release_quorum_requires_distinct_approvers",
+      "duration_seconds": 0.01,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_003_release_quorum_requires_distinct_approvers",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Cryptographic and authority checks were exercised using deterministic test keys and external-registry fixtures.",
+        "Production root-key custody, real identity provider, and institutional approver enrollment remain operational setup decisions."
+      ]
+    },
+    {
+      "test_id": "TST-004",
+      "status": "PASS",
+      "test_function": "test_tst_004_external_registry_root_pin_and_signature_are_verified",
+      "duration_seconds": 0.086,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_004_external_registry_root_pin_and_signature_are_verified",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Cryptographic and authority checks were exercised using deterministic test keys and external-registry fixtures.",
+        "Production root-key custody, real identity provider, and institutional approver enrollment remain operational setup decisions."
+      ]
+    },
+    {
+      "test_id": "TST-005",
+      "status": "PASS",
+      "test_function": "test_tst_005_indonesian_prompt_injection_quarantined_at_intake",
+      "duration_seconds": 0.003,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_005_indonesian_prompt_injection_quarantined_at_intake",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-006",
+      "status": "PASS",
+      "test_function": "test_tst_006_obfuscated_injection_is_detected",
+      "duration_seconds": 0.001,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_006_obfuscated_injection_is_detected",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-007",
+      "status": "PASS",
+      "test_function": "test_tst_007_transformed_untrusted_text_is_rescanned_before_tool_boundary",
+      "duration_seconds": 0.001,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_007_transformed_untrusted_text_is_rescanned_before_tool_boundary",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-008",
+      "status": "PASS",
+      "test_function": "test_tst_008_scanner_missing_text_or_error_fails_closed",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_008_scanner_missing_text_or_error_fails_closed",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-009",
+      "status": "PASS",
+      "test_function": "test_tst_009_source_snapshot_hash_mismatch_fails",
+      "duration_seconds": 0.001,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_009_source_snapshot_hash_mismatch_fails",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Local provenance and lexical/support guards were tested against deterministic snapshots and fixtures.",
+        "This does not replace domain-expert or qualified clinical review of a real health claim."
+      ]
+    },
+    {
+      "test_id": "TST-010",
+      "status": "PASS",
+      "test_function": "test_tst_010_claim_quote_numbers_and_contradictions_fail_closed",
+      "duration_seconds": 0.001,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_010_claim_quote_numbers_and_contradictions_fail_closed",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Local provenance and lexical/support guards were tested against deterministic snapshots and fixtures.",
+        "This does not replace domain-expert or qualified clinical review of a real health claim."
+      ]
+    },
+    {
+      "test_id": "TST-011",
+      "status": "PASS",
+      "test_function": "test_tst_011_context_mismatch_cannot_become_verified",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_011_context_mismatch_cannot_become_verified",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Local provenance and lexical/support guards were tested against deterministic snapshots and fixtures.",
+        "This does not replace domain-expert or qualified clinical review of a real health claim."
+      ]
+    },
+    {
+      "test_id": "TST-012",
+      "status": "PASS",
+      "test_function": "test_tst_012_independent_invalidation_oracle_ignores_project_expected_list",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_012_independent_invalidation_oracle_ignores_project_expected_list",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-013",
+      "status": "PASS",
+      "test_function": "test_tst_013_dependency_cycles_and_missing_transitive_nodes_fail",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_013_dependency_cycles_and_missing_transitive_nodes_fail",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-014",
+      "status": "PASS",
+      "test_function": "test_tst_014_missing_approved_resource_profile_blocks_route",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_014_missing_approved_resource_profile_blocks_route",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-015",
+      "status": "PASS",
+      "test_function": "test_tst_015_resource_not_applicable_requires_reason_and_zero_required_categories",
+      "duration_seconds": 0.001,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_015_resource_not_applicable_requires_reason_and_zero_required_categories",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-016",
+      "status": "PASS",
+      "test_function": "test_tst_016_control_registry_full_metadata_drift_fails",
+      "duration_seconds": 0.028,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_016_control_registry_full_metadata_drift_fails",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-017",
+      "status": "PASS",
+      "test_function": "test_tst_017_legacy_alias_missing_ambiguous_or_unknown_fails",
+      "duration_seconds": 0.028,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_017_legacy_alias_missing_ambiguous_or_unknown_fails",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-018",
+      "status": "PASS",
+      "test_function": "test_tst_018_handoff_missing_field_and_wrong_type_rejected",
+      "duration_seconds": 0.032,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_018_handoff_missing_field_and_wrong_type_rejected",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-019",
+      "status": "PASS",
+      "test_function": "test_tst_019_complete_handoff_requires_output_artifact",
+      "duration_seconds": 0.036,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_019_complete_handoff_requires_output_artifact",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-020",
+      "status": "PASS",
+      "test_function": "test_tst_020_unknown_artifact_and_content_hash_mismatch_fail",
+      "duration_seconds": 0.063,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_020_unknown_artifact_and_content_hash_mismatch_fail",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-021",
+      "status": "PASS",
+      "test_function": "test_tst_021_s10_lane_is_required_only_for_s10",
+      "duration_seconds": 0.089,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_021_s10_lane_is_required_only_for_s10",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-022",
+      "status": "PASS",
+      "test_function": "test_tst_022_handoff_cannot_self_claim_clinical_or_independent_qa",
+      "duration_seconds": 0.029,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_022_handoff_cannot_self_claim_clinical_or_independent_qa",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-023",
+      "status": "PASS",
+      "test_function": "test_tst_023_blocked_or_invalidated_prerequisite_blocks_downstream",
+      "duration_seconds": 0.03,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_023_blocked_or_invalidated_prerequisite_blocks_downstream",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-024",
+      "status": "PASS",
+      "test_function": "test_tst_024_compound_health_sentence_decomposed_into_atomic_claims",
+      "duration_seconds": 0.002,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_024_compound_health_sentence_decomposed_into_atomic_claims",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-025",
+      "status": "PASS",
+      "test_function": "test_tst_025_stale_missing_and_context_mismatch_claims_not_approved",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_025_stale_missing_and_context_mismatch_claims_not_approved",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-026",
+      "status": "PASS",
+      "test_function": "test_tst_026_health_simplification_cannot_strengthen_claim",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_026_health_simplification_cannot_strengthen_claim",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-027",
+      "status": "PASS",
+      "test_function": "test_tst_027_local_demographic_or_dialect_detail_without_evidence_is_flagged",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_027_local_demographic_or_dialect_detail_without_evidence_is_flagged",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-028",
+      "status": "PASS",
+      "test_function": "test_tst_028_campaign_requires_one_coherent_primary_objective_and_cta",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_028_campaign_requires_one_coherent_primary_objective_and_cta",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-029",
+      "status": "PASS",
+      "test_function": "test_tst_029_factual_screenplay_line_without_trace_fails_narrative_lock",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_029_factual_screenplay_line_without_trace_fails_narrative_lock",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-030",
+      "status": "PASS",
+      "test_function": "test_tst_030_metaphor_introducing_health_proposition_routes_to_s02",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_030_metaphor_introducing_health_proposition_routes_to_s02",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-031",
+      "status": "PASS",
+      "test_function": "test_tst_031_visual_plan_holds_unapproved_logo_likeness_and_stale_identity",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_031_visual_plan_holds_unapproved_logo_likeness_and_stale_identity",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-032",
+      "status": "PASS",
+      "test_function": "test_tst_032_missing_duration_and_profile_fails_acceptance",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_032_missing_duration_and_profile_fails_acceptance",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-033",
+      "status": "PASS",
+      "test_function": "test_tst_033_scene_frame_arithmetic_rejects_unreconciled_overlap",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_033_scene_frame_arithmetic_rejects_unreconciled_overlap",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-034",
+      "status": "PASS",
+      "test_function": "test_tst_034_motion_schema_rejects_missing_units_and_keyframe_order",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_034_motion_schema_rejects_missing_units_and_keyframe_order",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-035",
+      "status": "PASS",
+      "test_function": "test_tst_035_motion_state_discontinuity_routes_to_s13_and_holds",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_035_motion_state_discontinuity_routes_to_s13_and_holds",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-036",
+      "status": "PASS",
+      "test_function": "test_tst_036_guide_registry_duplicate_or_stale_lock_fails",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_036_guide_registry_duplicate_or_stale_lock_fails",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-037",
+      "status": "PASS",
+      "test_function": "test_tst_037_guide_change_propagates_transitively_and_preserves_unaffected",
+      "duration_seconds": 0.001,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_037_guide_change_propagates_transitively_and_preserves_unaffected",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-038",
+      "status": "PASS",
+      "test_function": "test_tst_038_media_production_handoff_missing_composition_mapping_rejected",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_038_media_production_handoff_missing_composition_mapping_rejected",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-039",
+      "status": "PASS",
+      "test_function": "test_tst_039_renderer_unavailable_returns_handoff_without_render_claim",
+      "duration_seconds": 0.0,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_039_renderer_unavailable_returns_handoff_without_render_claim",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-040",
+      "status": "PASS",
+      "test_function": "test_tst_040_build_pass_without_mp4_does_not_claim_rendered_verified",
+      "duration_seconds": 0.001,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_040_build_pass_without_mp4_does_not_claim_rendered_verified",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "PASS proves the local guard correctly refuses to infer real render/media QA/release without required evidence.",
+        "No actual renderer build, MP4 inspection, or independent human S12 review was performed."
+      ]
+    },
+    {
+      "test_id": "TST-041",
+      "status": "PASS",
+      "test_function": "test_tst_041_existing_media_without_actual_inspection_remains_not_verified",
+      "duration_seconds": 0.001,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_041_existing_media_without_actual_inspection_remains_not_verified",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "PASS proves the local guard correctly refuses to infer real render/media QA/release without required evidence.",
+        "No actual renderer build, MP4 inspection, or independent human S12 review was performed."
+      ]
+    },
+    {
+      "test_id": "TST-042",
+      "status": "PASS",
+      "test_function": "test_tst_042_manifest_qa_pass_without_s12_inspection_cannot_release",
+      "duration_seconds": 0.001,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_042_manifest_qa_pass_without_s12_inspection_cannot_release",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "PASS proves the local guard correctly refuses to infer real render/media QA/release without required evidence.",
+        "No actual renderer build, MP4 inspection, or independent human S12 review was performed."
+      ]
+    },
+    {
+      "test_id": "TST-043",
+      "status": "PASS",
+      "test_function": "test_tst_043_compatibility_preserves_skill_ids_paths_triggers_and_states",
+      "duration_seconds": 0.023,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_043_compatibility_preserves_skill_ids_paths_triggers_and_states",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    },
+    {
+      "test_id": "TST-044",
+      "status": "PASS",
+      "test_function": "test_tst_044_all_four_input_modes_route_and_preserve_timing_limits",
+      "duration_seconds": 0.001,
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_044_all_four_input_modes_route_and_preserve_timing_limits",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ]
+    }
+  ]
+}

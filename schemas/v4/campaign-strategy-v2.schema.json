@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:promkes:v4:campaign-strategy:2.0.0",
+  "title": "Campaign Strategy Blueprint",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "audience",
+    "objectives",
+    "key_message",
+    "ctas",
+    "evidence_refs",
+    "assumptions"
+  ],
+  "properties": {
+    "audience": {
+      "type": "object",
+      "required": [
+        "description",
+        "evidence_status"
+      ],
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "evidence_status": {
+          "enum": [
+            "EVIDENCED",
+            "USER_PROVIDED",
+            "ASSUMED",
+            "UNKNOWN"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "objectives": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "objective_id",
+          "priority",
+          "behavior_id"
+        ],
+        "properties": {
+          "objective_id": {
+            "type": "string"
+          },
+          "priority": {
+            "enum": [
+              "PRIMARY",
+              "SECONDARY"
+            ]
+          },
+          "behavior_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "key_message": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ctas": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "cta_id",
+          "priority",
+          "behavior_id"
+        ],
+        "properties": {
+          "cta_id": {
+            "type": "string"
+          },
+          "priority": {
+            "enum": [
+              "PRIMARY",
+              "SECONDARY"
+            ]
+          },
+          "behavior_id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

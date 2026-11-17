@@ -1,0 +1,1729 @@
+{
+  "catalog_id": "TA-V2-ACCEPTANCE",
+  "catalog_version": "1.0.0",
+  "status_policy": "PASS means the named local deterministic implementation/test-oracle case executed and passed on this working-copy candidate, with pytest/JUnit evidence. PASS does not imply live host/provider, real external identity/clinical authority, renderer/media execution, human approval, GitHub CI, or production release.",
+  "cases": [
+    {
+      "test_id": "TST-001",
+      "origin": "FND-001",
+      "layer": "SECURITY",
+      "title": "Project-supplied key self-authorizes its signer",
+      "expected_result": "Reject; project payload cannot establish trust.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_001_project_supplied_key_cannot_self_authorize",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Cryptographic and authority checks were exercised using deterministic test keys and external-registry fixtures.",
+        "Production root-key custody, real identity provider, and institutional approver enrollment remain operational setup decisions."
+      ],
+      "owner_skills": [
+        "M00"
+      ],
+      "requirement_ids": [
+        "REQ-V2-004"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-001"
+      ],
+      "test_function": "test_tst_001_project_supplied_key_cannot_self_authorize",
+      "duration_seconds": 0.048
+    },
+    {
+      "test_id": "TST-002",
+      "origin": "FND-001",
+      "layer": "SECURITY",
+      "title": "Trusted key is revoked, expired, wrong-role or wrong-person",
+      "expected_result": "Reject with specific authority failure.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_002_revoked_expired_wrong_role_and_wrong_person_rejected",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Cryptographic and authority checks were exercised using deterministic test keys and external-registry fixtures.",
+        "Production root-key custody, real identity provider, and institutional approver enrollment remain operational setup decisions."
+      ],
+      "owner_skills": [
+        "M00"
+      ],
+      "requirement_ids": [
+        "REQ-V2-004"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-002"
+      ],
+      "test_function": "test_tst_002_revoked_expired_wrong_role_and_wrong_person_rejected",
+      "duration_seconds": 0.03
+    },
+    {
+      "test_id": "TST-003",
+      "origin": "FND-001",
+      "layer": "RELEASE",
+      "title": "Valid signature lacks required quorum or distinct approvers",
+      "expected_result": "Release remains BLOCKED.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_003_release_quorum_requires_distinct_approvers",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Cryptographic and authority checks were exercised using deterministic test keys and external-registry fixtures.",
+        "Production root-key custody, real identity provider, and institutional approver enrollment remain operational setup decisions."
+      ],
+      "owner_skills": [
+        "M00"
+      ],
+      "requirement_ids": [
+        "REQ-V2-004"
+      ],
+      "dependency_ids": [
+        "TST-001",
+        "TST-002"
+      ],
+      "output_ids": [
+        "VFY-003"
+      ],
+      "test_function": "test_tst_003_release_quorum_requires_distinct_approvers",
+      "duration_seconds": 0.01
+    },
+    {
+      "test_id": "TST-004",
+      "origin": "FND-001",
+      "layer": "SECURITY",
+      "title": "External registry root pin/signature is invalid",
+      "expected_result": "Reject registry; never fall back to project keys.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_004_external_registry_root_pin_and_signature_are_verified",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Cryptographic and authority checks were exercised using deterministic test keys and external-registry fixtures.",
+        "Production root-key custody, real identity provider, and institutional approver enrollment remain operational setup decisions."
+      ],
+      "owner_skills": [
+        "M00"
+      ],
+      "requirement_ids": [
+        "REQ-V2-004"
+      ],
+      "dependency_ids": [
+        "TST-001"
+      ],
+      "output_ids": [
+        "VFY-004"
+      ],
+      "test_function": "test_tst_004_external_registry_root_pin_and_signature_are_verified",
+      "duration_seconds": 0.086
+    },
+    {
+      "test_id": "TST-005",
+      "origin": "FND-002",
+      "layer": "SECURITY",
+      "title": "Indonesian injection in poster/caption/document source",
+      "expected_result": "Quarantine at intake and preserve source as untrusted data.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_005_indonesian_prompt_injection_quarantined_at_intake",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00",
+        "S01"
+      ],
+      "requirement_ids": [
+        "REQ-V2-005"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-005"
+      ],
+      "test_function": "test_tst_005_indonesian_prompt_injection_quarantined_at_intake",
+      "duration_seconds": 0.003
+    },
+    {
+      "test_id": "TST-006",
+      "origin": "FND-002",
+      "layer": "SECURITY",
+      "title": "Obfuscated injection uses homoglyph, zero-width or encoding",
+      "expected_result": "Normalized heuristic tests run; hits quarantine; no-hit is not security proof.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_006_obfuscated_injection_is_detected",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00",
+        "S01"
+      ],
+      "requirement_ids": [
+        "REQ-V2-005"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-006"
+      ],
+      "test_function": "test_tst_006_obfuscated_injection_is_detected",
+      "duration_seconds": 0.001
+    },
+    {
+      "test_id": "TST-007",
+      "origin": "FND-002",
+      "layer": "SECURITY",
+      "title": "New or transformed untrusted text appears after intake scan",
+      "expected_result": "Re-scan before execution/tool boundary.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_007_transformed_untrusted_text_is_rescanned_before_tool_boundary",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00"
+      ],
+      "requirement_ids": [
+        "REQ-V2-005"
+      ],
+      "dependency_ids": [
+        "TST-005",
+        "TST-006"
+      ],
+      "output_ids": [
+        "VFY-007"
+      ],
+      "test_function": "test_tst_007_transformed_untrusted_text_is_rescanned_before_tool_boundary",
+      "duration_seconds": 0.001
+    },
+    {
+      "test_id": "TST-008",
+      "origin": "FND-002",
+      "layer": "SECURITY",
+      "title": "Scanner errors or receives no actual source text",
+      "expected_result": "NOT_RUN/BLOCKED; not PASS.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_008_scanner_missing_text_or_error_fails_closed",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00",
+        "S01"
+      ],
+      "requirement_ids": [
+        "REQ-V2-005"
+      ],
+      "dependency_ids": [
+        "TST-005"
+      ],
+      "output_ids": [
+        "VFY-008"
+      ],
+      "test_function": "test_tst_008_scanner_missing_text_or_error_fails_closed",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-009",
+      "origin": "FND-003",
+      "layer": "PROVENANCE",
+      "title": "Source snapshot bytes do not match recorded hash",
+      "expected_result": "Source provenance gate FAILS.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_009_source_snapshot_hash_mismatch_fails",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Local provenance and lexical/support guards were tested against deterministic snapshots and fixtures.",
+        "This does not replace domain-expert or qualified clinical review of a real health claim."
+      ],
+      "owner_skills": [
+        "S01",
+        "S02"
+      ],
+      "requirement_ids": [
+        "REQ-V2-006"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-009"
+      ],
+      "test_function": "test_tst_009_source_snapshot_hash_mismatch_fails",
+      "duration_seconds": 0.001
+    },
+    {
+      "test_id": "TST-010",
+      "origin": "FND-003",
+      "layer": "EVIDENCE",
+      "title": "Claim quote absent, number unsupported or proposition contradicted",
+      "expected_result": "Lexical support check rejects/flags; no clinical truth claim.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_010_claim_quote_numbers_and_contradictions_fail_closed",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Local provenance and lexical/support guards were tested against deterministic snapshots and fixtures.",
+        "This does not replace domain-expert or qualified clinical review of a real health claim."
+      ],
+      "owner_skills": [
+        "S02"
+      ],
+      "requirement_ids": [
+        "REQ-V2-006"
+      ],
+      "dependency_ids": [
+        "TST-009"
+      ],
+      "output_ids": [
+        "VFY-010"
+      ],
+      "test_function": "test_tst_010_claim_quote_numbers_and_contradictions_fail_closed",
+      "duration_seconds": 0.001
+    },
+    {
+      "test_id": "TST-011",
+      "origin": "FND-003",
+      "layer": "EVIDENCE",
+      "title": "Source context has wrong date, jurisdiction or population",
+      "expected_result": "Claim PARTIAL/UNVERIFIED or human review; not VERIFIED from URL presence.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_011_context_mismatch_cannot_become_verified",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Local provenance and lexical/support guards were tested against deterministic snapshots and fixtures.",
+        "This does not replace domain-expert or qualified clinical review of a real health claim."
+      ],
+      "owner_skills": [
+        "S02"
+      ],
+      "requirement_ids": [
+        "REQ-V2-006"
+      ],
+      "dependency_ids": [
+        "TST-009"
+      ],
+      "output_ids": [
+        "VFY-011"
+      ],
+      "test_function": "test_tst_011_context_mismatch_cannot_become_verified",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-012",
+      "origin": "FND-006",
+      "layer": "DEPENDENCY",
+      "title": "Project-supplied expected_invalidated is manipulated",
+      "expected_result": "Independent oracle result is unchanged.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_012_independent_invalidation_oracle_ignores_project_expected_list",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00",
+        "S13"
+      ],
+      "requirement_ids": [
+        "REQ-V2-009"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-012"
+      ],
+      "test_function": "test_tst_012_independent_invalidation_oracle_ignores_project_expected_list",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-013",
+      "origin": "FND-006",
+      "layer": "DEPENDENCY",
+      "title": "Dependency graph has cycle or misses transitive dependent",
+      "expected_result": "Graph validation/invalidation test fails.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_013_dependency_cycles_and_missing_transitive_nodes_fail",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00",
+        "S13"
+      ],
+      "requirement_ids": [
+        "REQ-V2-009"
+      ],
+      "dependency_ids": [
+        "TST-012"
+      ],
+      "output_ids": [
+        "VFY-013"
+      ],
+      "test_function": "test_tst_013_dependency_cycles_and_missing_transitive_nodes_fail",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-014",
+      "origin": "FND-007",
+      "layer": "RESOURCE",
+      "title": "Required route has no approved budget profile",
+      "expected_result": "BLOCKED before expensive execution.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_014_missing_approved_resource_profile_blocks_route",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00",
+        "S10"
+      ],
+      "requirement_ids": [
+        "REQ-V2-010"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-014"
+      ],
+      "test_function": "test_tst_014_missing_approved_resource_profile_blocks_route",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-015",
+      "origin": "FND-007",
+      "layer": "RESOURCE",
+      "title": "Resource category is truly irrelevant with reason",
+      "expected_result": "NOT_APPLICABLE, not PASS.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_015_resource_not_applicable_requires_reason_and_zero_required_categories",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00",
+        "S10"
+      ],
+      "requirement_ids": [
+        "REQ-V2-010"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-015"
+      ],
+      "test_function": "test_tst_015_resource_not_applicable_requires_reason_and_zero_required_categories",
+      "duration_seconds": 0.001
+    },
+    {
+      "test_id": "TST-016",
+      "origin": "FND-004/FND-005",
+      "layer": "CONTROL_REGISTRY",
+      "title": "Registry and engine disagree on control ID/adapter/gate/risk/test/owner",
+      "expected_result": "Release consistency validation fails.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_016_control_registry_full_metadata_drift_fails",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00"
+      ],
+      "requirement_ids": [
+        "REQ-V2-007"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-016"
+      ],
+      "test_function": "test_tst_016_control_registry_full_metadata_drift_fails",
+      "duration_seconds": 0.028
+    },
+    {
+      "test_id": "TST-017",
+      "origin": "FND-004",
+      "layer": "COMPATIBILITY",
+      "title": "Legacy CTRL alias is missing, ambiguous or maps to unknown V4 control",
+      "expected_result": "Migration validation fails.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_017_legacy_alias_missing_ambiguous_or_unknown_fails",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00"
+      ],
+      "requirement_ids": [
+        "REQ-V2-007"
+      ],
+      "dependency_ids": [
+        "TST-016"
+      ],
+      "output_ids": [
+        "VFY-017"
+      ],
+      "test_function": "test_tst_017_legacy_alias_missing_ambiguous_or_unknown_fails",
+      "duration_seconds": 0.028
+    },
+    {
+      "test_id": "TST-018",
+      "origin": "HANDOFF",
+      "layer": "CONTRACT",
+      "title": "Handoff misses required field or uses wrong type",
+      "expected_result": "JSON Schema validation fails with field path.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_018_handoff_missing_field_and_wrong_type_rejected",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00"
+      ],
+      "requirement_ids": [
+        "REQ-V2-003"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-018"
+      ],
+      "test_function": "test_tst_018_handoff_missing_field_and_wrong_type_rejected",
+      "duration_seconds": 0.032
+    },
+    {
+      "test_id": "TST-019",
+      "origin": "HANDOFF",
+      "layer": "CONTRACT",
+      "title": "Handoff status COMPLETE has no output artifact",
+      "expected_result": "Schema validation rejects it.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_019_complete_handoff_requires_output_artifact",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00"
+      ],
+      "requirement_ids": [
+        "REQ-V2-003"
+      ],
+      "dependency_ids": [
+        "TST-018"
+      ],
+      "output_ids": [
+        "VFY-019"
+      ],
+      "test_function": "test_tst_019_complete_handoff_requires_output_artifact",
+      "duration_seconds": 0.036
+    },
+    {
+      "test_id": "TST-020",
+      "origin": "HANDOFF",
+      "layer": "SEMANTIC",
+      "title": "Handoff references unknown artifact or mismatched content hash",
+      "expected_result": "Semantic validation fails.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_020_unknown_artifact_and_content_hash_mismatch_fail",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00"
+      ],
+      "requirement_ids": [
+        "REQ-V2-003"
+      ],
+      "dependency_ids": [
+        "TST-018"
+      ],
+      "output_ids": [
+        "VFY-020"
+      ],
+      "test_function": "test_tst_020_unknown_artifact_and_content_hash_mismatch_fail",
+      "duration_seconds": 0.063
+    },
+    {
+      "test_id": "TST-021",
+      "origin": "S10/HANDOFF",
+      "layer": "CONTRACT",
+      "title": "S10 handoff lacks lane_id, or non-S10 handoff supplies it",
+      "expected_result": "Schema validation fails.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_021_s10_lane_is_required_only_for_s10",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00",
+        "S10"
+      ],
+      "requirement_ids": [
+        "REQ-V2-001"
+      ],
+      "dependency_ids": [
+        "TST-018"
+      ],
+      "output_ids": [
+        "VFY-021"
+      ],
+      "test_function": "test_tst_021_s10_lane_is_required_only_for_s10",
+      "duration_seconds": 0.089
+    },
+    {
+      "test_id": "TST-022",
+      "origin": "HANDOFF",
+      "layer": "AUTHORITY",
+      "title": "Producer self-claims clinical approval or independent QA outside owner scope",
+      "expected_result": "Semantic ownership validation fails.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_022_handoff_cannot_self_claim_clinical_or_independent_qa",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00",
+        "S12"
+      ],
+      "requirement_ids": [
+        "REQ-V2-003"
+      ],
+      "dependency_ids": [
+        "TST-018"
+      ],
+      "output_ids": [
+        "VFY-022"
+      ],
+      "test_function": "test_tst_022_handoff_cannot_self_claim_clinical_or_independent_qa",
+      "duration_seconds": 0.029
+    },
+    {
+      "test_id": "TST-023",
+      "origin": "HANDOFF",
+      "layer": "GATING",
+      "title": "Downstream stage consumes BLOCKED/INVALIDATED prerequisite",
+      "expected_result": "Dependent gate remains blocked.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_023_blocked_or_invalidated_prerequisite_blocks_downstream",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00"
+      ],
+      "requirement_ids": [
+        "REQ-V2-003"
+      ],
+      "dependency_ids": [
+        "TST-018",
+        "TST-020"
+      ],
+      "output_ids": [
+        "VFY-023"
+      ],
+      "test_function": "test_tst_023_blocked_or_invalidated_prerequisite_blocks_downstream",
+      "duration_seconds": 0.03
+    },
+    {
+      "test_id": "TST-024",
+      "origin": "S02",
+      "layer": "OPERATIONAL",
+      "title": "Compound health sentence contains multiple propositions",
+      "expected_result": "Extractor emits separate atomic claim IDs.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_024_compound_health_sentence_decomposed_into_atomic_claims",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S02"
+      ],
+      "requirement_ids": [
+        "REQ-V2-002"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-024"
+      ],
+      "test_function": "test_tst_024_compound_health_sentence_decomposed_into_atomic_claims",
+      "duration_seconds": 0.002
+    },
+    {
+      "test_id": "TST-025",
+      "origin": "S02",
+      "layer": "OPERATIONAL",
+      "title": "Source inaccessible, stale, contradicted or context-mismatched",
+      "expected_result": "Claim stays non-approved; affected content held.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_025_stale_missing_and_context_mismatch_claims_not_approved",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S02"
+      ],
+      "requirement_ids": [
+        "REQ-V2-002",
+        "REQ-V2-006"
+      ],
+      "dependency_ids": [
+        "TST-024"
+      ],
+      "output_ids": [
+        "VFY-025"
+      ],
+      "test_function": "test_tst_025_stale_missing_and_context_mismatch_claims_not_approved",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-026",
+      "origin": "S02",
+      "layer": "OPERATIONAL",
+      "title": "Plain-language simplification strengthens certainty or causality",
+      "expected_result": "Simplification rejected and routed to S02 review.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_026_health_simplification_cannot_strengthen_claim",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S02"
+      ],
+      "requirement_ids": [
+        "REQ-V2-002"
+      ],
+      "dependency_ids": [
+        "TST-024",
+        "TST-025"
+      ],
+      "output_ids": [
+        "VFY-026"
+      ],
+      "test_function": "test_tst_026_health_simplification_cannot_strengthen_claim",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-027",
+      "origin": "S03",
+      "layer": "OPERATIONAL",
+      "title": "Local demographic or dialect detail has no evidence",
+      "expected_result": "Mark assumption or use neutral Indonesian.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_027_local_demographic_or_dialect_detail_without_evidence_is_flagged",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S03"
+      ],
+      "requirement_ids": [
+        "REQ-V2-002"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-027"
+      ],
+      "test_function": "test_tst_027_local_demographic_or_dialect_detail_without_evidence_is_flagged",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-028",
+      "origin": "S03",
+      "layer": "OPERATIONAL",
+      "title": "Campaign blueprint contains conflicting objectives and CTAs",
+      "expected_result": "Prioritize or request resolution; no silent acceptance.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_028_campaign_requires_one_coherent_primary_objective_and_cta",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S03"
+      ],
+      "requirement_ids": [
+        "REQ-V2-002"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-028"
+      ],
+      "test_function": "test_tst_028_campaign_requires_one_coherent_primary_objective_and_cta",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-029",
+      "origin": "S04",
+      "layer": "OPERATIONAL",
+      "title": "Factual screenplay line has no claim/message trace",
+      "expected_result": "Narrative lock fails.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_029_factual_screenplay_line_without_trace_fails_narrative_lock",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S04"
+      ],
+      "requirement_ids": [
+        "REQ-V2-002"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-029"
+      ],
+      "test_function": "test_tst_029_factual_screenplay_line_without_trace_fails_narrative_lock",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-030",
+      "origin": "S04",
+      "layer": "OPERATIONAL",
+      "title": "Metaphor/dialogue introduces a new health proposition",
+      "expected_result": "Route to S02; S04 cannot approve it.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_030_metaphor_introducing_health_proposition_routes_to_s02",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S04",
+        "S02"
+      ],
+      "requirement_ids": [
+        "REQ-V2-002"
+      ],
+      "dependency_ids": [
+        "TST-029"
+      ],
+      "output_ids": [
+        "VFY-030"
+      ],
+      "test_function": "test_tst_030_metaphor_introducing_health_proposition_routes_to_s02",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-031",
+      "origin": "S05",
+      "layer": "OPERATIONAL",
+      "title": "Visual plan uses unapproved logo/likeness or unstable character identity",
+      "expected_result": "Keep DRAFT/HOLD; use generic placeholder or obtain permission.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_031_visual_plan_holds_unapproved_logo_likeness_and_stale_identity",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S05"
+      ],
+      "requirement_ids": [
+        "REQ-V2-002"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-031"
+      ],
+      "test_function": "test_tst_031_visual_plan_holds_unapproved_logo_likeness_and_stale_identity",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-032",
+      "origin": "S06/FND-009",
+      "layer": "TIMING",
+      "title": "No duration exists and no documented estimate/profile is declared",
+      "expected_result": "Acceptance fails; no hidden numeric default.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_032_missing_duration_and_profile_fails_acceptance",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S06",
+        "M00"
+      ],
+      "requirement_ids": [
+        "REQ-V2-011"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-032"
+      ],
+      "test_function": "test_tst_032_missing_duration_and_profile_fails_acceptance",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-033",
+      "origin": "S06/FND-009",
+      "layer": "TIMING",
+      "title": "Scene frame ranges and transition overlaps do not reconcile",
+      "expected_result": "Timeline arithmetic fails.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_033_scene_frame_arithmetic_rejects_unreconciled_overlap",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S06"
+      ],
+      "requirement_ids": [
+        "REQ-V2-011"
+      ],
+      "dependency_ids": [
+        "TST-032"
+      ],
+      "output_ids": [
+        "VFY-033"
+      ],
+      "test_function": "test_tst_033_scene_frame_arithmetic_rejects_unreconciled_overlap",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-034",
+      "origin": "S07",
+      "layer": "OPERATIONAL",
+      "title": "Motion record lacks units/fps/timebase or has invalid keyframe order",
+      "expected_result": "Motion acceptance fails.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_034_motion_schema_rejects_missing_units_and_keyframe_order",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S07"
+      ],
+      "requirement_ids": [
+        "REQ-V2-002"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-034"
+      ],
+      "test_function": "test_tst_034_motion_schema_rejects_missing_units_and_keyframe_order",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-035",
+      "origin": "S07/S13",
+      "layer": "CONTINUITY",
+      "title": "Motion state-out conflicts with next scene state-in",
+      "expected_result": "Route to S13; affected scene held.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_035_motion_state_discontinuity_routes_to_s13_and_holds",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S07",
+        "S13"
+      ],
+      "requirement_ids": [
+        "REQ-V2-002"
+      ],
+      "dependency_ids": [
+        "TST-034"
+      ],
+      "output_ids": [
+        "VFY-035"
+      ],
+      "test_function": "test_tst_035_motion_state_discontinuity_routes_to_s13_and_holds",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-036",
+      "origin": "S13",
+      "layer": "CONTINUITY",
+      "title": "Guide registry duplicates owner or scene uses stale lock",
+      "expected_result": "Continuity acceptance fails; downstream artifacts invalidated.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_036_guide_registry_duplicate_or_stale_lock_fails",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S13"
+      ],
+      "requirement_ids": [
+        "REQ-V2-002"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-036"
+      ],
+      "test_function": "test_tst_036_guide_registry_duplicate_or_stale_lock_fails",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-037",
+      "origin": "S13",
+      "layer": "DEPENDENCY",
+      "title": "Guide change affects downstream visual and scene artifacts",
+      "expected_result": "All dependent artifacts invalidated; unaffected branches preserved.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_037_guide_change_propagates_transitively_and_preserves_unaffected",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S13"
+      ],
+      "requirement_ids": [
+        "REQ-V2-002"
+      ],
+      "dependency_ids": [
+        "TST-036"
+      ],
+      "output_ids": [
+        "VFY-037"
+      ],
+      "test_function": "test_tst_037_guide_change_propagates_transitively_and_preserves_unaffected",
+      "duration_seconds": 0.001
+    },
+    {
+      "test_id": "TST-038",
+      "origin": "S10-MP/S10-RE",
+      "layer": "INTEGRATION",
+      "title": "Media Production Handoff omits mandatory composition mapping",
+      "expected_result": "Renderer Engineering rejects receipt with missing fields.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_038_media_production_handoff_missing_composition_mapping_rejected",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S10"
+      ],
+      "requirement_ids": [
+        "REQ-V2-001"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-038"
+      ],
+      "test_function": "test_tst_038_media_production_handoff_missing_composition_mapping_rejected",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-039",
+      "origin": "S10-RE",
+      "layer": "RUNTIME",
+      "title": "Renderer/runtime unavailable or unsupported",
+      "expected_result": "Return HANDOFF/UNAVAILABLE; no render claim.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_039_renderer_unavailable_returns_handoff_without_render_claim",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "S10"
+      ],
+      "requirement_ids": [
+        "REQ-V2-001"
+      ],
+      "dependency_ids": [
+        "TST-038"
+      ],
+      "output_ids": [
+        "VFY-039"
+      ],
+      "test_function": "test_tst_039_renderer_unavailable_returns_handoff_without_render_claim",
+      "duration_seconds": 0.0
+    },
+    {
+      "test_id": "TST-040",
+      "origin": "S10-RE",
+      "layer": "MEDIA",
+      "title": "Build passes but actual MP4 is absent",
+      "expected_result": "RENDERED_VERIFIED is prohibited.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_040_build_pass_without_mp4_does_not_claim_rendered_verified",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "PASS proves the local guard correctly refuses to infer real render/media QA/release without required evidence.",
+        "No actual renderer build, MP4 inspection, or independent human S12 review was performed."
+      ],
+      "owner_skills": [
+        "S10"
+      ],
+      "requirement_ids": [
+        "REQ-V2-001"
+      ],
+      "dependency_ids": [
+        "TST-038",
+        "TST-039"
+      ],
+      "output_ids": [
+        "VFY-040"
+      ],
+      "test_function": "test_tst_040_build_pass_without_mp4_does_not_claim_rendered_verified",
+      "duration_seconds": 0.001
+    },
+    {
+      "test_id": "TST-041",
+      "origin": "S10-RE/S12",
+      "layer": "MEDIA",
+      "title": "MP4 exists but is not opened or inspected",
+      "expected_result": "Media QA remains NOT_RUN/NOT_VERIFIED.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_041_existing_media_without_actual_inspection_remains_not_verified",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "PASS proves the local guard correctly refuses to infer real render/media QA/release without required evidence.",
+        "No actual renderer build, MP4 inspection, or independent human S12 review was performed."
+      ],
+      "owner_skills": [
+        "S10",
+        "S12"
+      ],
+      "requirement_ids": [
+        "REQ-V2-013"
+      ],
+      "dependency_ids": [
+        "TST-040"
+      ],
+      "output_ids": [
+        "VFY-041"
+      ],
+      "test_function": "test_tst_041_existing_media_without_actual_inspection_remains_not_verified",
+      "duration_seconds": 0.001
+    },
+    {
+      "test_id": "TST-042",
+      "origin": "S12",
+      "layer": "INDEPENDENCE",
+      "title": "Manifest says QA PASS but S12 has not inspected media",
+      "expected_result": "Actual-media QA remains NOT_RUN; no release inference.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_042_manifest_qa_pass_without_s12_inspection_cannot_release",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "PASS proves the local guard correctly refuses to infer real render/media QA/release without required evidence.",
+        "No actual renderer build, MP4 inspection, or independent human S12 review was performed."
+      ],
+      "owner_skills": [
+        "S12"
+      ],
+      "requirement_ids": [
+        "REQ-V2-013"
+      ],
+      "dependency_ids": [
+        "TST-041"
+      ],
+      "output_ids": [
+        "VFY-042"
+      ],
+      "test_function": "test_tst_042_manifest_qa_pass_without_s12_inspection_cannot_release",
+      "duration_seconds": 0.001
+    },
+    {
+      "test_id": "TST-043",
+      "origin": "ALL",
+      "layer": "COMPATIBILITY",
+      "title": "Additive migration changes skill IDs, paths, trigger or existing states",
+      "expected_result": "Compatibility test fails; restore interface or approve explicit migration.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_043_compatibility_preserves_skill_ids_paths_triggers_and_states",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00"
+      ],
+      "requirement_ids": [
+        "REQ-V2-012"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-043"
+      ],
+      "test_function": "test_tst_043_compatibility_preserves_skill_ids_paths_triggers_and_states",
+      "duration_seconds": 0.023
+    },
+    {
+      "test_id": "TST-044",
+      "origin": "M00",
+      "layer": "ROUTING",
+      "title": "POSTER_FIRST, AUDIO_FIRST, HYBRID and SCRIPT_FIRST representative inputs",
+      "expected_result": "Correct route and honest source/timing/capability limits.",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/test_v2_acceptance.py::test_tst_044_all_four_input_modes_route_and_preserve_timing_limits",
+        "reports/v2-acceptance-junit.xml"
+      ],
+      "environment": {
+        "verification_level": "LOCAL_DETERMINISTIC_CODE_AND_FIXTURE",
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+        "executed_at": "2026-11-17T11:57:38+08:00"
+      },
+      "limitations": [
+        "Verified against local deterministic implementation and test fixtures; not a live ChatGPT host/provider execution."
+      ],
+      "owner_skills": [
+        "M00"
+      ],
+      "requirement_ids": [
+        "REQ-V2-012"
+      ],
+      "dependency_ids": [],
+      "output_ids": [
+        "VFY-044"
+      ],
+      "test_function": "test_tst_044_all_four_input_modes_route_and_preserve_timing_limits",
+      "duration_seconds": 0.001
+    }
+  ],
+  "requirements": [
+    {
+      "requirement_id": "REQ-V2-001",
+      "title": "S10 two-lane ownership contract",
+      "owner_skills": [
+        "S10"
+      ],
+      "acceptance": "S10-MP and S10-RE boundaries, outputs and interface are explicit while external S10 identity remains unchanged."
+    },
+    {
+      "requirement_id": "REQ-V2-002",
+      "title": "Domain-specific operating depth",
+      "owner_skills": [
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S13"
+      ],
+      "acceptance": "Each targeted skill has method, decision rules, outputs, negative cases, recovery and tests."
+    },
+    {
+      "requirement_id": "REQ-V2-003",
+      "title": "Universal handoff envelope and semantic validator",
+      "owner_skills": [
+        "M00",
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S08",
+        "S09",
+        "S10",
+        "S11",
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "acceptance": "All skills can produce a schema-valid envelope; M00 validates references, ownership, hashes, dependencies and status semantics."
+    },
+    {
+      "requirement_id": "REQ-V2-004",
+      "title": "External trust root and human authority binding",
+      "owner_skills": [
+        "M00"
+      ],
+      "acceptance": "Project-controlled keys and role declarations cannot create trust; external identity/role/scope, revocation and quorum are verified."
+    },
+    {
+      "requirement_id": "REQ-V2-005",
+      "title": "Live prompt firewall and structural isolation",
+      "owner_skills": [
+        "M00",
+        "S01"
+      ],
+      "acceptance": "Actual untrusted source text is scanned, quarantined where needed, isolated from tools and rescanned when changed."
+    },
+    {
+      "requirement_id": "REQ-V2-006",
+      "title": "Verifiable source provenance and claim support",
+      "owner_skills": [
+        "S01",
+        "S02"
+      ],
+      "acceptance": "Source bytes/snapshot, hash, support locator, claim relation and qualified human review are independently traceable."
+    },
+    {
+      "requirement_id": "REQ-V2-007",
+      "title": "Single canonical control registry/evaluator",
+      "owner_skills": [
+        "M00"
+      ],
+      "acceptance": "One registry drives control identity and dispatch; legacy IDs map explicitly during migration."
+    },
+    {
+      "requirement_id": "REQ-V2-008",
+      "title": "Full registry/runtime parity",
+      "owner_skills": [
+        "M00"
+      ],
+      "acceptance": "All control metadata fields match the canonical registry and implementation."
+    },
+    {
+      "requirement_id": "REQ-V2-009",
+      "title": "Independent invalidation oracle",
+      "owner_skills": [
+        "M00",
+        "S13"
+      ],
+      "acceptance": "Transitive closure is computed independently of project-supplied expected output and is property-tested."
+    },
+    {
+      "requirement_id": "REQ-V2-010",
+      "title": "Fail-closed resource ceiling",
+      "owner_skills": [
+        "M00",
+        "S10"
+      ],
+      "acceptance": "Every applicable route has approved budget ceilings and evidence; missing required budgets block execution."
+    },
+    {
+      "requirement_id": "REQ-V2-011",
+      "title": "Explicit duration provenance and defaults",
+      "owner_skills": [
+        "M00",
+        "S06",
+        "S09"
+      ],
+      "acceptance": "Duration basis is explicit and frame arithmetic is reproducible; no implicit numeric default."
+    },
+    {
+      "requirement_id": "REQ-V2-012",
+      "title": "Identity and release compatibility",
+      "owner_skills": [
+        "M00"
+      ],
+      "acceptance": "No unapproved M00–S14 identity, path, trigger, state or API break."
+    },
+    {
+      "requirement_id": "REQ-V2-013",
+      "title": "Independent QA and output-level evidence",
+      "owner_skills": [
+        "S12",
+        "S10"
+      ],
+      "acceptance": "Package, asset, renderer, actual media and human approval are separate QA levels."
+    }
+  ],
+  "execution": {
+    "executed_at": "2026-11-17T11:57:38+08:00",
+    "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. pytest -q -p no:cacheprovider --junitxml=reports/v2-acceptance-junit.xml tests/test_v2_acceptance.py",
+    "test_count": 44,
+    "passed": 44,
+    "failed": 0,
+    "skipped": 0,
+    "environment": {
+      "python": "3.13.5",
+      "platform": "Linux-6.18.57-x86_64-with-glibc2.41"
+    },
+    "test_source_sha256": "b825597ae0d39f48c9977238c5e520fb173062e107395de2d46adc53a7330e38",
+    "junit_ref": "reports/v2-acceptance-junit.xml",
+    "working_copy": "/mnt/data/v2-work/implementation-repo",
+    "repository_commit_sha": null,
+    "execution_scope": "Local deterministic implementation and fixtures only; no external services or live production runtime."
+  }
+}
