@@ -1,4 +1,4 @@
-# Video Explainer Promkes V4.1.9 — evidence-gated production compiler
+# Video Explainer Promkes V4.1.12 candidate — evidence-gated production compiler
 
 **Architecture:** M00 + S01–S13 production specialists with S14 as mandatory cross-cutting conversation/release preflight. **Private engine parity:** PARTIAL / NOT_SYNCED. **Production/public release:** HOLD.
 
@@ -82,3 +82,17 @@ See `docs/conversation-context-register-v4.1.4.json`, `docs/release-audit-v4.1.4
 - No S15/S16 and no new production gate. Existing ownership remains M00/S01/S08/S12/S13/S14; S02 retains exclusive health-claim interpretation.
 - PR #24 exact-head CI was successful (120 pytest checks; package and link jobs success). PR #25 reverted that merge; rationale remains unknown.
 - Scenario acceptance suites, live host invocation, scheduler, external model runtime, renderer render/export, MP4 inspection, independent human review and publication approvals remain separately evidenced.
+
+
+
+## V2 evolutionary enforcement overlay — review candidate
+
+This branch adds deterministic enforcement while preserving current M00 + S01–S14 identities, source-tree paths, triggers and the V4.1.9/V4.1.11 feature line.
+
+- Universal handoff: `schemas/v4/handoff-envelope.schema.json`, with structural validation and semantic artifact-index, byte-hash, producer/owner and dependency checks in `scripts/promkes_v2/handoff.py`.
+- S10 remains one public skill (`editing-postproduction`) with two internal lanes: `S10-MP` Media Production and `S10-RE` Renderer Engineering. See `skills/editing-postproduction/references/s10-two-lane-contract.md`.
+- S02, S03, S04, S05, S06, S07 and S13 have domain-specific procedures under each skill's `references/v2-operational-protocol.md`.
+- FND-001–FND-009 are addressed through external trust-root verification, prompt isolation/quarantine, source snapshot checks, canonical control registry, independent invalidation, signed resource ceilings, deeper specialist procedures and explicit duration policy.
+- New V2 suite: 44 acceptance cases plus hardening tests. CI runs the 44-case suite, full repository pytest, V2 registry validation and package/release consistency.
+
+The local V2 working copy previously passed 44/44 acceptance and 162/162 repository tests. Those are local results only. GitHub Actions on this branch will provide the authoritative result for the exact branch head. This overlay does not claim live host/provider/ASR/TTS execution, clinical or institutional approval, Remotion render, MP4 QA, rights clearance or publication approval.

@@ -73,3 +73,8 @@ Specify voice-first balance, ducking, fades, gain staging, EQ, compression, limi
 ## Stop conditions
 
 No audio/metadata claim without access; no speech invented; no exact timestamp without evidence; no guessed speaker identity; no unapproved voice imitation; no unlicensed audio cleared for publication; no processed-audio claim without artifact and inspection; no external transfer of private audio without authorization.
+
+
+## V2 universal handoff contract
+
+For every producer/receiver transfer, emit and validate `schemas/v4/handoff-envelope.schema.json` through the M00 V2 handoff procedure. Preserve this skill's public ID, trigger and domain ownership. Populate producer/recipient, case/project IDs, typed input/output artifact refs, decisions, inferences, assumptions, unknowns, conflicts, inherited constraints, trace links, acceptance checks and limitations. A JSON Schema PASS is structural only: semantic validation must resolve externally indexed artifacts, verify actual bytes/hashes, check producer identity from M00 dispatch context and confirm dependency status. Missing evidence remains `UNKNOWN`, `NOT_RUN` or `BLOCKED`; never manufacture PASS.

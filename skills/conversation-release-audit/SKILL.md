@@ -64,3 +64,12 @@ The human-accepted baseline is a separate record. Do not update it in the monito
 For each drift event trace endpoint → observation/snapshot → feature delta → affected adapter/formula/scene dependencies → S08 reassessment → S12 regression → human disposition. No observation auto-approves a model or changes any capability status.
 
 S14 remains COMPLETE and mandatory in all risk lanes. Record any preflight shortfall as BLOCKED; do not reduce required controls of R2/R3.
+
+
+## V2 universal handoff contract
+
+For every producer/receiver transfer, emit and validate `schemas/v4/handoff-envelope.schema.json` through the M00 V2 handoff procedure. Preserve this skill's public ID, trigger and domain ownership. Populate producer/recipient, case/project IDs, typed input/output artifact refs, decisions, inferences, assumptions, unknowns, conflicts, inherited constraints, trace links, acceptance checks and limitations. A JSON Schema PASS is structural only: semantic validation must resolve externally indexed artifacts, verify actual bytes/hashes, check producer identity from M00 dispatch context and confirm dependency status. Missing evidence remains `UNKNOWN`, `NOT_RUN` or `BLOCKED`; never manufacture PASS.
+
+## V2 source parity checks
+
+For each V2 update compare plugin identity/manifest, public skills, product-specific slug aliases, schemas, executable modules, protocols, acceptance cases, README/CHANGELOG, branch/commit and exact-head CI. Keep GitHub and private-plugin source trees distinct; mark each component SYNCED, INTENTIONALLY_DIVERGENT, MISSING, STALE or NOT_CHECKED with exact evidence. Private-plugin read-back is separate from GitHub PR, merge, CI and release state.

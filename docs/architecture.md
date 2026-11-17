@@ -74,3 +74,14 @@ MCG controls creative identity; the production manifest controls operational sta
 The existing S06/S07/S08/S10/S12/M00/S13 ownership model is retained. S06 owns camera and shot plans; S07 owns quantified element motion records; S08 owns prompt compilation and version-pinned model dialect adapters; S10 owns renderer field mapping; S12 owns independent cinematic QA; S13 owns continuity; M00 arbitrates dependencies and gates. No S15 is added.
 
 Motion records are validated by schemas/v4/motion-record.schema.json and scripts/validate_motion_contract.py. Platform adapter evidence is represented by schemas/v4/video-platform-adapter.schema.json. These are additive contracts and do not assert that any target model or renderer has been tested.
+
+
+## V2 evolutionary enforcement layer (review candidate)
+
+All M00–S14 producers and receivers exchange a typed envelope using `schemas/v4/handoff-envelope.schema.json`. Structural validation is complemented by semantic validation resolving every artifact through an external index, verifying actual bytes against SHA-256, checking producer identity from M00 dispatch context and validating dependency states. No handoff can authorize its own producer identity or artifact index.
+
+S10 remains one public skill. `S10-MP` owns editorial assembly, composition, timelines, overlays, subtitles, audio integration and export specification. `S10-RE` owns renderer capability analysis, adapter mapping, implementation, build/runtime, render execution and technical output verification. Their interface is the composition contract and renderer report; S12 independently inspects evidence.
+
+Domain procedures are referenced by S02, S03, S04, S05, S06, S07 and S13 under each skill's `references/v2-operational-protocol.md`. V2 enforcement modules live in `scripts/promkes_v2/`. Trust roots and resource ceilings are externally provisioned, not self-authorized project fields. Prompt isolation scans actual text at intake and quarantine boundaries; no-match is not a security certification.
+
+The new 44 V2 acceptance cases are separate from the legacy 45 acceptance / 13 reference / 18 scenario inventory. Record exact test IDs and JUnit evidence. GitHub CI results apply only to the recorded branch head SHA. Production/public release remains subject to actual runtime, media inspection and human approval gates.

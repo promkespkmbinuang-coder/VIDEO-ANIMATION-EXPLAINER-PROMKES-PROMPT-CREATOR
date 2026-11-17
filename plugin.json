@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "video-animasi-explainer-promkes-prompt-creator",
-  "version": "4.1.9",
-  "description": "Evidence-governed health-promotion explainer production with governed formula reuse, model-drift review, conservative risk-proportional preflight and process-only outcome measurement.",
+  "version": "4.1.12",
+  "description": "Evidence-governed health-promotion explainer production with governed formula reuse, model-drift review, conservative risk-proportional preflight and process-only outcome measurement. V2 additive enforcement overlay with universal handoffs, externally rooted trust, input quarantine and S10 two-lane responsibilities.",
   "keywords": [
     "health promotion",
     "public health",

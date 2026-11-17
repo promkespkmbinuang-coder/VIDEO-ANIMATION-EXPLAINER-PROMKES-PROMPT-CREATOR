@@ -76,3 +76,12 @@ For each meaningful narrative beat, provide stable beat ID, order, half-open tim
 ## V4.1.11 optional Remotion pattern catalogue
 
 For Remotion-targeted motion specification, consult `references/remotion-pattern-adoption-v4.1.11.md`. Treat the catalogue as optional pattern candidates, not universal style rules. Keep source timing precision, visual canon, approved health claims, reduced-motion and accessibility constraints. A selected pattern is not evidence of renderer support; S10 must verify the exact target mapping.
+
+
+## V2 universal handoff contract
+
+For every producer/receiver transfer, emit and validate `schemas/v4/handoff-envelope.schema.json` through the M00 V2 handoff procedure. Preserve this skill's public ID, trigger and domain ownership. Populate producer/recipient, case/project IDs, typed input/output artifact refs, decisions, inferences, assumptions, unknowns, conflicts, inherited constraints, trace links, acceptance checks and limitations. A JSON Schema PASS is structural only: semantic validation must resolve externally indexed artifacts, verify actual bytes/hashes, check producer identity from M00 dispatch context and confirm dependency status. Missing evidence remains `UNKNOWN`, `NOT_RUN` or `BLOCKED`; never manufacture PASS.
+
+## V2 operating procedure
+
+Follow `skills/animation-motion-design/references/v2-operational-protocol.md` for element states, keyframes, easing, paths, units, half-open frame ranges, accessibility and renderer-neutral motion feasibility. S07 does not take over S06 camera or S10 renderer implementation decisions.
