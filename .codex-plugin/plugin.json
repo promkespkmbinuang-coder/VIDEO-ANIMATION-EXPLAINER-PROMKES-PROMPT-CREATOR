@@ -1,8 +1,8 @@
 {
   "interface": {
-    "displayName": "Video Explainer Promkes V4.1.12",
+    "displayName": "Video Explainer Promkes 4.1.12",
     "shortDescription": "Evidence-gated Promkes",
-    "longDescription": "Evidence-gated production compiler with governed reuse, immutable model drift observations, mandatory S14 preflight in every risk lane, conservative R0-R3 routing and process-only outcomes. No scheduler, model auto-approval, runtime, render or human release approval is claimed. Adds universal handoff validation, external trust controls, domain procedures and S10 two-lane responsibilities.",
+    "longDescription": "Evidence-gated production compiler with governed reuse, immutable model drift observations, mandatory S14 preflight in every risk lane, conservative R0-R3 routing and process-only outcomes. No scheduler, model auto-approval, runtime, render or human release approval is claimed. Adds universal handoff validation, external trust controls, specialist procedures and the S10 two-lane responsibility contract.",
     "developerName": "Promkes pkm binuang",
     "category": "Healthcare",
     "capabilities": [],
@@ -27,7 +27,7 @@
   },
   "name": "video-animasi-explainer-promkes-prompt-creator",
   "version": "4.1.12",
-  "description": "Evidence-governed health-promotion explainer production with governed formula reuse, model-drift review, conservative risk-proportional preflight and process-only outcome measurement.",
+  "description": "Evidence-governed health-promotion explainer production with governed formula reuse, model-drift review, conservative risk-proportional preflight and process-only outcome measurement. V2 adds a universal handoff contract, external trust controls, intake quarantine, specialist procedures and two internal S10 responsibility lanes.",
   "author": {
     "name": "Promkes pkm binuang",
     "email": "promkes.pkm.binuang@gmail.com"

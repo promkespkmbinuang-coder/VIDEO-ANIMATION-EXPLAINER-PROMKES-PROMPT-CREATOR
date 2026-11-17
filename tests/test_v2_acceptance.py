@@ -497,12 +497,15 @@ def test_tst_041_existing_media_without_actual_inspection_remains_not_verified(t
 
 
 # TST-042 — manifest QA PASS is not a substitute for independent S12 media inspection.
-def test_tst_042_manifest_qa_pass_without_s12_inspection_cannot_release():
-    result = delivery_claim(build_status="PASS", output_path=ROOT / "tests/artifacts/sample.mp4",
+def test_tst_042_manifest_qa_pass_without_s12_inspection_cannot_release(tmp_path):
+    # A fixture file is present so this exercises failed independent QA, not
+    # the separate "output file absent" branch which correctly returns RENDER_READY.
+    media = tmp_path / "sample.mp4"
+    media.write_bytes(b"\x00\x00\x00\x18ftypisom" + b"\x00" * 16)
+    result = delivery_claim(build_status="PASS", output_path=media,
                             media_inspection={"status": "PASS"},
                             s12_media_qa={"status": "PASS", "inspected_by": "S10", "artifact_hash_verified": False})
     assert result["status"] == "RENDERED_PARTIALLY_VERIFIED" and not result["release_ready"]
-
 
 # TST-043 — additive change is compatible; identity/path/trigger/state changes fail.
 def test_tst_043_compatibility_preserves_skill_ids_paths_triggers_and_states(tmp_path):

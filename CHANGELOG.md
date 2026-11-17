@@ -1,6 +1,6 @@
 # Changelog
 
-## V4.1.12 candidate — V2 evolutionary enforcement overlay (2026-11-17; PR review required)
+## 4.1.12 — V2 evolutionary enforcement overlay (2026-11-17; candidate under Draft PR review)
 - Adds universal handoff schema and semantic validation for external artifact index, exact byte hashes, producer/owner identity and dependency status.
 - Preserves M00 + S01–S14 public skill identities and introduces only internal S10-MP/S10-RE lane responsibilities.
 - Adds domain-specific S02/S03/S04/S05/S06/S07/S13 operating procedures.
