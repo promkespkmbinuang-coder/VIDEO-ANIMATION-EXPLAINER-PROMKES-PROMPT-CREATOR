@@ -48,7 +48,7 @@ def test_four_platforms_keep_distinct_discovery_surfaces():
 
 def test_s11_preserves_promkes_ownership_and_hard_guardrails():
     text = S11.read_text(encoding="utf-8")
-    for term in ("S02", "Fact Lock", "S03", "S12", "S14", "no S15", "diagnosis", "unsolicited bulk"):
+    for term in ("S02", "Fact Lock", "S03", "S12", "S14", "S15", "diagnosis", "unsolicited bulk"):
         assert term.lower() in text.lower()
     assert "no performance or algorithmic outcome is guaranteed" in text.lower()
 

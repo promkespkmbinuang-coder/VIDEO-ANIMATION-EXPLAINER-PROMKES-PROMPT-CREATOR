@@ -1,3 +1,12 @@
+## Unreleased — S11 multiplatform social distribution architecture (2026-11-17)
+- Extends S11 as one bounded owner with five internal lanes; no S15 or new production gate is added.
+- Classifies all 18 Instagram Agent capabilities as 1 ADOPTABLE, 8 PARTIAL and 9 ABSENT against the inspected Promkes baseline.
+- Adds distinct Instagram, Facebook, TikTok and YouTube surface adapters, including platform-specific formats, documented signal families, metrics and eligibility/originality controls.
+- Adds source/claim-safe hook review, beat-sheet reuse, caption linting, carousel/Story planning, profile/calendar/competitor/performance reviews, community triage, consent-aware DM drafts, repurposing, language quality, voice profile and a privacy-minimized learning ledger.
+- Adds separate social-distribution acceptance specifications and traceability; existing 45 AT + 13 REF cases remain unchanged and NOT_RUN.
+- Platform-source observations are dated snapshots; no exact private ranking weights, algorithmic guarantees, live account execution or automatic posting are claimed.
+- Manifest versions remain 4.1.9 pending S14 source/private version reconciliation; this change is an Unreleased branch candidate, not a release.
+
 ## 4.1.9 — governed reuse, drift review and risk-proportional preflight (2026-11-14)
 - Adds JSON Schema and semantic validation for AFL, immutable MDS observations and human-accepted baselines, non-authoritative MSA, process-only POR and risk-proportional preflight.
 - APPROVED formula requires clear rights, provenance, scope, test evidence, independent S12 QA and human approval bound to exact formula hash.
