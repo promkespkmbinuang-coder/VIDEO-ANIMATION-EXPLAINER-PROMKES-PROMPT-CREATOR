@@ -121,6 +121,6 @@ Retrieve formula patterns only from AFL records that validate as APPROVED, right
 For model advice, return at most three candidates. Every candidate needs exact provider, model and version; list each relevant feature as DOCS_VERIFIED, RUNTIME_TESTED, UNKNOWN, NOT_CHECKED, STALE or BLOCKED with evidence refs. State trade-offs and unknowns. Never invent a global-best/safest model, silently choose for the user, promote capability status, or change risk lane. Explicit selection belongs to USER/PROJECT_OWNER.
 
 
-## V2 universal handoff contract
+## V2 Universal Handoff Contract
 
 For every producer/receiver transfer, emit and validate `schemas/v4/handoff-envelope.schema.json` through the M00 V2 handoff procedure. Preserve this skill's public ID, trigger and domain ownership. Populate producer/recipient, case/project IDs, typed input/output artifact refs, decisions, inferences, assumptions, unknowns, conflicts, inherited constraints, trace links, acceptance checks and limitations. A JSON Schema PASS is structural only: semantic validation must resolve externally indexed artifacts, verify actual bytes/hashes, check producer identity from M00 dispatch context and confirm dependency status. Missing evidence remains `UNKNOWN`, `NOT_RUN` or `BLOCKED`; never manufacture PASS.

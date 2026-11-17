@@ -210,7 +210,7 @@ M00 orchestrates existing owners and does not absorb their domain decisions.
 Run python scripts/learning_asset_engine.py schema-check and validate each supplied governance bundle before use. Static validation establishes record conformance only, not persistent storage, external fetch, model runtime, scheduler, renderer, human authority or release approval.
 
 
-## V2 universal handoff contract
+## V2 Universal Handoff Contract
 
 For every producer/receiver transfer, emit and validate `schemas/v4/handoff-envelope.schema.json` through the M00 V2 handoff procedure. Preserve this skill's public ID, trigger and domain ownership. Populate producer/recipient, case/project IDs, typed input/output artifact refs, decisions, inferences, assumptions, unknowns, conflicts, inherited constraints, trace links, acceptance checks and limitations. A JSON Schema PASS is structural only: semantic validation must resolve externally indexed artifacts, verify actual bytes/hashes, check producer identity from M00 dispatch context and confirm dependency status. Missing evidence remains `UNKNOWN`, `NOT_RUN` or `BLOCKED`; never manufacture PASS.
 

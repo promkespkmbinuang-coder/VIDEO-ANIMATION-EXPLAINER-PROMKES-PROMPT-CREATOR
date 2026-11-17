@@ -96,7 +96,7 @@ Before a formula may enter AFL APPROVED, independently inspect source provenance
 For POR, review only process metrics with explicit numerator, denominator, cohort, window, evidence, missingness and limitations. Reject audience/patient behavioral-health data, inferred clinical outcomes, unsupplied analytics, denominator-free percentages and targets invented before baseline measurement. QA escape and risk misclassification are not averaged away.
 
 
-## V2 universal handoff contract
+## V2 Universal Handoff Contract
 
 For every producer/receiver transfer, emit and validate `schemas/v4/handoff-envelope.schema.json` through the M00 V2 handoff procedure. Preserve this skill's public ID, trigger and domain ownership. Populate producer/recipient, case/project IDs, typed input/output artifact refs, decisions, inferences, assumptions, unknowns, conflicts, inherited constraints, trace links, acceptance checks and limitations. A JSON Schema PASS is structural only: semantic validation must resolve externally indexed artifacts, verify actual bytes/hashes, check producer identity from M00 dispatch context and confirm dependency status. Missing evidence remains `UNKNOWN`, `NOT_RUN` or `BLOCKED`; never manufacture PASS.
 

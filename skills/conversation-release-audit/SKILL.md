@@ -66,7 +66,7 @@ For each drift event trace endpoint → observation/snapshot → feature delta �
 S14 remains COMPLETE and mandatory in all risk lanes. Record any preflight shortfall as BLOCKED; do not reduce required controls of R2/R3.
 
 
-## V2 universal handoff contract
+## V2 Universal Handoff Contract
 
 For every producer/receiver transfer, emit and validate `schemas/v4/handoff-envelope.schema.json` through the M00 V2 handoff procedure. Preserve this skill's public ID, trigger and domain ownership. Populate producer/recipient, case/project IDs, typed input/output artifact refs, decisions, inferences, assumptions, unknowns, conflicts, inherited constraints, trace links, acceptance checks and limitations. A JSON Schema PASS is structural only: semantic validation must resolve externally indexed artifacts, verify actual bytes/hashes, check producer identity from M00 dispatch context and confirm dependency status. Missing evidence remains `UNKNOWN`, `NOT_RUN` or `BLOCKED`; never manufacture PASS.
 

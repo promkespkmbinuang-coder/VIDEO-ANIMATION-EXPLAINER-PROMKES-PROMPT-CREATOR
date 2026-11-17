@@ -61,7 +61,7 @@ S01 owns candidate formula intake, not approval. For each candidate capture immu
 Create a DRAFT/CANDIDATE AFL record. S01 cannot mark it APPROVED, interpret health claims or transfer Fact Lock. Missing/unclear rights means UNKNOWN/RESTRICTED and blocks reuse/publication. Formula records store claim IDs as references only, never copied claim wording or clinical interpretation. Route candidate to S08 for fit assessment and S12 for independent QA; require authorized human approval bound to the exact formula content hash.
 
 
-## V2 universal handoff contract
+## V2 Universal Handoff Contract
 
 For every producer/receiver transfer, emit and validate `schemas/v4/handoff-envelope.schema.json` through the M00 V2 handoff procedure. Preserve this skill's public ID, trigger and domain ownership. Populate producer/recipient, case/project IDs, typed input/output artifact refs, decisions, inferences, assumptions, unknowns, conflicts, inherited constraints, trace links, acceptance checks and limitations. A JSON Schema PASS is structural only: semantic validation must resolve externally indexed artifacts, verify actual bytes/hashes, check producer identity from M00 dispatch context and confirm dependency status. Missing evidence remains `UNKNOWN`, `NOT_RUN` or `BLOCKED`; never manufacture PASS.
 undefined
