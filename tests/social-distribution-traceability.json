@@ -1,0 +1,473 @@
+{
+  "schema_version": "1.0.0",
+  "suite": "s11-multiplatform-social-distribution",
+  "description": "Separate traceability join for S11 social-distribution scenarios. Kept outside the baseline AT/REF/V2 sidecar.",
+  "requirements": [
+    {
+      "requirement_id": "S11-SD-REQ-01",
+      "title": "Upstream truth and provenance",
+      "statement": "Every material claim in social output traces to S02 Fact Lock and source provenance."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-02",
+      "title": "Campaign alignment",
+      "statement": "Every package preserves S03 audience, behavioral objective, key message and CTA."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-03",
+      "title": "Surface-specific adaptation",
+      "statement": "Each platform and discovery surface uses its own packaging and measurement profile."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-04",
+      "title": "Instagram surface distinction",
+      "statement": "Instagram Feed, Reels, Stories, Explore, Search and Carousel are not conflated."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-05",
+      "title": "Facebook originality and integrity",
+      "statement": "Facebook outputs respect original contribution, anti-spam and community context."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-06",
+      "title": "TikTok recommendation eligibility",
+      "statement": "TikTok For You eligibility and Search intent are separate preflight concerns."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-07",
+      "title": "YouTube viewer satisfaction",
+      "statement": "YouTube discovery surfaces and format-specific analytics are treated separately."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-08",
+      "title": "Truthful editorial hooks",
+      "statement": "Hook review is non-predictive and applies hard safety vetoes."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-09",
+      "title": "Caption lint profile",
+      "statement": "Caption lint uses dated surface profiles and exposes unknown constraints."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-10",
+      "title": "Accessible format engineering",
+      "statement": "Carousel, Story, short and long-form outputs retain accessibility and comprehension."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-11",
+      "title": "Privacy and consent",
+      "statement": "Community interactions minimize sensitive data and respect consent."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-12",
+      "title": "Human community escalation",
+      "statement": "Urgent, clinical, complaint and sensitive cases route to authorized humans."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-13",
+      "title": "Comparable analytics",
+      "statement": "Every metric states numerator, denominator, cohort, format, window and missingness."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-14",
+      "title": "Rights-aware repurposing",
+      "statement": "Repurposed assets preserve attribution, rights, claims and context."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-15",
+      "title": "Language and voice integrity",
+      "statement": "Language edits preserve protected terms, units, Unicode and scoped voice."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-16",
+      "title": "Human publication authority",
+      "statement": "No account action occurs without explicit authorization and supported tools."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-17",
+      "title": "Platform evidence freshness",
+      "statement": "Platform documentation observations are dated and stale/unavailable states fail closed."
+    },
+    {
+      "requirement_id": "S11-SD-REQ-18",
+      "title": "Independent QA and honest status",
+      "statement": "S12 QA, human approval and test execution remain distinct states."
+    }
+  ],
+  "outputs": [
+    {
+      "output_id": "S11-SD-OUT-01",
+      "title": "Platform-specific publication package"
+    },
+    {
+      "output_id": "S11-SD-OUT-02",
+      "title": "Hook review and spoken/on-screen pair"
+    },
+    {
+      "output_id": "S11-SD-OUT-03",
+      "title": "Social beat-sheet overlay"
+    },
+    {
+      "output_id": "S11-SD-OUT-04",
+      "title": "Caption lint report"
+    },
+    {
+      "output_id": "S11-SD-OUT-05",
+      "title": "Carousel/Story/short/long format specification"
+    },
+    {
+      "output_id": "S11-SD-OUT-06",
+      "title": "Profile, calendar and competitor review"
+    },
+    {
+      "output_id": "S11-SD-OUT-07",
+      "title": "Comment/reply/DM triage and draft"
+    },
+    {
+      "output_id": "S11-SD-OUT-08",
+      "title": "Performance and activity learning ledger"
+    }
+  ],
+  "cases": {
+    "SD-001": {
+      "requirement_ids": [
+        "S11-SD-REQ-01"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-01"
+      ]
+    },
+    "SD-002": {
+      "requirement_ids": [
+        "S11-SD-REQ-02"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-01"
+      ]
+    },
+    "SD-003": {
+      "requirement_ids": [
+        "S11-SD-REQ-03"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-01"
+      ]
+    },
+    "SD-004": {
+      "requirement_ids": [
+        "S11-SD-REQ-04"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-01"
+      ]
+    },
+    "SD-005": {
+      "requirement_ids": [
+        "S11-SD-REQ-04"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-02"
+      ]
+    },
+    "SD-006": {
+      "requirement_ids": [
+        "S11-SD-REQ-11"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-05"
+      ]
+    },
+    "SD-007": {
+      "requirement_ids": [
+        "S11-SD-REQ-10"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-05"
+      ]
+    },
+    "SD-008": {
+      "requirement_ids": [
+        "S11-SD-REQ-10"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-05"
+      ]
+    },
+    "SD-009": {
+      "requirement_ids": [
+        "S11-SD-REQ-05"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-05"
+      ]
+    },
+    "SD-010": {
+      "requirement_ids": [
+        "S11-SD-REQ-05"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-05"
+      ]
+    },
+    "SD-011": {
+      "requirement_ids": [
+        "S11-SD-REQ-05"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-05"
+      ]
+    },
+    "SD-012": {
+      "requirement_ids": [
+        "S11-SD-REQ-06"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-01"
+      ]
+    },
+    "SD-013": {
+      "requirement_ids": [
+        "S11-SD-REQ-06"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-01"
+      ]
+    },
+    "SD-014": {
+      "requirement_ids": [
+        "S11-SD-REQ-06"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-01"
+      ]
+    },
+    "SD-015": {
+      "requirement_ids": [
+        "S11-SD-REQ-06"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-01"
+      ]
+    },
+    "SD-016": {
+      "requirement_ids": [
+        "S11-SD-REQ-07"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-01"
+      ]
+    },
+    "SD-017": {
+      "requirement_ids": [
+        "S11-SD-REQ-07"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-01"
+      ]
+    },
+    "SD-018": {
+      "requirement_ids": [
+        "S11-SD-REQ-07"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-01"
+      ]
+    },
+    "SD-019": {
+      "requirement_ids": [
+        "S11-SD-REQ-08"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-02"
+      ]
+    },
+    "SD-020": {
+      "requirement_ids": [
+        "S11-SD-REQ-08"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-02"
+      ]
+    },
+    "SD-021": {
+      "requirement_ids": [
+        "S11-SD-REQ-03"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-03"
+      ]
+    },
+    "SD-022": {
+      "requirement_ids": [
+        "S11-SD-REQ-09"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-04"
+      ]
+    },
+    "SD-023": {
+      "requirement_ids": [
+        "S11-SD-REQ-03"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-06"
+      ]
+    },
+    "SD-024": {
+      "requirement_ids": [
+        "S11-SD-REQ-12"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-07"
+      ]
+    },
+    "SD-025": {
+      "requirement_ids": [
+        "S11-SD-REQ-11"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-07"
+      ]
+    },
+    "SD-026": {
+      "requirement_ids": [
+        "S11-SD-REQ-13"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-06"
+      ]
+    },
+    "SD-027": {
+      "requirement_ids": [
+        "S11-SD-REQ-13"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-06"
+      ]
+    },
+    "SD-028": {
+      "requirement_ids": [
+        "S11-SD-REQ-14"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-08"
+      ]
+    },
+    "SD-029": {
+      "requirement_ids": [
+        "S11-SD-REQ-15"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-08"
+      ]
+    },
+    "SD-030": {
+      "requirement_ids": [
+        "S11-SD-REQ-15"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-08"
+      ]
+    },
+    "SD-031": {
+      "requirement_ids": [
+        "S11-SD-REQ-11"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-08"
+      ]
+    },
+    "SD-032": {
+      "requirement_ids": [
+        "S11-SD-REQ-16"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-01"
+      ]
+    },
+    "SD-033": {
+      "requirement_ids": [
+        "S11-SD-REQ-17"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-01"
+      ]
+    },
+    "SD-034": {
+      "requirement_ids": [
+        "S11-SD-REQ-13"
+      ],
+      "owner_skill": "social-accessibility-distribution",
+      "dependency_ids": [],
+      "output_ids": [
+        "S11-SD-OUT-08"
+      ]
+    }
+  }
+}

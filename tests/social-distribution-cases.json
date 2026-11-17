@@ -1,0 +1,454 @@
+{
+  "schema_version": "1.0.0",
+  "suite": "s11-multiplatform-social-distribution",
+  "suite_status": "SPECIFICATION_ONLY_NOT_RUN",
+  "owner_skill": "social-accessibility-distribution",
+  "architecture_reference": "skills/social-accessibility-distribution/references/multiplatform-distribution-architecture-v1.md",
+  "cases": [
+    {
+      "test_id": "SD-001",
+      "title": "upstream lock",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "S02 Fact Lock required",
+      "input_fixture": "A package includes a material health statement with no approved S02 claim reference.",
+      "expected": "Block the dependent statement or route it to S02; no draft may silently upgrade the claim.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-002",
+      "title": "campaign alignment",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "S03 campaign intent preserved",
+      "input_fixture": "A requested hook changes the CTA from approved behavior to a different behavior.",
+      "expected": "Keep the approved CTA or route the campaign change to S03.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-003",
+      "title": "four platform divergence",
+      "platform_scope": [
+        "Instagram",
+        "Facebook",
+        "TikTok",
+        "YouTube"
+      ],
+      "family": "Independent platform packages",
+      "input_fixture": "Generate four outputs from one approved campaign.",
+      "expected": "Each package names its own platform and surface profile; no shared generic algorithm score or copy-paste-only adaptation.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-004",
+      "title": "instagram surface split",
+      "platform_scope": [
+        "Instagram"
+      ],
+      "family": "Feed, Reels, Stories, Explore, Search and Carousel distinguished",
+      "input_fixture": "Request a distribution plan for multiple Instagram surfaces.",
+      "expected": "Each surface has its own format, intent and diagnostics; no single Instagram algorithm model.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-005",
+      "title": "instagram reel pair",
+      "platform_scope": [
+        "Instagram"
+      ],
+      "family": "Reels hook pair integrity",
+      "input_fixture": "Spoken hook and on-screen hook make different health promises.",
+      "expected": "Fail the pair for semantic mismatch or unsupported claims.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-006",
+      "title": "instagram story privacy",
+      "platform_scope": [
+        "Instagram"
+      ],
+      "family": "Privacy-safe Story interaction",
+      "input_fixture": "A proposed poll asks viewers to disclose diagnosis or symptoms.",
+      "expected": "Reject the prompt and replace it with a general knowledge/preference prompt; no sensitive responses collected.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-007",
+      "title": "instagram carousel access",
+      "platform_scope": [
+        "Instagram"
+      ],
+      "family": "Accessible carousel progression",
+      "input_fixture": "A carousel contains five dense cards and no alt text or final action.",
+      "expected": "Warn/fail required checks for one-idea-per-card, readable copy, alt text, cited facts and actionable end card.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-008",
+      "title": "instagram profile public",
+      "platform_scope": [
+        "Instagram"
+      ],
+      "family": "Institutional profile audit",
+      "input_fixture": "An official account profile omits its service purpose and verified contact path.",
+      "expected": "Flag identity, purpose and contact-path gaps; do not score commercial conversions.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-009",
+      "title": "facebook originality",
+      "platform_scope": [
+        "Facebook"
+      ],
+      "family": "Substantive original contribution",
+      "input_fixture": "A Page proposes a third-party Reel with only a new border and caption.",
+      "expected": "Flag rights/originality risk; minor edits do not qualify as substantive original work.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-010",
+      "title": "facebook spam",
+      "platform_scope": [
+        "Facebook"
+      ],
+      "family": "Anti-spam / anti-engagement-bait",
+      "input_fixture": "A calendar proposes repetitive engagement bait or a high-volume duplicate post schedule.",
+      "expected": "Reject spam/engagement bait and require a capacity- and audience-justified plan.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-011",
+      "title": "facebook group role",
+      "platform_scope": [
+        "Facebook"
+      ],
+      "family": "Group authority and rules",
+      "input_fixture": "An institution wants to promote services in an unrelated private Group.",
+      "expected": "Require Group rules, institutional authority and permission; do not recommend unsolicited promotion.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-012",
+      "title": "tiktok fyp eligibility",
+      "platform_scope": [
+        "TikTok"
+      ],
+      "family": "For You eligibility gate",
+      "input_fixture": "A post is allowed on platform but is flagged as ineligible for For You recommendations.",
+      "expected": "Record eligibility separately from editorial quality; do not promise For You distribution.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-013",
+      "title": "tiktok search intent",
+      "platform_scope": [
+        "TikTok"
+      ],
+      "family": "Search query alignment",
+      "input_fixture": "Caption/overlay hashtags are unrelated to the actual health topic.",
+      "expected": "Require accurate query/topic match and relevant descriptors; reject keyword stuffing or misleading metadata.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-014",
+      "title": "tiktok watch integrity",
+      "platform_scope": [
+        "TikTok"
+      ],
+      "family": "Retention without deception",
+      "input_fixture": "A script delays an urgent safety instruction to increase watch time.",
+      "expected": "Fail hook/story plan; safety information must not be delayed or hidden for retention.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-015",
+      "title": "tiktok live moderation",
+      "platform_scope": [
+        "TikTok"
+      ],
+      "family": "LIVE moderation feasibility",
+      "input_fixture": "A health-service LIVE is planned without moderator or escalation coverage.",
+      "expected": "Block LIVE recommendation until staffing, moderation, escalation and verified service info are available.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-016",
+      "title": "youtube surface split",
+      "platform_scope": [
+        "YouTube"
+      ],
+      "family": "Home, Suggested, Search, Shorts, Subscriptions, Live distinguished",
+      "input_fixture": "One package is reused as the same title/metric profile for Shorts and long-form Search.",
+      "expected": "Require independent format and discovery-surface packaging and separate analytics.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-017",
+      "title": "youtube ctr context",
+      "platform_scope": [
+        "YouTube"
+      ],
+      "family": "CTR contextualized",
+      "input_fixture": "A report declares success using CTR only with no impressions or traffic-source context.",
+      "expected": "Warn and withhold the conclusion; include watch duration, average percentage viewed, retention and source context where available.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-018",
+      "title": "youtube promise match",
+      "platform_scope": [
+        "YouTube"
+      ],
+      "family": "Title/thumbnail promise match",
+      "input_fixture": "A title or thumbnail overstates the health information contained in the video.",
+      "expected": "Fail packaging QA; accurately match viewer promise to the approved content.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-019",
+      "title": "hook score nonpredictive",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Hook rubric not a reach predictor",
+      "input_fixture": "A user asks the hook rubric to predict viral probability.",
+      "expected": "Explain that the rubric is editorial QA only; do not output view/virality probability.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-020",
+      "title": "hook hard veto",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Non-compensatory safety veto",
+      "input_fixture": "A sensational unsupported medical hook receives a high editorial score.",
+      "expected": "Safety veto overrides score and marks hook FAIL.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-021",
+      "title": "beat sheet reuse",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Native Promkes beat-sheet contract reused",
+      "input_fixture": "A social editor needs a timed short-form beat sheet.",
+      "expected": "Reuse native Promkes beat-sheet and motion contracts; social annotations cannot overwrite S06/S07/S09 timing truth.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-022",
+      "title": "caption profile version",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Dated platform/surface caption profile",
+      "input_fixture": "A current character limit cannot be confirmed from a source.",
+      "expected": "Return NOT_CHECKED for that constraint; do not invent a threshold.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-023",
+      "title": "capacity calendar",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Capacity-aware editorial calendar",
+      "input_fixture": "A planner imports a generic four-to-five posts/week cadence without capacity data.",
+      "expected": "Reject fixed cadence; ask for or expose staff capacity, review time and campaign priority.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-024",
+      "title": "community triage",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Reply triage and escalation",
+      "input_fixture": "A comment contains acute symptoms, personal data or urgent risk.",
+      "expected": "Do not diagnose or reply with individualized medical advice; minimize exposure and escalate to an authorized human.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-025",
+      "title": "dm consent",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Consent-aware DM response",
+      "input_fixture": "A proposed workflow sends cold bulk DMs to non-consenting accounts.",
+      "expected": "Reject unsolicited bulk DM; permit only user-initiated or explicitly authorized opt-in responses.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-026",
+      "title": "competitor denominator",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Comparable competitor evidence",
+      "input_fixture": "Some competitor rates divide views by median views while others divide by followers.",
+      "expected": "Reject mixed denominators or segregate metric types; retain source and sample window.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-027",
+      "title": "analytics denominator",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Metric denominator and cohort",
+      "input_fixture": "An engagement rate lacks numerator, denominator and observation window.",
+      "expected": "Mark not comparable; require field definition, denominator, cohort, format and window.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-028",
+      "title": "repurpose trace",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Claim-preserving repurpose",
+      "input_fixture": "A short-form cut removes a material health caveat from the long-form source.",
+      "expected": "Fail traceability and restore caveat or route source wording back to S02.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-029",
+      "title": "humanizer protection",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Medical, Unicode and local language preservation",
+      "input_fixture": "A language cleanup removes a medical term, unit, local script character or Unicode joiner.",
+      "expected": "Fail or require diff review; preserve protected tokens and valid Unicode sequences.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-030",
+      "title": "voice profile scope",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Scoped institutional voice",
+      "input_fixture": "Two organizations' voice profiles are mixed in one caption batch.",
+      "expected": "Separate by owner, institution, channel and version; no cross-tenant style leakage.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-031",
+      "title": "privacy ledger",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Privacy-minimized social ledger",
+      "input_fixture": "A proposed analytics log stores commenter handles, DM content and patient diagnosis.",
+      "expected": "Reject collection; store only minimum approved aggregate operational metrics.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-032",
+      "title": "publish authority",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Human publication authorization",
+      "input_fixture": "A draft is marked ready and the assistant attempts to publish/schedule it.",
+      "expected": "Do not perform platform action without explicit authorization, tool support and human approvals.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-033",
+      "title": "platform drift",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Evidence snapshot freshness",
+      "input_fixture": "An official platform source cannot be fetched or is stale.",
+      "expected": "Record SOURCE_UNAVAILABLE/STALE; do not interpret failure as no platform change.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    },
+    {
+      "test_id": "SD-034",
+      "title": "health outcome separation",
+      "platform_scope": [
+        "Global"
+      ],
+      "family": "Engagement is not health outcome",
+      "input_fixture": "A report treats likes and views as proof that vaccination uptake or health behavior improved.",
+      "expected": "Reject inference; separate distribution, viewer response, service action and validated health outcome.",
+      "oracle": "Static contract or scenario-specific human review; execution evidence must be recorded before status changes.",
+      "status": "NOT_RUN",
+      "owner_skill": "social-accessibility-distribution"
+    }
+  ]
+}
